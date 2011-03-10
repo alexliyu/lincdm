@@ -37,9 +37,9 @@ class PingBackTestCase(TestCase):
 
     def setUp(self):
         # Set up a stub around urlopen
-        import zinnia.xmlrpc.pingback
-        self.original_urlopen = zinnia.xmlrpc.pingback.urlopen
-        zinnia.xmlrpc.pingback.urlopen = self.fake_urlopen
+        import app.zinnia.xmlrpc.pingback
+        self.original_urlopen = app.zinnia.xmlrpc.pingback.urlopen
+        app.zinnia.xmlrpc.pingback.urlopen = self.fake_urlopen
         # Preparing site
         self.site = Site.objects.get_current()
         self.site.domain = 'localhost:8000'

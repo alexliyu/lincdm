@@ -54,7 +54,7 @@ class MetaWeblogTestCase(TestCase):
         self.entry_2.categories.add(self.categories[0])
         self.entry_2.sites.add(self.site)
         # Instanciating the server proxy
-        self.server = ServerProxy('http://localhost:8000/xmlrpc/',
+        self.server = ServerProxy('http://127.0.0.1:8000/xmlrpc/',
                                   transport=TestTransport())
 
     def test_authenticate(self):
