@@ -30,9 +30,18 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
-     url(r'^admin_tools/', include('admin_tools.urls')),
+     (r'^myadmin/', include(admin.site.urls)),
+     #url(r'^admin_tools/', include('admin_tools.urls')),
+     (r'^grappelli/', include('grappelli.urls')),
+     (r'^admin/filebrowser/', include('filebrowser.urls')),
+     
      
 )
+urlpatterns += patterns('django.contrib.staticfiles.views',
+        url(r'^static/(?P<path>.*)$', 'serve'),
+        url(r'^media/(?P<path>.*)$', 'serve'),
+        )
+        
 sitemaps = {'tags': TagSitemap,
             'blog': EntrySitemap,
             'authors': AuthorSitemap,

@@ -5,7 +5,7 @@ Created on 2011-3-10
 '''
 
 from django.contrib import admin
-from lincdm.app.fetchblog.models import  FeedList, FeedSet, FeedsList
+from app.fetchblog.models import  FeedList, FeedSet, FeedsList
 
 admin.site.register(FeedList)
 admin.site.register(FeedSet)

@@ -1,0 +1,19 @@
+#Sat Mar 12 02:28:35 CST 2011
+eclipse.preferences.version=1
+encoding//app/autoslug/__init__.py=utf-8
+encoding//app/autoslug/__version.py=utf-8
+encoding//app/autoslug/fields.py=utf-8
+encoding//app/autoslug/settings.py=utf-8
+encoding//app/autoslug/tests.py=utf-8
+encoding//app/autoslug/utils.py=utf-8
+encoding//app/blog/migrations/0006_entry_template.py=utf-8
+encoding//app/feedblog/checkdb.py=utf-8
+encoding//app/feedblog/feedblog.py=utf-8
+encoding//app/feedblog/feedmodel.py=utf-8
+encoding//lib/BeautifulSoup.py=utf-8
+encoding//lib/gbtools.py=utf-8
+encoding//lib/html_filter.py=utf-8
+encoding//lib/htmllib.py=utf-8
+encoding//lib/sendemail.py=utf-8
+encoding/settings.py=utf-8
+encoding/urls.py=utf-8

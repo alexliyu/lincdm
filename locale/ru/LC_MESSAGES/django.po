@@ -1,0 +1,1317 @@
+# French translation of blog.
+# Copyright (C) 2008 THE blog'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the blog package.
+# Fantomas42 <fantomas42@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-blog-blog\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-03-11 05:41-0600\n"
+"PO-Revision-Date: 2011-02-01 09:16+0000\n"
+"Last-Translator: Fantomas42 <fantomas42@gmail.com>\n"
+"Language-Team: French <fantomas42@gmail.com>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: FRANCE\n"
+
+#: dashboard.py:34 admin_tools/dashboard/dashboards.py:224
+#, fuzzy
+msgid "Quick links"
+msgstr "Быстрая публикация"
+
+#: dashboard.py:40 admin_tools/dashboard/dashboards.py:230
+#, fuzzy
+msgid "Return to site"
+msgstr "Вернуться к списку записей"
+
+#: dashboard.py:41 admin_tools/dashboard/dashboards.py:231
+#: admin_tools/theming/templates/admin/base.html:43
+#, fuzzy
+msgid "Change password"
+msgstr "пароль"
+
+#: dashboard.py:43 admin_tools/dashboard/dashboards.py:233
+#: admin_tools/theming/templates/admin/base.html:50
+#: app/blog/templates/blog/base.html:91 app/blog/templates/blog/base.html:92
+msgid "Log out"
+msgstr "Выйти"
+
+#: dashboard.py:49 menu.py:25 admin_tools/dashboard/dashboards.py:239
+#: admin_tools/dashboard/modules.py:400 admin_tools/menu/menus.py:103
+#, fuzzy
+msgid "Applications"
+msgstr "Публикация"
+
+#: dashboard.py:55 menu.py:29 admin_tools/dashboard/dashboards.py:245
+#: admin_tools/menu/menus.py:107
+msgid "Administration"
+msgstr ""
+
+#: dashboard.py:60 dashboard.py:107 admin_tools/dashboard/dashboards.py:250
+#: admin_tools/dashboard/dashboards.py:304
+#: admin_tools/dashboard/modules.py:553
+#, fuzzy
+msgid "Recent Actions"
+msgstr "Последние комментарии"
+
+#: dashboard.py:64 admin_tools/dashboard/dashboards.py:254
+#, fuzzy
+msgid "Latest Django News"
+msgstr "Последние записи"
+
+#: dashboard.py:71 admin_tools/dashboard/dashboards.py:261
+msgid "Support"
+msgstr ""
+
+#: dashboard.py:74 admin_tools/dashboard/dashboards.py:264
+msgid "Django documentation"
+msgstr ""
+
+#: dashboard.py:79 admin_tools/dashboard/dashboards.py:269
+msgid "Django \"django-users\" mailing list"
+msgstr ""
+
+#: dashboard.py:84 admin_tools/dashboard/dashboards.py:274
+msgid "Django irc channel"
+msgstr ""
+
+#: menu.py:22 admin_tools/dashboard/dashboards.py:81
+#: admin_tools/menu/menus.py:100 app/blog/templates/blog/base.html:76
+#: app/blog/templates/blog/base.html:77
+msgid "Dashboard"
+msgstr ""
+
+#: settings.py:45
+msgid "English"
+msgstr ""
+
+#: settings.py:46
+msgid "French"
+msgstr ""
+
+#: settings.py:47
+msgid "German"
+msgstr ""
+
+#: settings.py:48
+msgid "Spanish"
+msgstr ""
+
+#: settings.py:49
+msgid "Italian"
+msgstr ""
+
+#: settings.py:50
+msgid "Dutch"
+msgstr ""
+
+#: settings.py:51
+msgid "Hungarian"
+msgstr ""
+
+#: settings.py:52
+msgid "Russian"
+msgstr ""
+
+#: settings.py:53
+#, fuzzy
+msgid "Polish"
+msgstr "Опубликована"
+
+#: settings.py:54
+msgid "Brazilian Portuguese"
+msgstr ""
+
+#: settings.py:55
+msgid "Simplified Chinese"
+msgstr ""
+
+#: admin_tools/dashboard/modules.py:329
+msgid "Links"
+msgstr ""
+
+#: admin_tools/dashboard/modules.py:606
+#, fuzzy
+msgid "No recent actions."
+msgstr "Самые новые записи"
+
+#: admin_tools/dashboard/modules.py:652
+#: app/blog/templates/blog/entry_list.html:7
+#: app/blog/templates/blog/entry_list.html:10
+#: app/blog/templates/blog/entry_list.html:13
+#: app/blog/templates/blog/skeleton.html:39
+msgid "RSS Feed"
+msgstr "RSS лента"
+
+#: admin_tools/dashboard/templates/admin/app_index.html:9
+#: admin_tools/theming/templates/admin/base.html:57
+msgid "Home"
+msgstr ""
+
+#: admin_tools/dashboard/templates/admin/app_index.html:11
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: admin_tools/dashboard/templates/admin_tools/dashboard/dashboard.html:55
+msgid "Modules"
+msgstr ""
+
+#: admin_tools/dashboard/templates/admin_tools/dashboard/modules/app_list.html:13
+#: admin_tools/dashboard/templates/admin_tools/dashboard/modules/model_list.html:11
+msgid "Add"
+msgstr ""
+
+#: admin_tools/dashboard/templates/admin_tools/dashboard/modules/app_list.html:14
+#: admin_tools/dashboard/templates/admin_tools/dashboard/modules/model_list.html:12
+msgid "Change"
+msgstr ""
+
+#: admin_tools/menu/items.py:328
+msgid "Bookmarks"
+msgstr ""
+
+#: admin_tools/menu/templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: admin_tools/menu/templates/admin/base_site.html:16
+msgid "Django administration"
+msgstr ""
+
+#: admin_tools/menu/templates/admin_tools/menu/menu.html:32
+msgid "Please enter a name for the bookmark"
+msgstr ""
+
+#: admin_tools/theming/templates/admin/base.html:30
+msgid "Welcome,"
+msgstr ""
+
+#: admin_tools/theming/templates/admin/base.html:35
+#, fuzzy
+msgid "Documentation"
+msgstr "Комментарий к "
+
+#: app/blog/feeds.py:102 app/blog/plugins/cms_plugins.py:23
+#: app/blog/templates/blog/entry_archive.html:23
+#: app/blog/templates/blog/entry_list.html:17
+msgid "Latest entries"
+msgstr "Последние записи"
+
+#: app/blog/feeds.py:114
+#, python-format
+msgid "The latest entries for the site %s"
+msgstr "Последние новости сайта %s"
+
+#: app/blog/feeds.py:134
+#, python-format
+msgid "Entries for the category %s"
+msgstr "Записи в категории %s"
+
+#: app/blog/feeds.py:138
+#, python-format
+msgid "The latest entries for the category %s"
+msgstr "Последние новости в категории %s"
+
+#: app/blog/feeds.py:158
+#, python-format
+msgid "Entries for author %s"
+msgstr "Записи от %s"
+
+#: app/blog/feeds.py:162
+#, python-format
+msgid "The latest entries by %s"
+msgstr "Последние новости от %s"
+
+#: app/blog/feeds.py:183
+#, python-format
+msgid "Entries for the tag %s"
+msgstr "Записи с тегом %s"
+
+#: app/blog/feeds.py:187
+#, python-format
+msgid "The latest entries for the tag %s"
+msgstr "Последние новости с тегом %s"
+
+#: app/blog/feeds.py:207
+#, python-format
+msgid "Results of the search for %s"
+msgstr "Результаты поиска для %s"
+
+#: app/blog/feeds.py:211
+#, python-format
+msgid "The entries containing the pattern %s"
+msgstr "Новости, содержащие запрос %s"
+
+#: app/blog/feeds.py:254
+#, python-format
+msgid "Discussions on %s"
+msgstr "Обсуждений %s"
+
+#: app/blog/feeds.py:258
+#, python-format
+msgid "The latest discussions for the entry %s"
+msgstr "Последние комментарии к %s"
+
+#: app/blog/feeds.py:276
+#, python-format
+msgid "Comments on %s"
+msgstr "Комментарии к %s"
+
+#: app/blog/feeds.py:280
+#, python-format
+msgid "The latest comments for the entry %s"
+msgstr "Последние комментарии к %s"
+
+#: app/blog/feeds.py:298
+#, python-format
+msgid "Pingbacks on %s"
+msgstr "Пингбэки к %s"
+
+#: app/blog/feeds.py:302
+#, python-format
+msgid "The latest pingbacks for the entry %s"
+msgstr "Последние пингбэки к %s"
+
+#: app/blog/feeds.py:320
+#, python-format
+msgid "Trackbacks on %s"
+msgstr "Трэкбэки к %s"
+
+#: app/blog/feeds.py:324
+#, python-format
+msgid "The latest trackbacks for the entry %s"
+msgstr "Последние трэкбэки к %s"
+
+#: app/blog/models.py:57 app/blog/models.py:98 app/blog/admin/entry.py:73
+msgid "title"
+msgstr "заголовок"
+
+#: app/blog/models.py:58 app/blog/models.py:112
+msgid "used for publication"
+msgstr "используется при публикации"
+
+#: app/blog/models.py:60
+msgid "description"
+msgstr "описание"
+
+#: app/blog/models.py:63 app/blog/admin/forms.py:18
+msgid "parent category"
+msgstr "родительская категория"
+
+#: app/blog/models.py:88
+msgid "category"
+msgstr "категория"
+
+#: app/blog/models.py:89 app/blog/models.py:107 app/blog/admin/forms.py:47
+#: app/blog/plugins/models.py:24
+msgid "categories"
+msgstr "категории"
+
+#: app/blog/models.py:94
+msgid "draft"
+msgstr "черновик"
+
+#: app/blog/models.py:95
+msgid "hidden"
+msgstr "скрыта"
+
+#: app/blog/models.py:96
+msgid "published"
+msgstr "опубликована"
+
+#: app/blog/models.py:100
+msgid "image"
+msgstr "изображение"
+
+#: app/blog/models.py:101
+msgid "used for illustration"
+msgstr "используется для иллюстрации"
+
+#: app/blog/models.py:102
+msgid "content"
+msgstr "содержимое"
+
+#: app/blog/models.py:103
+msgid "excerpt"
+msgstr "выдержка"
+
+#: app/blog/models.py:104
+msgid "optional element"
+msgstr "необязательный элемент"
+
+#: app/blog/models.py:106 app/blog/plugins/models.py:30
+msgid "tags"
+msgstr "тэги"
+
+#: app/blog/models.py:109
+msgid "related entries"
+msgstr "связанные записи"
+
+#: app/blog/models.py:116 app/blog/plugins/models.py:28
+msgid "authors"
+msgstr "авторы"
+
+#: app/blog/models.py:119
+msgid "featured"
+msgstr ""
+
+#: app/blog/models.py:120
+msgid "comment enabled"
+msgstr "комментирование включено"
+
+#: app/blog/models.py:121
+msgid "linkback enabled"
+msgstr ""
+
+#: app/blog/models.py:123
+msgid "creation date"
+msgstr "дата создания"
+
+#: app/blog/models.py:124
+msgid "last update"
+msgstr "последнее обновление"
+
+#: app/blog/models.py:125
+msgid "start publication"
+msgstr "начало публикации"
+
+#: app/blog/models.py:126
+msgid "date start publish"
+msgstr "дата начала публикации"
+
+#: app/blog/models.py:128
+msgid "end publication"
+msgstr "окончание публикации"
+
+#: app/blog/models.py:129
+msgid "date end publish"
+msgstr "дата окончания публикации"
+
+#: app/blog/models.py:132
+msgid "sites publication"
+msgstr ""
+
+#: app/blog/models.py:134
+msgid "login required"
+msgstr "требуется авторизация"
+
+#: app/blog/models.py:135
+msgid "only authenticated users can view the entry"
+msgstr ""
+
+#: app/blog/models.py:136
+msgid "password"
+msgstr "пароль"
+
+#: app/blog/models.py:137
+msgid "protect the entry with a password"
+msgstr ""
+
+#: app/blog/models.py:139 app/blog/plugins/models.py:34
+#: app/blog/plugins/models.py:58 app/blog/plugins/models.py:80
+msgid "template"
+msgstr "шаблон"
+
+#: app/blog/models.py:142
+msgid "Default template"
+msgstr "Шаблон по умолчанию"
+
+#: app/blog/models.py:144
+msgid "template used to display the entry"
+msgstr ""
+
+#: app/blog/models.py:264
+msgid "entry"
+msgstr "запись"
+
+#: app/blog/models.py:265 app/blog/plugins/cms_plugins.py:21
+#: app/blog/plugins/cms_plugins.py:92 app/blog/plugins/cms_plugins.py:114
+#: app/blog/plugins/models.py:57 app/blog/templates/blog/base.html:39
+msgid "entries"
+msgstr "записи"
+
+#: app/blog/moderator.py:54
+#, python-format
+msgid "[%(site)s] New comment posted on \"%(title)s\""
+msgstr "[%(site)s] Новый комментарий к \"%(title)s\""
+
+#: app/blog/admin/category.py:30
+msgid "tree path"
+msgstr ""
+
+#: app/blog/admin/entry.py:27 app/blog/plugins/admin.py:17
+#: app/blog/templates/admin/blog/widgets/quickpost.html:17
+msgid "Content"
+msgstr "Содержимое"
+
+#: app/blog/admin/entry.py:29 app/blog/plugins/admin.py:19
+msgid "Options"
+msgstr "Опции"
+
+#: app/blog/admin/entry.py:34 app/blog/plugins/admin.py:24
+msgid "Privacy"
+msgstr ""
+
+#: app/blog/admin/entry.py:36 app/blog/plugins/admin.py:26
+msgid "Discussion"
+msgstr "Обсуждение"
+
+#: app/blog/admin/entry.py:38 app/blog/plugins/admin.py:28
+msgid "Publication"
+msgstr "Публикация"
+
+#: app/blog/admin/entry.py:66
+#, python-format
+msgid "%(title)s (%(word_count)i words)"
+msgstr "%(title)s (%(word_count)i слов)"
+
+#: app/blog/admin/entry.py:70
+#, python-format
+msgid "%(title)s (%(comments)i comments)"
+msgstr "%(title)s (%(comments)i комментариев)"
+
+#: app/blog/admin/entry.py:86
+msgid "author(s)"
+msgstr "автор(ы)"
+
+#: app/blog/admin/entry.py:99
+msgid "category(s)"
+msgstr ""
+
+#: app/blog/admin/entry.py:111
+msgid "tag(s)"
+msgstr "тэг(и)"
+
+#: app/blog/admin/entry.py:118
+msgid "site(s)"
+msgstr "сайт(ы)"
+
+#: app/blog/admin/entry.py:124
+msgid "is actual"
+msgstr "актуальна"
+
+#: app/blog/admin/entry.py:130
+msgid "is visible"
+msgstr "видима"
+
+#: app/blog/admin/entry.py:134
+#, python-format
+msgid "<a href=\"%s\" target=\"blank\">View</a>"
+msgstr "<a href=\"%s\" target=\"blank\">Смотреть</a>"
+
+#: app/blog/admin/entry.py:137
+msgid "View on site"
+msgstr "Смотреть на сайте"
+
+#: app/blog/admin/entry.py:143 app/blog/templates/blog/_entry_detail.html:70
+msgid "Unavailable"
+msgstr "Недоступно"
+
+#: app/blog/admin/entry.py:147
+msgid "short url"
+msgstr "короткая ссылка"
+
+#: app/blog/admin/entry.py:201
+msgid "Set the entries to the user"
+msgstr "Установить записи пользователю"
+
+#: app/blog/admin/entry.py:206
+msgid "Set entries selected as published"
+msgstr "Пометить выделенные записи как опубликованные"
+
+#: app/blog/admin/entry.py:211
+msgid "Set entries selected as hidden"
+msgstr "Пометить выделенные записи как скрытые"
+
+#: app/blog/admin/entry.py:224
+msgid "Tweet entries selected"
+msgstr "Отправить выбранные записи в твиттер"
+
+#: app/blog/admin/entry.py:229
+msgid "Close the comments for selected entries"
+msgstr "Закрыть комментирование для выбранных записей"
+
+#: app/blog/admin/entry.py:235
+msgid "Close the linkbacks for selected entries"
+msgstr ""
+
+#: app/blog/admin/entry.py:240
+msgid "Put the selected entries on top at the current date"
+msgstr ""
+
+#: app/blog/admin/entry.py:256
+#, python-format
+msgid "%(directory)s directory succesfully pinged %(success)d entries."
+msgstr ""
+
+#: app/blog/admin/entry.py:259
+msgid "Ping Directories for selected entries"
+msgstr ""
+
+#: app/blog/admin/forms.py:20
+msgid "No parent category"
+msgstr "Отсутствует родительская категория"
+
+#: app/blog/admin/forms.py:35
+msgid "A category cannot be parent of itself."
+msgstr ""
+
+#: app/blog/admin/forms.py:46 app/blog/plugins/menu.py:70
+#: app/blog/templates/blog/base.html:22
+#: app/blog/templates/blog/category_list.html:4
+#: app/blog/templates/blog/sitemap.html:50
+#: app/blog/templatetags/zbreadcrumbs.py:49
+msgid "Categories"
+msgstr "Категории"
+
+#: app/blog/plugins/cms_app.py:12
+msgid "blog App Hook"
+msgstr ""
+
+#: app/blog/plugins/cms_plugins.py:33
+msgid "Sorting"
+msgstr "Сортировка"
+
+#: app/blog/plugins/cms_plugins.py:43
+msgid "Advanced"
+msgstr "Расширенный"
+
+#: app/blog/plugins/cms_plugins.py:94
+msgid "Selected entries"
+msgstr "Выбранные записи"
+
+#: app/blog/plugins/cms_plugins.py:116 app/blog/templates/blog/base.html:59
+msgid "Random entries"
+msgstr "Случайные записи"
+
+#: app/blog/plugins/menu.py:19
+msgid "blog Entry Menu"
+msgstr ""
+
+#: app/blog/plugins/menu.py:65
+msgid "blog Category Menu"
+msgstr ""
+
+#: app/blog/plugins/menu.py:82
+msgid "blog Author Menu"
+msgstr ""
+
+#: app/blog/plugins/menu.py:87 app/blog/templates/blog/author_list.html:4
+#: app/blog/templates/blog/base.html:26
+#: app/blog/templatetags/zbreadcrumbs.py:46
+msgid "Authors"
+msgstr "Авторы"
+
+#: app/blog/plugins/menu.py:100
+msgid "blog Tag Menu"
+msgstr ""
+
+#: app/blog/plugins/menu.py:105
+#: app/blog/templates/admin/blog/widgets/quickpost.html:25
+#: app/blog/templates/blog/_entry_detail.html:52
+#: app/blog/templates/blog/base.html:34
+#: app/blog/templates/blog/tag_list.html:4
+#: app/blog/templatetags/zbreadcrumbs.py:43
+msgid "Tags"
+msgstr "Теги"
+
+#: app/blog/plugins/models.py:16
+msgid "Entry list (default)"
+msgstr "Список записей (по умолчанию)"
+
+#: app/blog/plugins/models.py:17
+msgid "Entry detailed"
+msgstr ""
+
+#: app/blog/plugins/models.py:27
+msgid "include subcategories"
+msgstr "включает подкатегории"
+
+#: app/blog/plugins/models.py:33 app/blog/plugins/models.py:79
+msgid "number of entries"
+msgstr "количество записей"
+
+#: app/blog/plugins/models.py:36 app/blog/plugins/models.py:60
+#: app/blog/plugins/models.py:82
+msgid "Template used to display the plugin"
+msgstr "Шаблон для отображения плагина"
+
+#: app/blog/plugins/models.py:51 app/blog/plugins/models.py:73
+#: app/blog/plugins/models.py:85
+#, python-format
+msgid "%s entries"
+msgstr "%s записей"
+
+#: app/blog/templates/404.html:5
+msgid "Error 404"
+msgstr "Ошибка 404"
+
+#: app/blog/templates/404.html:8 app/blog/templates/404.html.py:11
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: app/blog/templates/404.html:13
+msgid "Sorry, but the requested page could not be found."
+msgstr "Извините, запрашиваемая страница не найдена."
+
+#: app/blog/templates/404.html:15 app/blog/templates/500.html:20
+msgid "Useful links"
+msgstr "Полезные ссылки"
+
+#: app/blog/templates/404.html:19 app/blog/templates/404.html.py:20
+#: app/blog/templates/500.html:24 app/blog/templates/500.html.py:25
+msgid "Blog index"
+msgstr ""
+
+#: app/blog/templates/404.html:24 app/blog/templates/404.html.py:25
+#: app/blog/templates/500.html:29 app/blog/templates/500.html.py:30
+#: app/blog/templates/blog/sitemap.html:4
+#: app/blog/templates/blog/sitemap.html:7
+#: app/blog/templates/blog/skeleton.html:35
+#: app/blog/templates/blog/skeleton.html:36
+msgid "Sitemap"
+msgstr "Карта сайта"
+
+#: app/blog/templates/404.html:31 app/blog/templates/500.html:36
+#: app/blog/templates/blog/base.html:47
+msgid "Recent entries"
+msgstr "Последние записи"
+
+#: app/blog/templates/404.html:36 app/blog/templates/500.html:41
+#: app/blog/templates/blog/base.html:10
+msgid "Search"
+msgstr "Поиск"
+
+#: app/blog/templates/404.html:40 app/blog/templates/500.html:45
+#: app/blog/templates/blog/base.html:13
+msgid "Keywords..."
+msgstr "Ключевые слова..."
+
+#: app/blog/templates/500.html:10
+msgid "Error 500"
+msgstr "Ошибка 500"
+
+#: app/blog/templates/500.html:13 app/blog/templates/500.html.py:16
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+#: app/blog/templates/500.html:18
+msgid ""
+"There's been an error. It's been reported to the site administrators via e-"
+"mail and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:4
+msgid "Contents"
+msgstr "Содержимое"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:5
+#: app/blog/templates/blog/_entry_detail.html:75
+msgid "Discussions"
+msgstr "Обсуждения"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:10
+#, python-format
+msgid "%(entries)s entries"
+msgstr "%(entries)s записей"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:15
+#, python-format
+msgid "%(comments)s comments"
+msgstr "%(comments)s комментариев    "
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:22
+#, python-format
+msgid "%(categories)s categories"
+msgstr "%(categories)s категорий"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:25
+#, python-format
+msgid "%(pingbacks)s pingbacks"
+msgstr "%(pingbacks)s пингбэков"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:30
+#, python-format
+msgid "%(tags)s tags"
+msgstr "%(tags)s тегов"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:33
+#, python-format
+msgid "%(trackbacks)s trackbacks"
+msgstr "%(trackbacks)s трэкбэков"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:38
+#, python-format
+msgid "%(authors)s authors"
+msgstr "%(authors)s авторов"
+
+#: app/blog/templates/admin/blog/widgets/_content_stats.html:43
+#, python-format
+msgid "%(rejects)s rejected"
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:7
+#: app/blog/templates/blog/entry_detail.html:186
+#: app/blog/templates/blog/entry_detail.html:187
+msgid "Edit the entry"
+msgstr "Изменить запись"
+
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:10
+#: app/blog/templates/blog/_entry_detail.html:19
+#: app/blog/templates/blog/entry_detail.html:91
+#: app/blog/templates/blog/entry_detail.html:126
+#: app/blog/templates/blog/entry_detail.html:157
+#: app/blog/templates/comments/blog_entry_preview.html:25
+#: app/blog/templates/feeds/comment_title.html:2
+#: app/blog/templates/feeds/discussion_title.html:2
+#: app/blog/templates/feeds/pingback_title.html:2
+#: app/blog/templates/feeds/trackback_title.html:2
+msgid "on"
+msgstr "на"
+
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:16
+#: app/blog/templates/comments/blog/entry/form.html:19
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:23
+msgid "No draft entries."
+msgstr "Записи отсутствуют."
+
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:32
+#: app/blog/templates/admin/blog/widgets/_draft_entries.html:33
+msgid "View all draft entries"
+msgstr "Просмотреть все записи"
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:11
+#: app/blog/templates/blog/_entry_detail.html:24
+#: app/blog/templates/blog/tags/recent_comments.html:7
+#: app/blog/templates/blog/tags/recent_linkbacks.html:8
+msgid "in"
+msgstr "в"
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:14
+#: app/blog/templates/blog/tags/recent_comments.html:9
+msgid "Comment on"
+msgstr "Комментарий к "
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:23
+msgid "Edit the comment"
+msgstr "Редактировать комментарий"
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:24
+#: app/blog/templates/admin/blog/widgets/_recent_linkbacks.html:19
+msgid "Edit"
+msgstr "Редактировать"
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:31
+#: app/blog/templates/blog/_entry_detail.html:83
+#: app/blog/templates/blog/entry_detail.html:107
+#: app/blog/templates/blog/tags/recent_comments.html:16
+msgid "No comments yet."
+msgstr "Еще нет комментариев."
+
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:40
+#: app/blog/templates/admin/blog/widgets/_recent_comments.html:41
+msgid "Manage the comments"
+msgstr "Модерировать комментарии"
+
+#: app/blog/templates/admin/blog/widgets/_recent_linkbacks.html:8
+msgid "made a linkback on"
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/_recent_linkbacks.html:18
+msgid "Edit the linkback"
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/_recent_linkbacks.html:26
+#: app/blog/templates/blog/tags/recent_linkbacks.html:17
+msgid "No linkbacks yet."
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/content_stats.html:6
+#: app/blog/templates/admin/blog/widgets/content_stats.html:7
+msgid "Today"
+msgstr "Сегодня"
+
+#: app/blog/templates/admin/blog/widgets/draft_entries.html:6
+#: app/blog/templates/admin/blog/widgets/draft_entries.html:7
+msgid "Draft entries"
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/quickpost.html:5
+#: app/blog/templates/admin/blog/widgets/quickpost.html:6
+msgid "Quick publishing"
+msgstr "Быстрая публикация"
+
+#: app/blog/templates/admin/blog/widgets/quickpost.html:9
+msgid "Title"
+msgstr "Заголовок"
+
+#: app/blog/templates/admin/blog/widgets/quickpost.html:33
+msgid "Save as draft"
+msgstr ""
+
+#: app/blog/templates/admin/blog/widgets/quickpost.html:34
+msgid "Reset"
+msgstr "Сброс"
+
+#: app/blog/templates/admin/blog/widgets/quickpost.html:35
+msgid "Publish"
+msgstr "Опубликована"
+
+#: app/blog/templates/admin/blog/widgets/recent_comments.html:6
+#: app/blog/templates/admin/blog/widgets/recent_comments.html:7
+#: app/blog/templates/blog/base.html:51
+msgid "Recent comments"
+msgstr "Последние комментарии"
+
+#: app/blog/templates/admin/blog/widgets/recent_linkbacks.html:6
+#: app/blog/templates/admin/blog/widgets/recent_linkbacks.html:7
+#: app/blog/templates/blog/base.html:55
+msgid "Recent linkbacks"
+msgstr ""
+
+#: app/blog/templates/blog/_entry_detail.html:10
+msgid "Written by"
+msgstr "Автор"
+
+#: app/blog/templates/blog/_entry_detail.html:14
+#, python-format
+msgid "Show %(author)s entries"
+msgstr "Показать записи %(author)s"
+
+#: app/blog/templates/blog/_entry_detail.html:59
+msgid "No tags"
+msgstr "Нет тегов"
+
+#: app/blog/templates/blog/_entry_detail.html:64
+msgid "Short url"
+msgstr "Короткая ссылка"
+
+#: app/blog/templates/blog/_entry_detail.html:79
+#, python-format
+msgid "%(comment_count)s comment"
+msgid_plural "%(comment_count)s comments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/blog/_entry_detail.html:85
+msgid "Be first to comment!"
+msgstr "Оставьте первый комментарий"
+
+#: app/blog/templates/blog/_entry_detail.html:88
+#: app/blog/templates/blog/entry_detail.html:103
+#: app/blog/templates/blog/entry_detail.html:109
+msgid "Comments are closed."
+msgstr "Комментирование отключено."
+
+#: app/blog/templates/blog/_entry_detail.html:95
+#, python-format
+msgid "%(pingback_count)s pingback"
+msgid_plural "%(pingback_count)s pingbacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/blog/_entry_detail.html:102
+#, python-format
+msgid "%(trackback_count)s trackback"
+msgid_plural "%(trackback_count)s trackbacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/blog/author_list.html:7
+msgid "Author list"
+msgstr "Список авторов"
+
+#: app/blog/templates/blog/author_list.html:16
+#: app/blog/templates/blog/category_list.html:12
+#: app/blog/templates/blog/sitemap.html:55
+#: app/blog/templates/blog/tag_list.html:14
+#: app/blog/templates/blog/tags/authors.html:10
+#: app/blog/templates/blog/tags/categories.html:6
+#, python-format
+msgid "%(entry_count)s entry"
+msgid_plural "%(entry_count)s entries"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/blog/base.html:15
+msgid ""
+"You can use - to exclude words or phrases, &quot;double quotes&quot; for "
+"exact phrases and the AND/OR boolean operators combined with parenthesis for "
+"complex searchs."
+msgstr ""
+
+#: app/blog/templates/blog/base.html:30
+msgid "Calendar"
+msgstr "Календарь"
+
+#: app/blog/templates/blog/base.html:63
+msgid "Popular entries"
+msgstr "Популярные записи"
+
+#: app/blog/templates/blog/base.html:67
+#: app/blog/templates/blog/entry_archive_day.html:4
+#: app/blog/templates/blog/entry_archive_month.html:4
+#: app/blog/templates/blog/entry_archive_year.html:4
+#: app/blog/templates/blog/tags/archives_entries.html:5
+#: app/blog/templates/blog/tags/archives_entries_link.html:2
+#: app/blog/templates/blog/tags/archives_entries_tree.html:7
+#: app/blog/templates/blog/tags/archives_entries_tree.html:14
+#: app/blog/templates/blog/tags/archives_entries_tree.html:24
+msgid "Archives"
+msgstr "Архив"
+
+#: app/blog/templates/blog/base.html:72
+msgid "Tools"
+msgstr "Инструменты"
+
+#: app/blog/templates/blog/base.html:83 app/blog/templates/blog/base.html:84
+msgid "Post an entry"
+msgstr ""
+
+#: app/blog/templates/blog/category_list.html:7
+msgid "Category list"
+msgstr "Список категорий"
+
+#: app/blog/templates/blog/entry_archive_month.html:8
+#, fuzzy
+msgid "Daily archives"
+msgstr "Архив за месяц"
+
+#: app/blog/templates/blog/entry_archive_year.html:8
+#: app/blog/templates/blog/sitemap.html:67
+msgid "Monthly archives"
+msgstr "Архив за месяц"
+
+#: app/blog/templates/blog/entry_detail.html:10
+msgid "RSS Feed of discussions on"
+msgstr ""
+
+#: app/blog/templates/blog/entry_detail.html:11
+msgid "RSS Feed of comments on"
+msgstr "RSS лента комментариев к"
+
+#: app/blog/templates/blog/entry_detail.html:12
+msgid "RSS Feed of pingbacks on"
+msgstr "RSS лента пинбэков к"
+
+#: app/blog/templates/blog/entry_detail.html:13
+msgid "RSS Feed of trackbacks on"
+msgstr "RSS лента трэкбэков к"
+
+#: app/blog/templates/blog/entry_detail.html:29
+msgid "Next entry"
+msgstr "Следующая запись"
+
+#: app/blog/templates/blog/entry_detail.html:43
+msgid "Previous entry"
+msgstr "Предыдущая запись"
+
+#: app/blog/templates/blog/entry_detail.html:56
+msgid "Related entries"
+msgstr "Связанные записи"
+
+#: app/blog/templates/blog/entry_detail.html:67
+msgid "Similar entries"
+msgstr "Похожие записи"
+
+#: app/blog/templates/blog/entry_detail.html:75
+msgid "Comments"
+msgstr "Комментарии"
+
+#: app/blog/templates/blog/entry_detail.html:117
+msgid "Pingbacks"
+msgstr "Пингбэки"
+
+#: app/blog/templates/blog/entry_detail.html:139
+msgid "Pingbacks are open."
+msgstr ""
+
+#: app/blog/templates/blog/entry_detail.html:141
+msgid "Pingbacks are closed."
+msgstr "Пингбэки отключены."
+
+#: app/blog/templates/blog/entry_detail.html:148
+msgid "Trackbacks"
+msgstr "Трэкбэки"
+
+#: app/blog/templates/blog/entry_detail.html:170
+msgid "Trackback URL"
+msgstr ""
+
+#: app/blog/templates/blog/entry_list.html:17
+msgid "Category"
+msgstr "Категория"
+
+#: app/blog/templates/blog/entry_list.html:17
+#: app/blog/templates/blog/entry_list.html:28
+msgid "Tag"
+msgstr "Тег"
+
+#: app/blog/templates/blog/entry_list.html:17
+msgid "Author"
+msgstr "Автор"
+
+#: app/blog/templates/blog/entry_list.html:17
+msgid "Page"
+msgstr "Страница"
+
+#: app/blog/templates/blog/entry_list.html:32
+#, python-format
+msgid "Entries by %(author)s"
+msgstr "Записи от %(author)s"
+
+#: app/blog/templates/blog/entry_list.html:43
+#: app/blog/templates/blog/sitemap.html:23
+#: app/blog/templates/blog/sitemap.html:43
+#: app/blog/templates/blog/cms/entry_detail.html:12
+#: app/blog/templates/blog/cms/entry_list.html:9
+#: app/blog/templates/blog/tags/featured_entries.html:9
+#: app/blog/templates/blog/tags/popular_entries.html:13
+#: app/blog/templates/blog/tags/random_entries.html:9
+#: app/blog/templates/blog/tags/recent_entries.html:9
+msgid "No entries yet."
+msgstr "Записей еще нет."
+
+#: app/blog/templates/blog/entry_list.html:49
+#, python-format
+msgid "Page %(current_page)s of %(total_page)s"
+msgstr ""
+
+#: app/blog/templates/blog/entry_list.html:54
+msgid "More recent entries"
+msgstr "Самые новые записи"
+
+#: app/blog/templates/blog/entry_list.html:63
+msgid "Entries page"
+msgstr ""
+
+#: app/blog/templates/blog/entry_list.html:70
+msgid "More old entries"
+msgstr "Самые старые записи"
+
+#: app/blog/templates/blog/entry_list.html:80
+#: app/blog/templates/blog/entry_list.html:81
+msgid "Edit the category"
+msgstr "Редактировать категорию"
+
+#: app/blog/templates/blog/entry_list.html:87
+#: app/blog/templates/blog/entry_list.html:88
+msgid "Edit the tag"
+msgstr "Редактировать тег"
+
+#: app/blog/templates/blog/entry_list.html:94
+#: app/blog/templates/blog/entry_list.html:95
+msgid "Edit the author"
+msgstr "Редактировать автора"
+
+#: app/blog/templates/blog/entry_search.html:4
+#: app/blog/templates/blog/entry_search.html:12
+msgid "Search results"
+msgstr "Результаты поиска"
+
+#: app/blog/templates/blog/entry_search.html:8
+msgid "RSS Feed of search result of"
+msgstr "RSS лента результатов поиска "
+
+#: app/blog/templates/blog/entry_search.html:20
+#, python-format
+msgid "%(entry_count)s entry found"
+msgid_plural "%(entry_count)s entries found"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/blog/entry_search.html:32
+msgid "Nothing found."
+msgstr "Ничего не найдено."
+
+#: app/blog/templates/blog/login.html:4 app/blog/templates/blog/login.html:7
+msgid "Login required"
+msgstr "Требуется авторизация"
+
+#: app/blog/templates/blog/login.html:12
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+"Имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз."
+
+#: app/blog/templates/blog/login.html:16
+msgid "You need to be connected to view this entry."
+msgstr ""
+
+#: app/blog/templates/blog/login.html:33
+msgid "Login"
+msgstr "Войти"
+
+#: app/blog/templates/blog/password.html:4
+#: app/blog/templates/blog/password.html:7
+msgid "Password required"
+msgstr "Требуется пароль"
+
+#: app/blog/templates/blog/password.html:12
+msgid "The password provided is not valid. Please try again."
+msgstr ""
+
+#: app/blog/templates/blog/password.html:16
+msgid "You need to provide a password to view this entry."
+msgstr ""
+
+#: app/blog/templates/blog/password.html:23
+msgid "Password"
+msgstr "Пароль"
+
+#: app/blog/templates/blog/password.html:28
+msgid "Valid"
+msgstr ""
+
+#: app/blog/templates/blog/sitemap.html:10
+msgid "Entries per categories"
+msgstr "Записи в категории"
+
+#: app/blog/templates/blog/sitemap.html:18
+#: app/blog/templates/blog/sitemap.html:38
+#: app/blog/templates/blog/tags/popular_entries.html:8
+msgid "comment"
+msgstr "комментарий"
+
+#: app/blog/templates/blog/sitemap.html:31
+msgid "All the entries"
+msgstr "Все записи"
+
+#: app/blog/templates/blog/sitemap.html:60
+#: app/blog/templates/blog/tags/categories.html:11
+msgid "No categories yet."
+msgstr "Категории отсутствуют."
+
+#: app/blog/templates/blog/skeleton.html:26
+#: app/blog/templates/blog/skeleton.html:38
+msgid "RSS Feed of latest entries"
+msgstr "RSS лента последних записей"
+
+#: app/blog/templates/blog/tag_list.html:7
+msgid "Tag list"
+msgstr "Список тегов"
+
+#: app/blog/templates/blog/tags/archives_entries.html:12
+#: app/blog/templates/blog/tags/archives_entries_tree.html:38
+msgid "No archives yet."
+msgstr "Нет записей в архиве."
+
+#: app/blog/templates/blog/tags/authors.html:14
+msgid "No authors yet."
+msgstr ""
+
+#: app/blog/templates/blog/tags/recent_linkbacks.html:10
+msgid "Linkback on"
+msgstr ""
+
+#: app/blog/templates/blog/tags/similar_entries.html:9
+msgid "No similar entries."
+msgstr "Нет похожих записей."
+
+#: app/blog/templates/comments/blog_entry_preview.html:4
+msgid "Comment preview"
+msgstr "Предпросмотр комментария"
+
+#: app/blog/templates/comments/blog_entry_preview.html:9
+msgid "Please correct following error."
+msgid_plural "Please correct following errors."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: app/blog/templates/comments/blog_entry_preview.html:12
+msgid "Preview of the comment"
+msgstr "Предварительный просмотр комментария"
+
+#: app/blog/templates/comments/blog/entry/form.html:7
+msgid "Post your comment"
+msgstr "Написать комментарий"
+
+#: app/blog/templates/comments/blog/entry/form.html:18
+msgid "Post"
+msgstr "Опубликовать"
+
+#: app/blog/templates/comments/blog/entry/posted.html:4
+#: app/blog/templates/comments/blog/entry/posted.html:7
+msgid "Thanks for your comment"
+msgstr "Спасибо за комментарий"
+
+#: app/blog/templates/comments/blog/entry/posted.html:9
+#: app/blog/templates/comments/blog/entry/posted.html:10
+msgid "Return to entry list"
+msgstr "Вернуться к списку записей"
+
+#: app/blog/tests/views.py:161 app/blog/views/search.py:17
+msgid "The pattern is too short"
+msgstr "Запрос слишком короткий"
+
+#: app/blog/tests/views.py:164 app/blog/views/search.py:21
+msgid "No pattern to search found"
+msgstr "Нечего искать"
+
+#: app/blog/xmlrpc/metaweblog.py:35
+msgid "Username is incorrect."
+msgstr "Неверное имя пользователя."
+
+#: app/blog/xmlrpc/metaweblog.py:37
+msgid "Password is invalid."
+msgstr "Неверный пароль."
+
+#: app/blog/xmlrpc/metaweblog.py:39
+msgid "User account unavailable."
+msgstr "Учетная запись пользователя отсутствует"
+
+#: app/blog/xmlrpc/metaweblog.py:42
+#, python-format
+msgid "User cannot %s."
+msgstr ""
+
+#: app/blog/xmlrpc/pingback.py:93
+msgid "No title"
+msgstr "Заголовок отсутствует"
+
+#: app/feedblog/feedblog.py:99
+msgid "collect"
+msgstr ""
+
+#: app/pushblog/pushblog.py:82
+msgid "Push"
+msgstr ""
+
+#~ msgid "on date"
+#~ msgstr "на дату"
+
+#~ msgid "Your contents"
+#~ msgstr "содержимое"
+
+#~ msgid "Comment"
+#~ msgstr "Комментарии"
+
+#~ msgid "Not yet comments !"
+#~ msgstr "Еще нет клмментариев!"
+
+#~ msgid "%s - News"
+#~ msgstr "%s - Новости"
+
+#~ msgid "author"
+#~ msgstr "автор"

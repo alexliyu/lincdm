@@ -12,6 +12,8 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 LINCDM_NAME = 'LinCDM'
 LINCDM_TITLE = u'基于Django的开源博客' 
+GRAPPELLI_ADMIN_TITLE = LINCDM_NAME
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -65,12 +67,11 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/media/'
-
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://127.0.0.1:8000/'
+MEDIA_URL = 'http://127.0.0.1:8000/static/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -86,12 +87,14 @@ STATIC_URL = '/static/'
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
-
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    
+    
 )
 
 # List of finder classes that know how to find static files in
@@ -152,9 +155,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 INSTALLED_APPS = (
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
+    #'admin_tools.theming',
+    #'admin_tools.menu',
+    #'admin_tools.dashboard',
+    'grappelli.dashboard',
+    'grappelli',
+    'filebrowser',
     'django.contrib.auth',
     'django.contrib.comments',
     'django.contrib.contenttypes',
@@ -175,9 +181,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
-ADMIN_TOOLS_MENU = 'lincdm.menu.CustomMenu'
-ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'lincdm.dashboard.CustomAppIndexDashboard'
-ADMIN_TOOLS_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
+GRAPPELLI_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
@@ -202,3 +206,4 @@ LOGGING = {
 }
 from app.blog.xmlrpc import blog_XMLRPC_METHODS
 XMLRPC_METHODS = blog_XMLRPC_METHODS
+
