@@ -1,9 +1,9 @@
-"""Comparison tools for Zinnia
+"""Comparison tools for blog
 Based on clustered_models app"""
 from math import sqrt
 
-from app.zinnia.settings import F_MIN
-from app.zinnia.settings import F_MAX
+from app.blog.settings import F_MIN
+from app.blog.settings import F_MAX
 
 
 def pearson_score(list1, list2):

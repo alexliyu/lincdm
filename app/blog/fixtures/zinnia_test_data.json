@@ -27,7 +27,7 @@
   },
   {
     "pk": 1, 
-    "model": "zinnia.category", 
+    "model": "blog.category", 
     "fields": {
       "rght": 2, 
       "description": "", 
@@ -41,7 +41,7 @@
   }, 
   {
     "pk": 2, 
-    "model": "zinnia.entry", 
+    "model": "blog.entry", 
     "fields": {
       "status": 2, 
       "login_required": false, 
@@ -71,7 +71,7 @@
   }, 
   {
     "pk": 1, 
-    "model": "zinnia.entry", 
+    "model": "blog.entry", 
     "fields": {
       "status": 2, 
       "login_required": false, 

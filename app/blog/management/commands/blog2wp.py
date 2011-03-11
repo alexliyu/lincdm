@@ -1,4 +1,4 @@
-"""Zinnia to WordPress command module"""
+"""blog to WordPress command module"""
 from django.conf import settings
 from django.utils.encoding import smart_str
 from django.contrib.sites.models import Site
@@ -7,16 +7,16 @@ from django.core.management.base import NoArgsCommand
 
 from tagging.models import Tag
 
-from app.zinnia import __version__
-from app.zinnia.settings import PROTOCOL
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
+from app.blog import __version__
+from app.blog.settings import PROTOCOL
+from app.blog.models import Entry
+from app.blog.models import Category
 
 
 class Command(NoArgsCommand):
-    """Command object for exporting a Zinnia blog
+    """Command object for exporting a blog blog
     into WordPress via a WordPress eXtended RSS (WXR) file."""
-    help = 'Export Zinnia to WXR file.'
+    help = 'Export blog to WXR file.'
 
     def handle_noargs(self, **options):
         site = Site.objects.get_current()
@@ -24,9 +24,9 @@ class Command(NoArgsCommand):
                         'categories': Category.objects.all(),
                         'tags': Tag.objects.usage_for_model(Entry),
                         'version': __version__,
-                        'description': 'Blog exported for django-blog-zinnia',
+                        'description': 'Blog exported for django-blog-blog',
                         'language': settings.LANGUAGE_CODE,
                         'site': site,
                         'site_url': '%s://%s' % (PROTOCOL, site.domain)}
-        export = render_to_string('zinnia/wxr.xml', blog_context)
+        export = render_to_string('blog/wxr.xml', blog_context)
         print smart_str(export)

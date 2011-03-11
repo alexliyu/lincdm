@@ -1,4 +1,4 @@
-"""Forms for Zinnia admin"""
+"""Forms for blog admin"""
 from django import forms
 from django.db.models import ManyToOneRel
 from django.db.models import ManyToManyRel
@@ -6,11 +6,11 @@ from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.widgets import RelatedFieldWidgetWrapper
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.admin.widgets import TreeNodeChoiceField
-from app.zinnia.admin.widgets import MPTTFilteredSelectMultiple
-from app.zinnia.admin.widgets import MPTTModelMultipleChoiceField
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.admin.widgets import TreeNodeChoiceField
+from app.blog.admin.widgets import MPTTFilteredSelectMultiple
+from app.blog.admin.widgets import MPTTModelMultipleChoiceField
 
 
 class CategoryAdminForm(forms.ModelForm):

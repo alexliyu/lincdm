@@ -1,1 +1,1 @@
-"""Migrations for Zinnia Plugins"""
+"""Migrations for blog Plugins"""

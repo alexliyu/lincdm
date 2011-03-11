@@ -1,1 +1,1 @@
-"""Plugins for Zinnia"""
+"""Plugins for blog"""

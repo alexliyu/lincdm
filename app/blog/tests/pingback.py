@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's PingBack API"""
+"""Test cases for blog's PingBack API"""
 import cStringIO
 from datetime import datetime
 from urlparse import urlsplit
@@ -13,16 +13,16 @@ from django.contrib.contenttypes.models import ContentType
 
 from BeautifulSoup import BeautifulSoup
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.managers import PUBLISHED
-from app.zinnia.tests.utils import TestTransport
-from app.zinnia.xmlrpc.pingback import generate_pingback_content
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.managers import PUBLISHED
+from app.blog.tests.utils import TestTransport
+from app.blog.xmlrpc.pingback import generate_pingback_content
 
 
 class PingBackTestCase(TestCase):
     """Test cases for pingbacks"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def fake_urlopen(self, url):
         """Fake urlopen using client if domain
@@ -37,9 +37,9 @@ class PingBackTestCase(TestCase):
 
     def setUp(self):
         # Set up a stub around urlopen
-        import app.zinnia.xmlrpc.pingback
-        self.original_urlopen = app.zinnia.xmlrpc.pingback.urlopen
-        app.zinnia.xmlrpc.pingback.urlopen = self.fake_urlopen
+        import app.blog.xmlrpc.pingback
+        self.original_urlopen = app.blog.xmlrpc.pingback.urlopen
+        app.blog.xmlrpc.pingback.urlopen = self.fake_urlopen
         # Preparing site
         self.site = Site.objects.get_current()
         self.site.domain = 'localhost:8000'
@@ -77,8 +77,8 @@ class PingBackTestCase(TestCase):
                                   transport=TestTransport())
 
     def tearDown(self):
-        import zinnia.xmlrpc.pingback
-        zinnia.xmlrpc.pingback.urlopen = self.original_urlopen
+        import blog.xmlrpc.pingback
+        blog.xmlrpc.pingback.urlopen = self.original_urlopen
 
     def test_generate_pingback_content(self):
         soup = BeautifulSoup(self.second_entry.content)
@@ -139,7 +139,7 @@ class PingBackTestCase(TestCase):
         self.assertEquals(response, 'Pingback from %s to %s registered.' % (source, target))
         self.assertEquals(self.first_entry.pingbacks.count(), 1)
         self.assertEquals(self.first_entry.pingbacks[0].user_name,
-                          'Zinnia\'s Blog - %s' % self.second_entry.title)
+                          'blog\'s Blog - %s' % self.second_entry.title)
 
         # Error code 48 : The pingback has already been registered.
         response = self.server.pingback.ping(source, target)

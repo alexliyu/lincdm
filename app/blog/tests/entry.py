@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's Entry"""
+"""Test cases for blog's Entry"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -7,8 +7,8 @@ from django.contrib.sites.models import Site
 from django.contrib.comments.models import Comment
 from django.contrib.comments.models import CommentFlag
 
-from app.zinnia.models import Entry
-from app.zinnia.managers import PUBLISHED
+from app.blog.models import Entry
+from app.blog.managers import PUBLISHED
 
 
 class EntryTestCase(TestCase):
@@ -16,7 +16,7 @@ class EntryTestCase(TestCase):
     def setUp(self):
         params = {'title': 'My entry',
                   'content': 'My content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-entry'}
         self.entry = Entry.objects.create(**params)
         self.author = User.objects.create_user(username='webmaster',
@@ -111,7 +111,7 @@ class EntryTestCase(TestCase):
         self.assertFalse(self.entry.previous_entry)
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-second-entry',
                   'creation_date': datetime(2000, 1, 1),
                   'status': PUBLISHED}
@@ -120,7 +120,7 @@ class EntryTestCase(TestCase):
         self.assertEquals(self.entry.previous_entry, self.second_entry)
         params = {'title': 'My third entry',
                   'content': 'My third content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-third-entry',
                   'creation_date': datetime(2001, 1, 1),
                   'status': PUBLISHED}
@@ -133,7 +133,7 @@ class EntryTestCase(TestCase):
         self.assertFalse(self.entry.next_entry)
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-second-entry',
                   'creation_date': datetime(2100, 1, 1),
                   'status': PUBLISHED}
@@ -142,7 +142,7 @@ class EntryTestCase(TestCase):
         self.assertEquals(self.entry.next_entry, self.second_entry)
         params = {'title': 'My third entry',
                   'content': 'My third content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-third-entry',
                   'creation_date': datetime(2050, 1, 1),
                   'status': PUBLISHED}
@@ -155,7 +155,7 @@ class EntryTestCase(TestCase):
         self.assertFalse(self.entry.related_published_set)
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-second-entry',
                   'status': PUBLISHED}
         self.second_entry = Entry.objects.create(**params)

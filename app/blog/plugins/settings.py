@@ -1,16 +1,16 @@
-"""Settings of Zinnia.plugins"""
+"""Settings of blog.plugins"""
 from django.conf import settings
 
-HIDE_ENTRY_MENU = getattr(settings, 'ZINNIA_HIDE_ENTRY_MENU', True)
+HIDE_ENTRY_MENU = getattr(settings, 'blog_HIDE_ENTRY_MENU', True)
 
-PLUGINS_TEMPLATES = getattr(settings, 'ZINNIA_PLUGINS_TEMPLATES', [])
+PLUGINS_TEMPLATES = getattr(settings, 'blog_PLUGINS_TEMPLATES', [])
 try:
-    from app.zinnia.plugins.menu import EntryMenu
-    from app.zinnia.plugins.menu import TagMenu
-    from app.zinnia.plugins.menu import AuthorMenu
-    from app.zinnia.plugins.menu import CategoryMenu
+    from app.blog.plugins.menu import EntryMenu
+    from app.blog.plugins.menu import TagMenu
+    from app.blog.plugins.menu import AuthorMenu
+    from app.blog.plugins.menu import CategoryMenu
 
-    APP_MENUS = getattr(settings, 'ZINNIA_APP_MENUS', [EntryMenu, CategoryMenu,
+    APP_MENUS = getattr(settings, 'blog_APP_MENUS', [EntryMenu, CategoryMenu,
                                                        TagMenu, AuthorMenu])
 except ImportError:
     APP_MENUS = []

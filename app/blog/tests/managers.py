@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's managers"""
+"""Test cases for blog's managers"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -7,12 +7,12 @@ from django.contrib.sites.models import Site
 
 from tagging.models import Tag
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Author
-from app.zinnia.models import Category
-from app.zinnia.managers import PUBLISHED
-from app.zinnia.managers import tags_published
-from app.zinnia.managers import entries_published
+from app.blog.models import Entry
+from app.blog.models import Author
+from app.blog.models import Category
+from app.blog.managers import PUBLISHED
+from app.blog.managers import tags_published
+from app.blog.managers import entries_published
 
 
 class ManagersTestCase(TestCase):
@@ -31,7 +31,7 @@ class ManagersTestCase(TestCase):
                                                    slug='category-2')]
 
         params = {'title': 'My entry 1', 'content': 'My content 1',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1',
+                  'tags': 'blog, test', 'slug': 'my-entry-1',
                   'status': PUBLISHED}
         self.entry_1 = Entry.objects.create(**params)
         self.entry_1.authors.add(self.authors[0])
@@ -39,7 +39,7 @@ class ManagersTestCase(TestCase):
         self.entry_1.sites.add(*self.sites)
 
         params = {'title': 'My entry 2', 'content': 'My content 2',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-2'}
+                  'tags': 'blog, test', 'slug': 'my-entry-2'}
         self.entry_2 = Entry.objects.create(**params)
         self.entry_2.authors.add(*self.authors)
         self.entry_2.categories.add(self.categories[0])
@@ -140,11 +140,11 @@ class ManagersTestCase(TestCase):
         self.assertEquals(Entry.published.advanced_search('content category:"Category 1"').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content category:"category-1"').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content category:"category-2"').count(), 1)
-        self.assertEquals(Entry.published.advanced_search('content tag:zinnia').count(), 2)
+        self.assertEquals(Entry.published.advanced_search('content tag:blog').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content tag:custom').count(), 1)
         self.assertEquals(Entry.published.advanced_search('content author:webmaster').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content author:contributor').count(), 1)
-        self.assertEquals(Entry.published.advanced_search('content author:webmaster tag:zinnia').count(), 2)
+        self.assertEquals(Entry.published.advanced_search('content author:webmaster tag:blog').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content author:webmaster tag:custom').count(), 1)
         self.assertEquals(Entry.published.advanced_search('content 1 or 2 author:webmaster').count(), 2)
         self.assertEquals(Entry.published.advanced_search('content 1 or 2 author:webmaster').count(), 2)
@@ -174,7 +174,7 @@ class ManagersTestCase(TestCase):
         self.assertEquals(Entry.published.advanced_search('author:*master or category:cate*').count(), 2)
         self.assertEquals(Entry.published.advanced_search('category:*ate*').count(), 2)
         self.assertEquals(Entry.published.advanced_search('author:"webmast*"').count(), 0)
-        self.assertEquals(Entry.published.advanced_search('tag:"zinnia*"').count(), 0)
+        self.assertEquals(Entry.published.advanced_search('tag:"blog*"').count(), 0)
         self.assertEquals(Entry.published.advanced_search('tag:*inni*').count(), 2)
 
     def test_entry_published_manager_advanced_search_with_punctuation(self):

@@ -146,9 +146,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     # required by django-admin-tools
     'django.core.context_processors.request',
-    'app.zinnia.context_processors.media',
-    'app.zinnia.context_processors.sitename',
-    'app.zinnia.context_processors.sitetitle',
+    'app.blog.context_processors.media',
+    'app.blog.context_processors.sitename',
+    'app.blog.context_processors.sitetitle',
 )
 
 INSTALLED_APPS = (
@@ -168,7 +168,7 @@ INSTALLED_APPS = (
     'tagging',
     'mptt',
     'django_xmlrpc',
-    'app.zinnia',
+    'app.blog',
     'lincdm.app.fetchblog',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
@@ -200,5 +200,5 @@ LOGGING = {
         },
     }
 }
-from app.zinnia.xmlrpc import ZINNIA_XMLRPC_METHODS
-XMLRPC_METHODS = ZINNIA_XMLRPC_METHODS
+from app.blog.xmlrpc import blog_XMLRPC_METHODS
+XMLRPC_METHODS = blog_XMLRPC_METHODS

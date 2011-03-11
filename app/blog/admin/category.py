@@ -1,9 +1,9 @@
-"""CategoryAdmin for Zinnia"""
+"""CategoryAdmin for blog"""
 from django.contrib import admin
 from django.core.urlresolvers import NoReverseMatch
 from django.utils.translation import ugettext_lazy as _
 
-from app.zinnia.admin.forms import CategoryAdminForm
+from app.blog.admin.forms import CategoryAdminForm
 
 
 class CategoryAdmin(admin.ModelAdmin):

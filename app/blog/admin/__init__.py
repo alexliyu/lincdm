@@ -1,10 +1,10 @@
-"""Admin of Zinnia"""
+"""Admin of blog"""
 from django.contrib import admin
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.admin.entry import EntryAdmin
-from app.zinnia.admin.category import CategoryAdmin
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.admin.entry import EntryAdmin
+from app.blog.admin.category import CategoryAdmin
 
 
 admin.site.register(Entry, EntryAdmin)

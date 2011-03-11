@@ -1,7 +1,7 @@
-"""Placeholder model for Zinnia"""
+"""Placeholder model for blog"""
 from cms.models.fields import PlaceholderField
 
-from app.zinnia.models import EntryAbstractClass
+from app.blog.models import EntryAbstractClass
 
 
 class EntryPlaceholder(EntryAbstractClass):

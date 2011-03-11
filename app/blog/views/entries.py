@@ -1,13 +1,13 @@
-"""Views for Zinnia entries"""
+"""Views for blog entries"""
 from django.views.generic.list_detail import object_list
 from django.views.generic.date_based import archive_year
 from django.views.generic.date_based import archive_month
 from django.views.generic.date_based import archive_day
 from django.views.generic.date_based import object_detail
 
-from app.zinnia.models import Entry
-from app.zinnia.views.decorators import protect_entry
-from app.zinnia.views.decorators import update_queryset
+from app.blog.models import Entry
+from app.blog.views.decorators import protect_entry
+from app.blog.views.decorators import update_queryset
 
 
 entry_index = update_queryset(object_list, Entry.published.all)

@@ -8,10 +8,10 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from app.zinnia.sitemaps import TagSitemap
-from app.zinnia.sitemaps import EntrySitemap
-from app.zinnia.sitemaps import CategorySitemap
-from app.zinnia.sitemaps import AuthorSitemap
+from app.blog.sitemaps import TagSitemap
+from app.blog.sitemaps import EntrySitemap
+from app.blog.sitemaps import CategorySitemap
+from app.blog.sitemaps import AuthorSitemap
 import os
 admin.autodiscover()
 
@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     # url(r'^lincdm/', include('lincdm.foo.urls')),
     (r'^$', 'django.views.generic.simple.redirect_to',
                         {'url': '/blog/'}),
-                       url(r'^blog/', include('app.zinnia.urls')),
+                       url(r'^blog/', include('app.blog.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^xmlrpc/$', 'django_xmlrpc.views.handle_xmlrpc'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -46,7 +46,7 @@ urlpatterns += patterns('django.contrib.sitemaps.views',
                         )
 
 urlpatterns += patterns('django.views.static',
-                        url(r'^zinnia/(?P<path>.*)$', 'serve',
+                        url(r'^blog/(?P<path>.*)$', 'serve',
                             {'document_root': os.path.join(os.path.dirname(__file__),
-                                                           'app', 'zinnia', 'media', 'zinnia')}),
+                                                           'app', 'blog', 'media', 'blog')}),
                         )

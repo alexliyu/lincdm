@@ -1,4 +1,4 @@
-"""XML-RPC methods of Zinnia Pingback"""
+"""XML-RPC methods of blog Pingback"""
 from urllib2 import urlopen
 from urllib2 import URLError
 from urllib2 import HTTPError
@@ -12,8 +12,8 @@ from django.contrib.comments.models import Comment
 from django.utils.translation import ugettext as _
 from django.contrib.contenttypes.models import ContentType
 
-from app.zinnia.models import Entry
-from app.zinnia.settings import PINGBACK_CONTENT_LENGTH
+from app.blog.models import Entry
+from app.blog.settings import PINGBACK_CONTENT_LENGTH
 from BeautifulSoup import BeautifulSoup
 from django_xmlrpc.decorators import xmlrpc_func
 

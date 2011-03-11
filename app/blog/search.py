@@ -1,4 +1,4 @@
-"""Search module with complex query parsing for Zinnia"""
+"""Search module with complex query parsing for blog"""
 from pyparsing import Word
 from pyparsing import alphas
 from pyparsing import WordEnd
@@ -16,7 +16,7 @@ from pyparsing import operatorPrecedence
 
 from django.db.models import Q
 
-from app.zinnia.models import Entry
+from app.blog.models import Entry
 
 
 def createQ(token):

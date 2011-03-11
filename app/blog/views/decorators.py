@@ -1,4 +1,4 @@
-"""Decorators for zinnia.views"""
+"""Decorators for blog.views"""
 from django.template import RequestContext
 from django.contrib.auth.views import login
 from django.shortcuts import redirect
@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.cache import never_cache
 
-from app.zinnia.models import Entry
+from app.blog.models import Entry
 
 
 def update_queryset(view, queryset,
@@ -34,10 +34,10 @@ def password(request, entry):
     if request.method == 'POST':
         if request.POST.get('password') == entry.password:
             request.session[
-                'zinnia_entry_%s_password' % entry.pk] = entry.password
+                'blog_entry_%s_password' % entry.pk] = entry.password
             return redirect(entry)
         error = True
-    return render_to_response('zinnia/password.html', {'error': error},
+    return render_to_response('blog/password.html', {'error': error},
                               context_instance=RequestContext(request))
 
 
@@ -55,9 +55,9 @@ def protect_entry(view):
                                   creation_date__day=kw['day'])
 
         if entry.login_required and not request.user.is_authenticated():
-            return login(request, 'zinnia/login.html')
+            return login(request, 'blog/login.html')
         if entry.password and entry.password != \
-               request.session.get('zinnia_entry_%s_password' % entry.pk):
+               request.session.get('blog_entry_%s_password' % entry.pk):
             return password(request, entry)
         kw['template_name'] = entry.template
         return view(*ka, **kw)

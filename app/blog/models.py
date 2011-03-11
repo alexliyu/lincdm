@@ -1,4 +1,4 @@
-"""Models of Zinnia"""
+"""Models of blog"""
 import warnings
 from datetime import datetime
 
@@ -18,17 +18,17 @@ from django.utils.translation import ugettext_lazy as _
 import mptt
 from tagging.fields import TagField
 
-from app.zinnia.settings import USE_BITLY
-from app.zinnia.settings import UPLOAD_TO
-from app.zinnia.settings import ENTRY_TEMPLATES
-from app.zinnia.settings import ENTRY_BASE_MODEL
-from app.zinnia.managers import entries_published
-from app.zinnia.managers import EntryPublishedManager
-from app.zinnia.managers import AuthorPublishedManager
-from app.zinnia.managers import DRAFT, HIDDEN, PUBLISHED
-from app.zinnia.moderator import EntryCommentModerator
-from app.zinnia.signals import ping_directories_handler
-from app.zinnia.signals import ping_external_urls_handler
+from app.blog.settings import USE_BITLY
+from app.blog.settings import UPLOAD_TO
+from app.blog.settings import ENTRY_TEMPLATES
+from app.blog.settings import ENTRY_BASE_MODEL
+from app.blog.managers import entries_published
+from app.blog.managers import EntryPublishedManager
+from app.blog.managers import AuthorPublishedManager
+from app.blog.managers import DRAFT, HIDDEN, PUBLISHED
+from app.blog.moderator import EntryCommentModerator
+from app.blog.signals import ping_directories_handler
+from app.blog.signals import ping_external_urls_handler
 
 
 class Author(User):
@@ -44,7 +44,7 @@ class Author(User):
     @models.permalink
     def get_absolute_url(self):
         """Return author's URL"""
-        return ('zinnia_author_detail', (self.username,))
+        return ('blog_author_detail', (self.username,))
 
     class Meta:
         """Author's Meta"""
@@ -80,7 +80,7 @@ class Category(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return category's URL"""
-        return ('zinnia_category_detail', (self.tree_path,))
+        return ('blog_category_detail', (self.tree_path,))
 
     class Meta:
         """Category's Meta"""
@@ -137,8 +137,8 @@ class EntryAbstractClass(models.Model):
                                 help_text=_('protect the entry with a password'))
 
     template = models.CharField(_('template'), max_length=250,
-                                default='zinnia/entry_detail.html',
-                                choices=[('zinnia/entry_detail.html',
+                                default='blog/entry_detail.html',
+                                choices=[('blog/entry_detail.html',
                                           _('Default template'))] + 
                                 ENTRY_TEMPLATES,
                                 help_text=_('template used to display the entry'))
@@ -229,7 +229,7 @@ class EntryAbstractClass(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return entry's URL"""
-        return ('zinnia_entry_detail', (), {
+        return ('blog_entry_detail', (), {
             'year': self.creation_date.strftime('%Y'),
             'month': self.creation_date.strftime('%m'),
             'day': self.creation_date.strftime('%d'),
@@ -270,6 +270,6 @@ class Entry(get_base_model()):
 moderator.register(Entry, EntryCommentModerator)
 mptt.register(Category, order_insertion_by=['title'])
 post_save.connect(ping_directories_handler, sender=Entry,
-                  dispatch_uid='zinnia.entry.post_save.ping_directories')
+                  dispatch_uid='blog.entry.post_save.ping_directories')
 post_save.connect(ping_external_urls_handler, sender=Entry,
-                  dispatch_uid='zinnia.entry.post_save.ping_external_urls')
+                  dispatch_uid='blog.entry.post_save.ping_external_urls')

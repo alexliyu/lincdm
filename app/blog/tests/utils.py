@@ -1,4 +1,4 @@
-"""Utils for Zinnia's tests"""
+"""Utils for blog's tests"""
 import cStringIO
 from xmlrpclib import Transport
 

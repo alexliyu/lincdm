@@ -1,7 +1,7 @@
 [
   {
     "pk": 2, 
-    "model": "zinnia.category", 
+    "model": "blog.category", 
     "fields": {
       "rght": 2, 
       "description": "All entries containing tests.", 
@@ -15,7 +15,7 @@
   }, 
   {
     "pk": 1, 
-    "model": "zinnia.category", 
+    "model": "blog.category", 
     "fields": {
       "rght": 2, 
       "description": "All uncategorized entries.", 
@@ -29,7 +29,7 @@
   }, 
   {
     "pk": 1, 
-    "model": "zinnia.entry", 
+    "model": "blog.entry", 
     "fields": {
       "status": 2, 
       "login_required": false, 
@@ -39,7 +39,7 @@
       "tags": "welcome, blog, test", 
       "image": "", 
       "title": "Hello World !", 
-      "excerpt": "Welcome to the Zinnia blogging application written in Django.This is your first entry, don't hesite to archive or remove it.Or you can simply add a new entry.", 
+      "excerpt": "Welcome to the blog blogging application written in Django.This is your first entry, don't hesite to archive or remove it.Or you can simply add a new entry.", 
       "sites": [
         1
       ], 
@@ -47,7 +47,7 @@
         3
       ], 
       "creation_date": "2010-01-01 00:00:00", 
-      "content": "<p>Welcome to the Zinnia blogging application written in Django.</p><p>This is your first entry, don't hesite to <a title=\"Edit this entry.\" href=\"/admin/zinnia/entry/1/\">archive or remove it</a>.</p><p>Or you can simply <a title=\"Add a new entry.\" href=\"/admin/zinnia/entry/add/\">add a new entry</a>.</p>", 
+      "content": "<p>Welcome to the blog blogging application written in Django.</p><p>This is your first entry, don't hesite to <a title=\"Edit this entry.\" href=\"/admin/blog/entry/1/\">archive or remove it</a>.</p><p>Or you can simply <a title=\"Add a new entry.\" href=\"/admin/blog/entry/add/\">add a new entry</a>.</p>", 
       "start_publication": "2010-01-01 00:00:00", 
       "authors": [
         1
@@ -61,7 +61,7 @@
   }, 
   {
     "pk": 3, 
-    "model": "zinnia.entry", 
+    "model": "blog.entry", 
     "fields": {
       "status": 2, 
       "login_required": false, 
@@ -95,7 +95,7 @@
   }, 
   {
     "pk": 2, 
-    "model": "zinnia.entry", 
+    "model": "blog.entry", 
     "fields": {
       "status": 2, 
       "login_required": false, 

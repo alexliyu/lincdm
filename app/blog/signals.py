@@ -1,5 +1,5 @@
-"""Signal handlers of Zinnia"""
-from app.zinnia import settings
+"""Signal handlers of blog"""
+from app.blog import settings
 
 
 def ping_directories_handler(sender, **kwargs):
@@ -7,7 +7,7 @@ def ping_directories_handler(sender, **kwargs):
     entry = kwargs['instance']
 
     if entry.is_visible and settings.SAVE_PING_DIRECTORIES:
-        from app.zinnia.ping import DirectoryPinger
+        from app.blog.ping import DirectoryPinger
 
         for directory in settings.PING_DIRECTORIES:
             DirectoryPinger(directory, [entry])
@@ -18,6 +18,6 @@ def ping_external_urls_handler(sender, **kwargs):
     entry = kwargs['instance']
 
     if entry.is_visible and settings.SAVE_PING_EXTERNAL_URLS:
-        from app.zinnia.ping import ExternalUrlsPinger
+        from app.blog.ping import ExternalUrlsPinger
 
         ExternalUrlsPinger(entry)

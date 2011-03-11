@@ -1,1 +1,1 @@
-"""Views for Zinnia"""
+"""Views for blog"""

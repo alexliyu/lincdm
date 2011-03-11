@@ -1,4 +1,4 @@
-"""Moderator of Zinnia comments
+"""Moderator of blog comments
    Based on Akismet for checking spams."""
 from django.conf import settings
 from django.template import Context
@@ -9,10 +9,10 @@ from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.comments.moderation import CommentModerator
 
-from app.zinnia.settings import PROTOCOL
-from app.zinnia.settings import MAIL_COMMENT
-from app.zinnia.settings import MAIL_COMMENT_REPLY
-from app.zinnia.settings import AKISMET_COMMENT
+from app.blog.settings import PROTOCOL
+from app.blog.settings import MAIL_COMMENT
+from app.blog.settings import MAIL_COMMENT_REPLY
+from app.blog.settings import AKISMET_COMMENT
 
 AKISMET_API_KEY = getattr(settings, 'AKISMET_SECRET_API_KEY', '')
 

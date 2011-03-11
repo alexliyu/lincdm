@@ -10,16 +10,16 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
 
         # Adding model 'Category'
-        db.create_table('zinnia_category', (
+        db.create_table('blog_category', (
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50, db_index=True)),
             ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=50)),
         ))
-        db.send_create_signal('zinnia', ['Category'])
+        db.send_create_signal('blog', ['Category'])
 
         # Adding model 'Entry'
-        db.create_table('zinnia_entry', (
+        db.create_table('blog_entry', (
             ('status', self.gf('django.db.models.fields.IntegerField')(default=0)),
             ('last_update', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('comment_enabled', self.gf('django.db.models.fields.BooleanField')(default=True, blank=True)),
@@ -34,59 +34,59 @@ class Migration(SchemaMigration):
             ('creation_date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
         ))
-        db.send_create_signal('zinnia', ['Entry'])
+        db.send_create_signal('blog', ['Entry'])
 
         # Adding M2M table for field sites on 'Entry'
-        db.create_table('zinnia_entry_sites', (
+        db.create_table('blog_entry_sites', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('entry', models.ForeignKey(orm['zinnia.entry'], null=False)),
+            ('entry', models.ForeignKey(orm['blog.entry'], null=False)),
             ('site', models.ForeignKey(orm['sites.site'], null=False))
         ))
-        db.create_unique('zinnia_entry_sites', ['entry_id', 'site_id'])
+        db.create_unique('blog_entry_sites', ['entry_id', 'site_id'])
 
         # Adding M2M table for field related on 'Entry'
-        db.create_table('zinnia_entry_related', (
+        db.create_table('blog_entry_related', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('from_entry', models.ForeignKey(orm['zinnia.entry'], null=False)),
-            ('to_entry', models.ForeignKey(orm['zinnia.entry'], null=False))
+            ('from_entry', models.ForeignKey(orm['blog.entry'], null=False)),
+            ('to_entry', models.ForeignKey(orm['blog.entry'], null=False))
         ))
-        db.create_unique('zinnia_entry_related', ['from_entry_id', 'to_entry_id'])
+        db.create_unique('blog_entry_related', ['from_entry_id', 'to_entry_id'])
 
         # Adding M2M table for field categories on 'Entry'
-        db.create_table('zinnia_entry_categories', (
+        db.create_table('blog_entry_categories', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('entry', models.ForeignKey(orm['zinnia.entry'], null=False)),
-            ('category', models.ForeignKey(orm['zinnia.category'], null=False))
+            ('entry', models.ForeignKey(orm['blog.entry'], null=False)),
+            ('category', models.ForeignKey(orm['blog.category'], null=False))
         ))
-        db.create_unique('zinnia_entry_categories', ['entry_id', 'category_id'])
+        db.create_unique('blog_entry_categories', ['entry_id', 'category_id'])
 
         # Adding M2M table for field authors on 'Entry'
-        db.create_table('zinnia_entry_authors', (
+        db.create_table('blog_entry_authors', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('entry', models.ForeignKey(orm['zinnia.entry'], null=False)),
+            ('entry', models.ForeignKey(orm['blog.entry'], null=False)),
             ('user', models.ForeignKey(orm['auth.user'], null=False))
         ))
-        db.create_unique('zinnia_entry_authors', ['entry_id', 'user_id'])
+        db.create_unique('blog_entry_authors', ['entry_id', 'user_id'])
 
     def backwards(self, orm):
 
         # Deleting model 'Category'
-        db.delete_table('zinnia_category')
+        db.delete_table('blog_category')
 
         # Deleting model 'Entry'
-        db.delete_table('zinnia_entry')
+        db.delete_table('blog_entry')
 
         # Removing M2M table for field sites on 'Entry'
-        db.delete_table('zinnia_entry_sites')
+        db.delete_table('blog_entry_sites')
 
         # Removing M2M table for field related on 'Entry'
-        db.delete_table('zinnia_entry_related')
+        db.delete_table('blog_entry_related')
 
         # Removing M2M table for field categories on 'Entry'
-        db.delete_table('zinnia_entry_categories')
+        db.delete_table('blog_entry_categories')
 
         # Removing M2M table for field authors on 'Entry'
-        db.delete_table('zinnia_entry_authors')
+        db.delete_table('blog_entry_authors')
 
     models = {
         'auth.group': {
@@ -131,17 +131,17 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.category': {
+        'blog.category': {
             'Meta': {'object_name': 'Category'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.entry': {
+        'blog.entry': {
             'Meta': {'object_name': 'Entry'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.User']", 'blank': 'True'}),
-            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['zinnia.Category']"}),
+            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Category']"}),
             'comment_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'content': ('django.db.models.fields.TextField', [], {}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -150,7 +150,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
             'last_update': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['zinnia.Entry']"}),
+            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['blog.Entry']"}),
             'sites': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['sites.Site']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
             'start_publication': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -160,4 +160,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['zinnia']
+    complete_apps = ['blog']

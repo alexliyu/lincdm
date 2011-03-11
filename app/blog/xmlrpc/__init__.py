@@ -1,34 +1,34 @@
-"""XML-RPC methods for Zinnia"""
+"""XML-RPC methods for blog"""
 
 
-ZINNIA_XMLRPC_PINGBACK = [
-    ('app.zinnia.xmlrpc.pingback.pingback_ping',
+blog_XMLRPC_PINGBACK = [
+    ('app.blog.xmlrpc.pingback.pingback_ping',
      'pingback.ping'),
-    ('app.zinnia.xmlrpc.pingback.pingback_extensions_get_pingbacks',
+    ('app.blog.xmlrpc.pingback.pingback_extensions_get_pingbacks',
      'pingback.extensions.getPingbacks')]
 
-ZINNIA_XMLRPC_METAWEBLOG = [
-    ('app.zinnia.xmlrpc.metaweblog.get_users_blogs',
+blog_XMLRPC_METAWEBLOG = [
+    ('app.blog.xmlrpc.metaweblog.get_users_blogs',
      'blogger.getUsersBlogs'),
-    ('app.zinnia.xmlrpc.metaweblog.get_user_info',
+    ('app.blog.xmlrpc.metaweblog.get_user_info',
      'blogger.getUserInfo'),
-    ('app.zinnia.xmlrpc.metaweblog.delete_post',
+    ('app.blog.xmlrpc.metaweblog.delete_post',
      'blogger.deletePost'),
-    ('app.zinnia.xmlrpc.metaweblog.get_authors',
+    ('app.blog.xmlrpc.metaweblog.get_authors',
      'wp.getAuthors'),
-    ('app.zinnia.xmlrpc.metaweblog.get_categories',
+    ('app.blog.xmlrpc.metaweblog.get_categories',
      'metaWeblog.getCategories'),
-    ('app.zinnia.xmlrpc.metaweblog.new_category',
+    ('app.blog.xmlrpc.metaweblog.new_category',
      'wp.newCategory'),
-    ('app.zinnia.xmlrpc.metaweblog.get_recent_posts',
+    ('app.blog.xmlrpc.metaweblog.get_recent_posts',
      'metaWeblog.getRecentPosts'),
-    ('app.zinnia.xmlrpc.metaweblog.get_post',
+    ('app.blog.xmlrpc.metaweblog.get_post',
      'metaWeblog.getPost'),
-    ('app.zinnia.xmlrpc.metaweblog.new_post',
+    ('app.blog.xmlrpc.metaweblog.new_post',
      'metaWeblog.newPost'),
-    ('app.zinnia.xmlrpc.metaweblog.edit_post',
+    ('app.blog.xmlrpc.metaweblog.edit_post',
      'metaWeblog.editPost'),
-    ('app.zinnia.xmlrpc.metaweblog.new_media_object',
+    ('app.blog.xmlrpc.metaweblog.new_media_object',
      'metaWeblog.newMediaObject')]
 
-ZINNIA_XMLRPC_METHODS = ZINNIA_XMLRPC_PINGBACK + ZINNIA_XMLRPC_METAWEBLOG
+blog_XMLRPC_METHODS = blog_XMLRPC_PINGBACK + blog_XMLRPC_METAWEBLOG

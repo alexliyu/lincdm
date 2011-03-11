@@ -1,10 +1,10 @@
-"""Views for Zinnia authors"""
+"""Views for blog authors"""
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 
-from app.zinnia.models import Author
-from app.zinnia.settings import PAGINATION
-from app.zinnia.views.decorators import update_queryset
+from app.blog.models import Author
+from app.blog.settings import PAGINATION
+from app.blog.views.decorators import update_queryset
 
 
 author_list = update_queryset(object_list, Author.published.all)

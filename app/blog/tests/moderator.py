@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's moderator"""
+"""Test cases for blog's moderator"""
 from django.core import mail
 from django.test import TestCase
 from django.conf import settings
@@ -7,9 +7,9 @@ from django.contrib.sites.models import Site
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
-from app.zinnia.models import Entry
-from app.zinnia.managers import PUBLISHED
-from app.zinnia.moderator import EntryCommentModerator
+from app.blog.models import Entry
+from app.blog.managers import PUBLISHED
+from app.blog.moderator import EntryCommentModerator
 
 
 class EntryCommentModeratorTestCase(TestCase):

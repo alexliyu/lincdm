@@ -1,4 +1,4 @@
-"""Widgets for Zinnia admin"""
+"""Widgets for blog admin"""
 from itertools import chain
 
 from django import forms
@@ -9,7 +9,7 @@ from django.utils.html import conditional_escape
 from django.utils.encoding import smart_unicode
 from django.utils.encoding import force_unicode
 
-from app.zinnia.settings import MEDIA_URL
+from app.blog.settings import MEDIA_URL
 
 
 class TreeNodeChoiceField(forms.ModelChoiceField):

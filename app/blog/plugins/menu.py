@@ -1,4 +1,4 @@
-"""Menus for zinnia.plugins"""
+"""Menus for blog.plugins"""
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -7,16 +7,16 @@ from menus.base import NavigationNode
 from menus.menu_pool import menu_pool
 from cms.menu_bases import CMSAttachMenu
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Author
-from app.zinnia.models import Category
-from app.zinnia.managers import tags_published
-from app.zinnia.plugins.settings import HIDE_ENTRY_MENU
+from app.blog.models import Entry
+from app.blog.models import Author
+from app.blog.models import Category
+from app.blog.managers import tags_published
+from app.blog.plugins.settings import HIDE_ENTRY_MENU
 
 
 class EntryMenu(CMSAttachMenu):
     """Menu for the entries organized by archives dates"""
-    name = _('Zinnia Entry Menu')
+    name = _('blog Entry Menu')
 
     def get_nodes(self, request):
         """Return menu's node for entries"""
@@ -35,21 +35,21 @@ class EntryMenu(CMSAttachMenu):
 
             if not key_archive_year in archives:
                 nodes.append(NavigationNode(
-                    year, reverse('zinnia_entry_archive_year', args=[year]),
+                    year, reverse('blog_entry_archive_year', args=[year]),
                     key_archive_year, attr=attributes))
                 archives.append(key_archive_year)
 
             if not key_archive_month in archives:
                 nodes.append(NavigationNode(
                     month_text,
-                    reverse('zinnia_entry_archive_month', args=[year, month]),
+                    reverse('blog_entry_archive_month', args=[year, month]),
                     key_archive_month, key_archive_year,
                     attr=attributes))
                 archives.append(key_archive_month)
 
             if not key_archive_day in archives:
                 nodes.append(NavigationNode(
-                    day, reverse('zinnia_entry_archive_day',
+                    day, reverse('blog_entry_archive_day',
                                  args=[year, month, day]),
                     key_archive_day, key_archive_month,
                     attr=attributes))
@@ -62,13 +62,13 @@ class EntryMenu(CMSAttachMenu):
 
 class CategoryMenu(CMSAttachMenu):
     """Menu for the categories"""
-    name = _('Zinnia Category Menu')
+    name = _('blog Category Menu')
 
     def get_nodes(self, request):
         """Return menu's node for categories"""
         nodes = []
         nodes.append(NavigationNode(_('Categories'),
-                                    reverse('zinnia_category_list'),
+                                    reverse('blog_category_list'),
                                     'categories'))
         for category in Category.objects.all():
             nodes.append(NavigationNode(category.title,
@@ -79,17 +79,17 @@ class CategoryMenu(CMSAttachMenu):
 
 class AuthorMenu(CMSAttachMenu):
     """Menu for the authors"""
-    name = _('Zinnia Author Menu')
+    name = _('blog Author Menu')
 
     def get_nodes(self, request):
         """Return menu's node for authors"""
         nodes = []
         nodes.append(NavigationNode(_('Authors'),
-                                    reverse('zinnia_author_list'),
+                                    reverse('blog_author_list'),
                                     'authors'))
         for author in Author.published.all():
             nodes.append(NavigationNode(author.username,
-                                        reverse('zinnia_author_detail',
+                                        reverse('blog_author_detail',
                                                 args=[author.username]),
                                         author.pk, 'authors'))
         return nodes
@@ -97,16 +97,16 @@ class AuthorMenu(CMSAttachMenu):
 
 class TagMenu(CMSAttachMenu):
     """Menu for the tags"""
-    name = _('Zinnia Tag Menu')
+    name = _('blog Tag Menu')
 
     def get_nodes(self, request):
         """Return menu's node for tags"""
         nodes = []
-        nodes.append(NavigationNode(_('Tags'), reverse('zinnia_tag_list'),
+        nodes.append(NavigationNode(_('Tags'), reverse('blog_tag_list'),
                                     'tags'))
         for tag in tags_published():
             nodes.append(NavigationNode(tag.name,
-                                        reverse('zinnia_tag_detail',
+                                        reverse('blog_tag_detail',
                                                 args=[tag.name]),
                                         tag.pk, 'tags'))
         return nodes

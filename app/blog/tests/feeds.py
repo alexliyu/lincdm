@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's feeds"""
+"""Test cases for blog's feeds"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -9,25 +9,25 @@ from django.contrib.contenttypes.models import ContentType
 
 from tagging.models import Tag
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.managers import PUBLISHED
-from app.zinnia.feeds import ImgParser
-from app.zinnia.feeds import EntryFeed
-from app.zinnia.feeds import LatestEntries
-from app.zinnia.feeds import CategoryEntries
-from app.zinnia.feeds import AuthorEntries
-from app.zinnia.feeds import TagEntries
-from app.zinnia.feeds import SearchEntries
-from app.zinnia.feeds import EntryDiscussions
-from app.zinnia.feeds import EntryComments
-from app.zinnia.feeds import EntryPingbacks
-from app.zinnia.feeds import EntryTrackbacks
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.managers import PUBLISHED
+from app.blog.feeds import ImgParser
+from app.blog.feeds import EntryFeed
+from app.blog.feeds import LatestEntries
+from app.blog.feeds import CategoryEntries
+from app.blog.feeds import AuthorEntries
+from app.blog.feeds import TagEntries
+from app.blog.feeds import SearchEntries
+from app.blog.feeds import EntryDiscussions
+from app.blog.feeds import EntryComments
+from app.blog.feeds import EntryPingbacks
+from app.blog.feeds import EntryTrackbacks
 
 
-class ZinniaFeedsTestCase(TestCase):
+class blogFeedsTestCase(TestCase):
     """Test cases for the Feed classes provided"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def setUp(self):
         self.site = Site.objects.get_current()

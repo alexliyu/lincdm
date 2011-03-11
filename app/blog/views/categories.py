@@ -1,9 +1,9 @@
-"""Views for Zinnia categories"""
+"""Views for blog categories"""
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 
-from app.zinnia.models import Category
-from app.zinnia.settings import PAGINATION
+from app.blog.models import Category
+from app.blog.settings import PAGINATION
 
 
 def get_category_or_404(path):

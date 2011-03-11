@@ -1,22 +1,22 @@
-"""Test cases for Zinnia's sitemaps"""
+"""Test cases for blog's sitemaps"""
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
 from tagging.models import Tag
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.managers import PUBLISHED
-from app.zinnia.sitemaps import EntrySitemap
-from app.zinnia.sitemaps import CategorySitemap
-from app.zinnia.sitemaps import AuthorSitemap
-from app.zinnia.sitemaps import TagSitemap
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.managers import PUBLISHED
+from app.blog.sitemaps import EntrySitemap
+from app.blog.sitemaps import CategorySitemap
+from app.blog.sitemaps import AuthorSitemap
+from app.blog.sitemaps import TagSitemap
 
 
-class ZinniaSitemapsTestCase(TestCase):
+class blogSitemapsTestCase(TestCase):
     """Test cases for Sitemaps classes provided"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def setUp(self):
         self.site = Site.objects.get_current()
@@ -24,7 +24,7 @@ class ZinniaSitemapsTestCase(TestCase):
                                           email='admin@example.com')
         self.category = Category.objects.create(title='Tests', slug='tests')
         params = {'title': 'My entry 1', 'content': 'My content 1',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1',
+                  'tags': 'blog, test', 'slug': 'my-entry-1',
                   'status': PUBLISHED}
         self.entry_1 = Entry.objects.create(**params)
         self.entry_1.authors.add(self.author)
@@ -32,7 +32,7 @@ class ZinniaSitemapsTestCase(TestCase):
         self.entry_1.sites.add(self.site)
 
         params = {'title': 'My entry 2', 'content': 'My content 2',
-                  'tags': 'zinnia', 'slug': 'my-entry-2',
+                  'tags': 'blog', 'slug': 'my-entry-2',
                   'status': PUBLISHED}
         self.entry_2 = Entry.objects.create(**params)
         self.entry_2.authors.add(self.author)
@@ -62,8 +62,8 @@ class ZinniaSitemapsTestCase(TestCase):
 
     def test_tag_sitemap(self):
         sitemap = TagSitemap()
-        zinnia_tag = Tag.objects.get(name='zinnia')
+        blog_tag = Tag.objects.get(name='blog')
         self.assertEquals(len(sitemap.items()), 2)
-        self.assertEquals(sitemap.lastmod(zinnia_tag), self.entry_2.creation_date)
-        self.assertEquals(sitemap.priority(zinnia_tag), '1.0')
-        self.assertEquals(sitemap.location(zinnia_tag), '/tags/zinnia/')
+        self.assertEquals(sitemap.lastmod(blog_tag), self.entry_2.creation_date)
+        self.assertEquals(sitemap.priority(blog_tag), '1.0')
+        self.assertEquals(sitemap.location(blog_tag), '/tags/blog/')

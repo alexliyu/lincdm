@@ -1,9 +1,9 @@
-"""Spam cleanup command module for Zinnia"""
+"""Spam cleanup command module for blog"""
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import NoArgsCommand
 
-from app.zinnia.models import Entry
+from app.blog.models import Entry
 
 
 class Command(NoArgsCommand):

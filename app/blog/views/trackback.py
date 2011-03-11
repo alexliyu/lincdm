@@ -1,4 +1,4 @@
-"""Views for Zinnia trackback"""
+"""Views for blog trackback"""
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.contrib.sites.models import Site
@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.contenttypes.models import ContentType
 from django.views.generic.simple import direct_to_template
 
-from app.zinnia.models import Entry
+from app.blog.models import Entry
 
 
 @csrf_exempt
@@ -38,7 +38,7 @@ def entry_trackback(request, slug):
             else:
                 error = u'Trackback is already registered'
 
-        return direct_to_template(request, 'zinnia/entry_trackback.xml',
+        return direct_to_template(request, 'blog/entry_trackback.xml',
                                   mimetype='text/xml',
                                   extra_context={'error': error})
 

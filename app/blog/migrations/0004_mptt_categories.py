@@ -10,36 +10,36 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
 
         # Adding field 'Category.parent'
-        db.add_column('zinnia_category', 'parent', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='children', null=True, to=orm['zinnia.Category']), keep_default=False)
+        db.add_column('blog_category', 'parent', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='children', null=True, to=orm['blog.Category']), keep_default=False)
 
         # Adding field 'Category.lft'
-        db.add_column('zinnia_category', 'lft', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
+        db.add_column('blog_category', 'lft', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
 
         # Adding field 'Category.rght'
-        db.add_column('zinnia_category', 'rght', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
+        db.add_column('blog_category', 'rght', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
 
         # Adding field 'Category.tree_id'
-        db.add_column('zinnia_category', 'tree_id', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
+        db.add_column('blog_category', 'tree_id', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
 
         # Adding field 'Category.level'
-        db.add_column('zinnia_category', 'level', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
+        db.add_column('blog_category', 'level', self.gf('django.db.models.fields.PositiveIntegerField')(default=0, db_index=True), keep_default=False)
 
     def backwards(self, orm):
 
         # Deleting field 'Category.parent'
-        db.delete_column('zinnia_category', 'parent_id')
+        db.delete_column('blog_category', 'parent_id')
 
         # Deleting field 'Category.lft'
-        db.delete_column('zinnia_category', 'lft')
+        db.delete_column('blog_category', 'lft')
 
         # Deleting field 'Category.rght'
-        db.delete_column('zinnia_category', 'rght')
+        db.delete_column('blog_category', 'rght')
 
         # Deleting field 'Category.tree_id'
-        db.delete_column('zinnia_category', 'tree_id')
+        db.delete_column('blog_category', 'tree_id')
 
         # Deleting field 'Category.level'
-        db.delete_column('zinnia_category', 'level')
+        db.delete_column('blog_category', 'level')
 
     models = {
         'auth.group': {
@@ -84,22 +84,22 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.category': {
+        'blog.category': {
             'Meta': {'object_name': 'Category'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['zinnia.Category']"}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['blog.Category']"}),
             'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '255', 'db_index': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
         },
-        'zinnia.entry': {
+        'blog.entry': {
             'Meta': {'object_name': 'Entry'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.User']", 'symmetrical': 'False', 'blank': 'True'}),
-            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['zinnia.Category']", 'symmetrical': 'False'}),
+            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Category']", 'symmetrical': 'False'}),
             'comment_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'content': ('django.db.models.fields.TextField', [], {}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -109,7 +109,7 @@ class Migration(SchemaMigration):
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
             'last_update': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'pingback_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
-            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['zinnia.Entry']"}),
+            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['blog.Entry']"}),
             'sites': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['sites.Site']", 'symmetrical': 'False'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '255', 'db_index': 'True'}),
             'start_publication': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -119,4 +119,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['zinnia']
+    complete_apps = ['blog']

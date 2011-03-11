@@ -1,15 +1,15 @@
-"""Urls for the Zinnia entries"""
+"""Urls for the blog entries"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-from app.zinnia.models import Entry
-from app.zinnia.settings import PAGINATION
-from app.zinnia.settings import ALLOW_EMPTY
-from app.zinnia.settings import ALLOW_FUTURE
+from app.blog.models import Entry
+from app.blog.settings import PAGINATION
+from app.blog.settings import ALLOW_EMPTY
+from app.blog.settings import ALLOW_FUTURE
 
 entry_conf_index = {'queryset': Entry.published.all(),
                     'paginate_by': PAGINATION,
-                    'template_name': 'zinnia/entry_archive.html'}
+                    'template_name': 'blog/entry_archive.html'}
 
 entry_conf = {'queryset': Entry.published.all(),
               'date_field': 'creation_date',
@@ -26,23 +26,23 @@ del entry_conf_detail['allow_empty']
 entry_conf_detail['queryset'] = Entry.published.on_site()
 
 
-urlpatterns = patterns('app.zinnia.views.entries',
+urlpatterns = patterns('app.blog.views.entries',
                        url(r'^$',
                            'entry_index', entry_conf_index,
-                           name='zinnia_entry_archive_index'),
+                           name='blog_entry_archive_index'),
                        url(r'^page/(?P<page>\d+)/$',
                            'entry_index', entry_conf_index,
-                           name='zinnia_entry_archive_index_paginated'),
+                           name='blog_entry_archive_index_paginated'),
                        url(r'^(?P<year>\d{4})/$',
                            'entry_year', entry_conf_year,
-                           name='zinnia_entry_archive_year'),
+                           name='blog_entry_archive_year'),
                        url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
                            'entry_month', entry_conf,
-                           name='zinnia_entry_archive_month'),
+                           name='blog_entry_archive_month'),
                        url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/$',
                            'entry_day', entry_conf,
-                           name='zinnia_entry_archive_day'),
+                           name='blog_entry_archive_day'),
                        url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
                            'entry_detail', entry_conf_detail,
-                           name='zinnia_entry_detail'),
+                           name='blog_entry_detail'),
                        )

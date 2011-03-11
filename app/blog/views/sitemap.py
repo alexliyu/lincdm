@@ -1,8 +1,8 @@
-"""Views for Zinnia sitemap"""
+"""Views for blog sitemap"""
 from django.views.generic.simple import direct_to_template
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
+from app.blog.models import Entry
+from app.blog.models import Category
 
 
 def sitemap(*ka, **kw):

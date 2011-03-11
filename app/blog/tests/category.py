@@ -1,10 +1,10 @@
-"""Test cases for Zinnia's Category"""
+"""Test cases for blog's Category"""
 from django.test import TestCase
 from django.contrib.sites.models import Site
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.managers import PUBLISHED
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.managers import PUBLISHED
 
 
 class CategoryTestCase(TestCase):
@@ -17,7 +17,7 @@ class CategoryTestCase(TestCase):
                                                    slug='category-2')]
         params = {'title': 'My entry',
                   'content': 'My content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-entry'}
 
         self.entry = Entry.objects.create(**params)
@@ -33,7 +33,7 @@ class CategoryTestCase(TestCase):
 
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'slug': 'my-second-entry'}
 

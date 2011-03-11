@@ -1,1 +1,1 @@
-"""Management module of Zinnia"""
+"""Management module of blog"""

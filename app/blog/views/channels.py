@@ -1,7 +1,7 @@
-"""Views for Zinnia channels"""
+"""Views for blog channels"""
 from django.views.generic.list_detail import object_list
 
-from app.zinnia.models import Entry
+from app.blog.models import Entry
 
 
 def entry_channel(request, query, *ka, **kw):

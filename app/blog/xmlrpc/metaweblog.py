@@ -1,4 +1,4 @@
-"""XML-RPC methods of Zinnia metaWeblog API"""
+"""XML-RPC methods of blog metaWeblog API"""
 import os
 from datetime import datetime
 from xmlrpclib import Fault
@@ -15,11 +15,11 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.template.defaultfilters import slugify
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.settings import PROTOCOL
-from app.zinnia.settings import UPLOAD_TO
-from app.zinnia.managers import DRAFT, PUBLISHED
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.settings import PROTOCOL
+from app.blog.settings import UPLOAD_TO
+from app.blog.managers import DRAFT, PUBLISHED
 from django_xmlrpc.decorators import xmlrpc_func
 
 # http://docs.nucleuscms.org/blog/12#errorcodes
@@ -46,7 +46,7 @@ def authenticate(username, password, permission=None):
 def blog_structure(site):
     """A blog structure"""
     return {'url': '%s://%s%s' % (
-        PROTOCOL, site.domain, reverse('zinnia_entry_archive_index')),
+        PROTOCOL, site.domain, reverse('blog_entry_archive_index')),
             'blogid': settings.SITE_ID,
             'blogName': site.name}
 
@@ -60,7 +60,7 @@ def user_structure(user, site):
             'firstname': user.first_name,
             'url': '%s://%s%s' % (
                 PROTOCOL, site.domain,
-                reverse('zinnia_author_detail', args=[user.username]))}
+                reverse('blog_author_detail', args=[user.username]))}
 
 
 def author_structure(user):
@@ -79,7 +79,7 @@ def category_structure(category, site):
                 category.get_absolute_url()),
             'rssUrl': '%s://%s%s' % (
                 PROTOCOL, site.domain,
-                reverse('zinnia_category_feed', args=[category.tree_path])),
+                reverse('blog_category_feed', args=[category.tree_path])),
             # Useful Wordpress Extensions
             'categoryId': category.pk,
             'parentId': category.parent and category.parent.pk or 0,
@@ -147,7 +147,7 @@ def get_authors(apikey, username, password):
 def delete_post(apikey, post_id, username, password, publish):
     """blogger.deletePost(api_key, post_id, username, password, 'publish')
     => boolean"""
-    user = authenticate(username, password, 'zinnia.delete_entry')
+    user = authenticate(username, password, 'blog.delete_entry')
     entry = Entry.objects.get(id=post_id, authors=user)
     entry.delete()
     return True
@@ -186,7 +186,7 @@ def get_categories(blog_id, username, password):
 def new_category(blog_id, username, password, category_struct):
     """wp.newCategory(blog_id, username, password, category)
     => category_id"""
-    authenticate(username, password, 'zinnia.add_category')
+    authenticate(username, password, 'blog.add_category')
     category_dict = {'title': category_struct['name'],
                      'description': category_struct['description'],
                      'slug': category_struct['slug']}
@@ -203,7 +203,7 @@ def new_category(blog_id, username, password, category_struct):
 def new_post(blog_id, username, password, post, publish):
     """metaWeblog.newPost(blog_id, username, password, post, publish)
     => post_id"""
-    user = authenticate(username, password, 'zinnia.add_entry')
+    user = authenticate(username, password, 'blog.add_entry')
     if post.get('dateCreated'):
         creation_date = datetime.strptime(
             post['dateCreated'].value.replace('Z', '').replace('-', ''),
@@ -228,7 +228,7 @@ def new_post(blog_id, username, password, post, publish):
     entry = Entry.objects.create(**entry_dict)
 
     author = user
-    if 'wp_author_id' in post and user.has_perm('zinnia.can_change_author'):
+    if 'wp_author_id' in post and user.has_perm('blog.can_change_author'):
         if int(post['wp_author_id']) != user.pk:
             author = User.objects.get(pk=post['wp_author_id'])
     entry.authors.add(author)
@@ -247,7 +247,7 @@ def new_post(blog_id, username, password, post, publish):
 def edit_post(post_id, username, password, post, publish):
     """metaWeblog.editPost(post_id, username, password, post, publish)
     => boolean"""
-    user = authenticate(username, password, 'zinnia.change_entry')
+    user = authenticate(username, password, 'blog.change_entry')
     entry = Entry.objects.get(id=post_id, authors=user)
     if post.get('dateCreated'):
         creation_date = datetime.strptime(
@@ -272,7 +272,7 @@ def edit_post(post_id, username, password, post, publish):
     entry.password = post.get('wp_password', '')
     entry.save()
 
-    if 'wp_author_id' in post and user.has_perm('zinnia.can_change_author'):
+    if 'wp_author_id' in post and user.has_perm('blog.can_change_author'):
         if int(post['wp_author_id']) != user.pk:
             author = User.objects.get(pk=post['wp_author_id'])
             entry.authors.clear()

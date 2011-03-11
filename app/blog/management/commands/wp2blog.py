@@ -1,4 +1,4 @@
-"""WordPress to Zinnia command module"""
+"""WordPress to blog command module"""
 import sys
 from datetime import datetime
 from optparse import make_option
@@ -18,16 +18,16 @@ from django.core.management.base import LabelCommand
 
 from tagging.models import Tag
 
-from app.zinnia import __version__
-from app.zinnia.models import Entry
-from app.zinnia.models import Category
-from app.zinnia.managers import DRAFT, HIDDEN, PUBLISHED
+from app.blog import __version__
+from app.blog.models import Entry
+from app.blog.models import Category
+from app.blog.managers import DRAFT, HIDDEN, PUBLISHED
 
 
 class Command(LabelCommand):
     """Command object for importing a WordPress blog
-    into Zinnia via a WordPress eXtended RSS (WXR) file."""
-    help = 'Import a Wordpress blog into Zinnia.'
+    into blog via a WordPress eXtended RSS (WXR) file."""
+    help = 'Import a Wordpress blog into blog.'
     label = 'WXR file'
     args = 'wordpress.xml'
 
@@ -54,11 +54,11 @@ class Command(LabelCommand):
         self.style.TITLE = self.style.SQL_FIELD
         self.style.STEP = self.style.SQL_COLTYPE
         self.style.ITEM = self.style.HTTP_INFO
-        # Disconnecting signals provided by Zinnia
+        # Disconnecting signals provided by blog
         post_save.disconnect(sender=Entry,
-                             dispatch_uid='zinnia.entry.post_save.ping_directories')
+                             dispatch_uid='blog.entry.post_save.ping_directories')
         post_save.disconnect(sender=Entry,
-                             dispatch_uid='zinnia.entry.post_save.ping_external_urls')
+                             dispatch_uid='blog.entry.post_save.ping_external_urls')
 
     def write_out(self, message, verbosity_level=1):
         """Convenient method for outputing"""
@@ -76,7 +76,7 @@ class Command(LabelCommand):
             except User.DoesNotExist:
                 raise CommandError('Invalid username for default author')
 
-        self.write_out(self.style.TITLE('Starting migration from Wordpress to Zinnia %s:\n' % __version__))
+        self.write_out(self.style.TITLE('Starting migration from Wordpress to blog %s:\n' % __version__))
 
         tree = ET.parse(wxr_file)
 

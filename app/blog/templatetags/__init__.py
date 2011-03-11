@@ -1,1 +1,1 @@
-"""Templatetags for Zinnia"""
+"""Templatetags for blog"""

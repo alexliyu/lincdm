@@ -1,14 +1,14 @@
-"""Sitemaps for Zinnia"""
+"""Sitemaps for blog"""
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
 
 from tagging.models import TaggedItem
 
-from app.zinnia.models import Entry
-from app.zinnia.models import Author
-from app.zinnia.models import Category
-from app.zinnia.managers import tags_published
-from app.zinnia.managers import entries_published
+from app.blog.models import Entry
+from app.blog.models import Author
+from app.blog.models import Category
+from app.blog.managers import tags_published
+from app.blog.managers import entries_published
 
 
 class EntrySitemap(Sitemap):
@@ -76,7 +76,7 @@ class AuthorSitemap(Sitemap):
 
     def location(self, obj):
         """Return url of an author"""
-        return reverse('zinnia_author_detail', args=[obj.username])
+        return reverse('blog_author_detail', args=[obj.username])
 
 
 class TagSitemap(Sitemap):
@@ -112,4 +112,4 @@ class TagSitemap(Sitemap):
 
     def location(self, obj):
         """Return url of a tag"""
-        return reverse('zinnia_tag_detail', args=[obj.name])
+        return reverse('blog_tag_detail', args=[obj.name])
