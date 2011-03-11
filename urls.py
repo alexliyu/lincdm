@@ -12,6 +12,7 @@ from app.blog.sitemaps import TagSitemap
 from app.blog.sitemaps import EntrySitemap
 from app.blog.sitemaps import CategorySitemap
 from app.blog.sitemaps import AuthorSitemap
+from app.planet.views import posts_list 
 import os
 admin.autodiscover()
 
@@ -34,6 +35,7 @@ urlpatterns = patterns('',
      #url(r'^admin_tools/', include('admin_tools.urls')),
      (r'^grappelli/', include('grappelli.urls')),
      (r'^admin/filebrowser/', include('filebrowser.urls')),
+     (r'^share/', include('app.planet.urls')),
      
      
 )
@@ -42,6 +44,9 @@ urlpatterns += patterns('django.contrib.staticfiles.views',
         url(r'^media/(?P<path>.*)$', 'serve'),
         )
         
+urlpatterns += patterns('',
+    (r'^planet', posts_list),
+)
 sitemaps = {'tags': TagSitemap,
             'blog': EntrySitemap,
             'authors': AuthorSitemap,

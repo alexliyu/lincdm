@@ -14,6 +14,9 @@ LINCDM_NAME = 'LinCDM'
 LINCDM_TITLE = u'基于Django的开源博客' 
 GRAPPELLI_ADMIN_TITLE = LINCDM_NAME
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+LANGUAGE_COOKIE_NAME = "planetlng"
+SESSION_COOKIE_NAME = "planetid"
+USER_AGENT = "django-planet/0.1"
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -123,6 +126,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'pagination.middleware.PaginationMiddleware',
+     'django.middleware.http.ConditionalGetMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
 )
 
 ROOT_URLCONF = 'lincdm.urls'
@@ -152,6 +158,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'app.blog.context_processors.media',
     'app.blog.context_processors.sitename',
     'app.blog.context_processors.sitetitle',
+    'app.planet.context_processors.context',
 )
 
 INSTALLED_APPS = (
@@ -171,7 +178,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'lincdm',
+    'app.planet',
     'tagging',
+    'pagination',
     'mptt',
     'django_xmlrpc',
     'app.blog',

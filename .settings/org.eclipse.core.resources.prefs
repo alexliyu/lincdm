@@ -1,4 +1,4 @@
-#Sat Mar 12 02:28:35 CST 2011
+#Sat Mar 12 03:07:31 CST 2011
 eclipse.preferences.version=1
 encoding//app/autoslug/__init__.py=utf-8
 encoding//app/autoslug/__version.py=utf-8
@@ -10,6 +10,20 @@ encoding//app/blog/migrations/0006_entry_template.py=utf-8
 encoding//app/feedblog/checkdb.py=utf-8
 encoding//app/feedblog/feedblog.py=utf-8
 encoding//app/feedblog/feedmodel.py=utf-8
+encoding//app/planet/__init__.py=utf-8
+encoding//app/planet/admin.py=utf-8
+encoding//app/planet/context_processors.py=utf-8
+encoding//app/planet/feeds.py=utf-8
+encoding//app/planet/forms.py=utf-8
+encoding//app/planet/management/commands/__init__.py=utf-8
+encoding//app/planet/management/commands/add_feed.py=utf-8
+encoding//app/planet/management/commands/update_all_feeds.py=utf-8
+encoding//app/planet/management/commands/update_feed.py=utf-8
+encoding//app/planet/managers.py=utf-8
+encoding//app/planet/models.py=utf-8
+encoding//app/planet/templatetags/planet_tags.py=utf-8
+encoding//app/planet/urls.py=utf-8
+encoding//app/planet/views.py=utf-8
 encoding//lib/BeautifulSoup.py=utf-8
 encoding//lib/gbtools.py=utf-8
 encoding//lib/html_filter.py=utf-8
