@@ -11,7 +11,7 @@ from BeautifulSoup import BeautifulSoup
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 
-from app.blog.settings import PROTOCOL
+from settings import PROTOCOL
 
 
 class URLRessources(object):

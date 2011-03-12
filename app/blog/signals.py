@@ -1,5 +1,5 @@
 """Signal handlers of blog"""
-from app.blog import settings
+import settings
 
 
 def ping_directories_handler(sender, **kwargs):

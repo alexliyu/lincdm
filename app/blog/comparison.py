@@ -2,8 +2,8 @@
 Based on clustered_models app"""
 from math import sqrt
 
-from app.blog.settings import F_MIN
-from app.blog.settings import F_MAX
+from settings import F_MIN
+from settings import F_MAX
 
 
 def pearson_score(list1, list2):

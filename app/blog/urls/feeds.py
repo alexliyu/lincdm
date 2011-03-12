@@ -12,7 +12,7 @@ from app.blog.feeds import TagEntries, AtomTagEntries
 from app.blog.feeds import CategoryEntries, AtomCategoryEntries
 from app.blog.feeds import AuthorEntries, AtomAuthorEntries
 
-from app.blog.settings import FEEDS_FORMAT
+from settings import FEEDS_FORMAT
 
 if FEEDS_FORMAT == 'atom':
     urlpatterns = patterns('',

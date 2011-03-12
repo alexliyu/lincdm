@@ -13,7 +13,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.contenttypes.models import ContentType
 
 from app.blog.models import Entry
-from app.blog.settings import PINGBACK_CONTENT_LENGTH
+from settings import PINGBACK_CONTENT_LENGTH
 from BeautifulSoup import BeautifulSoup
 from django_xmlrpc.decorators import xmlrpc_func
 

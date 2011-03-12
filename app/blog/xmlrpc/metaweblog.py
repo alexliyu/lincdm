@@ -17,8 +17,8 @@ from django.template.defaultfilters import slugify
 
 from app.blog.models import Entry
 from app.blog.models import Category
-from app.blog.settings import PROTOCOL
-from app.blog.settings import UPLOAD_TO
+from settings import PROTOCOL
+from settings import UPLOAD_TO
 from app.blog.managers import DRAFT, PUBLISHED
 from django_xmlrpc.decorators import xmlrpc_func
 

@@ -3,7 +3,7 @@ from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
 from app.blog.models import Entry
-from app.blog.settings import PAGINATION
+from settings import PAGINATION
 from app.blog.managers import tags_published
 
 tag_conf = {'queryset': tags_published(),

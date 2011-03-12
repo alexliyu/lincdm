@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse, NoReverseMatch
 
 from tagging.models import Tag
 
-from app.blog import settings
+import settings
 from app.blog.managers import HIDDEN
 from app.blog.managers import PUBLISHED
 from app.blog.ping import DirectoryPinger

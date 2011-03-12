@@ -3,9 +3,9 @@ from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
 from app.blog.models import Entry
-from app.blog.settings import PAGINATION
-from app.blog.settings import ALLOW_EMPTY
-from app.blog.settings import ALLOW_FUTURE
+from settings import PAGINATION
+from settings import ALLOW_EMPTY
+from settings import ALLOW_FUTURE
 
 entry_conf_index = {'queryset': Entry.published.all(),
                     'paginate_by': PAGINATION,
