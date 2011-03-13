@@ -14,9 +14,9 @@ from tagging.models import Tag
 from tagging.models import TaggedItem
 
 from app.blog.models import Entry
-from settings import COPYRIGHT
-from settings import PROTOCOL
-from settings import FEEDS_MAX_ITEMS
+from lincdm.settings import COPYRIGHT
+from lincdm.settings import PROTOCOL
+from lincdm.settings import FEEDS_MAX_ITEMS
 from app.blog.managers import entries_published
 from app.blog.views.categories import get_category_or_404
 

@@ -18,10 +18,10 @@ from django.utils.translation import ugettext_lazy as _
 import mptt
 from tagging.fields import TagField
 
-from settings import USE_BITLY
-from settings import UPLOAD_TO
-from settings import ENTRY_TEMPLATES
-from settings import ENTRY_BASE_MODEL
+from lincdm.settings import USE_BITLY
+from lincdm.settings import UPLOAD_TO
+from lincdm.settings import ENTRY_TEMPLATES
+from lincdm.settings import ENTRY_BASE_MODEL
 from app.blog.managers import entries_published
 from app.blog.managers import EntryPublishedManager
 from app.blog.managers import AuthorPublishedManager

@@ -3,7 +3,7 @@ from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 from django.contrib.sites.models import Site
 
-from settings import PROTOCOL
+from lincdm.settings import PROTOCOL
 
 extra_context = {'protocol': PROTOCOL,
                  'site': Site.objects.get_current()}

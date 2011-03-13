@@ -1,6 +1,6 @@
 """Context Processors for blog"""
 from app.blog import __version__
-from settings import LINCDM_NAME, LINCDM_TITLE, MEDIA_URL
+from lincdm.settings import LINCDM_NAME, LINCDM_TITLE, MEDIA_URL
 def media(request):
     """Adds media-related context variables to the context"""
     return {'blog_MEDIA_URL': MEDIA_URL}

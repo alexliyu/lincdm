@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 
 from app.blog.models import Author
-from settings import PAGINATION
+from lincdm.settings import PAGINATION
 from app.blog.views.decorators import update_queryset
 
 

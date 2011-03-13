@@ -9,10 +9,10 @@ from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.comments.moderation import CommentModerator
 
-from settings import PROTOCOL
-from settings import MAIL_COMMENT
-from settings import MAIL_COMMENT_REPLY
-from settings import AKISMET_COMMENT
+from lincdm.settings import PROTOCOL
+from lincdm.settings import MAIL_COMMENT
+from lincdm.settings import MAIL_COMMENT_REPLY
+from lincdm.settings import AKISMET_COMMENT
 
 AKISMET_API_KEY = getattr(settings, 'AKISMET_SECRET_API_KEY', '')
 
