@@ -32,16 +32,20 @@
     <div class="container">
       <div id="header" class="span-24 last">
 	<div class="top-navigation">
+	  <a href="/share" title="{% trans "Share" %}" class="link feeds">
+	    {% trans "Share" %}
+	  </a> |
 	  <a href="{% url blog_sitemap %}" title="{% trans "Sitemap" %}" class="link sitemap">
 	    {% trans "Sitemap" %}
 	  </a> |
+	  
 	  <a href="{% url blog_entry_latest_feed %}" title="{% trans "RSS Feed of latest entries" %}" class="link feeds">
 	    {% trans "RSS Feed" %}
 	  </a>
 	</div>
 	<h1>
 	  <a href="{% url blog_entry_archive_index %}" title="{{LINCDM_TITLE}}" rel="home">
-	    {{LINCDM_NAME}}
+	    {{site.name}}
 	  </a>
 	</h1>
 	<blockquote>

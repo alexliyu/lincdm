@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-blog-blog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-12 15:47-0600\n"
+"POT-Creation-Date: 2011-03-12 23:57-0600\n"
 "PO-Revision-Date: 2011-02-05 17:15+0100\n"
 "Last-Translator: Fantomas <Fantomas42@gmail.com>\n"
 "Language-Team: French <fantomas42@gmail.com>\n"
@@ -613,8 +613,8 @@ msgstr "Accueil du blog"
 #: app/blog/templates/500.html:29 app/blog/templates/500.html.py:30
 #: app/blog/templates/blog/sitemap.html:4
 #: app/blog/templates/blog/sitemap.html:7
-#: app/blog/templates/blog/skeleton.html:35
-#: app/blog/templates/blog/skeleton.html:36
+#: app/blog/templates/blog/skeleton.html:38
+#: app/blog/templates/blog/skeleton.html:39
 msgid "Sitemap"
 msgstr "Carte du site"
 
@@ -1010,7 +1010,7 @@ msgstr "URL de Trackback"
 #: app/blog/templates/blog/entry_list.html:7
 #: app/blog/templates/blog/entry_list.html:10
 #: app/blog/templates/blog/entry_list.html:13
-#: app/blog/templates/blog/skeleton.html:39 grappelli/dashboard/modules.py:353
+#: app/blog/templates/blog/skeleton.html:43 grappelli/dashboard/modules.py:353
 msgid "RSS Feed"
 msgstr "Flux RSS"
 
@@ -1160,9 +1160,14 @@ msgid "No categories yet."
 msgstr "Pas encore de catégories."
 
 #: app/blog/templates/blog/skeleton.html:26
-#: app/blog/templates/blog/skeleton.html:38
+#: app/blog/templates/blog/skeleton.html:42
 msgid "RSS Feed of latest entries"
 msgstr "Flux RSS des derniers articles"
+
+#: app/blog/templates/blog/skeleton.html:35
+#: app/blog/templates/blog/skeleton.html:36
+msgid "Share"
+msgstr ""
 
 #: app/blog/templates/blog/tag_list.html:7
 msgid "Tag list"
