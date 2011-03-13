@@ -5,8 +5,6 @@ Created on 2011-1-30
 @author: 李昱
 '''
 import os
-from celery.app import App
-
 gettext = lambda s: s
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
