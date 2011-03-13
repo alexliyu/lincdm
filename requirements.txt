@@ -20,12 +20,10 @@ easy-thumbnails==1.0-alpha-16
 feedparser==4.1
 gevent==0.13.3
 greenlet==0.3.1
-lxml==2.2.6
-oauth==1.0a
 pycrypto==2.0.1
 pycurl==7.19.0
 pyparsing==1.5.5
-pysqlite==1.0.1
+pysqlite
 python-gettext==1.0
 pywsgi==0.9.0
 simplejson==2.1.1
