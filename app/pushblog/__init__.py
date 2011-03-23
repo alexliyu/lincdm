@@ -1,1 +1,1 @@
-﻿from pushblog import *
+﻿
