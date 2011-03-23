@@ -78,11 +78,11 @@ MEDIA_URL = '/static/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/alex/lincdm/lincdm/static/'
+STATIC_ROOT = '/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://127.0.0.1:8000/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -212,7 +212,7 @@ LOGGING = {
     }
 }
 
-PING_DIRECTORIES = 'http://www.3344520.tk/xmlrpc/'
+PING_DIRECTORIES = 'http://127.0.0.1:8000/xmlrpc/'
 SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
 SAVE_PING_EXTERNAL_URLS = True
 
@@ -235,7 +235,7 @@ AKISMET_COMMENT = True
 UPLOAD_TO = 'uploads'
 
 PROTOCOL = 'http'
-MEDIA_URL = os.path.join(MEDIA_URL, 'blog/')
+#MEDIA_URL = os.path.join(MEDIA_URL, 'blog/')
 
 FEEDS_FORMAT = 'rss'
 FEEDS_MAX_ITEMS = 15
