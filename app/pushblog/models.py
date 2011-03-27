@@ -112,10 +112,10 @@ class PushMethod():
 						"password":pushitem.password
 						}
 				form_data = urllib.urlencode(form_fields)
-				url='http://blog.163.com/common/targetgo.s'
-				headers={'Content-Type': 'application/x-www-form-urlencoded'}
-				req=urllib2.Request(url,form_data,headers)
-				result=urllib2.urlopen(req)
+				url = 'http://blog.163.com/common/targetgo.s'
+				headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+				req = urllib2.Request(url, form_data, headers)
+				result = urllib2.urlopen(req)
 
 				if result.status_code == 200:
 						return self.Get_True(model, pushitem)
@@ -256,11 +256,11 @@ class PushMethod():
 			  "content": msg,
 			}
 			form_data = urllib.urlencode(form_fields)
-			url='http://t.sina.com.cn/mblog/publish.php?rnd=0.5100760071072727'
-			headers={'Referer':'http://t.sina.com.cn', 'Cookie' : self.make_cookie_header(cookie)}
+			url = 'http://t.sina.com.cn/mblog/publish.php?rnd=0.5100760071072727'
+			headers = {'Referer':'http://t.sina.com.cn', 'Cookie' : self.make_cookie_header(cookie)}
 			try:
-				req=urllib2.Request(url,form_data,headers)
-				result=urllib2.urlopen(req)
+				req = urllib2.Request(url, form_data, headers)
+				result = urllib2.urlopen(req)
 			except:
 						return False
 			if result.status_code == 200:
@@ -292,11 +292,12 @@ class PushMethod():
 				  "status": msg,
 				}
 				form_data = urllib.urlencode(form_fields)
+				url = 'http://t.163.com/statuses/update.do'
+				headers = {'Referer':'http://t.163.com', 'Cookie' : self.make_cookie_header(cookie)}
+				
 				try:
-					result = urllib2.urlopen(url="http://t.163.com/statuses/update.do",
-									payload=form_data,
-									method=urlfetch.POST,
-									headers={'Referer':'http://t.163.com', 'Cookie' : self.make_cookie_header(cookie)})
+					req = urllib2.Request(url, form_data, headers)
+					result = urllib2.urlopen(req)
 				except Exception, data:
 							logging.info(data)
 							return False
@@ -321,15 +322,13 @@ class PushMethod():
 										"UserLoginForm[rememberMe]":1
 										}
 								form_data = urllib.urlencode(form_fields)
-								result = urllib2.urlopen(url="http://t.baidu.com/userlogin",
-										payload=form_data,
-										method=urlfetch.POST,
-										follow_redirects=False,
-										headers={'Referer':'http://t.baidu.com/',
+								url = 'http://t.163.com/statuses/update.do'
+								headers = {'Referer':'http://t.baidu.com/',
 												'Content-Type': 'application/x-www-form-urlencoded',
 												'user-agent':'Mozilla/5.0 (Linux; U; Linux i686; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.4.2.80 Safari/525.13'
 											}
-											)
+								req = urllib2.Request(url, form_data, headers)
+								result = urllib2.urlopen(req)
 						except Exception:
 								return False
 						if result.status_code == 302:
@@ -351,12 +350,11 @@ class PushMethod():
 						"pic_filename_water":'',
 				}
 				form_data = urllib.urlencode(form_fields)
+				url = 'http://t.baidu.com/message/post'
+				headers = {'Referer':'http://t.baidu.com/', 'Cookie' : cookie}
 				try:
-					result = urllib2.urlopen(url="http://t.baidu.com/message/post",
-									payload=form_data,
-									method=urlfetch.POST,
-									follow_redirects=False,
-									headers={'Referer':'http://t.baidu.com/', 'Cookie' : cookie})
+					req = urllib2.Request(url, form_data, headers)
+					result = urllib2.urlopen(req)
 				except Exception, data:
 							logging.info(data)
 							return False
@@ -364,20 +362,7 @@ class PushMethod():
 							return True
 				else:
 							return False
-		def Add_baidu_firend(self, cookie):
-				rid = str(random.randint(100, 99999))
-				
-				form_fields = {
-						"uid":rid,
-						"t":'t',
-				}
-				form_data = urllib.urlencode(form_fields)
-				result = urllib2.urlopen(url="http://t.baidu.com/follow/setfollow",
-									payload=form_data,
-									method=urlfetch.POST,
-									follow_redirects=False,
-									headers={'Referer':'http://t.baidu.com/', 'Cookie' : cookie})
-
+		
 		def Get_qzone2(self, model, pushitem, **kwargs):
 				"""
 				this method is used to get login to website,and put the content to the qzone
@@ -565,15 +550,14 @@ class PushMethod():
 
 
 		def do_redirect(self, url, cookie):
-				result = urllib2.urlopen(
-				url=url,
-				headers={'Cookie':cookie,
+			url = url
+			headers = {'Cookie':cookie,
 					'Content-Type': 'application/x-www-form-urlencoded',
-					'user-agent':'Mozilla/5.0 (Linux; U; Linux i686; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.4.2.80 Safari/525.13', },
-					method=urlfetch.GET,
-					follow_redirects=False,
-					)
-				return result, cookie
+					'user-agent':'Mozilla/5.0 (Linux; U; Linux i686; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.4.2.80 Safari/525.13', }
+			req = urllib2.Request(url, form_data, headers)
+			result = urllib2.urlopen(req)
+				
+			return result, cookie
 
 		def send_qq_msgs(self, username, password, msg, memcachekey):
 			"""
@@ -597,15 +581,15 @@ class PushMethod():
 			  "viewModel":1
 			}
 			form_data = urllib.urlencode(form_fields)
-			try:
-				result = urllib2.urlopen(url="http://t.qq.com/publish.php?rnd=0.5100760071072727",
-								payload=form_data,
-								method=urlfetch.POST,
-								headers={'Referer':'http://t.qq.com',
+			url = 'http://t.qq.com/publish.php?rnd=0.5100760071072727'
+			headers = {'Referer':'http://t.qq.com',
 								'Cookie' : cookie,
 								'user-agent':'Mozilla/5.0 (Linux; U; Linux i686; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.4.2.80 Safari/525.13',
 
-								}, follow_redirects=False)
+								}
+			try:
+				req = urllib2.Request(url, form_data, headers)
+				result = urllib2.urlopen(req)
 			except:
 						return False
 			if result.status_code == 200:
