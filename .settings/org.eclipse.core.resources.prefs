@@ -1,4 +1,4 @@
-#Sun Mar 27 17:14:22 CST 2011
+#Thu Apr 21 00:33:26 CST 2011
 eclipse.preferences.version=1
 encoding//app/autoslug/__init__.py=utf-8
 encoding//app/autoslug/__version.py=utf-8
@@ -27,6 +27,8 @@ encoding//app/planet/models.py=utf-8
 encoding//app/planet/templatetags/planet_tags.py=utf-8
 encoding//app/planet/urls.py=utf-8
 encoding//app/planet/views.py=utf-8
+encoding//app/pushblog/management/commands/__init__.py=utf-8
+encoding//app/pushblog/management/commands/add_feed.py=utf-8
 encoding//app/pushblog/models.py=utf-8
 encoding//app/pushblog/pusharticle.py=utf-8
 encoding//app/pushblog/pushblog.py=utf-8

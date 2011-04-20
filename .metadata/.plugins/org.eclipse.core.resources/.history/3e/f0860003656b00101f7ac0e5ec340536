@@ -1,0 +1,7 @@
+#Wed Nov 17 16:13:29 CST 2010
+package_name=jQuery Samples 
+package_type=SAMPLE_CODE
+
+#remove pack_template_id, pack_template_version if you customized your own one
+pack_template_id=jquery_samples
+pack_template_version=1.0.0

@@ -24,7 +24,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/alex/lincdm/lincdm/data', # Or path to database file if using sqlite3.
+        'NAME': '/home/alex/lincdm/data', # Or path to database file if using sqlite3.
         'USER': '', # Not used with sqlite3.
         'PASSWORD': '', # Not used with sqlite3.
         'HOST': '', # Set to empty string for localhost. Not used with sqlite3.
@@ -211,8 +211,14 @@ LOGGING = {
         },
     }
 }
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
-PING_DIRECTORIES = ['http://127.0.0.1:8000/xmlrpc/',]
+PING_DIRECTORIES = ['http://127.0.0.1:8000/xmlrpc/', ]
 SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
 SAVE_PING_EXTERNAL_URLS = True
 

@@ -1,0 +1,7 @@
+#Tue Apr 14 16:03:29 CST 2009
+package_name=Application Samples 
+package_type=SAMPLE_CODE
+
+#remove pack_template_id, pack_template_version if you customized your own one
+pack_template_id=app_samples
+pack_template_version=0.9.5

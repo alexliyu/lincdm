@@ -144,7 +144,7 @@ class IfParser(object):
         token, negate = self.get_token('Reached end of statement, still '
                                        'expecting a variable.')
         if isinstance(token, basestring) and token in OPERATORS:
-            raise self.error_class('Expected variable, got operator (%s).' %
+            raise self.error_class('Expected variable, got operator (%s).' % 
                                    token)
         var = self.create_var(token)
         if negate:

@@ -14,9 +14,9 @@
 #  Copyright Š 2010 alexliyu email:alexliyu2012@gmail.com
 from base import *
 from datetime import datetime, timedelta
-from lincdm.lib import htmllib
-from app.htmllib import HTMLStripper
-from lincdm.lib.gbtools import stringQ2B
+from lib import htmllib
+from lib.htmllib import HTMLStripper
+from lib.gbtools import stringQ2B
 from django.db import models
 from datetime import datetime
 import hashlib
@@ -27,7 +27,7 @@ import time
 import urllib, urllib2, Cookie, random
 # import the logging library
 import logging
-
+from django.core.cache import cache
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
@@ -274,8 +274,8 @@ class PushMethod():
 				the msgs parameter is a message list, not a single string.
 				"""
 				cookie = ''
-				if memcache.get(memcachekey):
-						cookie = memcache.get(memcachekey)
+				if cache.get(memcachekey):
+						cookie = cache.get(memcachekey)
 				else:
 						try:
 								result = urllib2.urlopen(url="https://reg.163.com/logins.jsp?username=%s&password=%s&product=t&type=1" % (username, password))
@@ -286,7 +286,7 @@ class PushMethod():
 						else:
 							return False
 						cookie = Cookie.SimpleCookie(result.headers.get('set-cookie', ''))
-						memcache.set(memcachekey, cookie, 36000)
+						cache.set(memcachekey, cookie, 36000)
 				msg = unescape(msg)
 				form_fields = {
 				  "status": msg,
@@ -312,8 +312,8 @@ class PushMethod():
 				the msgs parameter is a message list, not a single string.
 				"""
 				cookie = ''
-				if memcache.get(memcachekey):
-						cookie = memcache.get(memcachekey)
+				if cache.get(memcachekey):
+						cookie = cache.get(memcachekey)
 				else:
 						try:
 								form_fields = {
@@ -339,7 +339,7 @@ class PushMethod():
 						callback_url = result.headers.get('location', '')
 						cookie = self.make_cookie_header(cookie)
 						#result,cookie = self.do_redirect(callback_url, cookie)
-						memcache.set(memcachekey, cookie, 36000)
+						cache.set(memcachekey, cookie, 36000)
 				self.Add_baidu_firend(cookie)
 				msg = unescape(msg)
 				form_fields = {
@@ -441,13 +441,13 @@ class PushMethod():
 			"""
 			memcachekey = 'send_qzone2'
 			cookie = ''
-			if memcache.get(memcachekey):
-				cookie = memcache.get(memcachekey)
+			if cache.get(memcachekey):
+				cookie = cache.get(memcachekey)
 				logging.info('get cookie from memcache')
 			else:
 				result, oldcookie = self.Get_qzone2_val(username, password)
 				cookie = '%s;%s' % (result.headers.get('set-cookie', ''), oldcookie)
-				memcache.set(memcachekey, cookie, 36000)
+				cache.set(memcachekey, cookie, 36000)
 				logging.info('set cookie')
 				
 			tmphash = self.Tmp_skey_get(cookie)
@@ -565,14 +565,14 @@ class PushMethod():
 			the msgs parameter is a message list, not a single string.
 			"""
 			cookie = ''
-			if memcache.get(memcachekey):
-				cookie = memcache.get(memcachekey)
+			if cache.get(memcachekey):
+				cookie = cache.get(memcachekey)
 			else:
 				result, oldcookie = self.Get_qq_msg_val(username, password)
 				if result == False:
 					return False
 				cookie = '%s;%s' % (result.headers.get('set-cookie', ''), oldcookie)
-				memcache.set(memcachekey, cookie, 36000)
+				cache.set(memcachekey, cookie, 36000)
 			msg = unescape(msg)
 			form_fields = {
 			  "content": msg,
@@ -611,27 +611,27 @@ class PushMethod():
 
 
 def unescape(text):
-   """Removes HTML or XML character references
-      and entities from a text string.
-   from Fredrik Lundh
-   http://effbot.org/zone/re-sub.htm#unescape-html
-   """
-   def fixup(m):
-       text = m.group(0)
-       if text[:2] == "&#":
-           # character reference
-           try:
-               if text[:3] == "&#x":
-                   return unichr(int(text[3:-1], 16))
-               else:
-                   return unichr(int(text[2:-1]))
-           except ValueError:
-               pass
-       else:
-           # named entity
-           try:
-               text = unichr(htmlentitydefs.name2codepoint[text[1:-1]])
-           except KeyError:
-               pass
-       return text # leave as is
-   return re.sub("&#?\w+;", fixup, text)
+	"""Removes HTML or XML character references
+	   and entities from a text string.
+	from Fredrik Lundh
+	http://effbot.org/zone/re-sub.htm#unescape-html
+	"""
+	def fixup(m):
+		text = m.group(0)
+		if text[:2] == "&#":
+			# character reference
+			try:
+				if text[:3] == "&#x":
+					return unichr(int(text[3:-1], 16))
+				else:
+					return unichr(int(text[2:-1]))
+			except ValueError:
+				pass
+		else:
+			# named entity
+			try:
+				text = unichr(htmlentitydefs.name2codepoint[text[1:-1]])
+			except KeyError:
+				pass
+		return text # leave as is
+	return re.sub("&#?\w+;", fixup, text)

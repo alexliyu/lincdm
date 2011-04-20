@@ -11,4 +11,4 @@
 
 from fields import AutoSlugField
 
-__all__     = ['AutoSlugField']
+__all__ = ['AutoSlugField']
