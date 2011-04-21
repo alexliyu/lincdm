@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License along with
 # CDM SYSTEM. If not, see <http://www.gnu.org/licenses/>.
 #  Copyright Š 2010 alexliyu email:alexliyu2012@gmail.com
-from app.blog.models import Entry
+from app.blog.models import EntryAbstractClass as Entry
 from app.pushblog.models import PushList, PushMethod
 from datetime import datetime, timedelta
 from django.core.management.base import BaseCommand
@@ -24,30 +24,33 @@ logger = logging.getLogger(__name__)
 
 class Command(BaseCommand):
 	def handle(self, *args, **options):
-		Pusharticle().Push(self)
+		if not len(args):
+			print "You must provide the feed url as parameter"
+			exit(0)
+		feed_url = args[0]
+		# process feed in create-mode
+		Pusharticle.Push(self)
 		
 class Pusharticle:
 
 
 		def Push(self, page=None, *arg1, **arg2):
-				listits = PushList.objects.all()
+				listits = PushList.objects.values_list()
 				logging.info('start to Push Article')
-				i = 0
 				for pushitem in listits:
-						print i
-						i += 1
 						push_retrieval_deadline = datetime.now() - timedelta(minutes=pushitem.pushtime)
 						if pushitem.last_retrieved > push_retrieval_deadline:
 							logging.info('Skipping entry %s.', pushitem.name)
 							continue
-						
-						if pushitem.latest:									
-										entry = Entry.objects.filter(last_update__gt=pushitem.latest).order_by('last_update')[:1][0]
-						else:
-										entry = Entry.objects.order_by('last_update')
-						
+						try:
+								if pushitem.latest:
+										entry = Entry.objects.all().filter('categories = ', pushitem.category).filter('date > ', pushitem.latest).order('date').fetch(1)[0]
+								else:
+										entry = Entry.objects.all().filter('categories = ', pushitem.category).order('date').fetch(1)[0]
+						except:
+								entry = None
 						if entry:
-								print entry.title
+
 								logging.info('Getting entry %s.', entry.title)
 								kwargs = dict((['model', entry],
 										['pushitem', pushitem]

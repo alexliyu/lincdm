@@ -183,6 +183,7 @@ INSTALLED_APPS = (
     'django_xmlrpc',
     'app.blog',
     'lincdm.app.fetchblog',
+    'lincdm.app.pushblog',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -212,7 +213,7 @@ LOGGING = {
     }
 }
 
-PING_DIRECTORIES = ['http://127.0.0.1:8000/xmlrpc/',]
+PING_DIRECTORIES = ['http://127.0.0.1:8000/xmlrpc/', ]
 SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
 SAVE_PING_EXTERNAL_URLS = True
 
