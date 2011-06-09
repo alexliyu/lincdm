@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -276,3 +277,6 @@ def process_feed(feed_url, create=False):
 
     print
     return new_posts_count
+=======
+"""Commands module of blog"""
+>>>>>>> 39ddaac01ddba11024a2c514d4a2e06a654cc9b8

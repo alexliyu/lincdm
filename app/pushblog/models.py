@@ -12,19 +12,20 @@
 # You should have received a copy of the GNU General Public License along with
 # CDM SYSTEM. If not, see <http://www.gnu.org/licenses/>.
 #  Copyright Š 2010 alexliyu email:alexliyu2012@gmail.com
-from base import *
 from datetime import datetime, timedelta
 from lib import htmllib
 from lib.htmllib import HTMLStripper
 from lib.gbtools import stringQ2B
 from django.db import models
 from datetime import datetime
+from app.blog.models import Category
 import hashlib
 import base64
 import re
 import htmlentitydefs
 import time
 import urllib, urllib2, Cookie, random
+from urllib2 import URLError
 # import the logging library
 import logging
 from django.core.cache import cache
@@ -32,37 +33,36 @@ from django.core.cache import cache
 logger = logging.getLogger(__name__)
 
 class PushsList(models.Model):
-		author_name = models.CharField()
-		title = models.CharField(multiline=False, default='')
+		author_name = models.CharField(max_length=20)
+		title = models.CharField(default='', max_length=50)
 		date = models.DateTimeField(auto_now_add=True)
-		tags = models.CharField()
-		categorie_keys = models.ForeignKey()
-		link = models.CharField(multiline=False, default='')
+		tags = models.CharField(max_length=200)
+		link = models.URLField()
 		excerpt = models.TextField()
-		feed_link = models.CharField(multiline=False, default='')
-		abconf = models.CharField(multiline=False, default='0')
-		start_target = models.CharField(multiline=False, default='nohtml')
-		mid_target = models.CharField(multiline=False, default='nohtml')
-		end_target = models.CharField(multiline=False, default='nohtml')
+		feed_link = models.URLField()
+		abconf = models.IntegerField(default=0)
+		start_target = models.CharField(default='nohtml', max_length=50)
+		mid_target = models.CharField(default='nohtml', max_length=50)
+		end_target = models.CharField(default='nohtml', max_length=50)
 		fetch_stat = models.IntegerField(default=0)
 		content = models.TextField()
 
 class PushList(models.Model):
-		name = models.CharField(multiline=False, default='alexliyu')
-		pushurl = models.CharField(multiline=False, default='http://blog.163.com/common/targetgo.s')
-		username = models.CharField(multiline=False, default='alexliyu')
-		password = models.CharField(multiline=False, default='password')
+		name = models.CharField(default='alexliyu', max_length=20)
+		pushurl = models.URLField(default='http://blog.163.com/common/targetgo.s')
+		username = models.CharField(default='alexliyu', max_length=20)
+		password = models.CharField(default='password', max_length=20)
 		latest = models.DateTimeField()
 		last_retrieved = models.DateTimeField(default=datetime.today().fromtimestamp(0))
-		acategory = models.CharField()
-		category = models.CharField()
+		acategory = models.CharField(max_length=20)
+		category = models.ForeignKey(Category)
 		pushnum = models.IntegerField(default=0)
 		pushtime = models.IntegerField(default=0)
 
 class PushSet(models.Model):
 		defDate = models.IntegerField(default=3600)
 		defStat = models.BooleanField(default=True)
-		defDir = models.CharField(default='')
+		defDir = models.CharField(default='', max_length=50)
 		last_checked = models.DateTimeField(default=datetime.today().fromtimestamp(0))
 		stat = models.BooleanField(default=False)
 		delitems = models.IntegerField(default=0)
@@ -114,23 +114,16 @@ class PushMethod():
 				form_data = urllib.urlencode(form_fields)
 				url = 'http://blog.163.com/common/targetgo.s'
 				headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-				req = urllib2.Request(url, form_data, headers)
-				result = urllib2.urlopen(req)
-
-				if result.status_code == 200:
-						return self.Get_True(model, pushitem)
-
-
-
-				elif result.status_code == 500:
-						logging.error('Push %s returned with status code 500.' % pushitem.pushurl)
-						return self.Get_False(model, pushitem)
-				elif result.status_code == 404:
-						logging.error('Error 404: Nothing found at %s.' % pushitem.pushurl)
-						return self.Get_False(model, pushitem)
-
+				try:
+					req = urllib2.Request(url, form_data, headers)
+					result = urllib2.urlopen(req).read()
+					print result
+					return self.Get_True(model, pushitem)
+				except URLError, e:
+						logging.error('Push %s returned with %s.' % (pushitem.pushurl, e.reason))
 
 			except Exception, data:
+				print data
 				return self.Get_False(model, pushitem, data)
 				#break
 				#logging.info('the error is %s',data)
@@ -142,8 +135,8 @@ class PushMethod():
 				and return the True
 				"""
 				pushitem.last_retrieved = datetime.now()
-				pushitem.latest = model.date
-				pushitem.put()
+				pushitem.latest = model.last_update
+				#pushitem.save()
 				return True
 
 		def Get_False(self, model, pushitem, data=None):
@@ -153,10 +146,11 @@ class PushMethod():
 				"""
 				logging.error('Could not push article %s ,and the push is restart now' % model.title)
 				pushitem.last_retrieved = datetime.now()
-				pushitem.latest = model.date
+				pushitem.latest = model.last_update
 				if data:
+						print data
 						logging.info(data)
-				pushitem.put()
+				#pushitem.save()
 				return False
 
 		def Get_qzone(self, model, pushitem, **kwargs):

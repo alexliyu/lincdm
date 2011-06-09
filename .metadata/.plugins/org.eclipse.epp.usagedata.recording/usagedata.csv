@@ -1,124 +1,26 @@
 what,kind,bundleId,bundleVersion,description,time
-started,bundle,com.aptana.portal.ui,3.0.0.1296237429,"com.aptana.portal.ui",1303314232046
-started,bundle,com.aptana.syncing.core,3.0.0.1296697048,"com.aptana.syncing.core",1303314232046
-started,bundle,com.aptana.syncing.ui,3.0.0.1296761739,"com.aptana.syncing.ui",1303314232047
-started,bundle,com.aptana.ui.io,3.0.0.1297808070,"com.aptana.ui.io",1303314232047
-started,bundle,com.aptana.workbench,3.0.0.1297213570,"com.aptana.workbench",1303314232047
-os,sysinfo,,,"linux",1303314232049
-arch,sysinfo,,,"x86_64",1303314232049
-ws,sysinfo,,,"gtk",1303314232049
-locale,sysinfo,,,"zh_CN",1303314232049
-processors,sysinfo,,,"2",1303314232049
-java.runtime.name,sysinfo,,,"OpenJDK Runtime Environment",1303314232050
-java.runtime.version,sysinfo,,,"1.6.0_20-b20",1303314232050
-java.specification.name,sysinfo,,,"Java Platform API Specification",1303314232050
-java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1303314232050
-java.specification.version,sysinfo,,,"1.6",1303314232050
-java.vendor,sysinfo,,,"Sun Microsystems Inc.",1303314232050
-java.version,sysinfo,,,"1.6.0_20",1303314232050
-java.vm.info,sysinfo,,,"mixed mode",1303314232050
-java.vm.name,sysinfo,,,"OpenJDK 64-Bit Server VM",1303314232050
-java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1303314232050
-java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1303314232050
-java.vm.specification.version,sysinfo,,,"1.0",1303314232050
-java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1303314232050
-java.vm.version,sysinfo,,,"19.0-b09",1303314232050
-started,bundle,org.eclipse.emf.ecore,2.6.1.v20100914-1218,"org.eclipse.emf.ecore",1303314232108
-started,bundle,org.eclipse.emf.examples.library,2.5.0.v20100521-1846,"org.eclipse.emf.examples.library",1303314232114
-started,bundle,org.eclipse.debug.ui,3.6.1.v20100901_r361,"org.eclipse.debug.ui",1303314232375
-started,bundle,org.eclipse.php.server.core,2.2.0.v20100410-0300,"org.eclipse.php.server.core",1303314232376
-started,bundle,org.eclipse.php.core,2.2.1.v20100822-1200,"org.eclipse.php.core",1303314232383
-started,bundle,org.eclipse.epp.usagedata.ui,1.3.0.R201005261100,"org.eclipse.epp.usagedata.ui",1303314233277
-activated,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314233293
-started,bundle,org.eclipse.emf.ecore.xmi,2.5.0.v20100521-1846,"org.eclipse.emf.ecore.xmi",1303314233363
-started,bundle,org.eclipse.emf.validation,1.4.0.v20100428-2315,"org.eclipse.emf.validation",1303314233505
-started,bundle,org.eclipse.php.debug.core,2.2.0.v20100822-0100,"org.eclipse.php.debug.core",1303314233754
-started,bundle,org.zkoss.eclipse.setting,1.0.0.v201101181548,"org.zkoss.eclipse.setting",1303314233800
-started,bundle,org.eclipse.php.debug.ui,2.2.0.v20100822-0100,"org.eclipse.php.debug.ui",1303314233883
-started,bundle,org.eclipse.wst.sse.ui,1.2.2.v201008232126,"org.eclipse.wst.sse.ui",1303314233918
-started,bundle,org.eclipse.wst.sse.core,1.1.502.v201008311901,"org.eclipse.wst.sse.core",1303314233996
-started,bundle,org.eclipse.php.ui,2.2.1.v20100822-1200,"org.eclipse.php.ui",1303314234005
-started,bundle,org.zkoss.eclipse.zks,1.0.0.v201101181548,"org.zkoss.eclipse.zks",1303314234693
-deactivated,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314235104
-started,bundle,org.eclipse.jst.servlet.ui,1.1.402.v201008261918,"org.eclipse.jst.servlet.ui",1303314235689
-started,bundle,org.eclipse.wst.common.project.facet.core,1.4.102.v201008170019,"org.eclipse.wst.common.project.facet.core",1303314235787
-started,bundle,org.eclipse.jst.jee.ui,1.0.302.v201009011600,"org.eclipse.jst.jee.ui",1303314235884
-started,bundle,org.eclipse.emf.edit,2.6.0.v20100914-1218,"org.eclipse.emf.edit",1303314235942
-started,bundle,org.eclipse.emf.common.ui,2.6.0.v20100914-1218,"org.eclipse.emf.common.ui",1303314235942
-started,bundle,org.eclipse.emf.edit.ui,2.6.0.v20100914-1218,"org.eclipse.emf.edit.ui",1303314235942
-started,bundle,org.eclipse.jst.j2ee.ui,1.1.402.v201009080200,"org.eclipse.jst.j2ee.ui",1303314235969
-started,bundle,org.eclipse.jst.j2ee.navigator.ui,1.1.402.v201009081300,"org.eclipse.jst.j2ee.navigator.ui",1303314235989
-started,bundle,org.eclipse.wst.common.frameworks,1.2.0.v201003040800,"org.eclipse.wst.common.frameworks",1303314236009
-started,bundle,org.eclipse.wst.common.emf,1.2.1.v201008260500,"org.eclipse.wst.common.emf",1303314236080
-started,bundle,org.eclipse.jem.util,2.1.2.v201008120100,"org.eclipse.jem.util",1303314236102
-started,bundle,org.eclipse.wst.common.emfworkbench.integration,1.2.2.v201008242000,"org.eclipse.wst.common.emfworkbench.integration",1303314236133
-started,bundle,org.eclipse.wst.common.core,1.2.0.v200908252030,"org.eclipse.wst.common.core",1303314236285
-started,bundle,org.eclipse.wst.common.modulecore,1.2.3.v201008242000,"org.eclipse.wst.common.modulecore",1303314236299
-started,bundle,org.eclipse.jst.j2ee.core,1.2.2.v201008120100,"org.eclipse.jst.j2ee.core",1303314236307
-started,bundle,org.eclipse.jem,2.0.400.v201005110200,"org.eclipse.jem",1303314236379
-started,bundle,org.eclipse.wst.common.frameworks.ui,1.2.0.v201004080500,"org.eclipse.wst.common.frameworks.ui",1303314236464
-started,bundle,org.eclipse.wst.xml.core,1.1.502.v201009010342,"org.eclipse.wst.xml.core",1303314236465
-started,bundle,org.eclipse.wst.validation,1.2.200.v201005271900,"org.eclipse.wst.validation",1303314236494
-started,bundle,org.eclipse.jst.j2ee,1.1.402.v201009151730,"org.eclipse.jst.j2ee",1303314236589
-started,bundle,org.eclipse.jst.common.project.facet.core,1.4.102.v201008182136,"org.eclipse.jst.common.project.facet.core",1303314236926
-started,bundle,org.eclipse.dltk.core.index.sql,2.0.1.v20100909-1720,"org.eclipse.dltk.core.index.sql",1303314238822
-started,bundle,com.aptana.debug.core,3.0.0.1297808070,"com.aptana.debug.core",1303314238986
-started,bundle,com.aptana.js.debug.core,3.0.0.1297799804,"com.aptana.js.debug.core",1303314238998
-started,bundle,com.aptana.ui,3.0.0.1297808070,"com.aptana.ui",1303314239063
-started,bundle,com.aptana.js.debug.ui,3.0.0.1297465549,"com.aptana.js.debug.ui",1303314239064
-started,bundle,org.eclipse.wst.css.core,1.1.401.v201008161749,"org.eclipse.wst.css.core",1303314239129
-started,bundle,org.eclipse.dltk.core.index.sql.h2,2.0.1.v20100909-1720,"org.eclipse.dltk.core.index.sql.h2",1303314240079
-started,bundle,org.eclipse.wst.html.core,1.1.402.v201008311901,"org.eclipse.wst.html.core",1303314240242
-started,bundle,org.zkoss.eclipse.pack,1.0.0.v201101181548,"org.zkoss.eclipse.pack",1303314240925
-started,bundle,org.zkoss.eclipse.services,1.0.0.v201101181548,"org.zkoss.eclipse.services",1303314241563
-started,bundle,org.eclipse.ecf.filetransfer,4.0.0.v20100529-0735,"org.eclipse.ecf.filetransfer",1303314241781
-started,bundle,org.eclipse.ecf.identity,3.1.0.v20100529-0735,"org.eclipse.ecf.identity",1303314241817
-started,bundle,org.eclipse.ecf,3.1.0.v20100529-0735,"org.eclipse.ecf",1303314241861
-started,bundle,org.eclipse.ecf.provider.filetransfer.httpclient,4.0.0.v20100529-0735,"org.eclipse.ecf.provider.filetransfer.httpclient",1303314241896
-started,bundle,org.eclipse.ecf.provider.filetransfer,3.1.0.v20100529-0735,"org.eclipse.ecf.provider.filetransfer",1303314241899
-no handler,command,org.zkoss.eclipse.services,1.0.0.v201101181548,"org.zkoss.eclipse.services.commands.welcome",1303314242792
-activated,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314243175
-activated,view,org.eclipse.ui.navigator.resources,3.4.201.M20100707-0800,"org.eclipse.ui.navigator.ProjectExplorer",1303314246110
-deactivated,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314251530
-started,bundle,com.aptana.scripting,3.0.0.1297208478,"com.aptana.scripting",1303314251571
-started,bundle,org.eclipse.search,3.6.0.v20100520-0800,"org.eclipse.search",1303314251606
-started,bundle,com.aptana.theme,3.0.0.1296662936,"com.aptana.theme",1303314251631
-started,bundle,com.aptana.usage,3.0.0.1297808070,"com.aptana.usage",1303314251642
-started,bundle,com.aptana.scripting.ui,3.0.0.1296237429,"com.aptana.scripting.ui",1303314251669
-started,bundle,com.vp.vpsde.ec,5.2.1.2,"com.vp.vpsde.ec",1303314259743
-started,bundle,org.eclipse.rap.jface,1.3.1.20100915-2301,"org.eclipse.rap.jface",1303314262585
-started,bundle,org.eclipse.equinox.p2.extensionlocation,1.2.0.v20100518,"org.eclipse.equinox.p2.extensionlocation",1303314262671
-started,bundle,org.eclipse.equinox.p2.artifact.repository,1.1.1.R36x_v20100901,"org.eclipse.equinox.p2.artifact.repository",1303314262685
-started,bundle,org.eclipse.equinox.p2.publisher,1.1.2.v20100824-2220,"org.eclipse.equinox.p2.publisher",1303314262736
-started,bundle,org.eclipse.equinox.p2.touchpoint.eclipse,2.0.2.R36x_v20100823,"org.eclipse.equinox.p2.touchpoint.eclipse",1303314262799
-executed,command,org.eclipse.ui,3.6.1.M20100826-1330,"org.eclipse.ui.file.import",1303314277441
-executed,command,org.eclipse.ui,3.6.1.M20100826-1330,"org.eclipse.ui.file.import",1303314277442
-activated,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314277462
-closed,workbench,org.eclipse.ui.workbench,3.6.1.M20100826-1330,"",1303314281861
-started,bundle,org.eclipse.compare,3.5.100.I20100526-0800,"org.eclipse.compare",1303314282396
-stopped,bundle,org.eclipse.linuxtools.valgrind.massif,0.6.1.201009101021,"org.eclipse.linuxtools.valgrind.massif",1303314282983
-stopped,bundle,org.eclipse.birt.chart.device.svg,2.6.1.v20100902,"org.eclipse.birt.chart.device.svg",1303314282987
-stopped,bundle,org.eclipse.birt.chart.device.extension,2.6.1.v20100902,"org.eclipse.birt.chart.device.extension",1303314282988
-stopped,bundle,org.eclipse.birt.chart.device.swt,2.6.1.v20100812,"org.eclipse.birt.chart.device.swt",1303314282988
-stopped,bundle,org.eclipse.birt.chart.engine.extension,2.6.1.v20100902,"org.eclipse.birt.chart.engine.extension",1303314282989
-stopped,bundle,org.eclipse.linuxtools.gcov,4.1.1.201009101021,"org.eclipse.linuxtools.gcov",1303314282989
-stopped,bundle,org.eclipse.linuxtools.gprof,4.0.0.201009101021,"org.eclipse.linuxtools.gprof",1303314282989
-stopped,bundle,org.eclipse.linuxtools.dataviewers.charts,4.1.0.201009101021,"org.eclipse.linuxtools.dataviewers.charts",1303314282989
-stopped,bundle,org.eclipse.birt.chart.ui,2.6.1.v20100819,"org.eclipse.birt.chart.ui",1303314282992
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.dashboardextension,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.dashboardextension",1303314282992
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.dashboard,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.dashboard",1303314282994
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.graphicalrun,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.graphicalrun",1303314282994
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.ide,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.ide",1303314283025
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.graphing,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.graphing",1303314283033
-stopped,bundle,org.eclipse.linuxtools.systemtap.ui.graphingapi.ui,0.3.0.201009101021,"org.eclipse.linuxtools.systemtap.ui.graphingapi.ui",1303314283043
-stopped,bundle,org.eclipse.birt.chart.engine,2.6.1.v20100909,"org.eclipse.birt.chart.engine",1303314283067
-stopped,bundle,org.eclipse.birt.core.ui,2.6.1.v20100812,"org.eclipse.birt.core.ui",1303314283071
-stopped,bundle,org.eclipse.birt.data.aggregation,2.6.1.v20100909,"org.eclipse.birt.data.aggregation",1303314283072
-stopped,bundle,org.eclipse.birt.data,2.6.1.v20100915,"org.eclipse.birt.data",1303314283073
-stopped,bundle,org.eclipse.birt.core,2.6.1.v20100819,"org.eclipse.birt.core",1303314283083
-stopped,bundle,org.eclipse.cdt.debug.mi.ui,6.1.0.201009141542,"org.eclipse.cdt.debug.mi.ui",1303314283085
-stopped,bundle,org.eclipse.cdt.debug.mi.core,7.0.1.201009141542,"org.eclipse.cdt.debug.mi.core",1303314283116
-stopped,bundle,org.eclipse.cdt.debug.ui.memory.memorybrowser,1.2.0.201009141542,"org.eclipse.cdt.debug.ui.memory.memorybrowser",1303314283131
-stopped,bundle,org.eclipse.cdt.debug.ui.memory.search,1.2.0.201009141542,"org.eclipse.cdt.debug.ui.memory.search",1303314283146
-stopped,bundle,org.eclipse.cdt.dsf.gdb.ui,2.1.0.201009141542,"org.eclipse.cdt.dsf.gdb.ui",1303314283274
-stopped,bundle,org.eclipse.cdt.dsf.ui,2.1.1.201009141542,"org.eclipse.cdt.dsf.ui",1303314283367
+java.specification.version,sysinfo,,,"1.6",1307627406466
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1307627406466
+java.version,sysinfo,,,"1.6.0_22",1307627406466
+java.vm.info,sysinfo,,,"mixed mode",1307627406466
+java.vm.name,sysinfo,,,"OpenJDK 64-Bit Server VM",1307627406466
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1307627406466
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1307627406466
+java.vm.specification.version,sysinfo,,,"1.0",1307627406466
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1307627406466
+java.vm.version,sysinfo,,,"20.0-b11",1307627406466
+started,bundle,org.eclipse.dltk.core.index.sql,2.0.1.v20100909-1720,"org.eclipse.dltk.core.index.sql",1307627406724
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627407120
+started,bundle,org.eclipse.dltk.core.index.sql.h2,2.0.1.v20100909-1720,"org.eclipse.dltk.core.index.sql.h2",1307627407580
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1307627409810
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412077
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412081
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412087
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412087
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412087
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412087
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412088
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412088
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412389
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412389
+error,log,,,"Unable to get reference to generic content type for dynamic filetype associations!",1307627412390

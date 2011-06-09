@@ -13,35 +13,41 @@
 # You should have received a copy of the GNU General Public License along with
 # CDM SYSTEM. If not, see <http://www.gnu.org/licenses/>.
 #  Copyright Š 2010 alexliyu email:alexliyu2012@gmail.com
-from cdm_plugin import *
-from model import Entry
-from pushmodel import PushList, PushMethod
-from base import *
+from app.blog.models import Entry
+from app.pushblog.models import PushList, PushMethod
+from datetime import datetime, timedelta
+from django.core.management.base import BaseCommand
+# import the logging library
+import logging
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
-class Pusharticle(BaseRequestHandler):
-
-		def __init__(self):
-				BaseRequestHandler.__init__(self)
-				self.current = "pusharticle"
+class Command(BaseCommand):
+	def handle(self, *args, **options):
+		Pusharticle().Push(self)
+		
+class Pusharticle:
 
 
 		def Push(self, page=None, *arg1, **arg2):
-				listits = PushList().all()
+				listits = PushList.objects.all()
 				logging.info('start to Push Article')
+				i = 0
 				for pushitem in listits:
+						print i
+						i += 1
 						push_retrieval_deadline = datetime.now() - timedelta(minutes=pushitem.pushtime)
 						if pushitem.last_retrieved > push_retrieval_deadline:
 							logging.info('Skipping entry %s.', pushitem.name)
 							continue
-						try:
-								if pushitem.latest:
-										entry = Entry().all().filter('categorie_keys = ', db.Key(pushitem.category)).filter('date > ', pushitem.latest).order('date').fetch(1)[0]
-								else:
-										entry = Entry().all().filter('categorie_keys = ', db.Key(pushitem.category)).order('date').fetch(1)[0]
-						except:
-								entry = None
+						
+						if pushitem.latest:									
+										entry = Entry.objects.filter(last_update__gt=pushitem.latest).order_by('last_update')[:1][0]
+						else:
+										entry = Entry.objects.order_by('last_update')
+						
 						if entry:
-
+								print entry.title
 								logging.info('Getting entry %s.', entry.title)
 								kwargs = dict((['model', entry],
 										['pushitem', pushitem]
