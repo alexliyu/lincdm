@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-#Thu Apr 21 00:33:26 CST 2011
-=======
-#Sun Mar 27 21:53:12 CST 2011
->>>>>>> 39ddaac01ddba11024a2c514d4a2e06a654cc9b8
+#Fri Jun 10 00:16:34 CST 2011
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=39ddaac01ddba11024a2c514d4a2e06a654cc9b8
 eclipse.preferences.version=1
 encoding//app/autoslug/__init__.py=utf-8
 encoding//app/autoslug/__version.py=utf-8
@@ -31,14 +30,12 @@ encoding//app/planet/models.py=utf-8
 encoding//app/planet/templatetags/planet_tags.py=utf-8
 encoding//app/planet/urls.py=utf-8
 encoding//app/planet/views.py=utf-8
-<<<<<<< HEAD
 encoding//app/pushblog/management/commands/__init__.py=utf-8
 encoding//app/pushblog/management/commands/add_feed.py=utf-8
-=======
 encoding//app/pushblog/management/commands/pusharticle.py=utf-8
->>>>>>> 39ddaac01ddba11024a2c514d4a2e06a654cc9b8
 encoding//app/pushblog/models.py=utf-8
 encoding//app/pushblog/test.py=utf-8
+encoding//grappelli/settings.py=utf-8
 encoding//lib/BeautifulSoup.py=utf-8
 encoding//lib/gbtools.py=utf-8
 encoding//lib/html_filter.py=utf-8
