@@ -1,0 +1,40 @@
+{% extends "zinnia/entry_list.html" %}
+{% load i18n zinnia_tags %}
+
+{% block title %}{% trans "Search results for" %} {% if pattern %}'{{ pattern }}'{% endif %}{% if page_obj %}{% ifnotequal page_obj.number 1 %} | {% trans "Page" %} {{ page_obj.number }}{% endifnotequal %}{% endif %}{% endblock %}
+
+{% block meta-description %}{% trans "Search results for" %} {% if pattern %}'{{ pattern }}'{% endif %}{% if page_obj %}{% ifnotequal page_obj.number 1 %} {% trans "page" %} {{ page_obj.number }}{% endifnotequal %}{% endif %}{% endblock %}
+
+{% block link %}
+  {{ block.super }}
+  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of search result of" %} '{{ pattern }}'" href="{% url zinnia_entry_search_feed %}?pattern={{ pattern }}" />
+{% endblock %}
+
+{% block content %}
+<h1>{% trans "Search results for" %} {% if pattern %}'{{ pattern }}'{% endif %}</h1>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+{% if object_list %}
+<p class="success">
+  {% blocktrans count paginator.count as entry_count %}{{ entry_count }} entry found{% plural %}{{ entry_count }} entries found{% endblocktrans %}
+</p>
+{% endif %}
+
+{% for object in object_list %}
+<div id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %} span-16 last">
+  {% with object.html_content|truncatewords_html:100|safe as object_content %}
+  {% include "zinnia/_entry_detail.html" %}
+  {% endwith %}
+</div>
+<hr />
+{% empty %}
+<p class="notice">{% trans "Nothing found." %}</p>
+{% endfor %}
+
+{% if is_paginated %}
+  {% zinnia_pagination page_obj %}
+{% endif %}
+{% endblock %}
