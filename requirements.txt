@@ -6,6 +6,9 @@ PIL
 Pygments
 South
 anyjson
+django-sekizai
+django-debug_toolbar
+django-appmedia
 distribute
 django-bitly
 django-comments
