@@ -13,8 +13,10 @@ WYMeditor.SKINS['django'] = {
         //render following sections as dropdown menus
         jQuery(wym._box).find(wym._options.containersSelector)
           .addClass("wym_panel")
-          .find(WYMeditor.H2)
-          .append("<span>&nbsp;&gt;</span>");
+	  .find(WYMeditor.H2);
+
+	//replace the status markup in h2
+	wym.status('&nbsp;');
 
         // auto add some margin to the main area sides if left area
         // or right area are not empty (if they contain sections)
