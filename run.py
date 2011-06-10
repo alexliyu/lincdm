@@ -53,5 +53,5 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 got_request_exception.connect(exception_printer)
 #wsgi.WSGIServer(sock, application, spawn=None).serve_forever() 
 address = "localhost",9001
-daemonize('aa.pid')
+daemonize('lincdm.pid')
 wsgi.WSGIServer(sock, application).serve_forever()
