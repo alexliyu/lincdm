@@ -263,7 +263,7 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.logger.LoggingPanel',
 )
 INSTALLED_APPS = (
-    'grappelli.dashboard',
+    'grappelli.dashboard', 
     'grappelli',
     'filebrowser',
     'django.contrib.auth',

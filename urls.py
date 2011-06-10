@@ -6,9 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    (r'^grappelli/', include('grappelli.urls')),
+    (r'^grappelli/', include('lincdm.grappelli.urls')),
     (r'^admin/filebrowser/', include('filebrowser.urls')),
-    url(r'^', include('lincdm.cms.urls')),
+    url(r'^', include('cms.urls')),
 )
 urlpatterns += patterns('django.contrib.staticfiles.views',
         url(r'^static/(?P<path>.*)$', 'serve'),
