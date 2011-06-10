@@ -10,6 +10,10 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     url(r'^', include('lincdm.cms.urls')),
 )
+urlpatterns += patterns('django.contrib.staticfiles.views',
+        url(r'^static/(?P<path>.*)$', 'serve'),
+        url(r'^media/(?P<path>.*)$', 'serve'),
+        )
 
 if settings.DEBUG:
     urlpatterns = patterns('',

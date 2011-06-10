@@ -3,6 +3,8 @@ import sys, os
 from gevent import wsgi 
 from gevent import socket 
 from gevent import monkey
+from django.core.signals import got_request_exception
+import traceback
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.stdout = sys.stderr
 def GetParentPath(strPath):
@@ -38,11 +40,16 @@ sock.listen(256)
 
 import django.core.handlers.wsgi 
 application = django.core.handlers.wsgi.WSGIHandler() 
- 
-# Set up for Django 
-sys.path.insert(0, GetParentPath(PROJECT_DIR)) 
-sys.path.insert(0, PROJECT_DIR) 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'lincdm.settings' 
+def exception_printer(sender, **kwargs):
+    traceback.print_exc()
 
+
+# Set up for Django 
+#sys.path.insert(0, GetParentPath(PROJECT_DIR)) 
+#sys.path.insert(0, PROJECT_DIR) 
+sys.path.append('..')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings' 
+got_request_exception.connect(exception_printer)
 #wsgi.WSGIServer(sock, application, spawn=None).serve_forever() 
-wsgi.WSGIServer(sock, application).serve_forever()
+address = "localhost",9001
+wsgi.WSGIServer(address, application).serve_forever()
