@@ -294,6 +294,17 @@ div#sitemap li, div#sitemap ul{list-style-type: none;}
 	margin:0;
 	padding:0;	
 	margin-left:4px;
+	background:url(../images/icon_addlink.gif) 0px 0px no-repeat; 
+}
+#sitemap li a.deletelink{
+	width:10px;
+	height:10px;
+	display:inline-block;
+	background-position:0 0px;
+	margin:0;
+	padding:0;	
+	margin-left:4px;
+	background:url(../images/icon_deletelink.gif) 0px 0px no-repeat; 
 }
 #sitemap li a.addlink span, #sitemap li a.deletelink span{display:none;}
 

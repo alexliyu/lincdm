@@ -154,7 +154,7 @@
     }
  
 function loadPluginForm(target, id){
-        var object = '<iframe id="iframe_'+id+'" src="edit-plugin/'+id+'/" frameborder="0"></iframe>';
+        var object = '<iframe id="iframe_'+id+'" src="edit-plugin/'+id+'/" frameborder="0" style="height: 400px; "></iframe>';
         target.html(object);
         $('ul.plugin-list .active').removeClass("active");
         $('#plugin_'+id).addClass("active");

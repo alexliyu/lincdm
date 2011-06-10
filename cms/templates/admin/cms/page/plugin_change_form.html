@@ -38,7 +38,8 @@
 		window.onload = runOnLoad.run;
 	}
 	runOnLoad(function(){
-		parent.setiframeheight($('body').height()+20, {{ plugin.pk }});
+		//parent.setiframeheight($('body').height()+20, {{ plugin.pk }});
+		parent.setiframeheight($('body').height()+300, {{ plugin.pk }});
 	});
 	$(document).ready(function(){
 		$("a.add-another,a.related-lookup").each(function(i, sign){
@@ -63,7 +64,7 @@
 {% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
  
 {% block breadcrumbs %}{% if not is_popup %}
-<div class="breadcrumbs">
+<div id="breadcrumbs">
      <a href="../../../">{% trans "Home" %}</a> &rsaquo;
      <a href="../../">{{ app_label|capfirst|escape }}</a> &rsaquo;
      {% if has_change_permission %}<a href="../">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %} &rsaquo;

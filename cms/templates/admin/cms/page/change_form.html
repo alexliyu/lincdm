@@ -60,7 +60,7 @@
 
 
 {% block breadcrumbs %}{% if not is_popup %}
-<div class="breadcrumbs">
+<div id="breadcrumbs">
      <a href="../../../">{% trans "Home" %}</a> &rsaquo;
      <a href="../../">{{ app_label|capfirst|escape }}</a> &rsaquo; 
      {% if has_change_permission %}<a href="../">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %} &rsaquo; 
@@ -84,12 +84,9 @@
 	{% endif %}
 	
 {% endblock %}
-
-{% block content %}<div id="content-main">
-
 {% block object-tools %}
 {% if change %}{% if not is_popup %}
-  <ul class="object-tools">
+  <ul class="tools">
 	{% if moderation_delete_request %}<li><a href="remove-delete-state/" class="approvelink">{% trans "Remove delete request" %}</a></li>{% endif %}  	
 	{% if moderator_should_approve %}
 	<li><a href="approve/" class="approvelink">{% if moderation_delete_request %}{% trans "Approve delete" %}{% else %}{% trans "Approve" %} {% trans "draft" %}{% endif %}</a></li>
@@ -101,6 +98,9 @@
   </ul>
 {% endif %}{% endif %}
 {% endblock %}
+{% block content %}<div id="content-main">
+
+
 
 
 <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="?language={{ language }}{%if request.GET.target %}&amp;target={{ request.GET.target }}{% endif %}&amp;{%if request.GET.target %}position={{ request.GET.position }}{% endif %}" method="post" id="page_form">{% csrf_token %}{% block form_top %}{% endblock %}
