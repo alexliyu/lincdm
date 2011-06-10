@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
+    (r'^admin/filebrowser/', include('filebrowser.urls')),
     url(r'^', include('lincdm.cms.urls')),
 )
 
