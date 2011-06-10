@@ -3,6 +3,7 @@ import sys, os
 from gevent import wsgi 
 from gevent import socket 
 from gevent import monkey
+from daemon import daemonize
 from django.core.signals import got_request_exception
 import traceback
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -52,4 +53,5 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 got_request_exception.connect(exception_printer)
 #wsgi.WSGIServer(sock, application, spawn=None).serve_forever() 
 address = "localhost",9001
+daemonize('aa.pid')
 wsgi.WSGIServer(sock, application).serve_forever()
