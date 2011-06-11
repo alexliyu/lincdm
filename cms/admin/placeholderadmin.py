@@ -117,7 +117,7 @@ class PlaceholderAdmin(ModelAdmin):
             pat(r'edit-plugin/([0-9]+)/$', self.edit_plugin),
             pat(r'remove-plugin/$', self.remove_plugin),
             pat(r'move-plugin/$', self.move_plugin),
-            pat(r'copy-plugins/$', self.copy_plugins),            
+            pat(r'copy-plugins/$', self.copy_plugins),
         )
         return url_patterns + super(PlaceholderAdmin, self).get_urls()
     
@@ -208,16 +208,19 @@ class PlaceholderAdmin(ModelAdmin):
             saved_object = plugin_admin.saved_object
             
             context = {
-                'CMS_MEDIA_URL': settings.CMS_MEDIA_URL, 
-                'plugin': saved_object, 
-                'is_popup': True, 
-                'name': unicode(saved_object), 
+                'CMS_MEDIA_URL': settings.CMS_MEDIA_URL,
+                'plugin': saved_object,
+                'is_popup': True,
+                'name': unicode(saved_object),
                 "type": saved_object.get_plugin_name(),
                 'plugin_id': plugin_id,
                 'icon': force_escape(escapejs(saved_object.get_instance_icon_src())),
                 'alt': force_escape(escapejs(saved_object.get_instance_icon_alt())),
             }
-            return render_to_response('admin/cms/page/plugin_forms_ok.html', context, RequestContext(request))
+            try:
+                return render_to_response('admin/cms/page/plugin_forms_ok.html', context, RequestContext(request))
+            except:
+                return render_to_response('admin/cms/page/plugin_forms_ok.html', context)
             
         return response
 
