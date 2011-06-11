@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('lincdm.grappelli.urls')),
     (r'^admin/filebrowser/', include('filebrowser.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^', include('cms.urls')),
 )
 urlpatterns += patterns('django.contrib.staticfiles.views',
