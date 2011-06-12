@@ -118,9 +118,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'zinnia.context_processors.sitetitle',
 )
 
-CMS_TEMPLATES = (
-    ('example.html', 'Example Template'),
-)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -143,13 +141,44 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 	os.path.join(PROJECT_DIR, 'templates'),
 )
+APPEND_SLASH = True
 
+CMS_TEMPLATES = (
+    ('col_two.html', gettext('two columns')),
+    ('col_three.html', gettext('three columns')),
+    ('nav_playground.html', gettext('navigation examples')),
+)
+
+
+
+CMS_PLACEHOLDER_CONF = {
+    'col_sidebar': {
+        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
+                    'TextPlugin', 'SnippetPlugin'),
+        'name': gettext("sidebar column")
+    },
+                        
+    'col_left': {
+        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
+                    'TextPlugin', 'SnippetPlugin', 'GoogleMapPlugin',),
+        'name': gettext("left column")
+    },
+                        
+    'col_right': {
+        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
+                    'TextPlugin', 'SnippetPlugin', 'GoogleMapPlugin',),
+        'name': gettext("right column")
+    },
+    'extra_context': {
+        "plugins": ('TextPlugin',),
+        "extra_context": {"width": 250},
+        "name": "extra context"
+    },
+}
 # Should pages be allowed to inherit their parent templates?
 CMS_TEMPLATE_INHERITANCE = True
 # This is just a STATIC GLOBAL VAR
 CMS_TEMPLATE_INHERITANCE_MAGIC = 'INHERIT'
-
-CMS_PLACEHOLDER_CONF = {}
 
 # Whether to enable permissions.
 CMS_PERMISSION = False
@@ -181,14 +210,14 @@ CMS_SHOW_END_DATE = False
 CMS_URL_OVERWRITE = True
 
 # Allow to overwrite the menu title
-CMS_MENU_TITLE_OVERWRITE = False
+CMS_MENU_TITLE_OVERWRITE = True
 
 # Are redirects activated?
 CMS_REDIRECTS = False
 
 # Allow the description, title and keywords meta tags to be edited from the
 # admin
-CMS_SEO_FIELDS = False 
+CMS_SEO_FIELDS = True
 
 # a tuple of python path to AppHook Classes. Overwrites the auto-discovered apphooks.
 CMS_APPHOOKS = ()  
@@ -209,17 +238,18 @@ CMS_LANGUAGE_FALLBACK = True
 # example: {'de': ['en', 'fr'],
 #           'en': ['de'],
 #          }
-CMS_LANGUAGE_CONF = {}
+CMS_LANGUAGE_CONF = {
+    'zh-cn':['en'],
+    'en':['zh-cn'],
+}
+
+CMS_SITE_LANGUAGES = {
+    1:['en', 'zh-cn'],
+    2:['zh-cn'],
+}
 
 # Defines which languages should be offered.
 CMS_LANGUAGES = LANGUAGES
-
-# If you have different sites with different languages you can configure them here
-# and you will only be able to edit the languages that are actually on the site.
-# example: {1:['en','de'],
-#           2:['en','fr'],
-#           3:['en'],}
-CMS_SITE_LANGUAGES = LANGUAGES
 
 CMS_SITE_CHOICES_CACHE_KEY = 'CMS:site_choices'
 CMS_PAGE_CHOICES_CACHE_KEY = 'CMS:page_choices'
@@ -236,7 +266,7 @@ CMS_MEDIA_URL = os.path.join(MEDIA_URL, CMS_MEDIA_PATH)
 # Path (relative to MEDIA_ROOT/MEDIA_URL) to directory for storing page-scope files.
 CMS_PAGE_MEDIA_PATH = 'cms_page_media/'
 
-CMS_MODERATOR = False 
+CMS_MODERATOR = False
 
 # Defines what character will be used for the __unicode__ handling of cms pages
 CMS_TITLE_CHARACTER = '+'
@@ -263,7 +293,7 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.logger.LoggingPanel',
 )
 INSTALLED_APPS = (
-    'grappelli.dashboard', 
+    'grappelli.dashboard',
     'grappelli',
     'filebrowser',
     'django.contrib.auth',

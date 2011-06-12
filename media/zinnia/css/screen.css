@@ -431,6 +431,7 @@ hr { background: #dddddd; color: #dddddd; clear: both; float: none; width: 100%;
 #header .top-navigation .link { padding-left: 1.5em; }
 #header .top-navigation .sitemap { background: transparent url(../img/sitemap.png) no-repeat scroll left center; }
 #header .top-navigation .feeds { background: transparent url(../img/rss.png) no-repeat scroll left center; }
+#header .top-navigation .menuitems { background: transparent url(../img/manage.png) no-repeat scroll left center; }
 
 #content h1, #content h2, #content h3 { margin-top: 0; }
 
