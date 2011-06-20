@@ -9,7 +9,7 @@ from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.utils.encoding import smart_str
 from django.contrib.auth.decorators import permission_required
-
+from datetime import datetime
 from zinnia.models import Entry
 from zinnia.managers import DRAFT
 from zinnia.managers import PUBLISHED
@@ -34,7 +34,14 @@ def view_quick_entry(request):
             if 'save_draft' in request.POST:
                 status = DRAFT
             entry_dict['content'] = linebreaks(entry_dict['content'])
-            entry_dict['slug'] = slugify(entry_dict['title'])
+	    '''
+	    chinese
+	    '''
+            if not slugify(entry_dict['title']):
+			slug=datetime.now().strftime('%f')
+	    else:
+			slug=slugify(entry_dict['title'])
+	    entry_dict['slug'] = slug
             entry_dict['status'] = status
             entry = Entry.objects.create(**entry_dict)
             entry.sites.add(Site.objects.get_current())
