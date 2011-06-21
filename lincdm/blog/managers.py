@@ -1,4 +1,4 @@
-"""Managers of Lincdm"""
+"""Managers of Zinnia"""
 from datetime import datetime
 
 from django.db import models
@@ -12,7 +12,7 @@ PUBLISHED = 2
 def tags_published():
     """Return the published tags"""
     from tagging.models import Tag
-    from entry.models import Entry
+    from lincdm.blog.models import Entry
     tags_entry_published = Tag.objects.usage_for_queryset(
         Entry.published.all())
     # Need to do that until the issue #44 of django-tagging is fixed
@@ -64,7 +64,7 @@ class EntryPublishedManager(models.Manager):
 
     def advanced_search(self, pattern):
         """Advanced search on entries"""
-        from blog.search import advanced_search
+        from lincdm.blog.search import advanced_search
         return advanced_search(pattern)
 
     def basic_search(self, pattern):

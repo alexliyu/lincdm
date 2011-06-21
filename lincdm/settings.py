@@ -333,7 +333,7 @@ INSTALLED_APPS = (
     'sekizai',
     'lincdm.zinnia',
     'tagging',
-    'zinnia.plugins',
+    'lincdm.zinnia.plugins',
     'cms.plugins.file',
     'cms.plugins.flash',
     'cms.plugins.googlemap',

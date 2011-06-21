@@ -10,14 +10,14 @@ from django.utils.translation import get_language
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.comments.moderation import CommentModerator
 
-from settings import PROTOCOL
-from settings import MAIL_COMMENT_REPLY
-from settings import MAIL_COMMENT_AUTHORS
-from settings import AUTO_MODERATE_COMMENTS
-from settings import AUTO_CLOSE_COMMENTS_AFTER
-from settings import MAIL_COMMENT_NOTIFICATION_RECIPIENTS
-from settings import SPAM_CHECKER_BACKENDS
-from blog.spam_checker import check_is_spam
+from lincdm.blog.settings import PROTOCOL
+from lincdm.blog.settings import MAIL_COMMENT_REPLY
+from lincdm.blog.settings import MAIL_COMMENT_AUTHORS
+from lincdm.blog.settings import AUTO_MODERATE_COMMENTS
+from lincdm.blog.settings import AUTO_CLOSE_COMMENTS_AFTER
+from lincdm.blog.settings import MAIL_COMMENT_NOTIFICATION_RECIPIENTS
+from lincdm.blog.settings import SPAM_CHECKER_BACKENDS
+from lincdm.blog.spam_checker import check_is_spam
 
 
 class EntryCommentModerator(CommentModerator):
