@@ -1,4 +1,4 @@
-"""Admin of Zinnia"""
+"""Admin of blog"""
 from django.contrib import admin
 
 from lincdm.blog.models import Entry

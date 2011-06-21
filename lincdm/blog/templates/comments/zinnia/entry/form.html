@@ -3,7 +3,7 @@
 <form action="{% comment_form_target %}" method="post">
   {% csrf_token %}
   <fieldset>
-    <input type="hidden" name="next" value="{% url zinnia_discussion_success %}"/>
+    <input type="hidden" name="next" value="{% url blog_discussion_success %}"/>
     <legend>{% trans "Post your comment" %}</legend>
     {% for field in form %}
     {% if field.is_hidden %}{{ field }}{% else %}

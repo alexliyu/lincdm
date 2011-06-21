@@ -1,4 +1,4 @@
-"""Mollom spam checker backend for Zinnia"""
+"""Mollom spam checker backend for blog"""
 from django.conf import settings
 from django.utils.encoding import smart_str
 from django.core.exceptions import ImproperlyConfigured
@@ -20,7 +20,7 @@ MOLLOM_PRIVATE_KEY = settings.MOLLOM_PRIVATE_KEY
 
 
 def backend(comment, content_object, request):
-    """Mollom spam checker backend for Zinnia"""
+    """Mollom spam checker backend for blog"""
     mollom_api = MollomAPI(
         publicKey=MOLLOM_PUBLIC_KEY,
         privateKey=MOLLOM_PRIVATE_KEY)

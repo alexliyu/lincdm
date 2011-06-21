@@ -1,4 +1,4 @@
-"""Moderator of Zinnia comments"""
+"""Moderator of blog comments"""
 from django.conf import settings
 from django.template import Context
 from django.template import loader

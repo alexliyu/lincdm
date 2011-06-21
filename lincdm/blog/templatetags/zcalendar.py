@@ -1,4 +1,4 @@
-"""Calendar module for Zinnia templatetags"""
+"""Calendar module for blog templatetags"""
 from datetime import date
 from calendar import HTMLCalendar
 
@@ -12,7 +12,7 @@ from lincdm.blog.models import Entry
 AMERICAN_TO_EUROPEAN_WEEK_DAYS = [6, 0, 1, 2, 3, 4, 5]
 
 
-class ZinniaCalendar(HTMLCalendar):
+class blogCalendar(HTMLCalendar):
     """Override of HTMLCalendar"""
 
     def __init__(self):
@@ -26,7 +26,7 @@ class ZinniaCalendar(HTMLCalendar):
         if entries are published this day"""
         if day and day in self.day_entries:
             day_date = date(self.current_year, self.current_month, day)
-            archive_day_url = reverse('zinnia_entry_archive_day',
+            archive_day_url = reverse('blog_entry_archive_day',
                                       args=[day_date.strftime('%Y'),
                                             day_date.strftime('%m'),
                                             day_date.strftime('%d')])
@@ -34,7 +34,7 @@ class ZinniaCalendar(HTMLCalendar):
                    'rel="archives">%d</a></td>' % (
                 self.cssclasses[weekday], archive_day_url, day)
 
-        return super(ZinniaCalendar, self).formatday(day, weekday)
+        return super(blogCalendar, self).formatday(day, weekday)
 
     def formatmonth(self, theyear, themonth, withyear=True):
         """Return a formatted month as a table with
@@ -46,7 +46,7 @@ class ZinniaCalendar(HTMLCalendar):
                                 creation_date__year=theyear,
                                 creation_date__month=themonth)]
 
-        return super(ZinniaCalendar, self).formatmonth(
+        return super(blogCalendar, self).formatmonth(
             theyear, themonth, withyear)
 
     def formatweekday(self, day):

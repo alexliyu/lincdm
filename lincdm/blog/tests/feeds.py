@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's feeds"""
+"""Test cases for blog's feeds"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -30,9 +30,9 @@ from lincdm.blog.feeds import EntryPingbacks
 from lincdm.blog.feeds import EntryTrackbacks
 
 
-class ZinniaFeedsTestCase(TestCase):
+class blogFeedsTestCase(TestCase):
     """Test cases for the Feed classes provided"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def setUp(self):
         self.site = Site.objects.get_current()

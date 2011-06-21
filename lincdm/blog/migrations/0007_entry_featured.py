@@ -7,12 +7,12 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
 
         # Adding field 'Entry.featured'
-        db.add_column('zinnia_entry', 'featured', self.gf('django.db.models.fields.BooleanField')(default=False), keep_default=False)
+        db.add_column('blog_entry', 'featured', self.gf('django.db.models.fields.BooleanField')(default=False), keep_default=False)
 
     def backwards(self, orm):
 
         # Deleting field 'Entry.featured'
-        db.delete_column('zinnia_entry', 'featured')
+        db.delete_column('blog_entry', 'featured')
 
     models = {
         'auth.group': {
@@ -57,22 +57,22 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.category': {
+        'blog.category': {
             'Meta': {'ordering': "['title']", 'object_name': 'Category'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['zinnia.Category']"}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['blog.Category']"}),
             'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '255', 'db_index': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
         },
-        'zinnia.entry': {
+        'blog.entry': {
             'Meta': {'ordering': "['-creation_date']", 'object_name': 'Entry'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.User']", 'symmetrical': 'False', 'blank': 'True'}),
-            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': "orm['zinnia.Category']", 'null': 'True', 'blank': 'True'}),
+            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': "orm['blog.Category']", 'null': 'True', 'blank': 'True'}),
             'comment_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'content': ('django.db.models.fields.TextField', [], {}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -85,15 +85,15 @@ class Migration(SchemaMigration):
             'login_required': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
             'pingback_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['zinnia.Entry']"}),
+            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['blog.Entry']"}),
             'sites': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['sites.Site']", 'symmetrical': 'False'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '255', 'db_index': 'True'}),
             'start_publication': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'tags': ('tagging.fields.TagField', [], {}),
-            'template': ('django.db.models.fields.CharField', [], {'default': "'zinnia/entry_detail.html'", 'max_length': '250'}),
+            'template': ('django.db.models.fields.CharField', [], {'default': "'blog/entry_detail.html'", 'max_length': '250'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         }
     }
 
-    complete_apps = ['zinnia']
+    complete_apps = ['blog']

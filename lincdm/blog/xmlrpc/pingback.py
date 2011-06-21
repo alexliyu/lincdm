@@ -1,4 +1,4 @@
-"""XML-RPC methods of Zinnia Pingback"""
+"""XML-RPC methods of blog Pingback"""
 from urllib2 import urlopen
 from urllib2 import URLError
 from urllib2 import HTTPError

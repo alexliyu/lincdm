@@ -1,1 +1,1 @@
-"""Migrations for Zinnia"""
+"""Migrations for blog"""

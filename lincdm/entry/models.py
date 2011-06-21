@@ -74,7 +74,7 @@ class Category(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return category's URL"""
-        return ('zinnia_category_detail', (self.tree_path,))
+        return ('blog_category_detail', (self.tree_path,))
 
     class Meta:
         """Category's Meta"""
@@ -138,8 +138,8 @@ class EntryAbstractClass(models.Model):
 
     template = models.CharField(
         _('template'), max_length=250,
-        default='zinnia/entry_detail.html',
-        choices=[('zinnia/entry_detail.html', _('Default template'))] + \
+        default='blog/entry_detail.html',
+        choices=[('blog/entry_detail.html', _('Default template'))] + \
         ENTRY_TEMPLATES,
         help_text=_('template used to display the entry'))
 
@@ -236,7 +236,7 @@ class EntryAbstractClass(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return entry's URL"""
-        return ('zinnia_entry_detail', (), {
+        return ('blog_entry_detail', (), {
             'year': self.creation_date.strftime('%Y'),
             'month': self.creation_date.strftime('%m'),
             'day': self.creation_date.strftime('%d'),
@@ -270,8 +270,8 @@ class Entry(get_base_model()):
     class Meta:
         """Entry's Meta"""
         ordering = ['-creation_date']
-        verbose_name = _('内容')
-        verbose_name_plural = _('内容')
+        verbose_name = _(u'内容')
+        verbose_name_plural = _(u'内容')
         permissions = (('can_view_all', 'Can view all'),
                        ('can_change_author', 'Can change author'),)
 

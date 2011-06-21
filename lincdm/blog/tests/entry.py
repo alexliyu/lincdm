@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's Entry"""
+"""Test cases for blog's Entry"""
 from __future__ import with_statement
 import warnings
 from datetime import datetime
@@ -119,7 +119,7 @@ class EntryTestCase(TestCase):
     def test_short_url(self):
         self.assertEquals(self.entry.short_url,
                           'http://example.com' + 
-                          reverse('zinnia_entry_shortlink',
+                          reverse('blog_entry_shortlink',
                                   args=[self.entry.pk]))
 
     def test_previous_entry(self):
@@ -277,5 +277,5 @@ class EntryGetBaseModelTestCase(TestCase):
             # Fail under Python2.5, because of'warnings.catch_warnings'
             pass
 
-        models_settings.ENTRY_BASE_MODEL = 'zinnia.models.EntryAbstractClass'
+        models_settings.ENTRY_BASE_MODEL = 'blog.models.EntryAbstractClass'
         self.assertEquals(get_base_model(), EntryAbstractClass)

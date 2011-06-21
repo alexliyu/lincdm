@@ -1,1 +1,1 @@
-"""Shortlink backends for Zinnia"""
+"""Shortlink backends for blog"""

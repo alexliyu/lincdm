@@ -1,4 +1,4 @@
-"""Pings utilities for Zinnia"""
+"""Pings utilities for blog"""
 import socket
 import xmlrpclib
 import threading
@@ -21,9 +21,9 @@ class URLRessources(object):
         self.current_site = Site.objects.get_current()
         self.site_url = '%s://%s' % (PROTOCOL, self.current_site.domain)
         self.blog_url = '%s%s' % (self.site_url,
-                                  reverse('zinnia_entry_archive_index'))
+                                  reverse('blog_entry_archive_index'))
         self.blog_feed = '%s%s' % (self.site_url,
-                                   reverse('zinnia_entry_latest_feed'))
+                                   reverse('blog_entry_latest_feed'))
 
 
 class DirectoryPinger(threading.Thread):
@@ -43,7 +43,7 @@ class DirectoryPinger(threading.Thread):
 
     def run(self):
         """Ping entries to a Directory in a Thread"""
-        logger = getLogger('zinnia.ping.directory')
+        logger = getLogger('blog.ping.directory')
         socket.setdefaulttimeout(self.timeout)
         for entry in self.entries:
             reply = self.ping_entry(entry)
@@ -92,7 +92,7 @@ class ExternalUrlsPinger(threading.Thread):
 
     def run(self):
         """Ping external URLS in a Thread"""
-        logger = getLogger('zinnia.ping.external_urls')
+        logger = getLogger('blog.ping.external_urls')
         socket.setdefaulttimeout(self.timeout)
 
         external_urls = self.find_external_urls(self.entry)

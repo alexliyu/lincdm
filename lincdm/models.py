@@ -33,7 +33,7 @@ class Author(User):
     @models.permalink
     def get_absolute_url(self):
         """Return author's URL"""
-        return ('zinnia_author_detail', (self.username,))
+        return ('entry_author_detail', (self.username,))
 
     class Meta:
         """Author's Meta"""

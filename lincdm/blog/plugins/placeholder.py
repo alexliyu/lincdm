@@ -1,4 +1,4 @@
-"""Placeholder model for Zinnia"""
+"""Placeholder model for blog"""
 from cms.models.fields import PlaceholderField
 
 from lincdm.blog.models import EntryAbstractClass

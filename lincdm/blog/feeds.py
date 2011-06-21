@@ -1,4 +1,4 @@
-"""Feeds for Zinnia"""
+"""Feeds for blog"""
 from urlparse import urljoin
 from BeautifulSoup import BeautifulSoup
 
@@ -22,11 +22,11 @@ from lincdm.blog.settings import FEEDS_FORMAT
 from lincdm.blog.settings import FEEDS_MAX_ITEMS
 from lincdm.blog.managers import entries_published
 from lincdm.blog.views.categories import get_category_or_404
-from lincdm.blog.templatetags.zinnia_tags import get_gravatar
+from lincdm.blog.templatetags.blog_tags import get_gravatar
 
 
-class ZinniaFeed(Feed):
-    """Base Feed for Zinnia"""
+class blogFeed(Feed):
+    """Base Feed for blog"""
     feed_copyright = COPYRIGHT
 
     def __init__(self):
@@ -37,7 +37,7 @@ class ZinniaFeed(Feed):
             self.subtitle = self.description
 
 
-class EntryFeed(ZinniaFeed):
+class EntryFeed(blogFeed):
     """Base Entry Feed"""
     title_template = 'feeds/entry_title.html'
     description_template = 'feeds/entry_description.html'
@@ -63,7 +63,7 @@ class EntryFeed(ZinniaFeed):
     def item_author_link(self, item):
         """Returns the author's URL"""
         try:
-            author_url = reverse('zinnia_author_detail',
+            author_url = reverse('blog_author_detail',
                                  args=[self.item_author.username])
             return self.site_url + author_url
         except NoReverseMatch:
@@ -92,7 +92,7 @@ class LatestEntries(EntryFeed):
 
     def link(self):
         """URL of latest entries"""
-        return reverse('zinnia_entry_archive_index')
+        return reverse('blog_entry_archive_index')
 
     def items(self):
         """Items are published entries"""
@@ -144,7 +144,7 @@ class AuthorEntries(EntryFeed):
 
     def link(self, obj):
         """URL of the author"""
-        return reverse('zinnia_author_detail', args=[obj.username])
+        return reverse('blog_author_detail', args=[obj.username])
 
     def title(self, obj):
         """Title of the feed"""
@@ -169,7 +169,7 @@ class TagEntries(EntryFeed):
 
     def link(self, obj):
         """URL of the tag"""
-        return reverse('zinnia_tag_detail', args=[obj.name])
+        return reverse('blog_tag_detail', args=[obj.name])
 
     def title(self, obj):
         """Title of the feed"""
@@ -196,7 +196,7 @@ class SearchEntries(EntryFeed):
 
     def link(self, obj):
         """URL of the search request"""
-        return '%s?pattern=%s' % (reverse('zinnia_entry_search'), obj)
+        return '%s?pattern=%s' % (reverse('blog_entry_search'), obj)
 
     def title(self, obj):
         """Title of the feed"""
@@ -207,7 +207,7 @@ class SearchEntries(EntryFeed):
         return _("The entries containing the pattern '%s'") % obj
 
 
-class EntryDiscussions(ZinniaFeed):
+class EntryDiscussions(blogFeed):
     """Feed for discussions in an entry"""
     title_template = 'feeds/discussion_title.html'
     description_template = 'feeds/discussion_description.html'

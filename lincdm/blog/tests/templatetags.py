@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's templatetags"""
+"""Test cases for blog's templatetags"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -17,21 +17,21 @@ from lincdm.blog.models import Author
 from lincdm.blog.models import Category
 from lincdm.blog.managers import DRAFT
 from lincdm.blog.managers import PUBLISHED
-from lincdm.blog.templatetags.zinnia_tags import get_gravatar
-from lincdm.blog.templatetags.zinnia_tags import get_authors
-from lincdm.blog.templatetags.zinnia_tags import get_categories
-from lincdm.blog.templatetags.zinnia_tags import zinnia_pagination
-from lincdm.blog.templatetags.zinnia_tags import get_recent_entries
-from lincdm.blog.templatetags.zinnia_tags import get_random_entries
-from lincdm.blog.templatetags.zinnia_tags import zinnia_breadcrumbs
-from lincdm.blog.templatetags.zinnia_tags import get_popular_entries
-from lincdm.blog.templatetags.zinnia_tags import get_similar_entries
-from lincdm.blog.templatetags.zinnia_tags import get_recent_comments
-from lincdm.blog.templatetags.zinnia_tags import get_recent_linkbacks
-from lincdm.blog.templatetags.zinnia_tags import get_calendar_entries
-from lincdm.blog.templatetags.zinnia_tags import get_archives_entries
-from lincdm.blog.templatetags.zinnia_tags import get_featured_entries
-from lincdm.blog.templatetags.zinnia_tags import get_archives_entries_tree
+from lincdm.blog.templatetags.blog_tags import get_gravatar
+from lincdm.blog.templatetags.blog_tags import get_authors
+from lincdm.blog.templatetags.blog_tags import get_categories
+from lincdm.blog.templatetags.blog_tags import blog_pagination
+from lincdm.blog.templatetags.blog_tags import get_recent_entries
+from lincdm.blog.templatetags.blog_tags import get_random_entries
+from lincdm.blog.templatetags.blog_tags import blog_breadcrumbs
+from lincdm.blog.templatetags.blog_tags import get_popular_entries
+from lincdm.blog.templatetags.blog_tags import get_similar_entries
+from lincdm.blog.templatetags.blog_tags import get_recent_comments
+from lincdm.blog.templatetags.blog_tags import get_recent_linkbacks
+from lincdm.blog.templatetags.blog_tags import get_calendar_entries
+from lincdm.blog.templatetags.blog_tags import get_archives_entries
+from lincdm.blog.templatetags.blog_tags import get_featured_entries
+from lincdm.blog.templatetags.blog_tags import get_archives_entries_tree
 
 
 class TemplateTagsTestCase(TestCase):
@@ -40,7 +40,7 @@ class TemplateTagsTestCase(TestCase):
     def setUp(self):
         params = {'title': 'My entry',
                   'content': 'My content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'creation_date': datetime(2010, 1, 1),
                   'slug': 'my-entry'}
         self.entry = Entry.objects.create(**params)
@@ -54,7 +54,7 @@ class TemplateTagsTestCase(TestCase):
     def test_get_categories(self):
         context = get_categories()
         self.assertEquals(len(context['categories']), 0)
-        self.assertEquals(context['template'], 'zinnia/tags/categories.html')
+        self.assertEquals(context['template'], 'blog/tags/categories.html')
 
         Category.objects.create(title='Category 1', slug='category-1')
         context = get_categories('custom_template.html')
@@ -64,7 +64,7 @@ class TemplateTagsTestCase(TestCase):
     def test_get_authors(self):
         context = get_authors()
         self.assertEquals(len(context['authors']), 0)
-        self.assertEquals(context['template'], 'zinnia/tags/authors.html')
+        self.assertEquals(context['template'], 'blog/tags/authors.html')
 
         user = User.objects.create_user(username='webmaster',
                                         email='webmaster@example.com')
@@ -78,7 +78,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_recent_entries()
         self.assertEquals(len(context['entries']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/recent_entries.html')
+                          'blog/tags/recent_entries.html')
 
         self.publish_entry()
         context = get_recent_entries(3, 'custom_template.html')
@@ -91,7 +91,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_featured_entries()
         self.assertEquals(len(context['entries']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/featured_entries.html')
+                          'blog/tags/featured_entries.html')
 
         self.publish_entry()
         context = get_featured_entries(3, 'custom_template.html')
@@ -104,7 +104,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_random_entries()
         self.assertEquals(len(context['entries']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/random_entries.html')
+                          'blog/tags/random_entries.html')
 
         self.publish_entry()
         context = get_random_entries(3, 'custom_template.html')
@@ -117,7 +117,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_popular_entries()
         self.assertEquals(len(context['entries']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/popular_entries.html')
+                          'blog/tags/popular_entries.html')
 
         self.publish_entry()
         context = get_popular_entries(3, 'custom_template.html')
@@ -126,7 +126,7 @@ class TemplateTagsTestCase(TestCase):
 
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'slug': 'my-second-entry'}
         site = Site.objects.get_current()
@@ -152,11 +152,11 @@ class TemplateTagsTestCase(TestCase):
         context = get_similar_entries(source_context)
         self.assertEquals(len(context['entries']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/similar_entries.html')
+                          'blog/tags/similar_entries.html')
 
         params = {'title': 'My second entry',
                   'content': 'This is the second entry of my tests.',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'slug': 'my-second-entry'}
         site = Site.objects.get_current()
@@ -174,12 +174,12 @@ class TemplateTagsTestCase(TestCase):
         context = get_archives_entries()
         self.assertEquals(len(context['archives']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/archives_entries.html')
+                          'blog/tags/archives_entries.html')
 
         self.publish_entry()
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'creation_date': datetime(2009, 1, 1),
                   'slug': 'my-second-entry'}
@@ -197,12 +197,12 @@ class TemplateTagsTestCase(TestCase):
         context = get_archives_entries_tree()
         self.assertEquals(len(context['archives']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/archives_entries_tree.html')
+                          'blog/tags/archives_entries_tree.html')
 
         self.publish_entry()
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'creation_date': datetime(2009, 1, 10),
                   'slug': 'my-second-entry'}
@@ -221,7 +221,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_calendar_entries(source_context)
         self.assertEquals(context['previous_month'], None)
         self.assertEquals(context['next_month'], None)
-        self.assertEquals(context['template'], 'zinnia/tags/calendar.html')
+        self.assertEquals(context['template'], 'blog/tags/calendar.html')
 
         self.publish_entry()
         context = get_calendar_entries(source_context,
@@ -246,7 +246,7 @@ class TemplateTagsTestCase(TestCase):
 
         params = {'title': 'My second entry',
                   'content': 'My second content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'status': PUBLISHED,
                   'creation_date': datetime(2008, 1, 1),
                   'slug': 'my-second-entry'}
@@ -267,7 +267,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_recent_comments()
         self.assertEquals(len(context['comments']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/recent_comments.html')
+                          'blog/tags/recent_comments.html')
 
         comment_1 = Comment.objects.create(comment='My Comment 1', site=site,
                                            content_object=self.entry)
@@ -295,7 +295,7 @@ class TemplateTagsTestCase(TestCase):
         context = get_recent_linkbacks()
         self.assertEquals(len(context['linkbacks']), 0)
         self.assertEquals(context['template'],
-                          'zinnia/tags/recent_linkbacks.html')
+                          'blog/tags/recent_linkbacks.html')
 
         linkback_1 = Comment.objects.create(comment='My Linkback 1', site=site,
                                             content_object=self.entry)
@@ -314,58 +314,58 @@ class TemplateTagsTestCase(TestCase):
         context = get_recent_linkbacks()
         self.assertEquals(list(context['linkbacks']), [linkback_2, linkback_1])
 
-    def test_zinnia_pagination(self):
+    def test_blog_pagination(self):
         paginator = Paginator(range(200), 10)
 
-        context = zinnia_pagination(paginator.page(1))
+        context = blog_pagination(paginator.page(1))
         self.assertEquals(context['page'].number, 1)
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [18, 19, 20])
-        self.assertEquals(context['template'], 'zinnia/tags/pagination.html')
+        self.assertEquals(context['template'], 'blog/tags/pagination.html')
 
-        context = zinnia_pagination(paginator.page(2))
+        context = blog_pagination(paginator.page(2))
         self.assertEquals(context['page'].number, 2)
         self.assertEquals(context['begin'], [1, 2, 3, 4])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(3))
+        context = blog_pagination(paginator.page(3))
         self.assertEquals(context['begin'], [1, 2, 3, 4, 5])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(6))
+        context = blog_pagination(paginator.page(6))
         self.assertEquals(context['begin'], [1, 2, 3, 4, 5, 6, 7, 8])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(11))
+        context = blog_pagination(paginator.page(11))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [9, 10, 11, 12, 13])
         self.assertEquals(context['end'], [18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(15))
+        context = blog_pagination(paginator.page(15))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [13, 14, 15, 16, 17, 18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(18))
+        context = blog_pagination(paginator.page(18))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [16, 17, 18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(19))
+        context = blog_pagination(paginator.page(19))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [17, 18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(20))
+        context = blog_pagination(paginator.page(20))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [18, 19, 20])
 
-        context = zinnia_pagination(paginator.page(10),
+        context = blog_pagination(paginator.page(10),
                                     begin_pages=1, end_pages=3,
                                     before_pages=4, after_pages=3,
                                     template='custom_template.html')
@@ -375,38 +375,38 @@ class TemplateTagsTestCase(TestCase):
         self.assertEquals(context['template'], 'custom_template.html')
 
         paginator = Paginator(range(50), 10)
-        context = zinnia_pagination(paginator.page(1))
+        context = blog_pagination(paginator.page(1))
         self.assertEquals(context['begin'], [1, 2, 3, 4, 5])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [])
 
         paginator = Paginator(range(60), 10)
-        context = zinnia_pagination(paginator.page(1))
+        context = blog_pagination(paginator.page(1))
         self.assertEquals(context['begin'], [1, 2, 3, 4, 5, 6])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [])
 
         paginator = Paginator(range(70), 10)
-        context = zinnia_pagination(paginator.page(1))
+        context = blog_pagination(paginator.page(1))
         self.assertEquals(context['begin'], [1, 2, 3])
         self.assertEquals(context['middle'], [])
         self.assertEquals(context['end'], [5, 6, 7])
 
-    def test_zinnia_breadcrumbs(self):
+    def test_blog_breadcrumbs(self):
         class FakeRequest(object):
             def __init__(self, path):
                 self.path = path
 
         source_context = Context({'request': FakeRequest('/')})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 1)
         self.assertEquals(context['breadcrumbs'][0].name, 'Blog')
         self.assertEquals(context['breadcrumbs'][0].url,
-                          reverse('zinnia_entry_archive_index'))
+                          reverse('blog_entry_archive_index'))
         self.assertEquals(context['separator'], '/')
-        self.assertEquals(context['template'], 'zinnia/tags/breadcrumbs.html')
+        self.assertEquals(context['template'], 'blog/tags/breadcrumbs.html')
 
-        context = zinnia_breadcrumbs(source_context,
+        context = blog_breadcrumbs(source_context,
                                      '>', 'Weblog', 'custom_template.html')
         self.assertEquals(len(context['breadcrumbs']), 1)
         self.assertEquals(context['breadcrumbs'][0].name, 'Weblog')
@@ -416,29 +416,29 @@ class TemplateTagsTestCase(TestCase):
         source_context = Context(
             {'request': FakeRequest(self.entry.get_absolute_url()),
              'object': self.entry})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 5)
 
         cat_1 = Category.objects.create(title='Category 1', slug='category-1')
         source_context = Context(
             {'request': FakeRequest(cat_1.get_absolute_url()),
              'object': cat_1})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 3)
         cat_2 = Category.objects.create(title='Category 2', slug='category-2',
                                         parent=cat_1)
         source_context = Context(
             {'request': FakeRequest(cat_2.get_absolute_url()),
              'object': cat_2})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 4)
 
         tag = Tag.objects.get(name='test')
         source_context = Context(
-            {'request': FakeRequest(reverse('zinnia_tag_detail',
+            {'request': FakeRequest(reverse('blog_tag_detail',
                                             args=['test'])),
              'object': tag})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 3)
 
         User.objects.create_user(username='webmaster',
@@ -447,23 +447,23 @@ class TemplateTagsTestCase(TestCase):
         source_context = Context(
             {'request': FakeRequest(author.get_absolute_url()),
              'object': author})
-        context = zinnia_breadcrumbs(source_context)
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 3)
 
         source_context = Context(
             {'request': FakeRequest(reverse(
-                'zinnia_entry_archive_year', args=[2011]))})
-        context = zinnia_breadcrumbs(source_context)
+                'blog_entry_archive_year', args=[2011]))})
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 2)
 
         source_context = Context({'request': FakeRequest(reverse(
-            'zinnia_entry_archive_month', args=[2011, '03']))})
-        context = zinnia_breadcrumbs(source_context)
+            'blog_entry_archive_month', args=[2011, '03']))})
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 3)
 
         source_context = Context({'request': FakeRequest(reverse(
-            'zinnia_entry_archive_day', args=[2011, '03', 15]))})
-        context = zinnia_breadcrumbs(source_context)
+            'blog_entry_archive_day', args=[2011, '03', 15]))})
+        context = blog_breadcrumbs(source_context)
         self.assertEquals(len(context['breadcrumbs']), 4)
         # More tests can be done here, for testing path and objects in context
 

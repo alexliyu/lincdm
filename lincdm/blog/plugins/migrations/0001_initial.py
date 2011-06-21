@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
 
         # Adding model 'LatestEntriesPlugin'
         db.create_table('cmsplugin_latestentriesplugin', (
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['zinnia.Category'], null=True, blank=True)),
+            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['blog.Category'], null=True, blank=True)),
             ('cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
             ('number_of_entries', self.gf('django.db.models.fields.IntegerField')(default=5)),
             ('author', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True, blank=True)),
@@ -26,7 +26,7 @@ class Migration(SchemaMigration):
         db.create_table('plugins_selectedentriesplugin_entries', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('selectedentriesplugin', models.ForeignKey(orm['plugins.selectedentriesplugin'], null=False)),
-            ('entry', models.ForeignKey(orm['zinnia.entry'], null=False))
+            ('entry', models.ForeignKey(orm['blog.entry'], null=False))
         ))
         db.create_unique('plugins_selectedentriesplugin_entries', ['selectedentriesplugin_id', 'entry_id'])
 
@@ -104,14 +104,14 @@ class Migration(SchemaMigration):
         'plugins.latestentriesplugin': {
             'Meta': {'object_name': 'LatestEntriesPlugin', 'db_table': "'cmsplugin_latestentriesplugin'", '_ormbases': ['cms.CMSPlugin']},
             'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True', 'blank': 'True'}),
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['zinnia.Category']", 'null': 'True', 'blank': 'True'}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['blog.Category']", 'null': 'True', 'blank': 'True'}),
             'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
             'number_of_entries': ('django.db.models.fields.IntegerField', [], {'default': '5'})
         },
         'plugins.selectedentriesplugin': {
             'Meta': {'object_name': 'SelectedEntriesPlugin', 'db_table': "'cmsplugin_selectedentriesplugin'", '_ormbases': ['cms.CMSPlugin']},
             'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
-            'entries': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['zinnia.Entry']", 'symmetrical': 'False'})
+            'entries': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Entry']", 'symmetrical': 'False'})
         },
         'sites.site': {
             'Meta': {'object_name': 'Site', 'db_table': "'django_site'"},
@@ -119,17 +119,17 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.category': {
+        'blog.category': {
             'Meta': {'object_name': 'Category'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        'zinnia.entry': {
+        'blog.entry': {
             'Meta': {'object_name': 'Entry'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.User']", 'symmetrical': 'False', 'blank': 'True'}),
-            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['zinnia.Category']", 'symmetrical': 'False'}),
+            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Category']", 'symmetrical': 'False'}),
             'comment_enabled': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'content': ('django.db.models.fields.TextField', [], {}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -138,7 +138,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
             'last_update': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['zinnia.Entry']"}),
+            'related': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'related_rel_+'", 'null': 'True', 'to': "orm['blog.Entry']"}),
             'sites': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['sites.Site']", 'symmetrical': 'False'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
             'start_publication': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),

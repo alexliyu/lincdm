@@ -1,4 +1,4 @@
-"""Admin of Zinnia CMS Plugins"""
+"""Admin of blog CMS Plugins"""
 from django.contrib import admin
 from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
@@ -39,6 +39,6 @@ class EntryPlaceholderAdmin(PlaceholderAdmin, EntryAdmin):
             request, entry, form, change)
 
 
-if ENTRY_BASE_MODEL == 'zinnia.plugins.placeholder.EntryPlaceholder':
+if ENTRY_BASE_MODEL == 'blog.plugins.placeholder.EntryPlaceholder':
     admin.site.unregister(Entry)
     admin.site.register(Entry, EntryPlaceholderAdmin)

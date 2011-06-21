@@ -107,7 +107,7 @@ MAIL_COMMENT_AUTHORS = True
 AUTO_MODERATE_COMMENTS = False
 MAIL_COMMENT_NOTIFICATION_RECIPIENTS = [manager_tuple[1] for manager_tuple in MANAGERS]
 SPAM_CHECKER_BACKENDS = ()
-WYSIWYG = 'tinymce'
+WYSIWYG = 'wymeditor'
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -299,7 +299,10 @@ CMS_CACHE_PREFIX = 'cms-'
 # they are missing in the permission-merge2 branch
 CMS_PLUGIN_PROCESSORS = tuple()
 CMS_PLUGIN_CONTEXT_PROCESSORS = tuple()
-ZINNIA_ENTRY_BASE_MODEL = 'zinnia.plugins.placeholder.EntryPlaceholder'
+BLOG_ENTRY_BASE_MODEL = 'blog.plugins.placeholder.EntryPlaceholder'
+TINYMCE_SPELLCHECKER = True
+TINYMCE_FILEBROWSER = False
+
 DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.version.VersionDebugPanel',
     'debug_toolbar.panels.timer.TimerDebugPanel',
@@ -331,19 +334,19 @@ INSTALLED_APPS = (
     'appmedia',
     'south',
     'sekizai',
-    'lincdm.zinnia',
+    'lincdm.blog',
     'tagging',
-    'lincdm.zinnia.plugins',
-    'cms.plugins.file',
-    'cms.plugins.flash',
-    'cms.plugins.googlemap',
-    'cms.plugins.link',
-    'cms.plugins.picture',
-    'cms.plugins.snippet',
-    'cms.plugins.teaser',
-    'cms.plugins.text',
-    'cms.plugins.video',
-    'cms.plugins.twitter',
+    'lincdm.blog.plugins',
+    'lincdm.cms.plugins.file',
+    'lincdm.cms.plugins.flash',
+    'lincdm.cms.plugins.googlemap',
+    'lincdm.cms.plugins.link',
+    'lincdm.cms.plugins.picture',
+    'lincdm.cms.plugins.snippet',
+    'lincdm.cms.plugins.teaser',
+    'lincdm.cms.plugins.text',
+    'lincdm.cms.plugins.video',
+    'lincdm.cms.plugins.twitter',
     'app.gallery',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',

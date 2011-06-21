@@ -1,4 +1,4 @@
-"""Views for Zinnia entries search"""
+"""Views for blog entries search"""
 from django.utils.translation import ugettext as _
 from django.views.generic.list_detail import object_list
 
@@ -23,6 +23,6 @@ def entry_search(request):
 
     return object_list(request, queryset=entries,
                        paginate_by=PAGINATION,
-                       template_name='zinnia/entry_search.html',
+                       template_name='blog/entry_search.html',
                        extra_context={'error': error,
                                       'pattern': pattern})

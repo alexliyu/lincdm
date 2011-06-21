@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 {% load tagging_tags %}
-{% tags_for_model zinnia.entry as tag_entry %}
+{% tags_for_model blog.entry as tag_entry %}
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>{{ site.name }}</ShortName>
@@ -8,10 +8,10 @@
   <Description>Make a search on {{ site.name }}.</Description>
   <Attribution>{{ copyright }}</Attribution>
   <Tags>{{ tag_entry|slice:":15"|join:" " }}</Tags>
-  <Url type="text/html" template="{{ protocol }}://{{ site.domain }}{% url zinnia_entry_search %}?pattern={searchTerms}" />
-  <Url type="application/{{ feeds_format }}+xml" template="{{ protocol }}://{{ site.domain }}{% url zinnia_entry_search_feed %}?pattern={searchTerms}" />
-  <Url type="application/opensearchdescription+xml" rel="self" template="{{ protocol }}://{{ site.domain }}{% url zinnia_opensearch %}"/>
-  <Image height="16" width="16" type="image/vnd.microsoft.icon">{{ ZINNIA_MEDIA_URL }}img/favicon.ico</Image>
+  <Url type="text/html" template="{{ protocol }}://{{ site.domain }}{% url blog_entry_search %}?pattern={searchTerms}" />
+  <Url type="application/{{ feeds_format }}+xml" template="{{ protocol }}://{{ site.domain }}{% url blog_entry_search_feed %}?pattern={searchTerms}" />
+  <Url type="application/opensearchdescription+xml" rel="self" template="{{ protocol }}://{{ site.domain }}{% url blog_opensearch %}"/>
+  <Image height="16" width="16" type="image/vnd.microsoft.icon">{{ blog_MEDIA_URL }}img/favicon.ico</Image>
   <Query role="example" searchTerms="{{ tag_entry.0 }}" />
   <Developer>Fantomas42</Developer>
   <Contact>fantomas42@gmail.com</Contact>

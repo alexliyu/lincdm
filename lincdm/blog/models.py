@@ -1,4 +1,4 @@
-"""Models of Zinnia"""
+"""Models of blog"""
 import warnings
 from datetime import datetime
 
@@ -51,7 +51,7 @@ class Author(User):
     @models.permalink
     def get_absolute_url(self):
         """Return author's URL"""
-        return ('zinnia_author_detail', (self.username,))
+        return ('blog_author_detail', (self.username,))
 
     class Meta:
         """Author's Meta"""
@@ -87,7 +87,7 @@ class Category(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return category's URL"""
-        return ('zinnia_category_detail', (self.tree_path,))
+        return ('blog_category_detail', (self.tree_path,))
 
     class Meta:
         """Category's Meta"""
@@ -151,8 +151,8 @@ class EntryAbstractClass(models.Model):
 
     template = models.CharField(
         _('template'), max_length=250,
-        default='zinnia/entry_detail.html',
-        choices=[('zinnia/entry_detail.html', _('Default template'))] + \
+        default='blog/entry_detail.html',
+        choices=[('blog/entry_detail.html', _('Default template'))] + \
         ENTRY_TEMPLATES,
         help_text=_('template used to display the entry'))
 
@@ -249,7 +249,7 @@ class EntryAbstractClass(models.Model):
     @models.permalink
     def get_absolute_url(self):
         """Return entry's URL"""
-        return ('zinnia_entry_detail', (), {
+        return ('blog_entry_detail', (), {
             'year': self.creation_date.strftime('%Y'),
             'month': self.creation_date.strftime('%m'),
             'day': self.creation_date.strftime('%d'),
@@ -292,6 +292,6 @@ class Entry(get_base_model()):
 moderator.register(Entry, EntryCommentModerator)
 mptt.register(Category, order_insertion_by=['title'])
 post_save.connect(ping_directories_handler, sender=Entry,
-                  dispatch_uid='zinnia.entry.post_save.ping_directories')
+                  dispatch_uid='blog.entry.post_save.ping_directories')
 post_save.connect(ping_external_urls_handler, sender=Entry,
-                  dispatch_uid='zinnia.entry.post_save.ping_external_urls')
+                  dispatch_uid='blog.entry.post_save.ping_external_urls')

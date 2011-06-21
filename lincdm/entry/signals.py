@@ -24,11 +24,11 @@ def disable_for_loaddata(signal_handler):
 
 
 
-def disconnect_zinnia_signals():
+def disconnect_entry_signals():
     """Disconnect all the signals provided by Zinnia"""
     from entry.models import Entry
 
     post_save.disconnect(
-        sender=Entry, dispatch_uid='zinnia.entry.post_save.ping_directories')
+        sender=Entry, dispatch_uid='entry.entry.post_save.ping_directories')
     post_save.disconnect(
-        sender=Entry, dispatch_uid='zinnia.entry.post_save.ping_external_urls')
+        sender=Entry, dispatch_uid='entry.entry.post_save.ping_external_urls')

@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's MetaWeblog API"""
+"""Test cases for blog's MetaWeblog API"""
 from xmlrpclib import Binary
 from xmlrpclib import Fault
 from xmlrpclib import ServerProxy
@@ -22,7 +22,7 @@ from lincdm.blog.tests.utils import TestTransport
 
 class MetaWeblogTestCase(TestCase):
     """Test cases for MetaWeblog"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def setUp(self):
         # Create data
@@ -41,7 +41,7 @@ class MetaWeblogTestCase(TestCase):
             Category.objects.create(title='Category 2',
                                     slug='category-2')]
         params = {'title': 'My entry 1', 'content': 'My content 1',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1',
+                  'tags': 'blog, test', 'slug': 'my-entry-1',
                   'creation_date': datetime(2010, 1, 1),
                   'status': PUBLISHED}
         self.entry_1 = Entry.objects.create(**params)
@@ -51,7 +51,7 @@ class MetaWeblogTestCase(TestCase):
 
         params = {'title': 'My entry 2', 'content': 'My content 2',
                   'creation_date': datetime(2010, 3, 15),
-                  'tags': 'zinnia, test', 'slug': 'my-entry-2'}
+                  'tags': 'blog, test', 'slug': 'my-entry-2'}
         self.entry_2 = Entry.objects.create(**params)
         self.entry_2.authors.add(self.webmaster)
         self.entry_2.categories.add(self.categories[0])
@@ -69,11 +69,11 @@ class MetaWeblogTestCase(TestCase):
         self.assertEquals(authenticate('contributor', 'password'),
                           self.contributor)
         self.assertRaises(Fault, authenticate, 'contributor',
-                          'password', 'zinnia.change_entry')
+                          'password', 'blog.change_entry')
         self.assertEquals(authenticate('webmaster', 'password'),
                           self.webmaster)
         self.assertEquals(authenticate('webmaster', 'password',
-                                       'zinnia.change_entry'),
+                                       'blog.change_entry'),
                           self.webmaster)
 
     def test_get_users_blogs(self):
@@ -282,7 +282,7 @@ class MetaWeblogTestCase(TestCase):
         file_ = TemporaryFile()
         file_.write('My test content')
         file_.seek(0)
-        media = {'name': 'zinnia_test_file.txt',
+        media = {'name': 'blog_test_file.txt',
                  'type': 'text/plain',
                  'bits': Binary(file_.read())}
         file_.close()
@@ -291,6 +291,6 @@ class MetaWeblogTestCase(TestCase):
                           1, 'contributor', 'password', media)
         new_media = self.server.metaWeblog.newMediaObject(
             1, 'webmaster', 'password', media)
-        self.assertTrue('/zinnia_test_file' in new_media['url'])
+        self.assertTrue('/blog_test_file' in new_media['url'])
         default_storage.delete('/'.join([
             UPLOAD_TO, new_media['url'].split('/')[-1]]))

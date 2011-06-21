@@ -1,4 +1,4 @@
-"""TypePad spam checker backend for Zinnia"""
+"""TypePad spam checker backend for blog"""
 from django.conf import settings
 from django.utils.encoding import smart_str
 from django.contrib.sites.models import Site
@@ -24,7 +24,7 @@ class TypePad(Akismet):
 
 
 def backend(comment, content_object, request):
-    """TypePad spam checker backend for Zinnia"""
+    """TypePad spam checker backend for blog"""
     blog_url = '%s://%s/' % (PROTOCOL, Site.objects.get_current().domain)
 
     typepad = TypePad(key=TYPEPAD_API_KEY, blog_url=blog_url)

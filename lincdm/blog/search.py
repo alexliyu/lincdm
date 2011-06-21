@@ -1,4 +1,4 @@
-"""Search module with complex query parsing for Zinnia"""
+"""Search module with complex query parsing for blog"""
 from pyparsing import Word
 from pyparsing import alphas
 from pyparsing import WordEnd

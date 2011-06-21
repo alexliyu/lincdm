@@ -9,7 +9,7 @@ from django.conf import settings
 
 def media(request):
     """Adds media-related context variables to the context"""
-    return {'ZINNIA_MEDIA_URL': settings.MEDIA_URL}
+    return {'BLOG_MEDIA_URL': settings.MEDIA_URL}
 
 
 def version(request):

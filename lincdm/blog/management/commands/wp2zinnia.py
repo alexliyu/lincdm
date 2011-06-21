@@ -1,4 +1,4 @@
-"""WordPress to Zinnia command module"""
+"""WordPress to blog command module"""
 import sys
 from datetime import datetime
 from optparse import make_option
@@ -20,7 +20,7 @@ from tagging.models import Tag
 from lincdm.blog import __version__
 from lincdm.blog.models import Entry
 from lincdm.blog.models import Category
-from lincdm.blog.signals import disconnect_zinnia_signals
+from lincdm.blog.signals import disconnect_blog_signals
 from lincdm.blog.managers import DRAFT, HIDDEN, PUBLISHED
 
 WP_NS = 'http://wordpress.org/export/%s/'
@@ -28,8 +28,8 @@ WP_NS = 'http://wordpress.org/export/%s/'
 
 class Command(LabelCommand):
     """Command object for importing a WordPress blog
-    into Zinnia via a WordPress eXtended RSS (WXR) file."""
-    help = 'Import a Wordpress blog into Zinnia.'
+    into blog via a WordPress eXtended RSS (WXR) file."""
+    help = 'Import a Wordpress blog into blog.'
     label = 'WXR file'
     args = 'wordpress.xml'
 
@@ -59,7 +59,7 @@ class Command(LabelCommand):
         self.style.TITLE = self.style.SQL_FIELD
         self.style.STEP = self.style.SQL_COLTYPE
         self.style.ITEM = self.style.HTTP_INFO
-        disconnect_zinnia_signals()
+        disconnect_blog_signals()
 
     def write_out(self, message, verbosity_level=1):
         """Convenient method for outputing"""
@@ -81,7 +81,7 @@ class Command(LabelCommand):
                 raise CommandError('Invalid username for default author')
 
         self.write_out(self.style.TITLE(
-            'Starting migration from Wordpress to Zinnia %s:\n' % __version__))
+            'Starting migration from Wordpress to blog %s:\n' % __version__))
 
         tree = ET.parse(wxr_file)
 

@@ -1,4 +1,4 @@
-"""Urls for the zinnia capabilities"""
+"""Urls for the blog capabilities"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 from django.contrib.sites.models import Site
@@ -16,19 +16,19 @@ extra_context_opensearch.update({'copyright': COPYRIGHT,
 
 urlpatterns = patterns('django.views.generic.simple',
                        url(r'^rsd.xml$', 'direct_to_template',
-                           {'template': 'zinnia/rsd.xml',
+                           {'template': 'blog/rsd.xml',
                             'mimetype': 'application/rsd+xml',
                             'extra_context': extra_context},
-                           name='zinnia_rsd'),
+                           name='blog_rsd'),
                        url(r'^wlwmanifest.xml$', 'direct_to_template',
-                           {'template': 'zinnia/wlwmanifest.xml',
+                           {'template': 'blog/wlwmanifest.xml',
                             'mimetype': 'application/wlwmanifest+xml',
                             'extra_context': extra_context},
-                           name='zinnia_wlwmanifest'),
+                           name='blog_wlwmanifest'),
                        url(r'^opensearch.xml$', 'direct_to_template',
-                           {'template': 'zinnia/opensearch.xml',
+                           {'template': 'blog/opensearch.xml',
                             'mimetype':
                             'application/opensearchdescription+xml',
                             'extra_context': extra_context_opensearch},
-                           name='zinnia_opensearch'),
+                           name='blog_opensearch'),
                        )

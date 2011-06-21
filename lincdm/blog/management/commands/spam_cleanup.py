@@ -1,4 +1,4 @@
-"""Spam cleanup command module for Zinnia"""
+"""Spam cleanup command module for blog"""
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import NoArgsCommand

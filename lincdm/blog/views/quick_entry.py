@@ -1,4 +1,4 @@
-"""Views for Zinnia quick entry"""
+"""Views for blog quick entry"""
 from urllib import urlencode
 
 from django import forms
@@ -23,7 +23,7 @@ class QuickEntryForm(forms.Form):
     tags = forms.CharField(required=False, max_length=255)
 
 
-@permission_required('zinnia.add_entry')
+@permission_required('blog.add_entry')
 def view_quick_entry(request):
     """View for quickly post an Entry"""
     if request.POST:
@@ -55,7 +55,7 @@ def view_quick_entry(request):
                 'slug': slugify(request.POST.get('title', '')),
                 'authors': request.user.pk,
                 'sites': Site.objects.get_current().pk}
-        return redirect('%s?%s' % (reverse('admin:zinnia_entry_add'),
+        return redirect('%s?%s' % (reverse('admin:blog_entry_add'),
                                    urlencode(data)))
 
-    return redirect('admin:zinnia_entry_add')
+    return redirect('admin:blog_entry_add')

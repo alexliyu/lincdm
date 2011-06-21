@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's quick entry"""
+"""Test cases for blog's quick entry"""
 from django.test import TestCase
 from django.contrib.auth.models import User
 
@@ -8,7 +8,7 @@ from lincdm.blog.managers import DRAFT
 
 class QuickEntryTestCase(TestCase):
     """Test cases for quick_entry view"""
-    urls = 'zinnia.tests.urls'
+    urls = 'blog.tests.urls'
 
     def test_quick_entry(self):
         User.objects.create_user('user', 'user@example.com', 'password')
@@ -27,11 +27,11 @@ class QuickEntryTestCase(TestCase):
         self.client.login(username='admin', password='password')
         response = self.client.get('/quick_entry/', follow=True)
         self.assertEquals(response.redirect_chain,
-                          [('http://testserver/admin/zinnia/entry/add/', 302)])
+                          [('http://testserver/admin/blog/entry/add/', 302)])
         response = self.client.post('/quick_entry/', {'title': 'test'},
                                     follow=True)
         self.assertEquals(response.redirect_chain,
-                          [('http://testserver/admin/zinnia/entry/add/' \
+                          [('http://testserver/admin/blog/entry/add/' \
                             '?tags=&title=test&sites=1&content=' \
                             '%3Cp%3E%3C%2Fp%3E&authors=2&slug=test', 302)])
         response = self.client.post('/quick_entry/',

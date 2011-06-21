@@ -21,7 +21,7 @@ class CMSLatestEntriesPlugin(CMSPluginBase):
     module = _('entries')
     model = LatestEntriesPlugin
     name = _('Latest entries')
-    render_template = 'zinnia/cms/entry_list.html'
+    render_template = 'blog/cms/entry_list.html'
     filter_horizontal = ['categories', 'authors', 'tags']
     fieldsets = (
         (None, {
@@ -92,7 +92,7 @@ class CMSSelectedEntriesPlugin(CMSPluginBase):
     module = _('entries')
     model = SelectedEntriesPlugin
     name = _('Selected entries')
-    render_template = 'zinnia/cms/entry_list.html'
+    render_template = 'blog/cms/entry_list.html'
     fields = ('entries', 'template_to_render')
     filter_horizontal = ['entries']
     text_enabled = True
@@ -114,7 +114,7 @@ class CMSRandomEntriesPlugin(CMSPluginBase):
     module = _('entries')
     model = RandomEntriesPlugin
     name = _('Random entries')
-    render_template = 'zinnia/cms/random_entries.html'
+    render_template = 'blog/cms/random_entries.html'
     fields = ('number_of_entries', 'template_to_render')
     text_enabled = True
 
@@ -123,7 +123,7 @@ class CMSRandomEntriesPlugin(CMSPluginBase):
         context.update(
             {'number_of_entries': instance.number_of_entries,
              'template_to_render': str(instance.template_to_render) or
-             'zinnia/tags/random_entries.html'})
+             'blog/tags/random_entries.html'})
         return context
 
     def icon_src(self, instance):

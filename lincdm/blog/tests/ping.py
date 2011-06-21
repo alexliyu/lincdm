@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's ping"""
+"""Test cases for blog's ping"""
 import cStringIO
 from urllib2 import URLError
 from urllib import addinfourl
@@ -15,7 +15,7 @@ class DirectoryPingerTestCase(TestCase):
     def setUp(self):
         params = {'title': 'My entry',
                   'content': 'My content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-entry'}
         self.entry = Entry.objects.create(**params)
         self.pinger = DirectoryPinger('http://localhost', [self.entry],
@@ -34,7 +34,7 @@ class ExternalUrlsPingerTestCase(TestCase):
     def setUp(self):
         params = {'title': 'My entry',
                   'content': 'My content',
-                  'tags': 'zinnia, test',
+                  'tags': 'blog, test',
                   'slug': 'my-entry'}
         self.entry = Entry.objects.create(**params)
         self.pinger = ExternalUrlsPinger(self.entry, start_now=False)
@@ -100,9 +100,9 @@ class ExternalUrlsPingerTestCase(TestCase):
 
     def test_find_pingback_urls(self):
         # Set up a stub around urlopen
-        import zinnia.ping
-        self.original_urlopen = zinnia.ping.urlopen
-        zinnia.ping.urlopen = self.fake_urlopen
+        import blog.ping
+        self.original_urlopen = blog.ping.urlopen
+        blog.ping.urlopen = self.fake_urlopen
 
         urls = ['http://localhost/', 'http://example.com/', 'http://error']
         self.assertEquals(
@@ -110,7 +110,7 @@ class ExternalUrlsPingerTestCase(TestCase):
             {'http://localhost/': 'http://localhost/xmlrpc/',
              'http://example.com/': 'http://example.com/xmlrpc.php'})
         # Remove stub
-        zinnia.ping.urlopen = self.original_urlopen
+        blog.ping.urlopen = self.original_urlopen
 
     def test_pingback_url(self):
         self.assertEquals(self.pinger.pingback_url('http://localhost',

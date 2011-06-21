@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's url_shortener"""
+"""Test cases for blog's url_shortener"""
 from __future__ import with_statement
 import warnings
 
@@ -10,7 +10,7 @@ from lincdm.blog.url_shortener.backends.default import backend as default_backen
 
 
 class URLShortenerTestCase(TestCase):
-    """Test cases for zinnia.url_shortener"""
+    """Test cases for blog.url_shortener"""
 
     def setUp(self):
         self.original_backend = us_settings.URL_SHORTENER_BACKEND
@@ -31,7 +31,7 @@ class URLShortenerTestCase(TestCase):
             # Fail under Python2.5, because of'warnings.catch_warnings'
             pass
 
-        us_settings.URL_SHORTENER_BACKEND = 'zinnia.tests.custom_url_shortener'
+        us_settings.URL_SHORTENER_BACKEND = 'blog.tests.custom_url_shortener'
         try:
             with warnings.catch_warnings(record=True) as w:
                 self.assertEquals(get_url_shortener(), default_backend)
@@ -43,6 +43,6 @@ class URLShortenerTestCase(TestCase):
             # Fail under Python2.5, because of'warnings.catch_warnings'
             pass
 
-        us_settings.URL_SHORTENER_BACKEND = 'zinnia.url_shortener'\
+        us_settings.URL_SHORTENER_BACKEND = 'blog.url_shortener'\
                                             '.backends.default'
         self.assertEquals(get_url_shortener(), default_backend)

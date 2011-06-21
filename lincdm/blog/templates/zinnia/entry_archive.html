@@ -1,17 +1,17 @@
-{% extends "zinnia/entry_list.html" %}
-{% load i18n zinnia_tags %}
+{% extends "blog/entry_list.html" %}
+{% load i18n blog_tags %}
 
 {% block meta-description %}{% trans "Latest entries" %}{% endblock %}
 
 {% block link %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ ZINNIA_MEDIA_URL }}css/slider.css" />
+  <link rel="stylesheet" type="text/css" href="{{ blog_MEDIA_URL }}css/slider.css" />
 {% endblock %}
 
 {% block script %}
   {{ block.super }}
-  <script type="text/javascript" src="{{ ZINNIA_MEDIA_URL }}js/jquery.js"></script>
-  <script type="text/javascript" src="{{ ZINNIA_MEDIA_URL }}js/jquery.ui.js"></script>
+  <script type="text/javascript" src="{{ blog_MEDIA_URL }}js/jquery.js"></script>
+  <script type="text/javascript" src="{{ blog_MEDIA_URL }}js/jquery.ui.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       $("#slider").tabs({ fx:{ opacity: "toggle"}}).tabs("rotate", 5000, true);
@@ -25,6 +25,6 @@
 {% block title %}{% trans "Latest entries" %}{% endblock %}
 
 {% block content %}
-{% get_featured_entries 5 "zinnia/tags/slider_entries.html" %}
+{% get_featured_entries 5 "blog/tags/slider_entries.html" %}
 {{ block.super }}
 {% endblock %}

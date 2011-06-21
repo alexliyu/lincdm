@@ -285,7 +285,7 @@ class EntryAdmin(admin.ModelAdmin):
         elif settings.WYSIWYG == 'tinymce':
             from tinymce.widgets import TinyMCE
             media += TinyMCE().media + Media(
-                js=(reverse('tinymce-js', args=('admin/zinnia/entry',)),))
+                js=(reverse('tinymce-js', args=('admin/blog/entry',)),))
         elif settings.WYSIWYG == 'markitup':
             media += Media(
                 js=('%sjs/markitup/jquery.markitup.js' % MEDIA_URL,

@@ -1,4 +1,4 @@
-"""Feed to Zinnia command module"""
+"""Feed to blog command module"""
 import sys
 from datetime import datetime
 from optparse import make_option
@@ -17,13 +17,13 @@ from lincdm.blog import __version__
 from lincdm.blog.models import Entry
 from lincdm.blog.models import Category
 from lincdm.blog.managers import PUBLISHED
-from lincdm.blog.signals import disconnect_zinnia_signals
+from lincdm.blog.signals import disconnect_blog_signals
 
 
 class Command(LabelCommand):
     """Command object for importing a RSS or Atom
-    feed into Zinnia."""
-    help = 'Import a RSS or Atom feed into Zinnia.'
+    feed into blog."""
+    help = 'Import a RSS or Atom feed into blog.'
     label = 'feed url'
     args = 'url'
 
@@ -45,7 +45,7 @@ class Command(LabelCommand):
         self.style.TITLE = self.style.SQL_FIELD
         self.style.STEP = self.style.SQL_COLTYPE
         self.style.ITEM = self.style.HTTP_INFO
-        disconnect_zinnia_signals()
+        disconnect_blog_signals()
 
     def write_out(self, message, verbosity_level=1):
         """Convenient method for outputing"""
@@ -72,7 +72,7 @@ class Command(LabelCommand):
                 raise CommandError('Invalid username for default author')
 
         self.write_out(self.style.TITLE(
-            'Starting importation of %s to Zinnia %s:\n' % (url, __version__)))
+            'Starting importation of %s to blog %s:\n' % (url, __version__)))
 
         feed = feedparser.parse(url)
         self.import_entries(feed.entries)

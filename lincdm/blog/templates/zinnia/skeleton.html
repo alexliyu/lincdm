@@ -1,5 +1,5 @@
-{% load zinnia_tags tagging_tags menu_tags i18n %}
-{% tags_for_model zinnia.entry as tag_entry %}
+{% load blog_tags tagging_tags menu_tags i18n %}
+{% tags_for_model blog.entry as tag_entry %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -13,31 +13,31 @@
     <meta name="engine" content="lincdm {{ LINCDM_VERSION }}" />
     {% block meta %}{% endblock %}
     <link rel="pingback" href="/xmlrpc/" />
-    <link rel="shortcut icon" href="{{ ZINNIA_MEDIA_URL }}img/favicon.ico" />
-    <link rel="home" href="{% url zinnia_entry_archive_index %}" />
-    <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ ZINNIA_MEDIA_URL }}css/screen.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="{{ ZINNIA_MEDIA_URL }}css/print.css" />
+    <link rel="shortcut icon" href="{{ blog_MEDIA_URL }}img/favicon.ico" />
+    <link rel="home" href="{% url blog_entry_archive_index %}" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ blog_MEDIA_URL }}css/screen.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="{{ blog_MEDIA_URL }}css/print.css" />
     <!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ ZINNIA_MEDIA_URL }}css/ie.css" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ blog_MEDIA_URL }}css/ie.css" />
     <![endif]-->
     {% block link %}{% endblock %}
     {% block script %}{% endblock %}
     <title>{{LINCDM_NAME}} - {% block title %}{% endblock %}</title>
   </head>
-  <body id="zinnia">
+  <body id="blog">
     <div class="container">
       <div id="header" class="span-24 last">
 	<div class="top-navigation">
 	{% show_menu 0 0 0 0 %}
-	  <a href="{% url zinnia_sitemap %}" title="{% trans "Sitemap" %}" class="link sitemap">
+	  <a href="{% url blog_sitemap %}" title="{% trans "Sitemap" %}" class="link sitemap">
 	    {% trans "Sitemap" %}
 	  </a> |
-	  <a href="{% url zinnia_entry_latest_feed %}" title="{% trans "RSS Feed of latest entries" %}" class="link feeds">
+	  <a href="{% url blog_entry_latest_feed %}" title="{% trans "RSS Feed of latest entries" %}" class="link feeds">
 	    {% trans "RSS Feed" %}
 	  </a>
 	</div>
 	<h1>
-	  <a href="{% url zinnia_entry_archive_index %}" title="{{LINCDM_TITLE}}" rel="home">
+	  <a href="{% url blog_entry_archive_index %}" title="{{LINCDM_TITLE}}" rel="home">
 	     {{LINCDM_NAME}}
 	  </a>
 	</h1>

@@ -1,14 +1,14 @@
-"""Urls for the Zinnia tags"""
+"""Urls for the blog tags"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-tag_conf = {'template_name': 'zinnia/tag_list.html'}
+tag_conf = {'template_name': 'blog/tag_list.html'}
 
-urlpatterns = patterns('zinnia.views.tags',
+urlpatterns = patterns('blog.views.tags',
                        url(r'^$', 'tag_list',
-                           tag_conf, name='zinnia_tag_list'),
+                           tag_conf, name='blog_tag_list'),
                        url(r'^(?P<tag>[- \w]+)/$', 'tag_detail',
-                           name='zinnia_tag_detail'),
+                           name='blog_tag_detail'),
                        url(r'^(?P<tag>[- \w]+)/page/(?P<page>\d+)/$',
-                           'tag_detail', name='zinnia_tag_detail_paginated'),
+                           'tag_detail', name='blog_tag_detail_paginated'),
                        )

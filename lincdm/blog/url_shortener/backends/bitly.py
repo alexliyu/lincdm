@@ -1,4 +1,4 @@
-"""Bit.ly url shortener backend for Zinnia"""
+"""Bit.ly url shortener backend for blog"""
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
@@ -15,6 +15,6 @@ if not getattr(settings, 'BITLY_API_KEY', ''):
 
 
 def backend(entry):
-    """Bit.ly url shortener backend for Zinnia"""
+    """Bit.ly url shortener backend for blog"""
     bittle = Bittle.objects.bitlify(entry)
     return bittle.shortUrl

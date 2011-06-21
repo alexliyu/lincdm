@@ -1,4 +1,4 @@
-"""Views for Zinnia tags"""
+"""Views for blog tags"""
 from django.views.generic.list_detail import object_list
 
 from tagging.views import tagged_object_list

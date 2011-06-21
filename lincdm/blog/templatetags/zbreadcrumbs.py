@@ -1,4 +1,4 @@
-"""Breadcrumb module for Zinnia templatetags"""
+"""Breadcrumb module for blog templatetags"""
 import re
 from datetime import datetime
 
@@ -16,7 +16,7 @@ class Crumb(object):
 def year_crumb(creation_date):
     """Crumb for a year"""
     year = creation_date.strftime('%Y')
-    return Crumb(year, reverse('zinnia_entry_archive_year',
+    return Crumb(year, reverse('blog_entry_archive_year',
                                args=[year]))
 
 
@@ -25,7 +25,7 @@ def month_crumb(creation_date):
     year = creation_date.strftime('%Y')
     month = creation_date.strftime('%m')
     month_text = creation_date.strftime('%b').capitalize()
-    return Crumb(month_text, reverse('zinnia_entry_archive_month',
+    return Crumb(month_text, reverse('blog_entry_archive_month',
                                      args=[year, month]))
 
 
@@ -34,20 +34,20 @@ def day_crumb(creation_date):
     year = creation_date.strftime('%Y')
     month = creation_date.strftime('%m')
     day = creation_date.strftime('%d')
-    return Crumb(day, reverse('zinnia_entry_archive_day',
+    return Crumb(day, reverse('blog_entry_archive_day',
                               args=[year, month, day]))
 
 
-ZINNIA_ROOT_URL = lambda: reverse('zinnia_entry_archive_index')
+blog_ROOT_URL = lambda: reverse('blog_entry_archive_index')
 
 MODEL_BREADCRUMBS = {'Tag': lambda x: [Crumb(_('Tags'),
-                                             reverse('zinnia_tag_list')),
+                                             reverse('blog_tag_list')),
                                        Crumb(x.name)],
                      'Author': lambda x: [Crumb(_('Authors'),
-                                              reverse('zinnia_author_list')),
+                                              reverse('blog_author_list')),
                                         Crumb(x.username)],
                      'Category': lambda x: [Crumb(
-                         _('Categories'), reverse('zinnia_category_list'))] + \
+                         _('Categories'), reverse('blog_category_list'))] + \
                      [Crumb(anc.title, anc.get_absolute_url())
                       for anc in x.get_ancestors()] + [Crumb(x.title)],
                      'Entry': lambda x: [year_crumb(x.creation_date),
@@ -61,11 +61,11 @@ DATE_REGEXP = re.compile(
 
 def retrieve_breadcrumbs(path, model_instance, root_name=''):
     """Build a semi-hardcoded breadcrumbs
-    based of the model's url handled by Zinnia"""
+    based of the model's url handled by blog"""
     breadcrumbs = []
 
     if root_name:
-        breadcrumbs.append(Crumb(root_name, ZINNIA_ROOT_URL()))
+        breadcrumbs.append(Crumb(root_name, blog_ROOT_URL()))
 
     if model_instance is not None:
         key = model_instance.__class__.__name__
@@ -93,7 +93,7 @@ def retrieve_breadcrumbs(path, model_instance, root_name=''):
         return breadcrumbs
 
     url_components = [comp for comp in
-                      path.replace(ZINNIA_ROOT_URL(), '').split('/') if comp]
+                      path.replace(blog_ROOT_URL(), '').split('/') if comp]
     if len(url_components):
         breadcrumbs.append(Crumb(_(url_components[-1].capitalize())))
 

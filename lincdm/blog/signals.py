@@ -1,4 +1,4 @@
-"""Signal handlers of Zinnia"""
+"""Signal handlers of blog"""
 import inspect
 from functools import wraps
 
@@ -45,11 +45,11 @@ def ping_external_urls_handler(sender, **kwargs):
         ExternalUrlsPinger(entry)
 
 
-def disconnect_zinnia_signals():
-    """Disconnect all the signals provided by Zinnia"""
+def disconnect_blog_signals():
+    """Disconnect all the signals provided by blog"""
     from lincdm.blog.models import Entry
 
     post_save.disconnect(
-        sender=Entry, dispatch_uid='zinnia.entry.post_save.ping_directories')
+        sender=Entry, dispatch_uid='blog.entry.post_save.ping_directories')
     post_save.disconnect(
-        sender=Entry, dispatch_uid='zinnia.entry.post_save.ping_external_urls')
+        sender=Entry, dispatch_uid='blog.entry.post_save.ping_external_urls')

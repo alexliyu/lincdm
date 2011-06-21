@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's spam_checker"""
+"""Test cases for blog's spam_checker"""
 from __future__ import with_statement
 import warnings
 
@@ -9,7 +9,7 @@ from lincdm.blog.spam_checker.backends.all_is_spam import backend
 
 
 class SpamCheckerTestCase(TestCase):
-    """Test cases for zinnia.spam_checker"""
+    """Test cases for blog.spam_checker"""
 
     def test_get_spam_checker(self):
         try:
@@ -26,7 +26,7 @@ class SpamCheckerTestCase(TestCase):
         try:
             with warnings.catch_warnings(record=True) as w:
                 self.assertEquals(
-                    get_spam_checker('zinnia.tests.custom_spam_checker'), None)
+                    get_spam_checker('blog.tests.custom_spam_checker'), None)
                 self.assertTrue(issubclass(w[-1].category, RuntimeWarning))
                 self.assertEquals(
                     str(w[-1].message),
@@ -36,5 +36,5 @@ class SpamCheckerTestCase(TestCase):
             pass
 
         self.assertEquals(
-            get_spam_checker('zinnia.spam_checker.backends.all_is_spam'),
+            get_spam_checker('blog.spam_checker.backends.all_is_spam'),
             backend)

@@ -1,4 +1,4 @@
-"""Widgets for Zinnia admin"""
+"""Widgets for blog admin"""
 from itertools import chain
 
 from django import forms

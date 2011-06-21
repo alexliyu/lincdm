@@ -1,4 +1,4 @@
-"""Views for Zinnia channels"""
+"""Views for blog channels"""
 from django.views.generic.list_detail import object_list
 
 from lincdm.blog.models import Entry

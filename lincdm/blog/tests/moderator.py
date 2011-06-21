@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's moderator"""
+"""Test cases for blog's moderator"""
 from django.core import mail
 from django.test import TestCase
 from django.contrib.auth.models import User
@@ -123,7 +123,7 @@ class EntryCommentModeratorTestCase(TestCase):
         self.assertEquals(Comment.objects.filter(
             flags__flag='spam').count(), 0)
         moderator.spam_checker_backends = (
-            'zinnia.spam_checker.backends.all_is_spam',)
+            'blog.spam_checker.backends.all_is_spam',)
         self.assertEquals(moderator.moderate(comment, self.entry, 'request'),
                           True)
         self.assertEquals(Comment.objects.filter(

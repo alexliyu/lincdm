@@ -1,7 +1,7 @@
-"""Urls for the Zinnia search"""
+"""Urls for the blog search"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-urlpatterns = patterns('zinnia.views.search',
-                       url(r'^$', 'entry_search', name='zinnia_entry_search'),
+urlpatterns = patterns('blog.views.search',
+                       url(r'^$', 'entry_search', name='blog_entry_search'),
                        )

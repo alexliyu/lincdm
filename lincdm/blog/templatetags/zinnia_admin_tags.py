@@ -1,4 +1,4 @@
-"""Template tags and filters for Zinnia's admin"""
+"""Template tags and filters for blog's admin"""
 from django.template import Library
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
@@ -12,17 +12,17 @@ from lincdm.blog.managers import tags_published
 register = Library()
 
 
-@register.inclusion_tag('zinnia/tags/dummy.html')
+@register.inclusion_tag('blog/tags/dummy.html')
 def get_draft_entries(
-    number=5, template='admin/zinnia/widgets/_draft_entries.html'):
+    number=5, template='admin/blog/widgets/_draft_entries.html'):
     """Return the latest draft entries"""
     return {'template': template,
             'entries': Entry.objects.filter(status=DRAFT)[:number]}
 
 
-@register.inclusion_tag('zinnia/tags/dummy.html')
+@register.inclusion_tag('blog/tags/dummy.html')
 def get_content_stats(
-    template='admin/zinnia/widgets/_content_stats.html'):
+    template='admin/blog/widgets/_content_stats.html'):
     """Return statistics of the contents"""
     content_type = ContentType.objects.get_for_model(Entry)
 

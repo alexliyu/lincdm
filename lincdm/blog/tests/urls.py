@@ -1,4 +1,4 @@
-"""Test urls for the zinnia project"""
+"""Test urls for the blog project"""
 from django.contrib import admin
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import include
@@ -13,7 +13,7 @@ handler404 = 'django.views.defaults.page_not_found'
 
 urlpatterns += patterns(
     '',
-    url(r'^channel-test/$', 'zinnia.views.channels.entry_channel',
+    url(r'^channel-test/$', 'blog.views.channels.entry_channel',
         {'query': 'test'}),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^xmlrpc/$', 'django_xmlrpc.views.handle_xmlrpc'),

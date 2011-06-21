@@ -1,34 +1,34 @@
-"""XML-RPC methods for Zinnia"""
+"""XML-RPC methods for blog"""
 
 
-ZINNIA_XMLRPC_PINGBACK = [
-    ('zinnia.xmlrpc.pingback.pingback_ping',
+blog_XMLRPC_PINGBACK = [
+    ('blog.xmlrpc.pingback.pingback_ping',
      'pingback.ping'),
-    ('zinnia.xmlrpc.pingback.pingback_extensions_get_pingbacks',
+    ('blog.xmlrpc.pingback.pingback_extensions_get_pingbacks',
      'pingback.extensions.getPingbacks')]
 
-ZINNIA_XMLRPC_METAWEBLOG = [
-    ('zinnia.xmlrpc.metaweblog.get_users_blogs',
+blog_XMLRPC_METAWEBLOG = [
+    ('blog.xmlrpc.metaweblog.get_users_blogs',
      'blogger.getUsersBlogs'),
-    ('zinnia.xmlrpc.metaweblog.get_user_info',
+    ('blog.xmlrpc.metaweblog.get_user_info',
      'blogger.getUserInfo'),
-    ('zinnia.xmlrpc.metaweblog.delete_post',
+    ('blog.xmlrpc.metaweblog.delete_post',
      'blogger.deletePost'),
-    ('zinnia.xmlrpc.metaweblog.get_authors',
+    ('blog.xmlrpc.metaweblog.get_authors',
      'wp.getAuthors'),
-    ('zinnia.xmlrpc.metaweblog.get_categories',
+    ('blog.xmlrpc.metaweblog.get_categories',
      'metaWeblog.getCategories'),
-    ('zinnia.xmlrpc.metaweblog.new_category',
+    ('blog.xmlrpc.metaweblog.new_category',
      'wp.newCategory'),
-    ('zinnia.xmlrpc.metaweblog.get_recent_posts',
+    ('blog.xmlrpc.metaweblog.get_recent_posts',
      'metaWeblog.getRecentPosts'),
-    ('zinnia.xmlrpc.metaweblog.get_post',
+    ('blog.xmlrpc.metaweblog.get_post',
      'metaWeblog.getPost'),
-    ('zinnia.xmlrpc.metaweblog.new_post',
+    ('blog.xmlrpc.metaweblog.new_post',
      'metaWeblog.newPost'),
-    ('zinnia.xmlrpc.metaweblog.edit_post',
+    ('blog.xmlrpc.metaweblog.edit_post',
      'metaWeblog.editPost'),
-    ('zinnia.xmlrpc.metaweblog.new_media_object',
+    ('blog.xmlrpc.metaweblog.new_media_object',
      'metaWeblog.newMediaObject')]
 
-ZINNIA_XMLRPC_METHODS = ZINNIA_XMLRPC_PINGBACK + ZINNIA_XMLRPC_METAWEBLOG
+blog_XMLRPC_METHODS = blog_XMLRPC_PINGBACK + blog_XMLRPC_METAWEBLOG

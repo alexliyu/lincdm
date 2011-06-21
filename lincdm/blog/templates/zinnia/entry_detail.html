@@ -1,5 +1,5 @@
-{% extends "zinnia/base.html" %}
-{% load i18n tagging_tags comments zinnia_tags %}
+{% extends "blog/base.html" %}
+{% load i18n tagging_tags comments blog_tags %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -17,16 +17,16 @@
   <link rel="shortlink" href="{{ object.short_url }}" />
   {% endif %}
   <link rel="canonical" href="{{ object.get_absolute_url }}" />
-  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of discussions on" %} '{{ object.title }}'" href="{% url zinnia_entry_discussion_feed object.slug %}" />
-  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of comments on" %} '{{ object.title }}'" href="{% url zinnia_entry_comment_feed object.slug %}" />
-  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of pingbacks on" %} '{{ object.title }}'" href="{% url zinnia_entry_pingback_feed object.slug %}" />
-  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of trackbacks on" %} '{{ object.title }}'" href="{% url zinnia_entry_trackback_feed object.slug %}" />
+  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of discussions on" %} '{{ object.title }}'" href="{% url blog_entry_discussion_feed object.slug %}" />
+  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of comments on" %} '{{ object.title }}'" href="{% url blog_entry_comment_feed object.slug %}" />
+  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of pingbacks on" %} '{{ object.title }}'" href="{% url blog_entry_pingback_feed object.slug %}" />
+  <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of trackbacks on" %} '{{ object.title }}'" href="{% url blog_entry_trackback_feed object.slug %}" />
 {% endblock %}
 
 {% block content %}
 <div id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %} span-16 last">
   {% with object.html_content|safe as object_content %}
-  {% include "zinnia/_entry_detail.html" %}
+  {% include "blog/_entry_detail.html" %}
   {% endwith %}
 </div>
 
@@ -177,7 +177,7 @@
   </ol>
   {% endif %}
     {% if object.pingback_enabled %}
-  <p><a href="{% url zinnia_entry_trackback object.slug %}" rel="trackback">{% trans "Trackback URL" %}</a></p>
+  <p><a href="{% url blog_entry_trackback object.slug %}" rel="trackback">{% trans "Trackback URL" %}</a></p>
     {% endif %}
   {% endwith %}
 </div>
@@ -191,9 +191,9 @@
 {% endblock %}
 
 {% block admin_tools %}
-{% if perms.zinnia.change_entry %}
+{% if perms.blog.change_entry %}
 <li>
-  <a href="{% url admin:zinnia_entry_change object.pk %}" title="{% trans "Edit the entry" %}">
+  <a href="{% url admin:blog_entry_change object.pk %}" title="{% trans "Edit the entry" %}">
     {% trans "Edit the entry" %}
   </a>
 </li>

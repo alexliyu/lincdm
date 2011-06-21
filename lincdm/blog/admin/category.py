@@ -1,4 +1,4 @@
-"""CategoryAdmin for Zinnia"""
+"""CategoryAdmin for blog"""
 from django.contrib import admin
 from django.core.urlresolvers import NoReverseMatch
 from django.utils.translation import ugettext_lazy as _

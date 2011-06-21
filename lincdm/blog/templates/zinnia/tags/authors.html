@@ -3,7 +3,7 @@
 <ul>
   {% for author in authors %}
   <li class="vcard">
-    <a href="{% url zinnia_author_detail author.username %}"
+    <a href="{% url blog_author_detail author.username %}"
        title="{{ author.username }}" class="fn nickname url">{{ author.username }}</a>
     {% blocktrans count author.entries_published.count as entry_count %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
   </li>

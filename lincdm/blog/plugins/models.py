@@ -1,4 +1,4 @@
-"""Models of Zinnia CMS Plugins"""
+"""Models of blog CMS Plugins"""
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -13,8 +13,8 @@ from lincdm.blog.models import Entry
 from lincdm.blog.models import Category
 from lincdm.blog.plugins.settings import PLUGINS_TEMPLATES
 
-TEMPLATES = [('zinnia/cms/entry_list.html', _('Entry list (default)')),
-             ('zinnia/cms/entry_detail.html', _('Entry detailed'))] + \
+TEMPLATES = [('blog/cms/entry_list.html', _('Entry list (default)')),
+             ('blog/cms/entry_detail.html', _('Entry detailed'))] + \
              PLUGINS_TEMPLATES
 
 
@@ -99,7 +99,7 @@ def invalidate_menu_cache(sender, **kwargs):
 
 post_save.connect(
     invalidate_menu_cache, sender=Entry,
-    dispatch_uid='zinnia.entry.postsave.invalidate_menu_cache')
+    dispatch_uid='blog.entry.postsave.invalidate_menu_cache')
 post_delete.connect(
     invalidate_menu_cache, sender=Entry,
-    dispatch_uid='zinnia.entry.postdelete.invalidate_menu_cache')
+    dispatch_uid='blog.entry.postdelete.invalidate_menu_cache')

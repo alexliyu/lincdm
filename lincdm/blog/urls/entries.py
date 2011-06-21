@@ -1,4 +1,4 @@
-"""Urls for the Zinnia entries"""
+"""Urls for the blog entries"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
@@ -8,7 +8,7 @@ from lincdm.blog.settings import ALLOW_EMPTY
 from lincdm.blog.settings import ALLOW_FUTURE
 
 entry_conf_index = {'paginate_by': PAGINATION,
-                    'template_name': 'zinnia/entry_archive.html'}
+                    'template_name': 'blog/entry_archive.html'}
 
 entry_conf = {'date_field': 'creation_date',
               'allow_empty': ALLOW_EMPTY,
@@ -25,26 +25,26 @@ entry_conf_detail['queryset'] = Entry.published.on_site()
 
 
 urlpatterns = patterns(
-    'zinnia.views.entries',
+    'blog.views.entries',
     url(r'^$',
         'entry_index', entry_conf_index,
-        name='zinnia_entry_archive_index'),
+        name='blog_entry_archive_index'),
     url(r'^page/(?P<page>\d+)/$',
         'entry_index', entry_conf_index,
-        name='zinnia_entry_archive_index_paginated'),
+        name='blog_entry_archive_index_paginated'),
     url(r'^(?P<year>\d{4})/$',
         'entry_year', entry_conf_year,
-        name='zinnia_entry_archive_year'),
+        name='blog_entry_archive_year'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
         'entry_month', entry_conf,
-        name='zinnia_entry_archive_month'),
+        name='blog_entry_archive_month'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/$',
         'entry_day', entry_conf,
-        name='zinnia_entry_archive_day'),
+        name='blog_entry_archive_day'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         'entry_detail', entry_conf_detail,
-        name='zinnia_entry_detail'),
+        name='blog_entry_detail'),
     url(r'^(?P<object_id>\d+)/$',
         'entry_shortlink',
-        name='zinnia_entry_shortlink'),
+        name='blog_entry_shortlink'),
     )

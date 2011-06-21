@@ -1,1 +1,1 @@
-"""Commands module of Zinnia"""
+"""Commands module of blog"""

@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's comparison"""
+"""Test cases for blog's comparison"""
 from django.test import TestCase
 
 from lincdm.blog.models import Entry
@@ -20,10 +20,10 @@ class ComparisonTestCase(TestCase):
 
     def test_clustered_model(self):
         params = {'title': 'My entry 1', 'content': 'My content 1',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1'}
+                  'tags': 'blog, test', 'slug': 'my-entry-1'}
         Entry.objects.create(**params)
         params = {'title': 'My entry 2', 'content': 'My content 2',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-2'}
+                  'tags': 'blog, test', 'slug': 'my-entry-2'}
         Entry.objects.create(**params)
         cm = ClusteredModel(Entry.objects.all())
         self.assertEquals(cm.dataset().values(), ['1', '2'])
@@ -37,11 +37,11 @@ class ComparisonTestCase(TestCase):
                                 ['title', 'excerpt', 'content'])
         params = {'title': 'My entry 1', 'content':
                   'This is my first content',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1'}
+                  'tags': 'blog, test', 'slug': 'my-entry-1'}
         Entry.objects.create(**params)
         params = {'title': 'My entry 2', 'content':
                   'My second entry',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-2'}
+                  'tags': 'blog, test', 'slug': 'my-entry-2'}
         Entry.objects.create(**params)
         columns, dataset = vectors()
         self.assertEquals(columns, ['content', 'This', 'my', 'is', '1',

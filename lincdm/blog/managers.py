@@ -1,4 +1,4 @@
-"""Managers of Zinnia"""
+"""Managers of blog"""
 from datetime import datetime
 
 from django.db import models

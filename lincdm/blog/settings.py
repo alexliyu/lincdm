@@ -1,26 +1,26 @@
-"""Settings of Zinnia"""
+"""Settings of blog"""
 import os
 from django.conf import settings
 
-PING_DIRECTORIES = getattr(settings, 'ZINNIA_PING_DIRECTORIES',
-                           ('http://django-blog-zinnia.com/xmlrpc/',))
-SAVE_PING_DIRECTORIES = getattr(settings, 'ZINNIA_SAVE_PING_DIRECTORIES',
+PING_DIRECTORIES = getattr(settings, 'BLOG_PING_DIRECTORIES',
+                           ('http://django-blog-blog.com/xmlrpc/',))
+SAVE_PING_DIRECTORIES = getattr(settings, 'BLOG_SAVE_PING_DIRECTORIES',
                                 bool(PING_DIRECTORIES))
-SAVE_PING_EXTERNAL_URLS = getattr(settings, 'ZINNIA_PING_EXTERNAL_URLS', True)
+SAVE_PING_EXTERNAL_URLS = getattr(settings, 'BLOG_PING_EXTERNAL_URLS', True)
 
-COPYRIGHT = getattr(settings, 'ZINNIA_COPYRIGHT', 'Zinnia')
+COPYRIGHT = getattr(settings, 'BLOG_COPYRIGHT', 'blog')
 LINCDM_NAME = getattr(settings, 'LINCDM_NAME')
 LINCDM_TITLE = getattr(settings, 'LINCDM_TITLE')
-PAGINATION = getattr(settings, 'ZINNIA_PAGINATION', 10)
-ALLOW_EMPTY = getattr(settings, 'ZINNIA_ALLOW_EMPTY', True)
-ALLOW_FUTURE = getattr(settings, 'ZINNIA_ALLOW_FUTURE', True)
+PAGINATION = getattr(settings, 'BLOG_PAGINATION', 10)
+ALLOW_EMPTY = getattr(settings, 'BLOG_ALLOW_EMPTY', True)
+ALLOW_FUTURE = getattr(settings, 'BLOG_ALLOW_FUTURE', True)
 
-ENTRY_TEMPLATES = getattr(settings, 'ZINNIA_ENTRY_TEMPLATES', [])
-ENTRY_BASE_MODEL = getattr(settings, 'ZINNIA_ENTRY_BASE_MODEL', '')
+ENTRY_TEMPLATES = getattr(settings, 'BLOG_ENTRY_TEMPLATES', [])
+ENTRY_BASE_MODEL = getattr(settings, 'BLOG_ENTRY_BASE_MODEL', '')
 
-MARKUP_LANGUAGE = getattr(settings, 'ZINNIA_MARKUP_LANGUAGE', 'html')
+MARKUP_LANGUAGE = getattr(settings, 'BLOG_MARKUP_LANGUAGE', 'html')
 
-MARKDOWN_EXTENSIONS = getattr(settings, 'ZINNIA_MARKDOWN_EXTENSIONS', '')
+MARKDOWN_EXTENSIONS = getattr(settings, 'BLOG_MARKDOWN_EXTENSIONS', '')
 
 WYSIWYG_MARKUP_MAPPING = {
     'textile': 'markitup',
@@ -28,45 +28,45 @@ WYSIWYG_MARKUP_MAPPING = {
     'restructuredtext': 'markitup',
     'html': 'tinymce' in settings.INSTALLED_APPS and 'tinymce' or 'wymeditor'}
 
-WYSIWYG = getattr(settings, 'ZINNIA_WYSIWYG',
+WYSIWYG = getattr(settings, 'BLOG_WYSIWYG',
                   WYSIWYG_MARKUP_MAPPING.get(MARKUP_LANGUAGE))
 
 AUTO_CLOSE_COMMENTS_AFTER = getattr(
-    settings, 'ZINNIA_AUTO_CLOSE_COMMENTS_AFTER', None)
+    settings, 'BLOG_AUTO_CLOSE_COMMENTS_AFTER', None)
 
-AUTO_MODERATE_COMMENTS = getattr(settings, 'ZINNIA_AUTO_MODERATE_COMMENTS',
+AUTO_MODERATE_COMMENTS = getattr(settings, 'BLOG_AUTO_MODERATE_COMMENTS',
                                  False)
 
-MAIL_COMMENT_REPLY = getattr(settings, 'ZINNIA_MAIL_COMMENT_REPLY', False)
+MAIL_COMMENT_REPLY = getattr(settings, 'BLOG_MAIL_COMMENT_REPLY', False)
 
-MAIL_COMMENT_AUTHORS = getattr(settings, 'ZINNIA_MAIL_COMMENT_AUTHORS', True)
+MAIL_COMMENT_AUTHORS = getattr(settings, 'BLOG_MAIL_COMMENT_AUTHORS', True)
 
 MAIL_COMMENT_NOTIFICATION_RECIPIENTS = getattr(
-    settings, 'ZINNIA_MAIL_COMMENT_NOTIFICATION_RECIPIENTS',
+    settings, 'BLOG_MAIL_COMMENT_NOTIFICATION_RECIPIENTS',
     [manager_tuple[1] for manager_tuple in settings.MANAGERS])
 
-UPLOAD_TO = getattr(settings, 'ZINNIA_UPLOAD_TO', 'uploads')
+UPLOAD_TO = getattr(settings, 'BLOG_UPLOAD_TO', 'uploads')
 
-PROTOCOL = getattr(settings, 'ZINNIA_PROTOCOL', 'http')
-MEDIA_URL = getattr(settings, 'ZINNIA_MEDIA_URL',
-                    os.path.join(settings.MEDIA_URL, 'zinnia/'))
+PROTOCOL = getattr(settings, 'BLOG_PROTOCOL', 'http')
+MEDIA_URL = getattr(settings, 'BLOG_MEDIA_URL',
+                    os.path.join(settings.MEDIA_URL, 'blog/'))
 
-FEEDS_FORMAT = getattr(settings, 'ZINNIA_FEEDS_FORMAT', 'rss')
-FEEDS_MAX_ITEMS = getattr(settings, 'ZINNIA_FEEDS_MAX_ITEMS', 15)
+FEEDS_FORMAT = getattr(settings, 'BLOG_FEEDS_FORMAT', 'rss')
+FEEDS_MAX_ITEMS = getattr(settings, 'BLOG_FEEDS_MAX_ITEMS', 15)
 
 PINGBACK_CONTENT_LENGTH = getattr(settings,
-                                  'ZINNIA_PINGBACK_CONTENT_LENGTH', 300)
+                                  'BLOG_PINGBACK_CONTENT_LENGTH', 300)
 
-F_MIN = getattr(settings, 'ZINNIA_F_MIN', 0.1)
-F_MAX = getattr(settings, 'ZINNIA_F_MAX', 1.0)
+F_MIN = getattr(settings, 'BLOG_F_MIN', 0.1)
+F_MAX = getattr(settings, 'BLOG_F_MAX', 1.0)
 
-SPAM_CHECKER_BACKENDS = getattr(settings, 'ZINNIA_SPAM_CHECKER_BACKENDS',
+SPAM_CHECKER_BACKENDS = getattr(settings, 'BLOG_SPAM_CHECKER_BACKENDS',
                                 ())
 
-URL_SHORTENER_BACKEND = getattr(settings, 'ZINNIA_URL_SHORTENER_BACKEND',
-                                'zinnia.url_shortener.backends.default')
+URL_SHORTENER_BACKEND = getattr(settings, 'BLOG_URL_SHORTENER_BACKEND',
+                                'blog.url_shortener.backends.default')
 
-STOP_WORDS = getattr(settings, 'ZINNIA_STOP_WORDS',
+STOP_WORDS = getattr(settings, 'BLOG_STOP_WORDS',
                      ('able', 'about', 'across', 'after', 'all', 'almost',
                       'also', 'among', 'and', 'any', 'are', 'because', 'been',
                       'but', 'can', 'cannot', 'could', 'dear', 'did', 'does',
@@ -87,6 +87,6 @@ TWITTER_CONSUMER_SECRET = getattr(settings, 'TWITTER_CONSUMER_SECRET', '')
 TWITTER_ACCESS_KEY = getattr(settings, 'TWITTER_ACCESS_KEY', '')
 TWITTER_ACCESS_SECRET = getattr(settings, 'TWITTER_ACCESS_SECRET', '')
 
-USE_TWITTER = getattr(settings, 'ZINNIA_USE_TWITTER',
+USE_TWITTER = getattr(settings, 'BLOG_USE_TWITTER',
                       bool(TWITTER_ACCESS_KEY and TWITTER_ACCESS_SECRET and \
                            TWITTER_CONSUMER_KEY and TWITTER_CONSUMER_SECRET))

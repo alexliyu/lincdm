@@ -1,4 +1,4 @@
-{% extends "zinnia/base.html" %}
+{% extends "blog/base.html" %}
 {% load i18n %}
 
 {% block meta-description %}{% trans "Author list" %}{% endblock %}
@@ -11,7 +11,7 @@
   <ul>
     {% for object in object_list %}
     <li class="vcard">
-      <a href="{% url zinnia_author_detail object.username %}"
+      <a href="{% url blog_author_detail object.username %}"
          title="{{ object.username }}" class="fn nickname url">
         {{ object.username }}
       </a>

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
   <service>
-    <engineName>LinCDM {{ ZINNIA_VERSION }}</engineName>
+    <engineName>LinCDM {{ blog_VERSION }}</engineName>
     <engineLink>http://github.com/alexliyu/lincdm</engineLink>
     <homePageLink>{{ protocol }}://{{ site.domain }}/</homePageLink>
     <apis>

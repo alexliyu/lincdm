@@ -1,4 +1,4 @@
-"""Url shortener for Zinnia"""
+"""Url shortener for blog"""
 import warnings
 
 from django.utils.importlib import import_module

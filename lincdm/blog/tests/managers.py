@@ -1,4 +1,4 @@
-"""Test cases for Zinnia's managers"""
+"""Test cases for blog's managers"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -34,7 +34,7 @@ class ManagersTestCase(TestCase):
                                     slug='category-2')]
 
         params = {'title': 'My entry 1', 'content': 'My content 1',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-1',
+                  'tags': 'blog, test', 'slug': 'my-entry-1',
                   'status': PUBLISHED}
         self.entry_1 = Entry.objects.create(**params)
         self.entry_1.authors.add(self.authors[0])
@@ -42,7 +42,7 @@ class ManagersTestCase(TestCase):
         self.entry_1.sites.add(*self.sites)
 
         params = {'title': 'My entry 2', 'content': 'My content 2',
-                  'tags': 'zinnia, test', 'slug': 'my-entry-2'}
+                  'tags': 'blog, test', 'slug': 'my-entry-2'}
         self.entry_2 = Entry.objects.create(**params)
         self.entry_2.authors.add(*self.authors)
         self.entry_2.categories.add(self.categories[0])
@@ -156,7 +156,7 @@ class ManagersTestCase(TestCase):
         self.assertEquals(Entry.published.advanced_search(
             'content category:"category-2"').count(), 1)
         self.assertEquals(Entry.published.advanced_search(
-            'content tag:zinnia').count(), 2)
+            'content tag:blog').count(), 2)
         self.assertEquals(Entry.published.advanced_search(
             'content tag:custom').count(), 1)
         self.assertEquals(Entry.published.advanced_search(
@@ -164,7 +164,7 @@ class ManagersTestCase(TestCase):
         self.assertEquals(Entry.published.advanced_search(
             'content author:contributor').count(), 1)
         self.assertEquals(Entry.published.advanced_search(
-            'content author:webmaster tag:zinnia').count(), 2)
+            'content author:webmaster tag:blog').count(), 2)
         self.assertEquals(Entry.published.advanced_search(
             'content author:webmaster tag:custom').count(), 1)
         self.assertEquals(Entry.published.advanced_search(
@@ -220,7 +220,7 @@ class ManagersTestCase(TestCase):
         self.assertEquals(Entry.published.advanced_search(
             'author:"webmast*"').count(), 0)
         self.assertEquals(Entry.published.advanced_search(
-            'tag:"zinnia*"').count(), 0)
+            'tag:"blog*"').count(), 0)
         self.assertEquals(Entry.published.advanced_search(
             'tag:*inni*').count(), 2)
 

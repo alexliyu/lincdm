@@ -1,9 +1,9 @@
-{% extends "zinnia/skeleton.html" %}
-{% load i18n zinnia_tags %}
+{% extends "blog/skeleton.html" %}
+{% load i18n blog_tags %}
 
 {% block meta %}
 {{ block.super }}
-<base href="http://localhost:8000/zinnia/" />
+<base href="http://localhost:8000/blog/" />
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -21,12 +21,12 @@
 <div class="links">
   <ul>
     <li>
-      <a href="{% url zinnia_entry_archive_index %}" title="{% trans "Blog index" %}">
+      <a href="{% url blog_entry_archive_index %}" title="{% trans "Blog index" %}">
         {% trans "Blog index" %}
       </a>
     </li>
     <li>
-      <a href="{% url zinnia_sitemap %}" title="{% trans "Sitemap" %}">
+      <a href="{% url blog_sitemap %}" title="{% trans "Sitemap" %}">
         {% trans "Sitemap" %}
       </a>
     </li>
@@ -40,7 +40,7 @@
 
 <h3>{% trans "Search" %}</h3>
 <div class="search">
-  <form method="get" id="searchform" action="{% url zinnia_entry_search %}">
+  <form method="get" id="searchform" action="{% url blog_entry_search %}">
     <p>
       <input type="text" value="{% trans "Keywords..." %}" name="pattern" id="searchbox" onfocus="this.value=''"/>
       <input type="submit" class="submitbutton" value="OK" />

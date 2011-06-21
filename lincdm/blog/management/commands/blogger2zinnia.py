@@ -1,4 +1,4 @@
-"""Blogger to Zinnia command module
+"""Blogger to blog command module
 Based on Elijah Rutschman's code"""
 import sys
 from getpass import getpass
@@ -24,14 +24,14 @@ gdata_service = None
 
 class Command(NoArgsCommand):
     """Command object for importing a Blogger blog
-    into Zinnia via Google's gdata API."""
-    help = 'Import a Blogger blog into Zinnia.'
+    into blog via Google's gdata API."""
+    help = 'Import a Blogger blog into blog.'
 
     option_list = NoArgsCommand.option_list + (
         make_option('--blogger-username', dest='blogger_username', default='',
                     help='The username to login to Blogger with'),
         make_option('--category-title', dest='category_title', default='',
-                    help='The Zinnia category to import Blogger posts to'),
+                    help='The blog category to import Blogger posts to'),
         make_option('--blogger-blog-id', dest='blogger_blog_id', default='',
                     help='The id of the Blogger blog to import'),
         make_option('--author', dest='author', default='',
@@ -68,7 +68,7 @@ class Command(NoArgsCommand):
         self.blogger_blog_id = options.get('blogger_blog_id')
 
         self.write_out(self.style.TITLE(
-            'Starting migration from Blogger to Zinnia %s\n' % __version__))
+            'Starting migration from Blogger to blog %s\n' % __version__))
 
         if not self.blogger_username:
             self.blogger_username = raw_input('Blogger username: ')
@@ -88,7 +88,7 @@ class Command(NoArgsCommand):
                 self.default_author = User.objects.get(username=default_author)
             except User.DoesNotExist:
                 raise CommandError(
-                    'Invalid Zinnia username for default author "%s"' % \
+                    'Invalid blog username for default author "%s"' % \
                     default_author)
         else:
             self.default_author = User.objects.all()[0]

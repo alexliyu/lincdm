@@ -1,4 +1,4 @@
-"""Views for Zinnia categories"""
+"""Views for blog categories"""
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 

@@ -1,4 +1,4 @@
-"""Comparison tools for Zinnia
+"""Comparison tools for blog
 Based on clustered_models app"""
 from math import sqrt
 

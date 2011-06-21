@@ -1,4 +1,4 @@
-"""Spam checker for Zinnia"""
+"""Spam checker for blog"""
 import warnings
 
 from django.utils.importlib import import_module
