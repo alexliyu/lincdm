@@ -10,7 +10,8 @@ TEMPLATE_DEBUG = DEBUG
 gettext = lambda s: s
 COPYRIGHT = '33445120.Tk'
 LINCDM_NAME = 'LinCDM'
-LINCDM_TITLE = u'基于Django的开源博客' 
+LINCDM_TITLE = u'基于Django的开源博客'
+VERSION = 'v0.01' 
 GRAPPELLI_ADMIN_TITLE = LINCDM_NAME
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -112,10 +113,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
-    'zinnia.context_processors.media',
-    'zinnia.context_processors.version',
-    'zinnia.context_processors.sitename',
-    'zinnia.context_processors.sitetitle',
+    'lincdm.context_processors.media',
+    'lincdm.context_processors.version',
+    'lincdm.context_processors.sitename',
+    'lincdm.context_processors.sitetitle',
 )
 
 
@@ -144,9 +145,8 @@ TEMPLATE_DIRS = (
 APPEND_SLASH = True
 
 CMS_TEMPLATES = (
-    ('col_two.html', gettext('two columns')),
-    ('col_three.html', gettext('three columns')),
-    ('nav_playground.html', gettext('navigation examples')),
+   
+    ('index.html', gettext('首页')),
 )
 
 
