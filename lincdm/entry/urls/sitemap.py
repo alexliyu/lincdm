@@ -1,9 +1,9 @@
-"""Urls for the blog sitemap"""
+"""Urls for the entry sitemap"""
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-urlpatterns = patterns('blog.views.sitemap',
+urlpatterns = patterns('entry.views.sitemap',
                        url(r'^$', 'sitemap',
-                           {'template': 'blog/sitemap.html'},
-                           name='blog_sitemap'),
+                           {'template': 'entry/sitemap.html'},
+                           name='entry_sitemap'),
                        )

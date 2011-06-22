@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from tagging.models import TaggedItem
 
 from lincdm.blog.models import Entry
-from lincdm.blog.models import Author
+from lincdm.models.models import Author
 from lincdm.blog.models import Category
 from lincdm.blog.managers import tags_published
 

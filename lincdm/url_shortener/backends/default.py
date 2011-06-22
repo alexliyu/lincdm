@@ -2,7 +2,7 @@
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 
-from settings import PROTOCOL
+from lincdm.settings import PROTOCOL
 
 
 def backend(entry):

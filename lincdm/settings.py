@@ -130,7 +130,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
-    'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
     'lincdm.context_processors.media',
     'lincdm.context_processors.version',
@@ -145,9 +144,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-#    'cms.middleware.toolbar.ToolbarMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     
@@ -163,143 +159,7 @@ TEMPLATE_DIRS = (
 )
 APPEND_SLASH = True
 
-CMS_TEMPLATES = (
-   
-    ('index.html', gettext('首页')),
-)
 
-
-
-CMS_PLACEHOLDER_CONF = {
-    'col_sidebar': {
-        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
-                    'TextPlugin', 'SnippetPlugin'),
-        'name': gettext("sidebar column")
-    },
-                        
-    'col_left': {
-        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
-                    'TextPlugin', 'SnippetPlugin', 'GoogleMapPlugin',),
-        'name': gettext("left column")
-    },
-                        
-    'col_right': {
-        'plugins': ('FilePlugin', 'FlashPlugin', 'LinkPlugin', 'PicturePlugin',
-                    'TextPlugin', 'SnippetPlugin', 'GoogleMapPlugin',),
-        'name': gettext("right column")
-    },
-    'extra_context': {
-        "plugins": ('TextPlugin',),
-        "extra_context": {"width": 250},
-        "name": "extra context"
-    },
-}
-# Should pages be allowed to inherit their parent templates?
-CMS_TEMPLATE_INHERITANCE = True
-# This is just a STATIC GLOBAL VAR
-CMS_TEMPLATE_INHERITANCE_MAGIC = 'INHERIT'
-
-# Whether to enable permissions.
-CMS_PERMISSION = False
-
-# Decides if pages without any view restrictions are public by default, or staff only
-CMS_PUBLIC_FOR = 'all' # or 'staff'
-MENU_CACHE_DURATION = 3600
-CMS_CONTENT_CACHE_DURATION = 60
-CMS_CACHE_DURATIONS = {
-     # Menu cache duration
-    'menus': MENU_CACHE_DURATION,
-    # Defines how long page content should be cached
-    'content': CMS_CONTENT_CACHE_DURATION,
-    # Defines how long user permissions should be cached
-    'permissions': 60 * 60,
-}
-
-# Show the publication date field in the admin, allows for future dating
-# Changing this from True to False could cause some weirdness.  If that is required,
-# you should update your database to correct any future dated pages
-CMS_SHOW_START_DATE = False
-
-# Show the publication end date field in the admin, allows for page expiration
-# Changing this from True to False could cause some weirdness.  If that is required,
-# you should update your database and null any pages with publication_end_date set.
-CMS_SHOW_END_DATE = False
-
-# Whether the user can overwrite the url of a page
-CMS_URL_OVERWRITE = True
-
-# Allow to overwrite the menu title
-CMS_MENU_TITLE_OVERWRITE = True
-
-# Are redirects activated?
-CMS_REDIRECTS = False
-
-# Allow the description, title and keywords meta tags to be edited from the
-# admin
-CMS_SEO_FIELDS = True
-
-# a tuple of python path to AppHook Classes. Overwrites the auto-discovered apphooks.
-CMS_APPHOOKS = ()  
-
-#Should the tree of the pages be also be displayed in the urls? or should a flat slug structure be used?
-CMS_FLAT_URLS = False
-
-# Wheter the cms has a softroot functionionality
-CMS_SOFTROOT = False
-
-#Hide untranslated Pages
-CMS_HIDE_UNTRANSLATED = True
-
-#Fall back to another language if the requested page isn't available in the preferred language
-CMS_LANGUAGE_FALLBACK = True
-
-#Configuration on how to order the fallbacks for languages.
-# example: {'de': ['en', 'fr'],
-#           'en': ['de'],
-#          }
-CMS_LANGUAGE_CONF = {
-    'zh-cn':['en'],
-    'en':['zh-cn'],
-}
-
-CMS_SITE_LANGUAGES = {
-    1:['en', 'zh-cn'],
-    2:['zh-cn'],
-}
-
-# Defines which languages should be offered.
-CMS_LANGUAGES = LANGUAGES
-
-CMS_SITE_CHOICES_CACHE_KEY = 'CMS:site_choices'
-CMS_PAGE_CHOICES_CACHE_KEY = 'CMS:page_choices'
-
-# Languages that are visible in the frontend (Language Chooser)
-CMS_FRONTEND_LANGUAGES = [x[0] for x in CMS_LANGUAGES]
-
-
-# Path for CMS media (uses <MEDIA_ROOT>/cms by default)
-CMS_MEDIA_PATH = 'cms/'
-CMS_MEDIA_ROOT = os.path.join(MEDIA_ROOT, CMS_MEDIA_PATH)
-CMS_MEDIA_URL = os.path.join(MEDIA_URL, CMS_MEDIA_PATH)
-
-# Path (relative to MEDIA_ROOT/MEDIA_URL) to directory for storing page-scope files.
-CMS_PAGE_MEDIA_PATH = 'cms_page_media/'
-
-CMS_MODERATOR = False
-
-# Defines what character will be used for the __unicode__ handling of cms pages
-CMS_TITLE_CHARACTER = '+'
-
-# Enable non-cms placeholder frontend editing
-PLACEHOLDER_FRONTEND_EDITING = True
-
-# Cache prefix so one can deploy several sites on one cache server
-CMS_CACHE_PREFIX = 'cms-'
-
-# they are missing in the permission-merge2 branch
-CMS_PLUGIN_PROCESSORS = tuple()
-CMS_PLUGIN_CONTEXT_PROCESSORS = tuple()
-BLOG_ENTRY_BASE_MODEL = 'blog.plugins.placeholder.EntryPlaceholder'
 TINYMCE_SPELLCHECKER = True
 TINYMCE_FILEBROWSER = False
 
@@ -327,27 +187,17 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'debug_toolbar',
+    'lincdm',
     'lincdm.entry',
-    'lincdm.cms',
-    'menus',
+    'lincdm.blog',
+    'lincdm.menus',
     'mptt',
     'appmedia',
     'south',
     'sekizai',
-    'lincdm.blog',
+    
     'tagging',
-    'lincdm.blog.plugins',
-    'lincdm.cms.plugins.file',
-    'lincdm.cms.plugins.flash',
-    'lincdm.cms.plugins.googlemap',
-    'lincdm.cms.plugins.link',
-    'lincdm.cms.plugins.picture',
-    'lincdm.cms.plugins.snippet',
-    'lincdm.cms.plugins.teaser',
-    'lincdm.cms.plugins.text',
-    'lincdm.cms.plugins.video',
-    'lincdm.cms.plugins.twitter',
-    'app.gallery',
+   
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -410,5 +260,31 @@ LOGGING = {
 #        }
     }
 }
-GRAPPELLI_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
 
+AUTH_PROFILE_MODULE = 'lincdm.UserProfile'
+GRAPPELLI_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
+PING_DIRECTORIES = ('http://django-blog-blog.com/xmlrpc/',)
+SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
+SAVE_PING_EXTERNAL_URLS = True
+
+PAGINATION = 10
+ALLOW_EMPTY = True
+ALLOW_FUTURE = True
+
+ENTRY_TEMPLATES = []
+
+MARKUP_LANGUAGE = 'html'
+UPLOAD_TO = 'uploads'
+
+PROTOCOL = 'http'
+
+
+FEEDS_FORMAT = 'rss'
+FEEDS_MAX_ITEMS = 15
+
+PINGBACK_CONTENT_LENGTH = 300
+
+F_MIN = 0.1
+F_MAX = 1.0
+
+URL_SHORTENER_BACKEND = 'url_shortener.backends.default'

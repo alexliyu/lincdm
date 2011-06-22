@@ -1,4 +1,10 @@
-"""Forms for blog admin"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+博客表单管理
+'''
 from django import forms
 from django.db.models import ManyToOneRel
 from django.db.models import ManyToManyRel

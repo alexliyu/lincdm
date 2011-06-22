@@ -1,4 +1,10 @@
-"""CategoryAdmin for blog"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+博客分类管理
+'''
 from django.contrib import admin
 from django.core.urlresolvers import NoReverseMatch
 from django.utils.translation import ugettext_lazy as _

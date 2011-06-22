@@ -38,24 +38,7 @@ from lincdm.blog.signals import ping_directories_handler
 from lincdm.blog.signals import ping_external_urls_handler
 
 
-class Author(User):
-    """Proxy Model around User"""
 
-    objects = models.Manager()
-    published = AuthorPublishedManager()
-
-    def entries_published(self):
-        """Return only the entries published"""
-        return entries_published(self.entries)
-
-    @models.permalink
-    def get_absolute_url(self):
-        """Return author's URL"""
-        return ('blog_author_detail', (self.username,))
-
-    class Meta:
-        """Author's Meta"""
-        proxy = True
 
 
 class Category(models.Model):

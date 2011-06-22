@@ -27,18 +27,18 @@ from django.contrib.markup.templatetags.markup import restructuredtext
 import mptt
 from tagging.fields import TagField
 
-from settings import UPLOAD_TO
-from settings import MARKUP_LANGUAGE
-from settings import ENTRY_TEMPLATES
-from settings import ENTRY_BASE_MODEL
-from settings import MARKDOWN_EXTENSIONS
-from settings import AUTO_CLOSE_COMMENTS_AFTER
+from lincdm.settings import UPLOAD_TO
+from lincdm.settings import MARKUP_LANGUAGE
+from lincdm.settings import ENTRY_TEMPLATES
+from lincdm.settings import ENTRY_BASE_MODEL
+from lincdm.settings import MARKDOWN_EXTENSIONS
+from lincdm.settings import AUTO_CLOSE_COMMENTS_AFTER
 from lincdm.managers import entries_published
 from lincdm.managers import EntryPublishedManager
 from lincdm.managers import AuthorPublishedManager
 from lincdm.managers import DRAFT, HIDDEN, PUBLISHED
 from lincdm.moderator import EntryCommentModerator
-from url_shortener import get_url_shortener
+from lincdm.url_shortener import get_url_shortener
 
 
 
@@ -138,8 +138,8 @@ class EntryAbstractClass(models.Model):
 
     template = models.CharField(
         _('template'), max_length=250,
-        default='blog/entry_detail.html',
-        choices=[('blog/entry_detail.html', _('Default template'))] + \
+        default='entry/entry_detail.html',
+        choices=[('entry/entry_detail.html', _('Default template'))] + \
         ENTRY_TEMPLATES,
         help_text=_('template used to display the entry'))
 

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-from cms.utils.django_load import load
+from lincdm.utils.django_load import load
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.cache import cache
 from django.utils.translation import get_language
-from menus.exceptions import NamespaceAllreadyRegistered
-from menus.models import CacheKey
+from lincdm.menus.exceptions import NamespaceAllreadyRegistered
+from lincdm.menus.models import CacheKey
+from lincdm.blog.settings import LINCDM_NAME
+from lincdm.menus.models import Title
 import copy
 
 def _build_nodes_inner_for_one_menu(nodes, menu_class_name):
@@ -72,7 +74,7 @@ class MenuPool(object):
         if self.discovered:
             return
         load('menu')
-        from menus.modifiers import register
+        from lincdm.menus.modifiers import register
         register()
         self.discovered = True
         
@@ -89,7 +91,7 @@ class MenuPool(object):
         cache_keys.delete()
     
     def register_menu(self, menu):
-        from menus.base import Menu
+        from lincdm.menus.base import Menu
         assert issubclass(menu, Menu)
         if menu.__name__ in self.menus.keys():
             raise NamespaceAllreadyRegistered(
@@ -97,7 +99,7 @@ class MenuPool(object):
         self.menus[menu.__name__] = menu()
 
     def register_modifier(self, modifier_class):
-        from menus.base import Modifier
+        from lincdm.menus.base import Modifier
         assert issubclass(modifier_class, Modifier)
         if not modifier_class in self.modifiers:
             self.modifiers.append(modifier_class)

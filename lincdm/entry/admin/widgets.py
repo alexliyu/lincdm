@@ -9,7 +9,7 @@ from django.utils.html import conditional_escape
 from django.utils.encoding import smart_unicode
 from django.utils.encoding import force_unicode
 
-from settings import MEDIA_URL
+from lincdm.settings import MEDIA_URL
 
 
 class TreeNodeChoiceField(forms.ModelChoiceField):

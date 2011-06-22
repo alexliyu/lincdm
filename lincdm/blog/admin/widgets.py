@@ -1,4 +1,10 @@
-"""Widgets for blog admin"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+博客widgets管理
+'''
 from itertools import chain
 
 from django import forms

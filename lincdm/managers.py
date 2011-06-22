@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.db import models
 from django.contrib.sites.models import Site
-
+from lincdm.publisher.manage import PublisherManager
 DRAFT = 0
 HIDDEN = 1
 PUBLISHED = 2
@@ -12,7 +12,7 @@ PUBLISHED = 2
 def tags_published():
     """Return the published tags"""
     from tagging.models import Tag
-    from entry.models import Entry
+    from lincdm.entry.models import Entry
     tags_entry_published = Tag.objects.usage_for_queryset(
         Entry.published.all())
     # Need to do that until the issue #44 of django-tagging is fixed
@@ -80,3 +80,18 @@ class EntryPublishedManager(models.Manager):
                 lookup |= query_part
 
         return self.get_query_set().filter(lookup)
+    
+
+class MenusTitleManager(PublisherManager):
+    
+    def get_title(self, page):
+        """
+        Gets the latest content for a particular page and language. Falls back
+        to another language if wanted.
+        """
+        try:
+            title = self.get(page=page)
+            return title
+        except self.model.DoesNotExist:
+                raise
+        return None        

@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse, NoReverseMatch
 
 from tagging.models import Tag
 
-import settings
+from lincdm import settings
 from lincdm.managers import HIDDEN
 from lincdm.managers import PUBLISHED
 from lincdm.entry.admin.forms import EntryAdminForm
@@ -76,7 +76,7 @@ class EntryAdmin(admin.ModelAdmin):
         """Return the authors in HTML"""
         try:
             authors = ['<a href="%s" target="blank">%s</a>' % 
-                       (reverse('zinnia_author_detail',
+                       (reverse('entry_author_detail',
                                 args=[author.username]),
                         author.username) for author in entry.authors.all()]
         except NoReverseMatch:
@@ -102,7 +102,7 @@ class EntryAdmin(admin.ModelAdmin):
         """Return the tags linked in HTML"""
         try:
             return ', '.join(['<a href="%s" target="blank">%s</a>' % 
-                              (reverse('zinnia_tag_detail',
+                              (reverse('entry_tag_detail',
                                        args=[tag.name]), tag.name)
                               for tag in Tag.objects.get_for_object(entry)])
         except NoReverseMatch:
@@ -159,7 +159,7 @@ class EntryAdmin(admin.ModelAdmin):
         if not form.cleaned_data.get('excerpt') and entry.status == PUBLISHED:
             entry.excerpt = truncate_words(strip_tags(entry.content), 50)
 
-        if entry.pk and not request.user.has_perm('zinnia.can_change_author'):
+        if entry.pk and not request.user.has_perm('entry.can_change_author'):
             form.cleaned_data['authors'] = entry.authors.all()
 
         if not form.cleaned_data.get('authors'):
@@ -171,14 +171,14 @@ class EntryAdmin(admin.ModelAdmin):
     def queryset(self, request):
         """Make special filtering by user permissions"""
         queryset = super(EntryAdmin, self).queryset(request)
-        if request.user.has_perm('zinnia.can_view_all'):
+        if request.user.has_perm('entry.can_view_all'):
             return queryset
         return request.user.entries.all()
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
         """Filters the disposable authors"""
         if db_field.name == 'authors':
-            if request.user.has_perm('zinnia.can_change_author'):
+            if request.user.has_perm('entry.can_change_author'):
                 kwargs['queryset'] = User.objects.filter(is_staff=True)
             else:
                 kwargs['queryset'] = User.objects.filter(pk=request.user.pk)
@@ -189,8 +189,8 @@ class EntryAdmin(admin.ModelAdmin):
     def get_actions(self, request):
         """Define user actions by permissions"""
         actions = super(EntryAdmin, self).get_actions(request)
-        if not request.user.has_perm('zinnia.can_change_author') \
-           or not request.user.has_perm('zinnia.can_view_all'):
+        if not request.user.has_perm('entry.can_change_author') \
+           or not request.user.has_perm('entry.can_view_all'):
             del actions['make_mine']
         
        
@@ -254,17 +254,17 @@ class EntryAdmin(admin.ModelAdmin):
         urls = patterns(
             'django.views.generic.simple',
             url(r'^autocomplete_tags/$', 'direct_to_template',
-                {'template': 'admin/zinnia/entry/autocomplete_tags.js',
+                {'template': 'admin/entry/entry/autocomplete_tags.js',
                  'mimetype': 'application/javascript'},
-                name='zinnia_entry_autocomplete_tags'),
+                name='entry_entry_autocomplete_tags'),
             url(r'^wymeditor/$', 'direct_to_template',
-                {'template': 'admin/zinnia/entry/wymeditor.js',
+                {'template': 'admin/entry/entry/wymeditor.js',
                  'mimetype': 'application/javascript'},
-                name='zinnia_entry_wymeditor'),
+                name='entry_entry_wymeditor'),
             url(r'^markitup/$', 'direct_to_template',
-                {'template': 'admin/zinnia/entry/markitup.js',
+                {'template': 'admin/entry/entry/markitup.js',
                  'mimetype': 'application/javascript'},
-                name='zinnia_entry_markitup'),)
+                name='entry_entry_markitup'),)
         return urls + entry_admin_urls
 
     def _media(self):
@@ -274,24 +274,24 @@ class EntryAdmin(admin.ModelAdmin):
             js=('%sjs/jquery.js' % MEDIA_URL,
                 '%sjs/jquery.bgiframe.js' % MEDIA_URL,
                 '%sjs/jquery.autocomplete.js' % MEDIA_URL,
-                reverse('admin:zinnia_entry_autocomplete_tags'),))
+                reverse('admin:entry_entry_autocomplete_tags'),))
 
         if settings.WYSIWYG == 'wymeditor':
             media += Media(
                 js=('%sjs/wymeditor/jquery.wymeditor.pack.js' % MEDIA_URL,
                     '%sjs/wymeditor/plugins/hovertools/'
                     'jquery.wymeditor.hovertools.js' % MEDIA_URL,
-                    reverse('admin:zinnia_entry_wymeditor')))
+                    reverse('admin:entry_entry_wymeditor')))
         elif settings.WYSIWYG == 'tinymce':
             from tinymce.widgets import TinyMCE
             media += TinyMCE().media + Media(
-                js=(reverse('tinymce-js', args=('admin/blog/entry',)),))
+                js=(reverse('tinymce-js', args=('admin/entry/entry',)),))
         elif settings.WYSIWYG == 'markitup':
             media += Media(
                 js=('%sjs/markitup/jquery.markitup.js' % MEDIA_URL,
                     '%sjs/markitup/sets/%s/set.js' % (
                         MEDIA_URL, settings.MARKUP_LANGUAGE),
-                    reverse('admin:zinnia_entry_markitup')),
+                    reverse('admin:entry_entry_markitup')),
                 css={'all': (
                     '%sjs/markitup/skins/django/style.css' % MEDIA_URL,
                     '%sjs/markitup/sets/%s/style.css' % (

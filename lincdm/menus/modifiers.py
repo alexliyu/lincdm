@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from menus.base import Modifier
-from menus.menu_pool import menu_pool
+from lincdm.menus.base import Modifier
+from lincdm.menus.menu_pool import menu_pool
 
 class Marker(Modifier):
     """

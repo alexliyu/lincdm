@@ -1,4 +1,10 @@
-"""EntryAdmin for blog"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+博客内容管理
+'''
 from datetime import datetime
 
 from django.forms import Media

@@ -1,4 +1,4 @@
-{% load cms_tags menu_tags sekizai_tags %}
+{% load entry_tags tagging_tags%}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
@@ -9,9 +9,8 @@
 	<meta name="author" content="李昱" />
 	 <meta name="generator" content="LINCDM {{ LINCDM_VERSION }}" />
 	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css" media="screen" />
-	{% render_block "css" %}
-	{% render_block "js" %}
-	<title>{% page_attribute page_title %}</title>
+
+	<title></title>
 </head>
 
 <body id="top">
@@ -55,8 +54,8 @@
 			</div>
 
 			<div id="navigation">
-				{% show_menu 0 1 100 100 %}
 				
+				 {% get_menus %}
 
 			</div>
 

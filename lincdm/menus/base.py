@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.utils.translation import get_language
 from django.utils.encoding import smart_str
 
 
@@ -43,7 +42,7 @@ class NavigationNode(object):
         return "<Navigation Node: %s>" % smart_str(self.title)
     
     def _remove_current_root(self, url):
-        current_root = "/%s/" % get_language()
+        current_root = "/"
         if url[:len(current_root)] == current_root:
             url = url[len(current_root) - 1:]
         return url
