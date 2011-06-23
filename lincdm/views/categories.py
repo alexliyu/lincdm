@@ -27,4 +27,4 @@ def category_detail(request, path, page=None, **kwargs):
 
     return object_list(request, queryset=category.entries_published(),
                        paginate_by=PAGINATION, page=page,
-                       **kwargs)
+                       ** kwargs)

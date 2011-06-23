@@ -25,6 +25,8 @@ from lincdm.comparison import pearson_score
 from lincdm.templatetags.zcalendar import entryCalendar
 from lincdm.templatetags.zbreadcrumbs import retrieve_breadcrumbs
 
+from lincdm.lib.htmllib import Parse_images_url
+
 register = Library()
 
 VECTORS = None
@@ -62,6 +64,46 @@ def menulevel(menus, level):
         result = False
     return result
 
+'''
+用于获取html中的图片
+'''
+@register.filter
+def getimages(content, num=0):
+    """
+    根据level值返回菜单,用于筛选多级菜单
+    """    
+    imglist = Parse_images_url(content)
+    if imglist:
+        return imglist[num]
+    else:
+        return None
+
+
+'''
+首页显示带图片的最新文章
+'''
+@register.inclusion_tag('tags/dummy.html')
+def get_indexrecent_entries(number=5, template='tags/indexrecent_entries.html'):
+    """Return the most recent entries"""
+    return {'template': template,
+            'entries': Entry.published.all()[:number]}
+
+'''
+首页显示带图片的推荐文章——封推
+'''
+@register.inclusion_tag('tags/dummy.html')
+def get_index_entries(objs, number=1, template='tags/index_entries.html'):
+    """Return the index entries"""
+    count = 0
+    result = []
+    for obj in objs:
+            if obj.featured == True:
+                result.append(obj)
+                count += 1
+            if count == number:break
+    return {'template': template,
+            'entries': result}
+    
 @register.inclusion_tag('entry/tags/dummy.html')
 def get_authors(template='entry/tags/authors.html'):
     """Return the published authors"""
@@ -78,14 +120,22 @@ def get_recent_entries(number=5, template='tags/recent_entries.html'):
 
 @register.inclusion_tag('entry/tags/dummy.html')
 def get_featured_entries(number=5,
-                         template='entry/tags/featured_entries.html'):
+                         template='tags/featured_entries.html'):
     """Return the featured entries"""
     return {'template': template,
             'entries': Entry.published.filter(featured=True)[:number]}
-
-
+'''
+首页强推标签
+'''
 @register.inclusion_tag('entry/tags/dummy.html')
-def get_random_entries(number=5, template='entry/tags/random_entries.html'):
+def get_indexfeatured_entries(number=1,
+                         template='tags/indexfeatured_entries.html'):
+    """Return the featured entries"""
+    return {'template': template,
+            'entries': Entry.published.filter(featured=True)[:number]}
+    
+@register.inclusion_tag('tags/dummy.html')
+def get_random_entries(number=5, template='tags/random_entries.html'):
     """Return random entries"""
     entries = Entry.published.all()
     if number > len(entries):
@@ -208,8 +258,8 @@ def get_calendar_entries(context, year=None, month=None,
             'calendar': calendar.formatmonth(year, month)}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
-def get_recent_comments(number=5, template='entry/tags/recent_comments.html'):
+@register.inclusion_tag('tags/dummy.html')
+def get_recent_comments(number=5, template='tags/recent_comments.html'):
     """Return the most recent comments"""
     # Using map(smart_unicode... fix bug related to issue #8554
     entry_published_pks = map(smart_unicode,
@@ -244,10 +294,10 @@ def get_recent_linkbacks(number=5,
             'linkbacks': linkbacks}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def entry_pagination(page, begin_pages=3, end_pages=3,
                before_pages=2, after_pages=2,
-               template='entry/tags/pagination.html'):
+               template='tags/pagination.html'):
     """Return a Digg-like pagination, by splitting long list of page
     into 3 blocks of pages"""
     begin = page.paginator.page_range[:begin_pages]

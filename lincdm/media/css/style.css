@@ -458,7 +458,7 @@ img.alignright, img.right {margin: 0 0 1em 1.5em;}
 /* Columns */
 .col3 {width: 32%;}
 .col3-mid {margin-left: 2%;}
-
+.col3-mid-left {margin-left: 2%;float: left;}
 /* Sidebar */
 
 #sidebar-wrapper {}

@@ -4,16 +4,32 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-	<meta name="description" content="这是基于开源的LINCDM系统的网站，作为演示以及作者个人的博客之用"/>
+	<meta name="description" content="这是基于开源的LINCDM系统的网站，作为演示以及作者个人的博客之用-{% block meta-description %}{% endblock %}"/>
 	<meta name="keywords" content="新媒体,Python,Linux,开源,中国,分享,技术,前端,数字标牌,移动技术" />
 	<meta name="author" content="李昱" />
-	 <meta name="generator" content="LINCDM {{ LINCDM_VERSION }}" />
+	<meta name="generator" content="LINCDM {{ LINCDM_VERSION }}" />
 	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css" media="screen" />
-
-	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/MyThumbnail.css" media="screen" />
+	{% block link %}<link rel="alternate" type="application/rss+xml" title="{{LINCDM_NAME}} RSS Feed" href="/feeds/" /> {% endblock %}
+	<script src="http://code.jquery.com/jquery-1.6.1.min.js" type="text/javascript"></script>
+	<script src="{{ MEDIA_URL }}js/jquery.MyThumbnail.js" type="text/javascript"></script>
+	<script src="{{ MEDIA_URL }}js/site.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://www.appelsiini.net/download/jquery.lazyload.mini.js"></script>
+	<title>{% block title %}{{LINCDM_NAME}}/{{LINCDM_TITLE}}{% endblock %} </title>
 </head>
 
 <body id="top">
+
+<script type="text/javascript">
+$(function() {
+	$("img").lazyload({
+		placeholder : "{{ MEDIA_URL }}images/grey.gif", 
+		
+		effect : "fadeIn" 
+	});
+});
+
+</script>
 
 <div id="network">
 	<div class="center-wrapper">
@@ -56,7 +72,19 @@
 			<div id="navigation">
 				
 				 {% get_menus %}
+				<div id="sub-nav">
 
+					<ul class="tabbed">
+						{% block subnav %}
+						<li class="current-tab">
+							<a href="/" title="首页">首页</a>
+						</li>
+						{%endblock%}
+					</ul>
+
+					<div class="clearer">&nbsp;</div>
+
+				</div>
 			</div>
 
 		</div>

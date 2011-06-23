@@ -32,7 +32,7 @@ urlpatterns = patterns('django.views.generic.list_detail',
                            info_conf, 'index'),
                        )
 
-urlpatterns += patterns('entry.views.categories',
+urlpatterns += patterns('lincdm.views.categories',
                         url(r'^(?P<path>[-\/\w]+)/page/(?P<page>\d+)/$',
                             'category_detail',
                             name='entry_category_detail_paginated'),
