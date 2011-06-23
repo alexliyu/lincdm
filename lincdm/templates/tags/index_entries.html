@@ -1,6 +1,6 @@
 
 {% for entry in entries %}
-<div class="post-title"><h2><a href="#">{{ entry.title }}</a></h2></div>
+<div class="post-title"><h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2></div>
 
 					<div class="post-date">
 					{% for author in entry.authors.all %}

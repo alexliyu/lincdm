@@ -67,6 +67,10 @@ class Category(models.Model):
         if self.parent:
             return '%s/%s' % (self.parent.tree_path, self.slug)
         return self.slug
+    
+    
+    def childs(self):
+        return Category.objects.filter(parent=self)
 
     def __unicode__(self):
         return self.title
@@ -138,8 +142,8 @@ class EntryAbstractClass(models.Model):
 
     template = models.CharField(
         _('template'), max_length=250,
-        default='entry/entry_detail.html',
-        choices=[('entry/entry_detail.html', _('Default template'))] + \
+        default='entry_detail.html',
+        choices=[('entry_detail.html', _('Default template'))] + \
         ENTRY_TEMPLATES,
         help_text=_('template used to display the entry'))
 

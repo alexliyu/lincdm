@@ -8,7 +8,7 @@ from lincdm.settings import ALLOW_EMPTY
 from lincdm.settings import ALLOW_FUTURE
 
 entry_conf_index = {'paginate_by': PAGINATION,
-                    'template_name': 'entry/entry_archive.html'}
+                    'template_name': 'entry_archive.html'}
 
 entry_conf = {'date_field': 'creation_date',
               'allow_empty': ALLOW_EMPTY,

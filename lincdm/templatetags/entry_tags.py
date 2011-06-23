@@ -169,9 +169,9 @@ def get_popular_entries(number=5, template='tags/popular_entries.html'):
                         if object_id in object_dict][:number]}
 
 
-@register.inclusion_tag('entry/tags/dummy.html', takes_context=True)
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_similar_entries(context, number=5,
-                        template='entry/tags/similar_entries.html',
+                        template='tags/similar_entries.html',
                         flush=False):
     """Return similar entries"""
     global VECTORS
@@ -328,9 +328,9 @@ def entry_pagination(page, begin_pages=3, end_pages=3,
             'begin': begin, 'middle': middle, 'end': end}
 
 
-@register.inclusion_tag('entry/tags/dummy.html', takes_context=True)
-def entry_breadcrumbs(context, separator='/', root_name='Blog',
-                       template='entry/tags/breadcrumbs.html',):
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
+def entry_breadcrumbs(context, separator='/', root_name='',
+                       template='tags/breadcrumbs.html',):
     """Return a breadcrumb for the application"""
     path = context['request'].path
     page_object = context.get('object') or context.get('category') or \

@@ -61,24 +61,31 @@
 				
   {% if category and perms.entry.change_category %}
   <li>
-    <a href="{% url admin:entry_category_change category.pk %}" title="Edit the category" %}">
-      Edit the category" %}
+    <a href="{% url admin:entry_category_change category.pk %}" title="编辑类别">
+      编辑类别
     </a>
   </li>
   {% endif %}
   {% if tag and perms.tagging.change_tag %}
   <li>
-    <a href="{% url admin:tagging_tag_change tag.pk %}" title="Edit the tag" %}">
-      Edit the tag" %}
+    <a href="{% url admin:tagging_tag_change tag.pk %}" title="编辑标签">
+      编辑标签
     </a>
   </li>
   {% endif %}
   {% if author and perms.auth.change_user %}
   <li>
-    <a href="{% url admin:auth_user_change author.pk %}" title="Edit the author" %}">
-      Edit the author" %}
+    <a href="{% url admin:auth_user_change author.pk %}" title="编辑作者">
+      编辑作者
     </a>
   </li>
+  {% endif %}
+  {% if object and perms.entry.change_entry %}
+						<li>
+						  <a href="{% url admin:entry_entry_change object.pk %}" title="编辑本文">
+						    编辑本文
+						  </a>
+						</li>
   {% endif %}
   		
 					</div>
@@ -88,3 +95,4 @@
 
 			</div>
 			<div class="clearer">&nbsp;</div>
+			
