@@ -7,10 +7,20 @@
 	<meta name="description" content="这是基于开源的LINCDM系统的网站，作为演示以及作者个人的博客之用-{% block meta-description %}{% endblock %}"/>
 	<meta name="keywords" content="新媒体,Python,Linux,开源,中国,分享,技术,前端,数字标牌,移动技术" />
 	<meta name="author" content="李昱" />
-	<meta name="generator" content="LINCDM {{ LINCDM_VERSION }}" />
+	{% block meta %}
+    	<meta name="generator" content="LINCDM {{ LINCDM_VERSION }}" />
+	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/MyThumbnail.css" media="screen" />
-	{% block link %}<link rel="alternate" type="application/rss+xml" title="{{LINCDM_NAME}} RSS Feed" href="/feeds/" /> {% endblock %}
+	{% block link %}
+	
+	<link rel="alternate" type="application/rss+xml" title="{{LINCDM_NAME}} RSS Feed" href="/feeds/" /> 
+	<link rel="index" href="{% url entry_entry_archive_index %}" />
+    <link rel="EditURI" type="application/rsd+xml" href="{% url entry_rsd %}" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% url entry_wlwmanifest %}" />
+    <link rel="search" type="application/opensearchdescription+xml" title="李昱的博客" href="{% url entry_opensearch %}" />
+    {% get_archives_entries "tags/archives_entries_link.html" %}
+	{% endblock %}
 	<script src="http://code.jquery.com/jquery-1.6.1.min.js" type="text/javascript"></script>
 	<script src="{{ MEDIA_URL }}js/jquery.MyThumbnail.js" type="text/javascript"></script>
 	<script src="{{ MEDIA_URL }}js/site.js" type="text/javascript"></script>

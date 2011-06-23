@@ -690,4 +690,10 @@ img.alignright, img.right {margin: 0 0 1em 1.5em;}
 	float: none;
 	width: 100%;
 }
-
+.tag_1 { font-size: 0.75em; color: #001e2d; }
+.tag_2 { font-size: 1em; color: #00334c; }
+.tag_3 { font-size: 1.125em; color: #005b89; }
+.tag_4 { font-size: 2em; color: #0070a8; }
+.tag_5 { font-size: 2.25em; color: #0099e5; }
+.tag_6 { font-size: 3em; color: #00adff; }
+.tags ul { list-style-type: none; list-style: none; font-size: 1.5em; line-height: 1.8em; }

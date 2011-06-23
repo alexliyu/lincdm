@@ -327,7 +327,9 @@ def entry_pagination(page, begin_pages=3, end_pages=3,
     return {'template': template, 'page': page,
             'begin': begin, 'middle': middle, 'end': end}
 
-
+'''
+用于生成当前位置信息
+'''
 @register.inclusion_tag('tags/dummy.html', takes_context=True)
 def entry_breadcrumbs(context, separator='/', root_name='',
                        template='tags/breadcrumbs.html',):
