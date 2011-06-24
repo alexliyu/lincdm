@@ -3,9 +3,9 @@ from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 from django.contrib.sites.models import Site
 
-from settings import PROTOCOL
-from settings import COPYRIGHT
-from settings import FEEDS_FORMAT
+from lincdm.settings import PROTOCOL
+from lincdm.settings import COPYRIGHT
+from lincdm.settings import FEEDS_FORMAT
 
 extra_context = {'protocol': PROTOCOL,
                  'site': Site.objects.get_current()}
@@ -16,17 +16,17 @@ extra_context_opensearch.update({'copyright': COPYRIGHT,
 
 urlpatterns = patterns('django.views.generic.simple',
                        url(r'^rsd.xml$', 'direct_to_template',
-                           {'template': 'entry/rsd.xml',
+                           {'template': 'rsd.xml',
                             'mimetype': 'application/rsd+xml',
                             'extra_context': extra_context},
                            name='entry_rsd'),
                        url(r'^wlwmanifest.xml$', 'direct_to_template',
-                           {'template': 'entry/wlwmanifest.xml',
+                           {'template': 'wlwmanifest.xml',
                             'mimetype': 'application/wlwmanifest+xml',
                             'extra_context': extra_context},
                            name='entry_wlwmanifest'),
                        url(r'^opensearch.xml$', 'direct_to_template',
-                           {'template': 'entry/opensearch.xml',
+                           {'template': 'opensearch.xml',
                             'mimetype':
                             'application/opensearchdescription+xml',
                             'extra_context': extra_context_opensearch},

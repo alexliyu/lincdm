@@ -34,7 +34,7 @@ def category_detail(request, path, page=None, **kwargs):
     '''
     这里用于获取category的下级分类的查询记录集，并进行合并，生成一个查询记录集
     '''
-    if category.children:
+    if category.children.all():
             for child in category.children.all():
                 try:
                         matches = matches() | child.entries_published()

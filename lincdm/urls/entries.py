@@ -8,12 +8,13 @@ from lincdm.settings import ALLOW_EMPTY
 from lincdm.settings import ALLOW_FUTURE
 
 entry_conf_index = {'paginate_by': PAGINATION,
-                    'template_name': 'entry/entry_archive.html'}
+                    'template_name': 'entry_archive.html'}
 
 entry_conf = {'date_field': 'creation_date',
               'allow_empty': ALLOW_EMPTY,
               'allow_future': ALLOW_FUTURE,
-              'month_format': '%m'}
+              'month_format': '%m',
+              }
 
 entry_conf_year = entry_conf.copy()
 entry_conf_year['make_object_list'] = True
@@ -22,10 +23,10 @@ del entry_conf_year['month_format']
 entry_conf_detail = entry_conf.copy()
 del entry_conf_detail['allow_empty']
 entry_conf_detail['queryset'] = Entry.published.on_site()
-
+entry_conf_detail['template_name'] = 'entry_detail.html'
 
 urlpatterns = patterns(
-    'entry.views.entries',
+    'lincdm.views.entries',
     url(r'^$',
         'entry_index', entry_conf_index,
         name='entry_entry_archive_index'),
