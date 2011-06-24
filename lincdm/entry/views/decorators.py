@@ -75,10 +75,10 @@ def template_name_for_entry_queryset_filtered(model_type, model_name):
     """Return a custom template name for views
     returning a queryset of Entry filtered by another model."""
     template_name_list = (
-        'entry/%s/%s/entry_list.html' % (model_type, model_name),
-        'entry/%s/%s_entry_list.html' % (model_type, model_name),
-        'entry/%s/entry_list.html' % model_type,
-        'entry/entry_list.html')
+        '%s/%s/entry_list.html' % (model_type, model_name),
+        '%s/%s_entry_list.html' % (model_type, model_name),
+        '%s/entry_list.html' % model_type,
+        'entry_list.html')
 
     for template_name in template_name_list:
         try:

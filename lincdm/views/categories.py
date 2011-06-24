@@ -1,10 +1,16 @@
-"""Views for entry categories"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 
 from lincdm.entry.models import Category
 from lincdm.settings import PAGINATION
 from lincdm.entry.views.decorators import template_name_for_entry_queryset_filtered
+from django.db.models.query import QuerySet
 
 
 def get_category_or_404(path):
@@ -14,7 +20,7 @@ def get_category_or_404(path):
 
 
 def category_detail(request, path, page=None, **kwargs):
-    """Display the entries of a category"""
+    """显示一个分类中的文章"""
     extra_context = kwargs.pop('extra_context', {})
 
     category = get_category_or_404(path)
@@ -24,7 +30,19 @@ def category_detail(request, path, page=None, **kwargs):
 
     extra_context.update({'category': category})
     kwargs['extra_context'] = extra_context
-
-    return object_list(request, queryset=category.entries_published(),
+    matches = QuerySet
+    '''
+    这里用于获取category的下级分类的查询记录集，并进行合并，生成一个查询记录集
+    '''
+    if category.children:
+            for child in category.children.all():
+                try:
+                        matches = matches() | child.entries_published()
+                except:
+                        matches = child.entries_published()
+            matches = matches | category.entries_published()
+    else:
+            matches = category.entries_published()
+    return object_list(request, queryset=matches,
                        paginate_by=PAGINATION, page=page,
                        ** kwargs)

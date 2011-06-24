@@ -1,7 +1,7 @@
 {% block subnav %}
-{% if category.childs %}
+{% if category.children.all %}
 		<li><a href="#">其中包含子栏目：</a></li>
-		{%for child in category.childs %}
+		{%for child in category.children.all %}
 				<li>
 							<a href="{{child.get_absolute_url}}" title="{{child.description|striptags|safe}}">{{child.title}}</a>
 				</li>

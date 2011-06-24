@@ -42,7 +42,7 @@ def password(request, entry):
                 'entry_entry_%s_password' % entry.pk] = entry.password
             return redirect(entry)
         error = True
-    return render_to_response('entry/password.html', {'error': error},
+    return render_to_response('password.html', {'error': error},
                               context_instance=RequestContext(request))
 
 
@@ -61,7 +61,7 @@ def protect_entry(view):
                                   creation_date__day=kw['day'])
 
         if entry.login_required and not request.user.is_authenticated():
-            return login(request, 'entry/login.html')
+            return login(request, 'login.html')
         if entry.password and entry.password != \
                request.session.get('entry_entry_%s_password' % entry.pk):
             return password(request, entry)
@@ -75,10 +75,10 @@ def template_name_for_entry_queryset_filtered(model_type, model_name):
     """Return a custom template name for views
     returning a queryset of Entry filtered by another model."""
     template_name_list = (
-        'entry/%s/%s/entry_list.html' % (model_type, model_name),
-        'entry/%s/%s_entry_list.html' % (model_type, model_name),
-        'entry/%s/entry_list.html' % model_type,
-        'entry/entry_list.html')
+        '%s/%s/entry_list.html' % (model_type, model_name),
+        '%s/%s_entry_list.html' % (model_type, model_name),
+        '%s/entry_list.html' % model_type,
+        'entry_list.html')
 
     for template_name in template_name_list:
         try:

@@ -35,8 +35,8 @@ VECTORS_FACTORY = lambda: VectorBuilder(Entry.published.all(),
 CACHE_ENTRIES_RELATED = {}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
-def get_categories(template='entry/tags/categories.html'):
+@register.inclusion_tag('tags/dummy.html')
+def get_categories(template='tags/categories.html'):
     """Return the categories"""
     return {'template': template,
             'categories': Category.tree.all()}
@@ -104,8 +104,8 @@ def get_index_entries(objs, number=1, template='tags/index_entries.html'):
     return {'template': template,
             'entries': result}
     
-@register.inclusion_tag('entry/tags/dummy.html')
-def get_authors(template='entry/tags/authors.html'):
+@register.inclusion_tag('tags/dummy.html')
+def get_authors(template='tags/authors.html'):
     """Return the published authors"""
     return {'template': template,
             'authors': Author.published.all()}
@@ -212,26 +212,26 @@ def get_similar_entries(context, number=5,
             'entries': entries}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
-def get_archives_entries(template='entry/tags/archives_entries.html'):
+@register.inclusion_tag('tags/dummy.html')
+def get_archives_entries(template='tags/archives_entries.html'):
     """Return archives entries"""
     return {'template': template,
             'archives': Entry.published.dates('creation_date', 'month',
                                               order='DESC')}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_archives_entries_tree(
-    template='entry/tags/archives_entries_tree.html'):
+    template='tags/archives_entries_tree.html'):
     """Return archives entries as a Tree"""
     return {'template': template,
             'archives': Entry.published.dates('creation_date', 'day',
                                               order='ASC')}
 
 
-@register.inclusion_tag('entry/tags/dummy.html', takes_context=True)
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_calendar_entries(context, year=None, month=None,
-                         template='entry/tags/calendar.html'):
+                         template='tags/calendar.html'):
     """Return an HTML calendar of entries"""
     if not year or not month:
         date_month = context.get('month') or context.get('day') or \
@@ -275,9 +275,9 @@ def get_recent_comments(number=5, template='tags/recent_comments.html'):
             'comments': comments}
 
 
-@register.inclusion_tag('entry/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_recent_linkbacks(number=5,
-                         template='entry/tags/recent_linkbacks.html'):
+                         template='tags/recent_linkbacks.html'):
     """Return the most recent linkbacks"""
     entry_published_pks = map(smart_unicode,
                               Entry.published.values_list('id', flat=True))
