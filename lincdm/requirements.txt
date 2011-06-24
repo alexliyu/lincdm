@@ -34,6 +34,5 @@ simplejson
 storm
 wsgiref
 django-inline-ordering
-easy-thumbnails
 django-tinymce
 django-photofile
