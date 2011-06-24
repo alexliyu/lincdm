@@ -25,15 +25,18 @@ urlpatterns = patterns('',
     url(r'^sitemap/', include('lincdm.urls.sitemap')),
     url(r'^trackback/', include('lincdm.urls.trackback')),
     url(r'^discussions/', include('lincdm.urls.discussions')),
+    
     url(r'^', include('lincdm.urls.quick_entry')),
-    url(r'^', include('entry.urls.capabilities')),
+    url(r'^', include('lincdm.urls.capabilities')),
     url(r'^', include('lincdm.urls.entries')),
     url(r'^', include('lincdm.urls.index')),
 )
-urlpatterns += patterns('django.contrib.staticfiles.views',
-        url(r'^static/(?P<path>.*)$', 'serve'),
-        url(r'^media/(?P<path>.*)$', 'serve'),
-        )
+urlpatterns += patterns('',
+      (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+      {'document_root':  settings.MEDIA_ROOT}),
+      (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+      {'document_root':  settings.MEDIA_ROOT}),
+    )
 
 if settings.DEBUG:
     urlpatterns = patterns('',

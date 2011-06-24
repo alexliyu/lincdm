@@ -10,7 +10,6 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.cache import never_cache
-
 from lincdm.entry.models import Entry
 
 
@@ -50,6 +49,7 @@ def protect_entry(view):
     """Decorator performing a security check if needed
     around the generic.date_based.entry_detail view
     and specify the template used to render the entry"""
+    
 
     @wraps(view)
     def wrapper(*ka, **kw):

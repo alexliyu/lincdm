@@ -28,28 +28,28 @@ VECTORS_FACTORY = lambda: VectorBuilder(Entry.published.all(),
 CACHE_ENTRIES_RELATED = {}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_categories(template='blog/tags/categories.html'):
     """Return the categories"""
     return {'template': template,
             'categories': Category.tree.all()}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_authors(template='blog/tags/authors.html'):
     """Return the published authors"""
     return {'template': template,
             'authors': Author.published.all()}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_recent_entries(number=5, template='blog/tags/recent_entries.html'):
     """Return the most recent entries"""
     return {'template': template,
             'entries': Entry.published.all()[:number]}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_featured_entries(number=5,
                          template='blog/tags/featured_entries.html'):
     """Return the featured entries"""
@@ -57,7 +57,7 @@ def get_featured_entries(number=5,
             'entries': Entry.published.filter(featured=True)[:number]}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_random_entries(number=5, template='blog/tags/random_entries.html'):
     """Return random entries"""
     entries = Entry.published.all()
@@ -67,7 +67,7 @@ def get_random_entries(number=5, template='blog/tags/random_entries.html'):
             'entries': sample(entries, number)}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_popular_entries(number=5, template='blog/tags/popular_entries.html'):
     """Return popular  entries"""
     ctype = ContentType.objects.get_for_model(Entry)
@@ -92,7 +92,7 @@ def get_popular_entries(number=5, template='blog/tags/popular_entries.html'):
                         if object_id in object_dict][:number]}
 
 
-@register.inclusion_tag('blog/tags/dummy.html', takes_context=True)
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_similar_entries(context, number=5,
                         template='blog/tags/similar_entries.html',
                         flush=False):
@@ -135,7 +135,7 @@ def get_similar_entries(context, number=5,
             'entries': entries}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_archives_entries(template='blog/tags/archives_entries.html'):
     """Return archives entries"""
     return {'template': template,
@@ -143,7 +143,7 @@ def get_archives_entries(template='blog/tags/archives_entries.html'):
                                               order='DESC')}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_archives_entries_tree(
     template='blog/tags/archives_entries_tree.html'):
     """Return archives entries as a Tree"""
@@ -152,7 +152,7 @@ def get_archives_entries_tree(
                                               order='ASC')}
 
 
-@register.inclusion_tag('blog/tags/dummy.html', takes_context=True)
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_calendar_entries(context, year=None, month=None,
                          template='blog/tags/calendar.html'):
     """Return an HTML calendar of entries"""
@@ -181,7 +181,7 @@ def get_calendar_entries(context, year=None, month=None,
             'calendar': calendar.formatmonth(year, month)}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_recent_comments(number=5, template='blog/tags/recent_comments.html'):
     """Return the most recent comments"""
     # Using map(smart_unicode... fix bug related to issue #8554
@@ -198,7 +198,7 @@ def get_recent_comments(number=5, template='blog/tags/recent_comments.html'):
             'comments': comments}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_recent_linkbacks(number=5,
                          template='blog/tags/recent_linkbacks.html'):
     """Return the most recent linkbacks"""
@@ -217,7 +217,7 @@ def get_recent_linkbacks(number=5,
             'linkbacks': linkbacks}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def blog_pagination(page, begin_pages=3, end_pages=3,
                before_pages=2, after_pages=2,
                template='blog/tags/pagination.html'):
@@ -251,7 +251,7 @@ def blog_pagination(page, begin_pages=3, end_pages=3,
             'begin': begin, 'middle': middle, 'end': end}
 
 
-@register.inclusion_tag('blog/tags/dummy.html', takes_context=True)
+@register.inclusion_tag('tags/dummy.html', takes_context=True)
 def blog_breadcrumbs(context, separator='/', root_name='Blog',
                        template='blog/tags/breadcrumbs.html',):
     """Return a breadcrumb for the application"""

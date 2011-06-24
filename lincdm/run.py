@@ -54,4 +54,4 @@ got_request_exception.connect(exception_printer)
 #wsgi.WSGIServer(sock, application, spawn=None).serve_forever() 
 address = "localhost", 9001
 daemonize('lincdm.pid')
-wsgi.WSGIServer(sock, application).serve_forever()
+wsgi.WSGIServer(address, application).serve_forever()

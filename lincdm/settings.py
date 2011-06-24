@@ -6,7 +6,7 @@ Created on 2011-1-30
 '''
 import os
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = False
 gettext = lambda s: s
 COPYRIGHT = '33445120.Tk'
 LINCDM_NAME = 'LinCDM'
@@ -83,6 +83,7 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 # Additional locations of static files
 STATICFILES_DIRS = (
+                    MEDIA_ROOT,
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -139,6 +140,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,6 +148,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     
 )
 INTERNAL_IPS = ('127.0.0.1',)
@@ -192,7 +195,7 @@ INSTALLED_APPS = (
     'lincdm.blog',
     'lincdm.menus',
     'mptt',
-    'appmedia',
+    'lincdm.app.memcache_status',
     'south',
     'sekizai',
     
@@ -267,7 +270,7 @@ PING_DIRECTORIES = ('http://django-blog-blog.com/xmlrpc/',)
 SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
 SAVE_PING_EXTERNAL_URLS = True
 
-PAGINATION = 1
+PAGINATION = 10
 ALLOW_EMPTY = True
 ALLOW_FUTURE = True
 
@@ -288,3 +291,16 @@ F_MIN = 0.1
 F_MAX = 1.0
 
 URL_SHORTENER_BACKEND = 'url_shortener.backends.default'
+'''
+使用memcached作为缓存！
+'''
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+        'TIMEOUT':60 * 300,
+    }
+}
+
+CACHE_MIDDLEWARE_SECONDS = 60 * 300
+

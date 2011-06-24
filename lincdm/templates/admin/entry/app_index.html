@@ -13,7 +13,7 @@
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.masonry.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.bgiframe.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.autocomplete.js"></script>
-<script type="text/javascript" src="{% url admin:blog_entry_autocomplete_tags %}"></script>
+<script type="text/javascript" src="{% url admin:entry_entry_autocomplete_tags %}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $("#content-main").masonry({
@@ -25,15 +25,15 @@ $(document).ready(function() {
 
 {% block content %}
 <div id="content-main">
-  {% include "admin/blog/widgets/content_stats.html" %}
+  {% include "admin/entry/widgets/content_stats.html" %}
 
-  {% include "admin/blog/widgets/quickpost.html" %}
+  {% include "admin/entry/widgets/quickpost.html" %}
 
-  {% include "admin/blog/widgets/recent_comments.html" %}
+  {% include "admin/entry/widgets/recent_comments.html" %}
 
-  {% include "admin/blog/widgets/draft_entries.html" %}
+  {% include "admin/entry/widgets/draft_entries.html" %}
 
-  {% include "admin/blog/widgets/recent_linkbacks.html" %}
+  {% include "admin/entry/widgets/recent_linkbacks.html" %}
 </div>
 {% endblock %}
 

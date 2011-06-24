@@ -1,4 +1,9 @@
-"""Views for entry entries search"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 from django.utils.translation import ugettext as _
 from django.views.generic.list_detail import object_list
 
@@ -14,12 +19,12 @@ def entry_search(request):
 
     if request.GET:
         pattern = request.GET.get('pattern', '')
-        if len(pattern) < 3:
-            error = _('The pattern is too short')
+        if len(pattern) < 2:
+            error = u'关键词太短了，至少要2个字以上！'
         else:
             entries = Entry.published.search(pattern)
     else:
-        error = _('No pattern to search found')
+        error = u'很抱歉，没有搜索到您要找的内容！'
 
     return object_list(request, queryset=entries,
                        paginate_by=PAGINATION,

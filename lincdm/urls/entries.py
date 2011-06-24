@@ -18,6 +18,9 @@ entry_conf = {'date_field': 'creation_date',
               }
 
 entry_conf_year = entry_conf.copy()
+entry_conf_year['template_name'] = 'date_entry.html'
+entry_conf_month = entry_conf_year.copy()
+entry_conf_day = entry_conf_year.copy()
 entry_conf_year['make_object_list'] = True
 del entry_conf_year['month_format']
 
@@ -36,10 +39,10 @@ urlpatterns = patterns(
         'entry_year', entry_conf_year,
         name='entry_entry_archive_year'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
-        'entry_month', entry_conf,
+        'entry_month', entry_conf_month,
         name='entry_entry_archive_month'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/$',
-        'entry_day', entry_conf,
+        'entry_day', entry_conf_day,
         name='entry_entry_archive_day'),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         'entry_detail', entry_conf_detail,

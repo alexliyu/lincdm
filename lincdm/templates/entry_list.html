@@ -34,11 +34,11 @@
 
 					<a href="#"><img src="{{object.content|getimages}}" alt="" class="left bordered" width=185 height=100/></a>
 
-					<h3><a href="{{ entry.get_absolute_url }}">{{object.title}}</a></h3>
+					<h3><a href="{{ object.get_absolute_url }}">{{object.title}}</a></h3>
 
 					<p>{{object.excerpt}}</p>
 
-					<a href="{{ entry.get_absolute_url }}" class="more">阅读全文 &#187;</a>
+					<a href="{{ object.get_absolute_url }}" class="more">阅读全文 &#187;</a>
 
 					<div class="clearer">&nbsp;</div>
 

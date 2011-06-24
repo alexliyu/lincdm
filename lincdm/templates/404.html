@@ -1,11 +1,11 @@
-{% extends "col_two.html" %}
-{% load i18n cms_tags %}
+{% extends "base.html" %}
 
-{% block tpl_id %}tpl_404{% endblock %}
+
+{% block title %}Error-404{% endblock %}
 
 {% block content %}
-<div id="col1" class="grid_8">
+<div class="main">
 	<h1>404</h1>
-	<p>Page not found!</p>
+	<p>好象是出错了哦！找不到您想要访问的页面！</p>
 </div>
 {% endblock %}

@@ -12,17 +12,17 @@ from lincdm.blog.managers import tags_published
 register = Library()
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_draft_entries(
-    number=5, template='admin/blog/widgets/_draft_entries.html'):
+    number=5, template='admin/entry/widgets/_draft_entries.html'):
     """Return the latest draft entries"""
     return {'template': template,
             'entries': Entry.objects.filter(status=DRAFT)[:number]}
 
 
-@register.inclusion_tag('blog/tags/dummy.html')
+@register.inclusion_tag('tags/dummy.html')
 def get_content_stats(
-    template='admin/blog/widgets/_content_stats.html'):
+    template='admin/entry/widgets/_content_stats.html'):
     """Return statistics of the contents"""
     content_type = ContentType.objects.get_for_model(Entry)
 

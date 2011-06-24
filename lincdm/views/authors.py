@@ -6,11 +6,11 @@ from lincdm.models.models import Author
 from lincdm.settings import PAGINATION
 from lincdm.views.decorators import update_queryset
 from lincdm.views.decorators import template_name_for_entry_queryset_filtered
-
+from django.views.decorators.cache import cache_page
 
 author_list = update_queryset(object_list, Author.published.all)
 
-
+@cache_page(60 * 300)
 def author_detail(request, username, page=None, **kwargs):
     """Display the entries of an author"""
     extra_context = kwargs.pop('extra_context', {})

@@ -220,6 +220,7 @@ def get_archives_entries(template='tags/archives_entries.html'):
                                               order='DESC')}
 
 
+
 @register.inclusion_tag('tags/dummy.html')
 def get_archives_entries_tree(
     template='tags/archives_entries_tree.html'):
