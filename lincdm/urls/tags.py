@@ -2,9 +2,9 @@
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-tag_conf = {'template_name': 'entry/tag_list.html'}
+tag_conf = {'template_name': 'tag_list.html'}
 
-urlpatterns = patterns('entry.views.tags',
+urlpatterns = patterns('lincdm.views.tags',
                        url(r'^$', 'tag_list',
                            tag_conf, name='entry_tag_list'),
                        url(r'^(?P<tag>[- \w]+)/$', 'tag_detail',

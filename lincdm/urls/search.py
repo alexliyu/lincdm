@@ -2,6 +2,6 @@
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
-urlpatterns = patterns('entry.views.search',
+urlpatterns = patterns('lincdm.views.search',
                        url(r'^$', 'entry_search', name='entry_entry_search'),
                        )

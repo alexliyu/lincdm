@@ -14,6 +14,7 @@ entry_conf = {'date_field': 'creation_date',
               'allow_empty': ALLOW_EMPTY,
               'allow_future': ALLOW_FUTURE,
               'month_format': '%m',
+              'template_name':'entry_list.html',
               }
 
 entry_conf_year = entry_conf.copy()
@@ -27,9 +28,7 @@ entry_conf_detail['template_name'] = 'entry_detail.html'
 
 urlpatterns = patterns(
     'lincdm.views.entries',
-    url(r'^$',
-        'entry_index', entry_conf_index,
-        name='entry_entry_archive_index'),
+   
     url(r'^page/(?P<page>\d+)/$',
         'entry_index', entry_conf_index,
         name='entry_entry_archive_index_paginated'),

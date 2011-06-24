@@ -21,7 +21,7 @@ from lincdm.settings import PROTOCOL
 from lincdm.settings import FEEDS_FORMAT
 from lincdm.settings import FEEDS_MAX_ITEMS
 from lincdm.managers import entries_published
-from lincdm.entry.views.categories import get_category_or_404
+from lincdm.views.categories import get_category_or_404
 from lincdm.templatetags.entry_tags import get_gravatar
 
 

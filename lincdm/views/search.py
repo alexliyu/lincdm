@@ -23,6 +23,6 @@ def entry_search(request):
 
     return object_list(request, queryset=entries,
                        paginate_by=PAGINATION,
-                       template_name='entry/entry_search.html',
+                       template_name='entry_search.html',
                        extra_context={'error': error,
                                       'pattern': pattern})

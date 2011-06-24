@@ -3,8 +3,13 @@ from django.conf.urls.defaults import url
 from django.conf.urls.defaults import patterns
 
 
-urlpatterns = patterns('entry.views.authors',
-                       url(r'^$', 'author_list',
+info_conf = {
+                 'template_name': 'authors_list.html',
+                 
+                 }
+
+urlpatterns = patterns('lincdm.views.authors',
+                       url(r'^$', 'author_list', info_conf,
                            name='entry_author_list'),
                        url(r'^(?P<username>[.+-@\w]+)/$', 'author_detail',
                            name='entry_author_detail'),

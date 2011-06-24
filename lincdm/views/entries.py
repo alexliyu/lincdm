@@ -8,8 +8,8 @@ from django.views.generic.date_based import archive_day
 from django.views.generic.date_based import object_detail
 
 from lincdm.entry.models import Entry
-from lincdm.entry.views.decorators import protect_entry
-from lincdm.entry.views.decorators import update_queryset
+from lincdm.views.decorators import protect_entry
+from lincdm.views.decorators import update_queryset
 
 
 entry_index = update_queryset(object_list, Entry.published.all)

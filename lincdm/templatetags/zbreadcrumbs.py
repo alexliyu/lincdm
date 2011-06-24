@@ -38,7 +38,7 @@ def day_crumb(creation_date):
                               args=[year, month, day]))
 
 
-entry_ROOT_URL = lambda: reverse('entry_entry_archive_index')
+entry_ROOT_URL = lambda: reverse('index')
 
 MODEL_BREADCRUMBS = {'Tag': lambda x: [Crumb(_('Tags'),
                                              reverse('entry_tag_list')),

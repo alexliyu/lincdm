@@ -6,8 +6,8 @@ from tagging.views import tagged_object_list
 from lincdm.entry.models import Entry
 from lincdm.settings import PAGINATION
 from lincdm.managers import tags_published
-from lincdm.entry.views.decorators import update_queryset
-from lincdm.entry.views.decorators import template_name_for_entry_queryset_filtered
+from lincdm.views.decorators import update_queryset
+from lincdm.views.decorators import template_name_for_entry_queryset_filtered
 
 
 tag_list = update_queryset(object_list, tags_published)

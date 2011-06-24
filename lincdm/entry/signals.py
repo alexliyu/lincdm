@@ -4,7 +4,7 @@ from functools import wraps
 
 from django.db.models.signals import post_save
 
-import settings
+from lincdm import settings
 
 
 def disable_for_loaddata(signal_handler):
@@ -26,7 +26,7 @@ def disable_for_loaddata(signal_handler):
 
 def disconnect_entry_signals():
     """Disconnect all the signals provided by Zinnia"""
-    from entry.models import Entry
+    from lincdm.entry.models import Entry
 
     post_save.disconnect(
         sender=Entry, dispatch_uid='entry.entry.post_save.ping_directories')

@@ -9,7 +9,7 @@ from django.views.generic.list_detail import object_list
 
 from lincdm.entry.models import Category
 from lincdm.settings import PAGINATION
-from lincdm.entry.views.decorators import template_name_for_entry_queryset_filtered
+from lincdm.views.decorators import template_name_for_entry_queryset_filtered
 from django.db.models.query import QuerySet
 
 
