@@ -3,7 +3,7 @@ import os
 from django.conf import settings
 
 PING_DIRECTORIES = getattr(settings, 'BLOG_PING_DIRECTORIES',
-                           ('http://django-blog-blog.com/xmlrpc/',))
+                           ('http://www.33445120.tk/blog/xmlrpc/',))
 SAVE_PING_DIRECTORIES = getattr(settings, 'BLOG_SAVE_PING_DIRECTORIES',
                                 bool(PING_DIRECTORIES))
 SAVE_PING_EXTERNAL_URLS = getattr(settings, 'BLOG_PING_EXTERNAL_URLS', True)

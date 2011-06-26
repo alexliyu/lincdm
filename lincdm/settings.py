@@ -267,7 +267,7 @@ LOGGING = {
 
 AUTH_PROFILE_MODULE = 'lincdm.UserProfile'
 GRAPPELLI_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
-PING_DIRECTORIES = ('http://django-blog-blog.com/xmlrpc/',)
+PING_DIRECTORIES = ('http://www.33445120.tk/xmlrpc/',)
 SAVE_PING_DIRECTORIES = bool(PING_DIRECTORIES)
 SAVE_PING_EXTERNAL_URLS = True
 
