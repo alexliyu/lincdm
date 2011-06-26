@@ -1,10 +1,9 @@
-"""
-This file was generated with the customdashboard management command and
-contains the class for the main dashboard.
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
 
-To activate your index dashboard add the following to your settings.py::
-    GRAPPELLI_INDEX_DASHBOARD = 'lincdm.dashboard.CustomIndexDashboard'
-"""
+@author: 李昱
+'''
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
@@ -105,10 +104,10 @@ class CustomIndexDashboard(Dashboard):
         
         # append a recent actions module
         self.children.append(modules.RecentActions(
-            _('Recent Actions'),
+            ('Recent Actions'),
             limit=5,
             collapsible=False,
             column=3,
-        ))
+            ))
 
 
