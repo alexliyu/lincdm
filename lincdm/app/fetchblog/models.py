@@ -1,5 +1,12 @@
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 from django.db import models
 from datetime import datetime
+from lincdm.entry.models import Category
 # Create your models here.
 class FeedsList(models.Model):
         author_name = models.CharField(max_length=15)
@@ -18,17 +25,28 @@ class FeedsList(models.Model):
         content = models.TextField()
 
 class FeedList(models.Model):
-        name = models.CharField(default='alexliyu', max_length=20)
-        feedurl = models.CharField(default='http://alexliyu.blog.163.com/rss', max_length=300)
+        name = models.CharField(u'名称', default=u'李昱的博客', max_length=20)
+        feedurl = models.CharField(u'rss订阅地址', default='http://alexliyu.blog.163.com/rss', max_length=300)
         latest = models.CharField(default='first', max_length=300)
         last_retrieved = models.DateTimeField(default=datetime.today().fromtimestamp(0))
-        acategory = models.CharField(default='douban', max_length=300)
-        abconf = models.CharField(default='0', max_length=30)
-        start_target = models.CharField(default='nohtml', max_length=300)
-        allow_target = models.CharField(default='nohtml', max_length=300)
-        mid_target = models.CharField(default='nohtml', max_length=300)
-        end_target = models.CharField(default='nohtml', max_length=300)
-        stop_target = models.CharField(default='nohtml', max_length=300)
+        remotecategory = models.CharField(u'远程栏目', default='douban', max_length=300)
+        remoteconf = models.CharField(u'远程配置', default='0', max_length=30)
+        start_target = models.CharField(u'起始位置', default='nohtml', max_length=300)
+        stop_target = models.CharField(u'结束位置', default='nohtml', max_length=300)
+        allow_target = models.CharField(u'允许的标签', default='p i strong b u a h1 h2 h3 br img div embed span', max_length=300)
+        mid_target = models.CharField(u'禁止的属性', default='ad1 ad2 href text/javascript st-related-posts h4 tags meta crinfo style randompost subscribe-af', max_length=300)
+        end_target = models.CharField(u'允许的属性', default='src allowscriptaccess allowNetworking pluginspage width allowScriptAccess type wmode height quality invokeurls allownetworking invokeURLs', max_length=300)       
+        category = models.ForeignKey(Category)
+        
+        def __unicode__(self):
+            return self.name
+        
+        class Meta:
+            verbose_name = u"采集列表"
+            verbose_name_plural = u"采集列表"
+            
+        def testme(self):
+            print self.name
 
 class FeedSet(models.Model):
         defDate = models.IntegerField(default=3600)

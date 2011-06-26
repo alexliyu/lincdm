@@ -15,14 +15,22 @@
 # Copyright Š 2010 alexliyu
 
 import logging
-from google.appengine.ext import webapp
-from google.appengine.api import urlfetch
-from google.appengine.api.urlfetch_errors import DownloadError
-from app import htmllib
+import urllib2
+import urlparse
+from lincdm.lib import htmllib
 import feedparser
 
 theresult = []
-
+def getpage(url, timeout):
+    request = urllib2.Request(url)
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.1 (KHTML, like Gecko) Ubuntu/11.04 Chromium/14.0.797.0 Chrome/14.0.797.0 Safari/535.1')
+    try:
+        response = urllib2.urlopen(request)
+    except urllib2.HTTPError, e:
+        print e
+        return None
+    return response
+    
 def getresult(feed_url, target):
         feed_test = feed_url[0]
         feed_target = target[0]
