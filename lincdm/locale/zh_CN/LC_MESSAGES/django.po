@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-blog-blog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-24 16:11+0800\n"
-"PO-Revision-Date: 2011-03-14 10:45+0000\n"
-"Last-Translator: Fantomas42 <fantomas42@gmail.com>\n"
+"POT-Creation-Date: 2011-06-26 22:55+0800\n"
+"PO-Revision-Date: 2011-06-26 23:34+0800\n"
+"Last-Translator: 李昱 <alexliyu2012@gmail.com>\n"
 "Language-Team: French <fantomas42@gmail.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -19,97 +19,93 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: dashboard.py:26
+#: dashboard.py:25
 msgid "Group: Administration & Applications"
-msgstr ""
+msgstr "分组：管理员&应用程序"
 
-#: dashboard.py:31 grappelli/dashboard/dashboards.py:157
+#: dashboard.py:30
+#: grappelli/dashboard/dashboards.py:157
 msgid "Administration"
-msgstr ""
+msgstr "管理员"
 
-#: dashboard.py:37 grappelli/dashboard/dashboards.py:151
+#: dashboard.py:36
+#: grappelli/dashboard/dashboards.py:151
 #: grappelli/dashboard/modules.py:215
-#, fuzzy
 msgid "Applications"
-msgstr "结束发布"
+msgstr "应用程序"
 
-#: dashboard.py:47
-#, fuzzy
+#: dashboard.py:46
 msgid "AppList: Applications"
-msgstr "开始发布"
+msgstr "应用程序列表："
 
-#: dashboard.py:56
+#: dashboard.py:55
 msgid "ModelList: Administration"
-msgstr ""
+msgstr "模型列表：管理员"
 
-#: dashboard.py:64
+#: dashboard.py:63
 msgid "Media Management"
-msgstr ""
+msgstr "媒体管理"
 
-#: dashboard.py:68
+#: dashboard.py:67
 msgid "FileBrowser"
-msgstr ""
+msgstr "文件浏览器"
 
-#: dashboard.py:77 grappelli/dashboard/dashboards.py:173
+#: dashboard.py:76
+#: grappelli/dashboard/dashboards.py:173
 msgid "Support"
-msgstr ""
+msgstr "提供"
 
-#: dashboard.py:81
+#: dashboard.py:80
 msgid "Django Documentation"
-msgstr ""
+msgstr "Django文档"
 
-#: dashboard.py:86
+#: dashboard.py:85
 msgid "Grappelli Documentation"
-msgstr ""
+msgstr "Grappelli文档"
 
-#: dashboard.py:91
+#: dashboard.py:90
 msgid "Grappelli Google-Code"
 msgstr ""
 
-#: dashboard.py:100 grappelli/dashboard/dashboards.py:166
-#, fuzzy
+#: dashboard.py:99
+#: grappelli/dashboard/dashboards.py:166
 msgid "Latest Django News"
-msgstr "最新日志"
+msgstr "最新Django新闻"
 
-#: dashboard.py:108 grappelli/dashboard/dashboards.py:162
-#: grappelli/dashboard/modules.py:291 grappelli/templates/admin/index.html:44
-#, fuzzy
-msgid "Recent Actions"
-msgstr "最近日志"
-
-#: moderator.py:59 moderator.py:82 moderator.py:107 blog/moderator.py:59
-#: blog/moderator.py:82 blog/moderator.py:107
+#: moderator.py:59
+#: moderator.py:82
+#: moderator.py:107
 #, python-format
 msgid "[%(site)s] New comment posted on \"%(title)s\""
-msgstr ""
+msgstr "[%(site)s] 新评论发布于  \"%(title)s\""
 
 #: settings.py:24
 msgid "Chinese"
-msgstr ""
+msgstr "中文"
 
 #: app/django_future/admin.py:33
 msgid "Schedule"
-msgstr ""
+msgstr "时间表"
 
 #: app/django_future/admin.py:36
 msgid "Job"
-msgstr ""
+msgstr "工作"
 
 #: app/django_future/models.py:23
 msgid "Scheduled"
-msgstr ""
+msgstr "定于"
 
 #: app/django_future/models.py:24
 msgid "Running"
-msgstr ""
+msgstr "正在运行"
 
 #: app/django_future/models.py:25
 msgid "Failed"
-msgstr ""
+msgstr "已失败"
 
 #: app/django_future/models.py:26
 msgid "Complete"
-msgstr ""
+msgstr "完成"
 
 #: app/django_future/models.py:27
 msgid "Expired"
@@ -132,9 +128,8 @@ msgid "status"
 msgstr ""
 
 #: app/django_future/models.py:36
-#, fuzzy
 msgid "content type"
-msgstr "内容"
+msgstr "内容类型"
 
 #: app/django_future/models.py:37
 msgid "object ID"
@@ -145,11 +140,7 @@ msgid "callable name"
 msgstr ""
 
 #: app/django_future/models.py:41
-msgid ""
-"The callable to be executed may be specified in two ways: Set the callable "
-"name to an identifier (mypackage.myapp.some_function). Or specify an "
-"instance of a model as the content object and set the callable name to a "
-"method name (do_job)."
+msgid "The callable to be executed may be specified in two ways: Set the callable name to an identifier (mypackage.myapp.some_function). Or specify an instance of a model as the content object and set the callable name to a method name (do_job)."
 msgstr ""
 
 #: app/django_future/models.py:45
@@ -178,7 +169,7 @@ msgstr ""
 
 #: app/feedblog/feedblog.py:99
 msgid "collect"
-msgstr ""
+msgstr "采集"
 
 #: app/gallery/cms_plugins.py:13
 msgid "Image gallery"
@@ -195,19 +186,19 @@ msgstr ""
 
 #: app/memcache_status/templates/memcache_status/index.html:84
 msgid "Miss Ratio"
-msgstr ""
+msgstr "失败率"
 
 #: app/memcache_status/templates/memcache_status/index.html:93
 msgid "Avg GET by item"
-msgstr ""
+msgstr "每项目平均获取"
 
 #: app/memcache_status/templates/memcache_status/index.html:97
 msgid "Avg GET by seconds/minutes"
-msgstr ""
+msgstr "平均获取 秒/分"
 
 #: app/memcache_status/templates/memcache_status/index.html:101
 msgid "Detailed Statistics:"
-msgstr ""
+msgstr "详细的统计："
 
 #: app/planet/feeds.py:67
 #, python-format
@@ -224,65 +215,80 @@ msgstr ""
 msgid "Posts by %(author_name)s under %(tag)s tag - %(site_name)s"
 msgstr ""
 
-#: app/planet/forms.py:9 app/planet/models.py:216
+#: app/planet/forms.py:9
+#: app/planet/models.py:216
 #: app/planet/templates/planet/base.html:17
 #, fuzzy
 msgid "Posts"
 msgstr "发表"
 
-#: app/planet/forms.py:10 app/planet/templates/planet/tags/list.html:11
-#: blog/plugins/menu.py:105 blog/templatetags/zbreadcrumbs.py:43
-#: templates/tag_list.html:6 templates/admin/entry/widgets/quickpost.html:25
-#: templates/blog/_entry_detail.html:47 templates/blog/base.html:47
-#: templates/blog/tag_list.html:6 templatetags/zbreadcrumbs.py:43
+#: app/planet/forms.py:10
+#: app/planet/templates/planet/tags/list.html:11
+#: templates/admin/entry/widgets/quickpost.html:25
+#: templatetags/zbreadcrumbs.py:43
+#: templatetags/blog/zbreadcrumbs.py:43
 msgid "Tags"
 msgstr "标签"
 
-#: app/planet/forms.py:11 app/planet/models.py:43
+#: app/planet/forms.py:11
+#: app/planet/models.py:43
 #: app/planet/templates/planet/base.html:23
 #: app/planet/templates/planet/blogs/list.html:11
 msgid "Blogs"
 msgstr ""
 
-#: app/planet/forms.py:12 app/planet/models.py:250
+#: app/planet/forms.py:12
+#: app/planet/models.py:250
 #: app/planet/templates/planet/base.html:20
-#: app/planet/templates/planet/authors/list.html:11 blog/plugins/menu.py:87
-#: blog/templatetags/zbreadcrumbs.py:46 templates/blog/author_list.html:6
-#: templates/blog/base.html:39 templatetags/zbreadcrumbs.py:46
+#: app/planet/templates/planet/authors/list.html:11
+#: templatetags/zbreadcrumbs.py:46
+#: templatetags/blog/zbreadcrumbs.py:46
 msgid "Authors"
 msgstr "作者"
 
-#: app/planet/forms.py:13 app/planet/models.py:121
+#: app/planet/forms.py:13
+#: app/planet/models.py:121
 #: app/planet/templates/planet/base.html:26
 #: app/planet/templates/planet/feeds/list.html:11
-#, fuzzy
 msgid "Feeds"
-msgstr "RSS 源"
+msgstr "RSS订阅"
 
-#: app/planet/models.py:34 blog/models.py:47 blog/models.py:88
-#: blog/admin/entry.py:80 entry/models.py:51 entry/models.py:96
+#: app/planet/models.py:34
+#: blog/models.py:47
+#: blog/models.py:88
+#: blog/admin/entry.py:80
+#: entry/models.py:52
+#: entry/models.py:97
 #: entry/admin/entry.py:73
 msgid "title"
 msgstr "标题"
 
-#: app/planet/models.py:35 app/planet/models.py:58 app/planet/models.py:83
-#: app/planet/models.py:202 app/planet/models.py:268 app/planet/models.py:290
+#: app/planet/models.py:35
+#: app/planet/models.py:58
+#: app/planet/models.py:83
+#: app/planet/models.py:202
+#: app/planet/models.py:268
+#: app/planet/models.py:290
 #: app/planet/models.py:313
 msgid "Url"
 msgstr ""
 
-#: app/planet/models.py:36 app/planet/models.py:182 app/planet/models.py:209
+#: app/planet/models.py:36
+#: app/planet/models.py:182
+#: app/planet/models.py:209
 msgid "Date created"
 msgstr ""
 
-#: app/planet/models.py:42 app/planet/templates/planet/blogs/detail.html:4
+#: app/planet/models.py:42
+#: app/planet/templates/planet/blogs/detail.html:4
 #: app/planet/templates/planet/blogs/detail.html:6
 #: app/planet/templates/planet/blogs/detail.html:7
 #: app/planet/templates/planet/blogs/detail.html:11
 msgid "Blog"
 msgstr ""
 
-#: app/planet/models.py:57 app/planet/models.py:240
+#: app/planet/models.py:57
+#: app/planet/models.py:240
 msgid "Name"
 msgstr ""
 
@@ -298,10 +304,12 @@ msgstr ""
 msgid "Generators"
 msgstr ""
 
-#: app/planet/models.py:85 app/planet/models.py:200 app/planet/models.py:291
+#: app/planet/models.py:85
+#: app/planet/models.py:200
+#: app/planet/models.py:291
 #: templates/admin/entry/widgets/quickpost.html:9
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: app/planet/models.py:87
 #, fuzzy
@@ -352,19 +360,20 @@ msgstr ""
 msgid "If disabled, this feed will not be further updated."
 msgstr ""
 
-#: app/planet/models.py:120 app/planet/templates/planet/feeds/detail.html:4
+#: app/planet/models.py:120
+#: app/planet/templates/planet/feeds/detail.html:4
 #: app/planet/templates/planet/feeds/detail.html:6
 #: app/planet/templates/planet/feeds/detail.html:7
 #: app/planet/templates/planet/feeds/detail.html:29
-#, fuzzy
 msgid "Feed"
-msgstr "RSS 源"
+msgstr "订阅"
 
 #: app/planet/models.py:181
 msgid "Is Contributor?"
 msgstr ""
 
-#: app/planet/models.py:185 app/planet/models.py:186
+#: app/planet/models.py:185
+#: app/planet/models.py:186
 msgid "Post Author Data"
 msgstr ""
 
@@ -372,43 +381,45 @@ msgstr ""
 msgid "Guid"
 msgstr ""
 
-#: app/planet/models.py:204 blog/admin/entry.py:33 blog/plugins/admin.py:17
-#: entry/admin/entry.py:26 templates/admin/entry/widgets/quickpost.html:17
+#: app/planet/models.py:204
+#: blog/admin/entry.py:33
+#: entry/admin/entry.py:26
+#: templates/admin/entry/widgets/quickpost.html:17
 msgid "Content"
 msgstr "内容"
 
 #: app/planet/models.py:205
-#, fuzzy
 msgid "Comments URL"
-msgstr "评论"
+msgstr "评论URL"
 
 #: app/planet/models.py:207
 msgid "Date modified"
 msgstr ""
 
-#: app/planet/models.py:215 blog/templates/comments/zinnia/entry/form.html:18
+#: app/planet/models.py:215
 msgid "Post"
 msgstr "发表"
 
 #: app/planet/models.py:242
-#, fuzzy
 msgid "Author email"
-msgstr "作者列表"
+msgstr "作者Email"
 
 #: app/planet/models.py:243
 msgid "Profile URL"
 msgstr ""
 
-#: app/planet/models.py:249 templates/blog/entry_list.html:19
+#: app/planet/models.py:249
 msgid "Author"
 msgstr "作者"
 
-#: app/planet/models.py:266 app/planet/models.py:288
-#, fuzzy
+#: app/planet/models.py:266
+#: app/planet/models.py:288
 msgid "Relation"
-msgstr "结束发布"
+msgstr "拒绝"
 
-#: app/planet/models.py:267 app/planet/models.py:289 app/planet/models.py:312
+#: app/planet/models.py:267
+#: app/planet/models.py:289
+#: app/planet/models.py:312
 msgid "MIME type"
 msgstr ""
 
@@ -421,9 +432,8 @@ msgid "Feed Links"
 msgstr ""
 
 #: app/planet/models.py:297
-#, fuzzy
 msgid "Post Link"
-msgstr "发表"
+msgstr "发表链接"
 
 #: app/planet/models.py:298
 msgid "Post Links"
@@ -442,15 +452,11 @@ msgid "Post Enclosures"
 msgstr ""
 
 #: app/planet/templates/site_base.html:55
-#, fuzzy
 msgid "admin site"
-msgstr "浏览站点"
+msgstr "管理站点"
 
 #: app/planet/templates/site_base.html:70
-msgid ""
-"Theme heavly based on the minimal and beautiful <a href=\"http://blog."
-"montylounge.com/\" title=\"Visit Mounty Lounge Industries blog\">Mounty "
-"Lounge Industries blog's</a> design"
+msgid "Theme heavly based on the minimal and beautiful <a href=\"http://blog.montylounge.com/\" title=\"Visit Mounty Lounge Industries blog\">Mounty Lounge Industries blog's</a> design"
 msgstr ""
 
 #: app/planet/templates/planet/base.html:14
@@ -462,9 +468,8 @@ msgid "Tag Cloud"
 msgstr ""
 
 #: app/planet/templates/planet/base.html:38
-#, fuzzy
 msgid "Search in"
-msgstr "搜索"
+msgstr "搜索于"
 
 #: app/planet/templates/planet/base.html:40
 msgid "ok"
@@ -479,9 +484,7 @@ msgid "This is a django powered site!"
 msgstr ""
 
 #: app/planet/templates/planet/base.html:81
-msgid ""
-"A <a href=\"https://github.com/alexliyu/lincdm\" title=\"LinCDM Powered"
-"\">LinCDM</a> powered site"
+msgid "A <a href=\"https://github.com/alexliyu/lincdm\" title=\"LinCDM Powered\">LinCDM</a> powered site"
 msgstr ""
 
 #: app/planet/templates/planet/authors/detail.html:4
@@ -501,9 +504,6 @@ msgstr ""
 #: app/planet/templates/planet/posts/full_details.html:12
 #: app/planet/templates/planet/tags/detail.html:11
 #: templates/admin/entry/widgets/_recent_comments.html:11
-#: templates/blog/_entry_detail.html:24
-#: templates/blog/tags/recent_comments.html:7
-#: templates/blog/tags/recent_linkbacks.html:8
 #: templates/entry/tags/recent_comments.html:7
 #: templates/tags/recent_linkbacks.html:8
 msgid "in"
@@ -559,9 +559,8 @@ msgid "Authors list"
 msgstr "作者列表"
 
 #: app/planet/templates/planet/authors/list.html:17
-#, fuzzy
 msgid "Author:"
-msgstr "作者"
+msgstr "作者："
 
 #: app/planet/templates/planet/authors/list.html:21
 msgid "writes for"
@@ -569,20 +568,17 @@ msgstr ""
 
 #: app/planet/templates/planet/authors/list_for_tag.html:5
 #: app/planet/templates/planet/authors/blocks/list_for_tag.html:3
-#, fuzzy
 msgid "Authors talking about"
-msgstr "作者列表"
+msgstr "作者们在谈论关于"
 
 #: app/planet/templates/planet/authors/blocks/list.html:3
-#, fuzzy
 msgid "Authrs"
-msgstr "作者"
+msgstr "作者们"
 
 #: app/planet/templates/planet/authors/blocks/list.html:7
 #: app/planet/templates/planet/authors/blocks/list_for_tag.html:7
-#, fuzzy
 msgid "Author of"
-msgstr "作者"
+msgstr "的作者"
 
 #: app/planet/templates/planet/authors/blocks/list_for_feed.html:2
 msgid "Authors for this feed"
@@ -597,9 +593,8 @@ msgstr ""
 #: app/planet/templates/planet/tags/detail.html:4
 #: app/planet/templates/planet/tags/detail.html:7
 #: app/planet/templates/planet/tags/detail.html:12
-#, fuzzy
 msgid "Posts in"
-msgstr "发表"
+msgstr "发表于"
 
 #: app/planet/templates/planet/blogs/detail.html:14
 #: app/planet/templates/planet/blogs/list.html:22
@@ -625,9 +620,8 @@ msgstr ""
 #: app/planet/templates/planet/blogs/detail.html:19
 #: app/planet/templates/planet/blogs/list.html:31
 #: app/planet/templates/planet/feeds/detail.html:36
-#, fuzzy
 msgid "RSS 2.0 Feed"
-msgstr "RSS 源"
+msgstr "RSS2.0订阅"
 
 #: app/planet/templates/planet/blogs/detail.html:21
 #: app/planet/templates/planet/blogs/list.html:29
@@ -649,9 +643,8 @@ msgstr ""
 #: app/planet/templates/planet/blogs/list.html:4
 #: app/planet/templates/planet/blogs/list.html:6
 #: app/planet/templates/planet/blogs/list.html:7
-#, fuzzy
 msgid "Blogs list"
-msgstr "标签列表"
+msgstr "日志列表"
 
 #: app/planet/templates/planet/blogs/list.html:18
 #: app/planet/templates/planet/blogs/list.html:25
@@ -665,9 +658,8 @@ msgstr ""
 
 #: app/planet/templates/planet/blogs/list.html:25
 #: app/planet/templates/planet/feeds/list.html:31
-#, fuzzy
 msgid "latest posts"
-msgstr "最新日志"
+msgstr "最新发布"
 
 #: app/planet/templates/planet/feeds/detail.html:27
 msgid "Feed icon"
@@ -706,9 +698,8 @@ msgid "Read "
 msgstr ""
 
 #: app/planet/templates/planet/posts/details.html:8
-#, fuzzy
 msgid "published in"
-msgstr "发布"
+msgstr "发布于"
 
 #: app/planet/templates/planet/posts/details.html:8
 #: app/planet/templates/planet/posts/full_details.html:12
@@ -716,8 +707,9 @@ msgid "See all posts for this feed"
 msgstr ""
 
 #: app/planet/templates/planet/posts/details.html:14
-#: app/planet/templates/planet/posts/full_details.html:26 blog/models.py:96
-#: blog/plugins/models.py:32 entry/models.py:104
+#: app/planet/templates/planet/posts/full_details.html:26
+#: blog/models.py:96
+#: entry/models.py:105
 msgid "tags"
 msgstr "标签"
 
@@ -733,8 +725,9 @@ msgstr ""
 msgid "read original post"
 msgstr ""
 
-#: app/planet/templates/planet/posts/full_details.html:5 blog/models.py:86
-#: entry/models.py:94
+#: app/planet/templates/planet/posts/full_details.html:5
+#: blog/models.py:86
+#: entry/models.py:95
 msgid "published"
 msgstr "发布"
 
@@ -747,9 +740,8 @@ msgid "See all posts for this author"
 msgstr ""
 
 #: app/planet/templates/planet/posts/full_details.html:18
-#, fuzzy
 msgid "original entry"
-msgstr "可选项"
+msgstr "原始文章"
 
 #: app/planet/templates/planet/posts/full_details.html:21
 msgid "in blog"
@@ -788,7 +780,6 @@ msgid "Suscribe to RSS feed for tag"
 msgstr ""
 
 #: app/planet/templates/planet/tags/detail.html:22
-#: templates/blog/entry_list.html:19 templates/blog/entry_list.html.py:30
 msgid "Tag"
 msgstr "标签"
 
@@ -816,338 +807,408 @@ msgid "Tags cloud for feed"
 msgstr ""
 
 #: app/planet/templates/planet/tags/blocks/related_list.html:3
-#, fuzzy
 msgid "Related tags"
-msgstr "相关日志"
+msgstr "拒绝的标签"
 
 #: app/pushblog/pushblog.py:82
 msgid "Push"
-msgstr ""
+msgstr "推送"
 
-#: blog/feeds.py:103 blog/plugins/cms_plugins.py:23 entry/feeds.py:103
-#: templates/entry_archive.html:4 templates/entry_archive.html.py:25
-#: templates/blog/entry_archive.html:4 templates/blog/entry_archive.html:25
-#: templates/blog/entry_list.html:19
+#: blog/feeds.py:103
+#: entry/feeds.py:103
 msgid "Latest entries"
 msgstr "最新日志"
 
-#: blog/feeds.py:107 entry/feeds.py:107
+#: blog/feeds.py:107
+#: entry/feeds.py:107
 #, python-format
 msgid "The latest entries for the site %s"
-msgstr ""
+msgstr "站点%s的最新文章"
 
-#: blog/feeds.py:127 entry/feeds.py:127
+#: blog/feeds.py:127
+#: entry/feeds.py:127
 #, python-format
 msgid "Entries for the category %s"
 msgstr "类别 %s 的日志"
 
-#: blog/feeds.py:131 entry/feeds.py:131
+#: blog/feeds.py:131
+#: entry/feeds.py:131
 #, python-format
 msgid "The latest entries for the category %s"
-msgstr ""
+msgstr "分类%s的最新文章"
 
-#: blog/feeds.py:151 entry/feeds.py:151
+#: blog/feeds.py:151
+#: entry/feeds.py:151
 #, python-format
 msgid "Entries for author %s"
 msgstr "作者 %s 的日志"
 
-#: blog/feeds.py:155 entry/feeds.py:155
+#: blog/feeds.py:155
+#: entry/feeds.py:155
 #, python-format
 msgid "The latest entries by %s"
-msgstr ""
+msgstr "%s的最新文章"
 
-#: blog/feeds.py:176 entry/feeds.py:176
+#: blog/feeds.py:176
+#: entry/feeds.py:176
 #, python-format
 msgid "Entries for the tag %s"
 msgstr "标签含 %s 的日志"
 
-#: blog/feeds.py:180 entry/feeds.py:180
+#: blog/feeds.py:180
+#: entry/feeds.py:180
 #, python-format
 msgid "The latest entries for the tag %s"
-msgstr ""
+msgstr "标签%s的最新文章"
 
-#: blog/feeds.py:203 entry/feeds.py:203
+#: blog/feeds.py:203
+#: entry/feeds.py:203
 #, fuzzy, python-format
 msgid "Results of the search for '%s'"
 msgstr "搜索 %s 的结果"
 
-#: blog/feeds.py:207 entry/feeds.py:207
-#, fuzzy, python-format
+#: blog/feeds.py:207
+#: entry/feeds.py:207
+#, python-format
 msgid "The entries containing the pattern '%s'"
-msgstr "类别 %s 的日志"
+msgstr "包含 %s 的文章"
 
-#: blog/feeds.py:249 entry/feeds.py:249
+#: blog/feeds.py:249
+#: entry/feeds.py:249
 #, python-format
 msgid "Discussions on %s"
-msgstr ""
+msgstr "%s的评论"
 
-#: blog/feeds.py:253 entry/feeds.py:253
+#: blog/feeds.py:253
+#: entry/feeds.py:253
 #, python-format
 msgid "The latest discussions for the entry %s"
-msgstr ""
+msgstr "文章%s的最新评论"
 
-#: blog/feeds.py:271 entry/feeds.py:271
+#: blog/feeds.py:271
+#: entry/feeds.py:271
 #, python-format
 msgid "Comments on %s"
 msgstr "对于 %s 的评论"
 
-#: blog/feeds.py:275 entry/feeds.py:275
+#: blog/feeds.py:275
+#: entry/feeds.py:275
 #, python-format
 msgid "The latest comments for the entry %s"
-msgstr ""
+msgstr "文章%s的最新评论"
 
-#: blog/feeds.py:305 entry/feeds.py:305
+#: blog/feeds.py:305
+#: entry/feeds.py:305
 #, python-format
 msgid "Pingbacks on %s"
-msgstr ""
+msgstr "%s的Pingbacks"
 
-#: blog/feeds.py:309 entry/feeds.py:309
+#: blog/feeds.py:309
+#: entry/feeds.py:309
 #, python-format
 msgid "The latest pingbacks for the entry %s"
-msgstr ""
+msgstr "文章%s的最新Pingbacks"
 
-#: blog/feeds.py:327 entry/feeds.py:327
+#: blog/feeds.py:327
+#: entry/feeds.py:327
 #, python-format
 msgid "Trackbacks on %s"
-msgstr ""
+msgstr "%s的Trackbacks"
 
-#: blog/feeds.py:331 entry/feeds.py:331
+#: blog/feeds.py:331
+#: entry/feeds.py:331
 #, python-format
 msgid "The latest trackbacks for the entry %s"
-msgstr ""
+msgstr "文章%s的最新Trackbacks"
 
-#: blog/models.py:48 blog/models.py:103 entry/models.py:52 entry/models.py:111
+#: blog/models.py:48
+#: blog/models.py:103
+#: entry/models.py:53
+#: entry/models.py:112
 msgid "used for publication"
 msgstr "用于发布"
 
-#: blog/models.py:50 entry/models.py:54
+#: blog/models.py:50
+#: entry/models.py:55
 msgid "description"
 msgstr "描述"
 
-#: blog/models.py:53 blog/admin/forms.py:24 entry/models.py:57
+#: blog/models.py:53
+#: blog/admin/forms.py:24
+#: entry/models.py:58
 #: entry/admin/forms.py:18
 msgid "parent category"
-msgstr ""
+msgstr "父分类"
 
-#: blog/models.py:78 entry/models.py:86
+#: blog/models.py:78
+#: entry/models.py:87
 msgid "category"
 msgstr "类别"
 
-#: blog/models.py:79 blog/models.py:97 blog/admin/forms.py:53
-#: blog/plugins/models.py:25 entry/models.py:87 entry/models.py:105
+#: blog/models.py:79
+#: blog/models.py:97
+#: blog/admin/forms.py:53
+#: entry/models.py:88
+#: entry/models.py:106
 #: entry/admin/forms.py:47
 msgid "categories"
 msgstr "类别"
 
-#: blog/models.py:84 entry/models.py:92
+#: blog/models.py:84
+#: entry/models.py:93
 msgid "draft"
 msgstr "草稿"
 
-#: blog/models.py:85 entry/models.py:93
+#: blog/models.py:85
+#: entry/models.py:94
 msgid "hidden"
 msgstr "隐藏"
 
-#: blog/models.py:90 entry/models.py:98
+#: blog/models.py:90
+#: entry/models.py:99
 msgid "image"
 msgstr "图片"
 
-#: blog/models.py:91 entry/models.py:99
+#: blog/models.py:91
+#: entry/models.py:100
 msgid "used for illustration"
 msgstr "用于插图"
 
-#: blog/models.py:92 entry/models.py:100
+#: blog/models.py:92
+#: entry/models.py:101
 msgid "content"
 msgstr "内容"
 
-#: blog/models.py:93 entry/models.py:101
+#: blog/models.py:93
+#: entry/models.py:102
 msgid "excerpt"
 msgstr "摘要"
 
-#: blog/models.py:94 entry/models.py:102
+#: blog/models.py:94
+#: entry/models.py:103
 msgid "optional element"
 msgstr "可选项"
 
-#: blog/models.py:100 entry/models.py:108
+#: blog/models.py:100
+#: entry/models.py:109
 msgid "related entries"
 msgstr "相关日志"
 
-#: blog/models.py:107 blog/plugins/models.py:30 entry/models.py:115
+#: blog/models.py:107
+#: entry/models.py:116
 msgid "authors"
 msgstr "作者"
 
-#: blog/models.py:111 entry/models.py:119
+#: blog/models.py:111
+#: entry/models.py:120
 msgid "featured"
-msgstr ""
+msgstr "特殊的"
 
-#: blog/models.py:112 blog/admin/entry.py:132 entry/models.py:120
+#: blog/models.py:112
+#: blog/admin/entry.py:132
+#: entry/models.py:121
 #: entry/admin/entry.py:125
 msgid "comment enabled"
 msgstr "允许评论"
 
-#: blog/models.py:113 entry/models.py:121
+#: blog/models.py:113
+#: entry/models.py:122
 msgid "linkback enabled"
-msgstr ""
+msgstr "允许linkback "
 
-#: blog/models.py:115 entry/models.py:123
+#: blog/models.py:115
+#: entry/models.py:124
 msgid "creation date"
 msgstr "创建日期"
 
-#: blog/models.py:117 entry/models.py:125
+#: blog/models.py:117
+#: entry/models.py:126
 msgid "last update"
 msgstr "最后更新"
 
-#: blog/models.py:118 entry/models.py:126
+#: blog/models.py:118
+#: entry/models.py:127
 msgid "start publication"
 msgstr "开始发布"
 
-#: blog/models.py:119 entry/models.py:127
+#: blog/models.py:119
+#: entry/models.py:128
 msgid "date start publish"
 msgstr "开始发布日期"
 
-#: blog/models.py:121 entry/models.py:129
+#: blog/models.py:121
+#: entry/models.py:130
 msgid "end publication"
 msgstr "结束发布"
 
-#: blog/models.py:122 entry/models.py:130
+#: blog/models.py:122
+#: entry/models.py:131
 msgid "date end publish"
 msgstr "结束发布日期"
 
-#: blog/models.py:125 entry/models.py:133
+#: blog/models.py:125
+#: entry/models.py:134
 msgid "sites publication"
 msgstr "发布网站"
 
-#: blog/models.py:129 entry/models.py:137
+#: blog/models.py:129
+#: entry/models.py:138
 msgid "login required"
-msgstr ""
+msgstr "需要登录"
 
-#: blog/models.py:130 entry/models.py:138
+#: blog/models.py:130
+#: entry/models.py:139
 msgid "only authenticated users can view the entry"
-msgstr ""
+msgstr "只有获取权限的用户才能访问"
 
-#: blog/models.py:132 entry/models.py:140
+#: blog/models.py:132
+#: entry/models.py:141
 msgid "password"
-msgstr ""
+msgstr "密码"
 
-#: blog/models.py:133 entry/models.py:141
+#: blog/models.py:133
+#: entry/models.py:142
 msgid "protect the entry with a password"
-msgstr ""
+msgstr "使用密码保护这个文章"
 
-#: blog/models.py:136 blog/plugins/models.py:37 blog/plugins/models.py:63
-#: blog/plugins/models.py:87 entry/models.py:144
+#: blog/models.py:136
+#: entry/models.py:145
 msgid "template"
-msgstr ""
+msgstr "模板"
 
-#: blog/models.py:138 entry/models.py:146
+#: blog/models.py:138
+#: entry/models.py:147
 msgid "Default template"
-msgstr ""
+msgstr "默认模板"
 
-#: blog/models.py:140 entry/models.py:148
+#: blog/models.py:140
+#: entry/models.py:149
 msgid "template used to display the entry"
-msgstr ""
+msgstr "用于显示这篇文章的模板"
 
 #: blog/models.py:269
 msgid "entry"
 msgstr "日志"
 
-#: blog/models.py:270 blog/plugins/cms_plugins.py:21
-#: blog/plugins/cms_plugins.py:92 blog/plugins/cms_plugins.py:114
-#: blog/plugins/models.py:61 templates/blog/base.html:53
+#: blog/models.py:270
 msgid "entries"
 msgstr "日志"
 
-#: blog/admin/category.py:36 entry/admin/category.py:30
+#: blog/admin/category.py:36
+#: entry/admin/category.py:30
 msgid "tree path"
-msgstr ""
+msgstr "树形路径"
 
-#: blog/admin/entry.py:35 blog/plugins/admin.py:20 entry/admin/entry.py:28
+#: blog/admin/entry.py:35
+#: entry/admin/entry.py:28
 msgid "Options"
 msgstr "选项"
 
-#: blog/admin/entry.py:41 blog/plugins/admin.py:26 entry/admin/entry.py:34
+#: blog/admin/entry.py:41
+#: entry/admin/entry.py:34
 msgid "Privacy"
-msgstr ""
+msgstr "隐私"
 
-#: blog/admin/entry.py:43 blog/plugins/admin.py:28 entry/admin/entry.py:36
+#: blog/admin/entry.py:43
+#: entry/admin/entry.py:36
 msgid "Discussion"
-msgstr ""
+msgstr "讨论"
 
-#: blog/admin/entry.py:45 blog/plugins/admin.py:30 entry/admin/entry.py:38
+#: blog/admin/entry.py:45
+#: entry/admin/entry.py:38
 msgid "Publication"
-msgstr ""
+msgstr "公开的"
 
-#: blog/admin/entry.py:73 entry/admin/entry.py:66
+#: blog/admin/entry.py:73
+#: entry/admin/entry.py:66
 #, python-format
 msgid "%(title)s (%(word_count)i words)"
 msgstr "%(title)s (%(word_count)i 个字符)"
 
-#: blog/admin/entry.py:77 entry/admin/entry.py:70
+#: blog/admin/entry.py:77
+#: entry/admin/entry.py:70
 #, python-format
 msgid "%(title)s (%(comments)i comments)"
 msgstr "%(title)s (%(comments)i 条评论)"
 
-#: blog/admin/entry.py:93 entry/admin/entry.py:86
+#: blog/admin/entry.py:93
+#: entry/admin/entry.py:86
 msgid "author(s)"
 msgstr "作者"
 
-#: blog/admin/entry.py:106 entry/admin/entry.py:99
+#: blog/admin/entry.py:106
+#: entry/admin/entry.py:99
 msgid "category(s)"
 msgstr "类别"
 
-#: blog/admin/entry.py:118 entry/admin/entry.py:111
+#: blog/admin/entry.py:118
+#: entry/admin/entry.py:111
 msgid "tag(s)"
 msgstr "标签"
 
-#: blog/admin/entry.py:126 entry/admin/entry.py:119
+#: blog/admin/entry.py:126
+#: entry/admin/entry.py:119
 msgid "site(s)"
 msgstr "网站"
 
-#: blog/admin/entry.py:138 entry/admin/entry.py:131
+#: blog/admin/entry.py:138
+#: entry/admin/entry.py:131
 msgid "is actual"
 msgstr "发布期间"
 
-#: blog/admin/entry.py:144 entry/admin/entry.py:137
+#: blog/admin/entry.py:144
+#: entry/admin/entry.py:137
 msgid "is visible"
 msgstr "是否可见"
 
-#: blog/admin/entry.py:149 entry/admin/entry.py:142
+#: blog/admin/entry.py:149
+#: entry/admin/entry.py:142
 msgid "View"
-msgstr ""
+msgstr "视图"
 
-#: blog/admin/entry.py:151 entry/admin/entry.py:144
+#: blog/admin/entry.py:151
+#: entry/admin/entry.py:144
 #: grappelli/templates/admin/change_form.html:76
 msgid "View on site"
 msgstr "浏览站点"
 
-#: blog/admin/entry.py:157 entry/admin/entry.py:150
-#: templates/blog/_entry_detail.html:64
+#: blog/admin/entry.py:157
+#: entry/admin/entry.py:150
 msgid "Unavailable"
 msgstr "不存在"
 
-#: blog/admin/entry.py:161 entry/admin/entry.py:154
+#: blog/admin/entry.py:161
+#: entry/admin/entry.py:154
 msgid "short url"
 msgstr "缩略URL"
 
-#: blog/admin/entry.py:216 entry/admin/entry.py:207
+#: blog/admin/entry.py:216
+#: entry/admin/entry.py:207
 msgid "The selected entries now belong to you."
-msgstr ""
+msgstr "选择的文章现在已经属于您"
 
-#: blog/admin/entry.py:217 entry/admin/entry.py:208
+#: blog/admin/entry.py:217
+#: entry/admin/entry.py:208
 msgid "Set the entries to the user"
 msgstr "设置自己为所选日志的作者"
 
-#: blog/admin/entry.py:224 entry/admin/entry.py:215
+#: blog/admin/entry.py:224
+#: entry/admin/entry.py:215
 msgid "The selected entries are now marked as published."
-msgstr ""
+msgstr "选择的文章现在已经标记为发布"
 
-#: blog/admin/entry.py:225 entry/admin/entry.py:216
+#: blog/admin/entry.py:225
+#: entry/admin/entry.py:216
 msgid "Set entries selected as published"
 msgstr "发布所选日志"
 
-#: blog/admin/entry.py:231 entry/admin/entry.py:222
+#: blog/admin/entry.py:231
+#: entry/admin/entry.py:222
 msgid "The selected entries are now marked as hidden."
-msgstr ""
+msgstr "选择的文章现在已经标记为隐藏"
 
-#: blog/admin/entry.py:232 entry/admin/entry.py:223
+#: blog/admin/entry.py:232
+#: entry/admin/entry.py:223
 msgid "Set entries selected as hidden"
 msgstr "隐藏所选日志"
 
@@ -1159,268 +1220,104 @@ msgstr ""
 msgid "Tweet entries selected"
 msgstr "推特所选日志"
 
-#: blog/admin/entry.py:254 entry/admin/entry.py:230
+#: blog/admin/entry.py:254
+#: entry/admin/entry.py:230
 msgid "Comments are now closed for selected entries."
-msgstr ""
+msgstr "选择的文章已经关闭评论"
 
-#: blog/admin/entry.py:255 entry/admin/entry.py:231
+#: blog/admin/entry.py:255
+#: entry/admin/entry.py:231
 msgid "Close the comments for selected entries"
 msgstr "关闭所选日志的评论功能"
 
-#: blog/admin/entry.py:262 entry/admin/entry.py:238
+#: blog/admin/entry.py:262
+#: entry/admin/entry.py:238
 msgid "Linkbacks are now closed for selected entries."
-msgstr ""
+msgstr "选择的文章现在已经关闭Linkbacks"
 
-#: blog/admin/entry.py:264 entry/admin/entry.py:240
+#: blog/admin/entry.py:264
+#: entry/admin/entry.py:240
 msgid "Close the linkbacks for selected entries"
-msgstr ""
+msgstr "关闭已选择文章的linkbacks"
 
-#: blog/admin/entry.py:271 entry/admin/entry.py:247
+#: blog/admin/entry.py:271
+#: entry/admin/entry.py:247
 msgid "The selected entries are now set at the current date."
-msgstr ""
+msgstr "选择的文章现在已经设置为当前日期"
 
-#: blog/admin/entry.py:273 entry/admin/entry.py:249
+#: blog/admin/entry.py:273
+#: entry/admin/entry.py:249
 msgid "Put the selected entries on top at the current date"
 msgstr ""
 
 #: blog/admin/entry.py:292
 #, python-format
 msgid "%(directory)s directory succesfully pinged %(success)d entries."
-msgstr ""
+msgstr "文章%(success)d 已经ping%(directory)s目录"
 
 #: blog/admin/entry.py:296
 msgid "Ping Directories for selected entries"
 msgstr "提交所选日志到搜索引擎"
 
-#: blog/admin/forms.py:26 entry/admin/forms.py:20
+#: blog/admin/forms.py:26
+#: entry/admin/forms.py:20
 msgid "No parent category"
-msgstr ""
+msgstr "没有父栏目"
 
-#: blog/admin/forms.py:41 entry/admin/forms.py:35
+#: blog/admin/forms.py:41
+#: entry/admin/forms.py:35
 msgid "A category cannot be parent of itself."
-msgstr ""
+msgstr "栏目不能成为自己的父栏目"
 
-#: blog/admin/forms.py:52 blog/plugins/menu.py:70
-#: blog/templatetags/zbreadcrumbs.py:50 entry/admin/forms.py:46
-#: templates/sitemap.html:50 templates/blog/base.html:35
-#: templates/blog/category_list.html:6 templates/blog/sitemap.html:50
+#: blog/admin/forms.py:52
+#: entry/admin/forms.py:46
 #: templatetags/zbreadcrumbs.py:50
+#: templatetags/blog/zbreadcrumbs.py:50
 msgid "Categories"
 msgstr "类别"
 
-#: blog/plugins/cms_app.py:12
-msgid "blog App Hook"
-msgstr ""
-
-#: blog/plugins/cms_plugins.py:33
-msgid "Sorting"
-msgstr "分类"
-
-#: blog/plugins/cms_plugins.py:43
-msgid "Advanced"
-msgstr ""
-
-#: blog/plugins/cms_plugins.py:94
-msgid "Selected entries"
-msgstr "所选日志"
-
-#: blog/plugins/cms_plugins.py:116 templates/blog/base.html:72
-msgid "Random entries"
-msgstr "随机日志"
-
-#: blog/plugins/menu.py:19
-msgid "blog Entry Menu"
-msgstr ""
-
-#: blog/plugins/menu.py:65
-msgid "blog Category Menu"
-msgstr ""
-
-#: blog/plugins/menu.py:82
-msgid "blog Author Menu"
-msgstr ""
-
-#: blog/plugins/menu.py:100
-msgid "blog Tag Menu"
-msgstr ""
-
-#: blog/plugins/models.py:16
-msgid "Entry list (default)"
-msgstr ""
-
-#: blog/plugins/models.py:17
-msgid "Entry detailed"
-msgstr ""
-
-#: blog/plugins/models.py:28
-msgid "include subcategories"
-msgstr ""
-
-#: blog/plugins/models.py:35 blog/plugins/models.py:85
-msgid "number of entries"
-msgstr "日志数量"
-
-#: blog/plugins/models.py:39 blog/plugins/models.py:65
-#: blog/plugins/models.py:89
-msgid "Template used to display the plugin"
-msgstr ""
-
-#: blog/plugins/models.py:54 blog/plugins/models.py:78
-#: blog/plugins/models.py:92
-#, python-format
-msgid "%s entries"
-msgstr "%s 日志"
-
-#: blog/templates/404.html:5
-msgid "Error 404"
-msgstr ""
-
-#: blog/templates/404.html:8 blog/templates/404.html.py:11
-#: grappelli/templates/admin/404.html:7 grappelli/templates/admin/404.html:11
-msgid "Page not found"
-msgstr ""
-
-#: blog/templates/404.html:13
-msgid "Sorry, but the requested page could not be found."
-msgstr ""
-
-#: blog/templates/404.html:15 blog/templates/500.html:20
-msgid "Useful links"
-msgstr ""
-
-#: blog/templates/404.html:19 blog/templates/404.html.py:20
-#: blog/templates/500.html:24 blog/templates/500.html.py:25
-msgid "Blog index"
-msgstr ""
-
-#: blog/templates/404.html:24 blog/templates/404.html.py:25
-#: blog/templates/500.html:29 blog/templates/500.html.py:30
-#: templates/sitemap.html:4 templates/sitemap.html.py:7
-#: templates/blog/sitemap.html:4 templates/blog/sitemap.html.py:7
-#: templates/blog/skeleton.html:32 templates/blog/skeleton.html.py:33
-#: templates/entry/skeleton.html:32 templates/entry/skeleton.html.py:33
-msgid "Sitemap"
-msgstr ""
-
-#: blog/templates/404.html:31 blog/templates/500.html:36
-#: templates/blog/base.html:60
-msgid "Recent entries"
-msgstr "最近日志"
-
-#: blog/templates/404.html:36 blog/templates/500.html:41
-#: templates/blog/base.html:23
-msgid "Search"
-msgstr "搜索"
-
-#: blog/templates/404.html:40 blog/templates/500.html:45
-#: templates/blog/base.html:26
-msgid "Keywords..."
-msgstr "关键词..."
-
-#: blog/templates/500.html:10
-msgid "Error 500"
-msgstr ""
-
-#: blog/templates/500.html:13 blog/templates/500.html.py:16
-#: grappelli/templates/admin/500.html:7
-msgid "Server error"
-msgstr ""
-
-#: blog/templates/500.html:18 grappelli/templates/admin/500.html:15
-msgid ""
-"There's been an error. It's been reported to the site administrators via e-"
-"mail and should be fixed shortly. Thanks for your patience."
-msgstr ""
-
-#: blog/templates/comments/zinnia_entry_preview.html:4
-msgid "Comment preview"
-msgstr "评论预览"
-
-#: blog/templates/comments/zinnia_entry_preview.html:9
-msgid "Please correct following error."
-msgid_plural "Please correct following errors."
-msgstr[0] ""
-
-#: blog/templates/comments/zinnia_entry_preview.html:12
-msgid "Preview of the comment"
-msgstr "预览评论"
-
-#: blog/templates/comments/zinnia_entry_preview.html:25
-#: blog/templates/feeds/comment_title.html:2
-#: blog/templates/feeds/discussion_title.html:2
-#: blog/templates/feeds/pingback_title.html:2
-#: blog/templates/feeds/trackback_title.html:2
-#: templates/admin/entry/widgets/_draft_entries.html:10
-#: templates/blog/_entry_detail.html:18 templates/blog/entry_detail.html:101
-#: templates/blog/entry_detail.html:136 templates/blog/entry_detail.html:167
-msgid "on"
-msgstr "在"
-
-#: blog/templates/comments/zinnia/entry/form.html:7
-msgid "Post your comment"
-msgstr "发表评论"
-
-#: blog/templates/comments/zinnia/entry/form.html:19
-#: templates/admin/entry/widgets/_draft_entries.html:16
-msgid "Preview"
-msgstr "预览"
-
-#: blog/templates/comments/zinnia/entry/posted.html:4
-#: blog/templates/comments/zinnia/entry/posted.html:7
-msgid "Thanks for your comment"
-msgstr "感谢你的评论"
-
-#: blog/templates/comments/zinnia/entry/posted.html:9
-#: blog/templates/comments/zinnia/entry/posted.html:10
-msgid "Return to entry list"
-msgstr "返回日志列表"
-
-#: blog/views/search.py:18
-msgid "The pattern is too short"
-msgstr "模式长度不够"
-
-#: blog/views/search.py:22
-msgid "No pattern to search found"
-msgstr "没有搜索到相关模式"
-
 #: blog/xmlrpc/metaweblog.py:35
+#: xmlrpc/metaweblog.py:35
 msgid "Username is incorrect."
-msgstr ""
+msgstr "用户名错误"
 
 #: blog/xmlrpc/metaweblog.py:37
+#: xmlrpc/metaweblog.py:37
 msgid "Password is invalid."
-msgstr ""
+msgstr "密码错误"
 
 #: blog/xmlrpc/metaweblog.py:39
+#: xmlrpc/metaweblog.py:39
 msgid "User account unavailable."
-msgstr ""
+msgstr "用户帐户不可用"
 
 #: blog/xmlrpc/metaweblog.py:42
+#: xmlrpc/metaweblog.py:42
 #, python-format
 msgid "User cannot %s."
-msgstr ""
+msgstr "用户不能 %s"
 
 #: blog/xmlrpc/pingback.py:94
+#: xmlrpc/pingback.py:94
 msgid "No title"
-msgstr ""
+msgstr "没有标题"
 
-#: entry/models.py:277 entry/models.py:278
+#: entry/models.py:278
+#: entry/models.py:279
 msgid "内容"
 msgstr ""
 
-#: grappelli/dashboard/dashboards.py:92 templates/blog/base.html:89
-#: templates/blog/base.html.py:90
+#: grappelli/dashboard/dashboards.py:92
 msgid "Dashboard"
-msgstr ""
+msgstr "控制面板"
 
 #: grappelli/dashboard/dashboards.py:136
 msgid "Quick links"
-msgstr ""
+msgstr "快捷链接"
 
 #: grappelli/dashboard/dashboards.py:142
-#, fuzzy
 msgid "Return to site"
-msgstr "返回日志列表"
+msgstr "返回站点"
 
 #: grappelli/dashboard/dashboards.py:143
 #: grappelli/templates/admin/auth/user/change_password.html:11
@@ -1430,20 +1327,25 @@ msgstr "返回日志列表"
 #: grappelli/templates/registration/password_change_done.html:11
 #: grappelli/templates/registration/password_change_form.html:10
 msgid "Change password"
-msgstr ""
+msgstr "修改密码"
 
 #: grappelli/dashboard/dashboards.py:145
 #: grappelli/templates/admin/auth/user/change_password.html:14
 #: grappelli/templates/admin/includes_grappelli/header.html:28
 #: grappelli/templates/registration/password_change_done.html:14
 #: grappelli/templates/registration/password_change_form.html:13
-#: templates/blog/base.html:104 templates/blog/base.html.py:105
 msgid "Log out"
-msgstr ""
+msgstr "注销"
+
+#: grappelli/dashboard/dashboards.py:162
+#: grappelli/dashboard/modules.py:291
+#: grappelli/templates/admin/index.html:44
+msgid "Recent Actions"
+msgstr "最近行为"
 
 #: grappelli/dashboard/dashboards.py:176
 msgid "Django documentation"
-msgstr ""
+msgstr "Django文档"
 
 #: grappelli/dashboard/dashboards.py:181
 msgid "Django \"django-users\" mailing list"
@@ -1455,16 +1357,14 @@ msgstr ""
 
 #: grappelli/dashboard/modules.py:189
 msgid "Links"
-msgstr ""
+msgstr "链接"
 
 #: grappelli/dashboard/modules.py:344
-#, fuzzy
 msgid "No recent actions."
-msgstr "更多最近日志"
+msgstr "没有最进行为"
 
-#: grappelli/dashboard/modules.py:353 templates/blog/entry_list.html:9
-#: templates/blog/entry_list.html.py:12 templates/blog/entry_list.html:15
-#: templates/blog/skeleton.html:36 templates/entry/skeleton.html:36
+#: grappelli/dashboard/modules.py:353
+#: templates/entry/skeleton.html:36
 msgid "RSS Feed"
 msgstr "RSS 源"
 
@@ -1489,7 +1389,7 @@ msgstr "RSS 源"
 #: grappelli/templates/registration/password_reset_done.html:4
 #: grappelli/templates/registration/password_reset_form.html:4
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: grappelli/dashboard/templates/grappelli/dashboard/modules/app_list.html:19
 #: grappelli/dashboard/templates/grappelli/dashboard/modules/model_list.html:9
@@ -1497,44 +1397,60 @@ msgstr ""
 #: grappelli/templates/admin/change_form.html:65
 #: grappelli/templates/admin/index.html:31
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: grappelli/dashboard/templates/grappelli/dashboard/modules/app_list.html:24
 #: grappelli/dashboard/templates/grappelli/dashboard/modules/model_list.html:10
 #: grappelli/templates/admin/app_index.html:31
 #: grappelli/templates/admin/index.html:32
 msgid "Change"
-msgstr ""
+msgstr "修改"
 
 #: grappelli/dashboard/templates/grappelli/dashboard/modules/recent_actions.html:12
 #, fuzzy
 msgid "None Available"
 msgstr "不存在"
 
+#: grappelli/templates/admin/404.html:7
+#: grappelli/templates/admin/404.html:11
+msgid "Page not found"
+msgstr "找不到页面"
+
 #: grappelli/templates/admin/404.html:12
 msgid "We're sorry, but the requested page could not be found."
-msgstr ""
+msgstr "我们很抱歉，找不到您访问的页面。"
+
+#: grappelli/templates/admin/500.html:7
+#: templates/500.html:13
+#: templates/500.html.py:16
+msgid "Server error"
+msgstr "服务器错误"
 
 #: grappelli/templates/admin/500.html:10
 msgid "Server error (500)"
-msgstr ""
+msgstr "服务器错误（500）"
 
 #: grappelli/templates/admin/500.html:14
 msgid "Server Error <em>(500)</em>"
+msgstr "服务器错误 <em>(500)</em>"
+
+#: grappelli/templates/admin/500.html:15
+#: templates/500.html:18
+msgid "There's been an error. It's been reported to the site administrators via e-mail and should be fixed shortly. Thanks for your patience."
 msgstr ""
 
 #: grappelli/templates/admin/actions.html:10
 msgid "Click here to select the objects across all pages"
-msgstr ""
+msgstr "点击这里选择所有页面的对象"
 
 #: grappelli/templates/admin/actions.html:10
 #, python-format
 msgid "Select all %(total_count)s %(module_name)s"
-msgstr ""
+msgstr "选择所有的%(total_count)s %(module_name)s"
 
 #: grappelli/templates/admin/actions.html:11
 msgid "Clear selection"
-msgstr ""
+msgstr "清除选择"
 
 #: grappelli/templates/admin/app_index.html:13
 #, python-format
@@ -1543,100 +1459,90 @@ msgstr ""
 
 #: grappelli/templates/admin/base_site.html:4
 msgid "Django site admin"
-msgstr ""
+msgstr "Django站点管理"
 
 #: grappelli/templates/admin/base_site.html:7
 msgid "Django administration"
-msgstr ""
+msgstr "Django管理员"
 
 #: grappelli/templates/admin/change_form.html:75
 #: grappelli/templates/admin/object_history.html:13
 msgid "History"
-msgstr ""
+msgstr "历史记录"
 
 #: grappelli/templates/admin/change_form.html:96
 #: grappelli/templates/admin/change_list.html:148
 #: grappelli/templates/admin/auth/user/change_password.html:38
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
+msgstr[0] "请检查以下错误"
 
 #: grappelli/templates/admin/change_list.html:102
 #, python-format
 msgid "Add %(name)s"
-msgstr ""
+msgstr "新增%(name)s"
 
 #: grappelli/templates/admin/change_list.html:120
 msgid "Filter"
-msgstr ""
+msgstr "筛选"
 
 #: grappelli/templates/admin/csv_export_selected_confirmation.html:12
 msgid "Export selection as CSV"
-msgstr ""
+msgstr "导出选择项目为CSV"
 
 #: grappelli/templates/admin/csv_export_selected_confirmation.html:31
 msgid "Export following fields:"
-msgstr ""
+msgstr "导出以下字段："
 
 #: grappelli/templates/admin/csv_export_selected_confirmation.html:34
 msgid "Select all"
-msgstr ""
+msgstr "全选"
 
 #: grappelli/templates/admin/csv_export_selected_confirmation.html:54
 msgid "Back"
-msgstr ""
+msgstr "后退"
 
 #: grappelli/templates/admin/csv_export_selected_confirmation.html:55
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 #: grappelli/templates/admin/delete_confirmation.html:13
 #: grappelli/templates/admin/submit_line.html:4
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: grappelli/templates/admin/delete_confirmation.html:22
 #, python-format
-msgid ""
-"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
-"related objects, but your account doesn't have permission to delete the "
-"following types of objects:"
+msgid "Deleting the %(object_name)s '%(escaped_object)s' would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:"
 msgstr ""
 
 #: grappelli/templates/admin/delete_confirmation.html:33
 #, python-format
-msgid ""
-"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
-"All of the following related items will be deleted:"
+msgid "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? All of the following related items will be deleted:"
 msgstr ""
 
 #: grappelli/templates/admin/delete_confirmation.html:41
 #: grappelli/templates/admin/delete_selected_confirmation.html:47
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: grappelli/templates/admin/delete_confirmation.html:42
 #: grappelli/templates/admin/delete_selected_confirmation.html:48
 msgid "Yes, I'm sure"
-msgstr ""
+msgstr "是，我确定"
 
 #: grappelli/templates/admin/delete_selected_confirmation.html:12
 msgid "Delete multiple objects"
-msgstr ""
+msgstr "删除多个对象"
 
 #: grappelli/templates/admin/delete_selected_confirmation.html:21
 #, python-format
-msgid ""
-"Deleting the %(objects_name)s would result in deleting related objects, but "
-"your account doesn't have permission to delete the following types of "
-"objects:"
+msgid "Deleting the %(objects_name)s would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:"
 msgstr ""
 
 #: grappelli/templates/admin/delete_selected_confirmation.html:32
 #, python-format
-msgid ""
-"Are you sure you want to delete the selected %(objects_name)s objects? All "
-"of the following objects and their related items will be deleted:"
+msgid "Are you sure you want to delete the selected %(objects_name)s objects? All of the following objects and their related items will be deleted:"
 msgstr ""
 
 #: grappelli/templates/admin/filter.html:3
@@ -1646,11 +1552,11 @@ msgstr ""
 
 #: grappelli/templates/admin/index.html:39
 msgid "You don´t have permission to edit anything."
-msgstr ""
+msgstr "您没有编辑权限"
 
 #: grappelli/templates/admin/index.html:46
 msgid "My Actions"
-msgstr ""
+msgstr "我的行为"
 
 #: grappelli/templates/admin/index.html:49
 #, fuzzy
@@ -1658,51 +1564,44 @@ msgid "None available"
 msgstr "不存在"
 
 #: grappelli/templates/admin/invalid_setup.html:11
-msgid ""
-"Something's wrong with your database installation. Make sure the appropriate "
-"database tables have been created, and make sure the database is readable by "
-"the appropriate user."
+msgid "Something's wrong with your database installation. Make sure the appropriate database tables have been created, and make sure the database is readable by the appropriate user."
 msgstr ""
 
 #: grappelli/templates/admin/login.html:31
 msgid "Username:"
-msgstr ""
+msgstr "用户名："
 
 #: grappelli/templates/admin/login.html:35
 msgid "Password:"
-msgstr ""
+msgstr "密码："
 
 #: grappelli/templates/admin/login.html:45
 #: grappelli/templates/registration/password_reset_complete.html:11
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: grappelli/templates/admin/object_history.html:25
 msgid "Date/time"
-msgstr ""
+msgstr "日期/时间"
 
 #: grappelli/templates/admin/object_history.html:26
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: grappelli/templates/admin/object_history.html:27
-#, fuzzy
 msgid "Action"
-msgstr "选项"
+msgstr "行为"
 
 #: grappelli/templates/admin/object_history.html:33
 msgid "DATETIME_FORMAT"
 msgstr ""
 
 #: grappelli/templates/admin/object_history.html:37
-#, fuzzy
 msgid "Created object"
-msgstr "相关日志"
+msgstr "创建对象"
 
 #: grappelli/templates/admin/object_history.html:47
-msgid ""
-"This object doesn't have a change history. It probably wasn't added via this "
-"admin site."
+msgid "This object doesn't have a change history. It probably wasn't added via this admin site."
 msgstr ""
 
 #: grappelli/templates/admin/pagination.html:8
@@ -1719,11 +1618,11 @@ msgstr ""
 
 #: grappelli/templates/admin/pagination.html:27
 msgid "Show all"
-msgstr ""
+msgstr "全部显示"
 
 #: grappelli/templates/admin/submit_line.html:5
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: grappelli/templates/admin/submit_line.html:6
 msgid "Save as new"
@@ -1834,14 +1733,10 @@ msgstr ""
 msgid ""
 "\n"
 "            <p>To install bookmarklets, drag the link to your bookmarks\n"
-"    toolbar, or right-click the link and add it to your bookmarks. Now you "
-"can\n"
-"    select the bookmarklet from any page in the site.  Note that some of "
-"these\n"
-"    bookmarklets require you to be viewing the site from a computer "
-"designated\n"
-"    as \"internal\" (talk to your system administrator if you aren't sure "
-"if\n"
+"    toolbar, or right-click the link and add it to your bookmarks. Now you can\n"
+"    select the bookmarklet from any page in the site.  Note that some of these\n"
+"    bookmarklets require you to be viewing the site from a computer designated\n"
+"    as \"internal\" (talk to your system administrator if you aren't sure if\n"
 "    your computer is \"internal\").</p>\n"
 "        "
 msgstr ""
@@ -1851,9 +1746,7 @@ msgid "Documentation for this page"
 msgstr ""
 
 #: grappelli/templates/admin_doc/bookmarklets.html:22
-msgid ""
-"Jumps you from any page to the documentation for the view that generates "
-"that page."
+msgid "Jumps you from any page to the documentation for the view that generates that page."
 msgstr ""
 
 #: grappelli/templates/admin_doc/bookmarklets.html:25
@@ -1861,9 +1754,7 @@ msgid "Show object ID"
 msgstr ""
 
 #: grappelli/templates/admin_doc/bookmarklets.html:26
-msgid ""
-"Shows the content-type and unique ID for pages that represent a single "
-"object."
+msgid "Shows the content-type and unique ID for pages that represent a single object."
 msgstr ""
 
 #: grappelli/templates/admin_doc/bookmarklets.html:29
@@ -1896,9 +1787,7 @@ msgid "Your password was changed."
 msgstr ""
 
 #: grappelli/templates/registration/password_change_form.html:26
-msgid ""
-"Please enter your old password, for securitys sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+msgid "Please enter your old password, for securitys sake, and then enter your new password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: grappelli/templates/registration/password_change_form.html:30
@@ -1942,9 +1831,7 @@ msgid "Enter new password"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:11
-msgid ""
-"Please enter your new password twice so we can verify you typed it in "
-"correctly."
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:20
@@ -1952,9 +1839,7 @@ msgid "Password reset unsuccessful"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:21
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used. Please request a new password reset."
+msgid "The password reset link was invalid, possibly because it has already been used. Please request a new password reset."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_done.html:6
@@ -1963,9 +1848,7 @@ msgid "Password reset successful"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_done.html:10
-msgid ""
-"We've e-mailed a new password to the e-mail address you submitted. You "
-"should be receiving it shortly."
+msgid "We've e-mailed a new password to the e-mail address you submitted. You should be receiving it shortly."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_email.html:2
@@ -1986,9 +1869,8 @@ msgid "Your username, in case you've forgotten:"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_email.html:11
-#, fuzzy
 msgid "Thanks for using our site!"
-msgstr "感谢你的评论"
+msgstr "感谢你使用我们的网站！"
 
 #: grappelli/templates/registration/password_reset_email.html:13
 #, python-format
@@ -1996,9 +1878,7 @@ msgid "The %(site_name)s team"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:10
-msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll reset "
-"your password and e-mail the new one to you."
+msgid "Forgotten your password? Enter your e-mail address below, and we'll reset your password and e-mail the new one to you."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:13
@@ -2007,341 +1887,244 @@ msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:13
 msgid "Reset my password"
-msgstr ""
+msgstr "重设我的密码"
 
-#: grappelli/views/related.py:24 grappelli/views/related.py:51
-#, fuzzy
+#: grappelli/views/related.py:24
+#: grappelli/views/related.py:51
 msgid "Not Found"
-msgstr "没有找到"
+msgstr "没有找到！"
 
-#: grappelli/views/related.py:28 grappelli/views/related.py:30
-#: grappelli/views/related.py:53 grappelli/views/related.py:55
+#: grappelli/views/related.py:28
+#: grappelli/views/related.py:30
+#: grappelli/views/related.py:53
+#: grappelli/views/related.py:55
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
-#: templates/login.html:4 templates/login.html.py:7
-#: templates/blog/login.html:4 templates/blog/login.html.py:7
+#: templates/500.html:10
+msgid "Error 500"
+msgstr "错误 500"
+
+#: templates/500.html:20
+msgid "Useful links"
+msgstr "有用的链接"
+
+#: templates/500.html:24
+#: templates/500.html.py:25
+msgid "Blog index"
+msgstr "文章索引"
+
+#: templates/500.html:29
+#: templates/500.html.py:30
+#: templates/entry/skeleton.html:32
+#: templates/entry/skeleton.html.py:33
+msgid "Sitemap"
+msgstr "网站地图"
+
+#: templates/500.html:36
+msgid "Recent entries"
+msgstr "最近日志"
+
+#: templates/500.html:41
+msgid "Search"
+msgstr "搜索"
+
+#: templates/500.html:45
+msgid "Keywords..."
+msgstr "关键词..."
+
+#: templates/login.html:4
+#: templates/login.html.py:7
 msgid "Login required"
-msgstr ""
+msgstr "需要登录"
 
-#: templates/login.html:12 templates/blog/login.html:12
+#: templates/login.html:12
 msgid "Your username and password didn't match. Please try again."
-msgstr ""
+msgstr "您的账户与密码不符，请重试！"
 
-#: templates/login.html:16 templates/blog/login.html:16
+#: templates/login.html:16
 msgid "You need to be connected to view this entry."
-msgstr ""
+msgstr "您需要登录来查看这篇文章"
 
-#: templates/login.html:33 templates/blog/login.html:33
+#: templates/login.html:33
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
-#: templates/password.html:4 templates/password.html.py:7
-#: templates/blog/password.html:4 templates/blog/password.html.py:7
+#: templates/password.html:4
+#: templates/password.html.py:7
 msgid "Password required"
-msgstr ""
+msgstr "需要密码"
 
-#: templates/password.html:12 templates/blog/password.html:12
+#: templates/password.html:12
 msgid "The password provided is not valid. Please try again."
-msgstr ""
+msgstr "这个密码不正确，请重试"
 
-#: templates/password.html:16 templates/blog/password.html:16
+#: templates/password.html:16
 msgid "You need to provide a password to view this entry."
-msgstr ""
+msgstr "您需要提供一个密码来查看这篇文章"
 
-#: templates/password.html:23 templates/blog/password.html:23
+#: templates/password.html:23
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
-#: templates/password.html:28 templates/blog/password.html:28
+#: templates/password.html:28
 msgid "Valid"
-msgstr ""
-
-#: templates/sitemap.html:10 templates/blog/sitemap.html:10
-msgid "Entries per categories"
-msgstr ""
-
-#: templates/sitemap.html:18 templates/sitemap.html.py:38
-#: templates/blog/sitemap.html:18 templates/blog/sitemap.html.py:38
-#: templates/blog/tags/popular_entries.html:8
-#: templates/entry/tags/popular_entries.html:8
-msgid "comment"
-msgstr "评论"
-
-#: templates/sitemap.html:23 templates/sitemap.html.py:43
-#: templates/blog/entry_list.html:45 templates/blog/sitemap.html:23
-#: templates/blog/sitemap.html.py:43 templates/blog/cms/entry_detail.html:12
-#: templates/blog/cms/entry_list.html:9
-#: templates/blog/tags/featured_entries.html:9
-#: templates/blog/tags/popular_entries.html:13
-#: templates/blog/tags/random_entries.html:9
-#: templates/blog/tags/recent_entries.html:9
-#: templates/entry/tags/featured_entries.html:9
-#: templates/entry/tags/popular_entries.html:13
-#: templates/entry/tags/random_entries.html:9
-#: templates/entry/tags/recent_entries.html:9
-msgid "No entries yet."
-msgstr ""
-
-#: templates/sitemap.html:31 templates/blog/sitemap.html:31
-msgid "All the entries"
-msgstr ""
-
-#: templates/sitemap.html:55 templates/tag_list.html:16
-#: templates/blog/author_list.html:18 templates/blog/category_list.html:14
-#: templates/blog/sitemap.html:55 templates/blog/tag_list.html:16
-#: templates/blog/tags/authors.html:8 templates/blog/tags/categories.html:6
-#: templates/tags/categories.html:6
-#, python-format
-msgid "%(entry_count)s entry"
-msgid_plural "%(entry_count)s entries"
-msgstr[0] ""
-
-#: templates/sitemap.html:60 templates/blog/sitemap.html:60
-#: templates/blog/tags/categories.html:11 templates/tags/categories.html:11
-msgid "No categories yet."
-msgstr ""
-
-#: templates/sitemap.html:67 templates/blog/entry_archive_year.html:13
-#: templates/blog/sitemap.html:67 templates/entry/entry_archive_year.html:13
-msgid "Monthly archives"
-msgstr ""
-
-#: templates/tag_list.html:4 templates/tag_list.html.py:9
-#: templates/blog/tag_list.html:4 templates/blog/tag_list.html.py:9
-msgid "Tag list"
-msgstr "标签列表"
+msgstr "有效"
 
 #: templates/admin/entry/widgets/_content_stats.html:4
 msgid "Contents"
-msgstr ""
+msgstr "内容"
 
 #: templates/admin/entry/widgets/_content_stats.html:5
-#: templates/blog/_entry_detail.html:69
 msgid "Discussions"
-msgstr ""
+msgstr "讨论"
 
 #: templates/admin/entry/widgets/_content_stats.html:10
 #, python-format
 msgid "%(entries)s entries"
-msgstr ""
+msgstr "%(entries)s 篇文章"
 
 #: templates/admin/entry/widgets/_content_stats.html:15
 #, python-format
 msgid "%(comments)s comments"
-msgstr ""
+msgstr "%(comments)s 条评论"
 
 #: templates/admin/entry/widgets/_content_stats.html:22
 #, python-format
 msgid "%(categories)s categories"
-msgstr ""
+msgstr "%(categories)s 栏目"
 
 #: templates/admin/entry/widgets/_content_stats.html:25
 #, python-format
 msgid "%(pingbacks)s pingbacks"
-msgstr ""
+msgstr "%(pingbacks)s pingbacks"
 
 #: templates/admin/entry/widgets/_content_stats.html:30
 #, python-format
 msgid "%(tags)s tags"
-msgstr ""
+msgstr "%(tags)s 标签"
 
 #: templates/admin/entry/widgets/_content_stats.html:33
 #, python-format
 msgid "%(trackbacks)s trackbacks"
-msgstr ""
+msgstr "%(trackbacks)s trackbacks"
 
 #: templates/admin/entry/widgets/_content_stats.html:38
 #, python-format
 msgid "%(authors)s authors"
-msgstr ""
+msgstr "%(authors)s 作者"
 
 #: templates/admin/entry/widgets/_content_stats.html:43
 #, python-format
 msgid "%(rejects)s rejected"
-msgstr ""
+msgstr "%(rejects)s 拒绝"
 
 #: templates/admin/entry/widgets/_draft_entries.html:7
-#: templates/blog/entry_detail.html:196 templates/blog/entry_detail.html:197
 msgid "Edit the entry"
-msgstr ""
+msgstr "编辑这篇文章"
+
+#: templates/admin/entry/widgets/_draft_entries.html:10
+#: templates/comments/preview.html:25
+#: templates/feeds/comment_title.html:2
+#: templates/feeds/discussion_title.html:2
+#: templates/feeds/pingback_title.html:2
+#: templates/feeds/trackback_title.html:2
+msgid "on"
+msgstr "在"
+
+#: templates/admin/entry/widgets/_draft_entries.html:16
+msgid "Preview"
+msgstr "预览"
 
 #: templates/admin/entry/widgets/_draft_entries.html:23
 msgid "No draft entries."
-msgstr ""
+msgstr "没有草稿"
 
 #: templates/admin/entry/widgets/_draft_entries.html:32
 #: templates/admin/entry/widgets/_draft_entries.html:33
 msgid "View all draft entries"
-msgstr ""
+msgstr "查看所有草稿"
 
 #: templates/admin/entry/widgets/_recent_comments.html:14
-#: templates/blog/tags/recent_comments.html:9
 #: templates/entry/tags/recent_comments.html:9
 msgid "Comment on"
-msgstr ""
+msgstr "评论于"
 
 #: templates/admin/entry/widgets/_recent_comments.html:23
 msgid "Edit the comment"
-msgstr ""
+msgstr "编辑这条评论"
 
 #: templates/admin/entry/widgets/_recent_comments.html:24
 #: templates/admin/entry/widgets/_recent_linkbacks.html:19
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: templates/admin/entry/widgets/_recent_comments.html:31
-#: templates/blog/_entry_detail.html:77 templates/blog/entry_detail.html:117
-#: templates/blog/tags/recent_comments.html:16
 #: templates/entry/tags/recent_comments.html:16
 msgid "No comments yet."
-msgstr ""
+msgstr "没有任何评论"
 
 #: templates/admin/entry/widgets/_recent_comments.html:40
 #: templates/admin/entry/widgets/_recent_comments.html:41
 msgid "Manage the comments"
-msgstr ""
+msgstr "管理评论"
 
 #: templates/admin/entry/widgets/_recent_linkbacks.html:8
 msgid "made a linkback on"
-msgstr ""
+msgstr "创建一个linkback于"
 
 #: templates/admin/entry/widgets/_recent_linkbacks.html:18
 msgid "Edit the linkback"
-msgstr ""
+msgstr "编辑这条linkback"
 
 #: templates/admin/entry/widgets/_recent_linkbacks.html:26
-#: templates/blog/tags/recent_linkbacks.html:17
 #: templates/tags/recent_linkbacks.html:17
 msgid "No linkbacks yet."
-msgstr ""
+msgstr "没有任何linkback"
 
 #: templates/admin/entry/widgets/content_stats.html:6
 #: templates/admin/entry/widgets/content_stats.html:7
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: templates/admin/entry/widgets/draft_entries.html:6
 #: templates/admin/entry/widgets/draft_entries.html:7
 msgid "Draft entries"
-msgstr ""
+msgstr "草稿"
 
 #: templates/admin/entry/widgets/quickpost.html:5
 #: templates/admin/entry/widgets/quickpost.html:6
 msgid "Quick publishing"
-msgstr ""
+msgstr "快速发布"
 
 #: templates/admin/entry/widgets/quickpost.html:33
 msgid "Save as draft"
-msgstr ""
+msgstr "保存为草稿"
 
 #: templates/admin/entry/widgets/quickpost.html:34
 msgid "Reset"
-msgstr ""
+msgstr "重设"
 
 #: templates/admin/entry/widgets/quickpost.html:35
 msgid "Publish"
-msgstr ""
+msgstr "发布"
 
 #: templates/admin/entry/widgets/recent_comments.html:6
 #: templates/admin/entry/widgets/recent_comments.html:7
-#: templates/blog/base.html:64
 msgid "Recent comments"
-msgstr ""
+msgstr "最新评论"
 
 #: templates/admin/entry/widgets/recent_linkbacks.html:6
 #: templates/admin/entry/widgets/recent_linkbacks.html:7
-#: templates/blog/base.html:68
 msgid "Recent linkbacks"
-msgstr ""
+msgstr "最新linkbacks"
 
-#: templates/blog/_entry_detail.html:11
-msgid "Written by"
-msgstr "作者是"
-
-#: templates/blog/_entry_detail.html:15
-#, python-format
-msgid "Show %(author)s entries"
-msgstr "显示 %(author)s 的日志"
-
-#: templates/blog/_entry_detail.html:20
-#, fuzzy
-msgid "Written on"
-msgstr "作者是"
-
-#: templates/blog/_entry_detail.html:53
-msgid "No tags"
-msgstr "没有标签"
-
-#: templates/blog/_entry_detail.html:58
-msgid "Short url"
-msgstr "缩略URL"
-
-#: templates/blog/_entry_detail.html:73
-#, python-format
-msgid "%(comment_count)s comment"
-msgid_plural "%(comment_count)s comments"
-msgstr[0] ""
-
-#: templates/blog/_entry_detail.html:79
-msgid "Be first to comment!"
-msgstr ""
-
-#: templates/blog/_entry_detail.html:82 templates/blog/entry_detail.html:113
-#: templates/blog/entry_detail.html:119
-msgid "Comments are closed."
-msgstr "评论已关闭"
-
-#: templates/blog/_entry_detail.html:89
-#, python-format
-msgid "%(pingback_count)s pingback"
-msgid_plural "%(pingback_count)s pingbacks"
-msgstr[0] ""
-
-#: templates/blog/_entry_detail.html:96
-#, python-format
-msgid "%(trackback_count)s trackback"
-msgid_plural "%(trackback_count)s trackbacks"
-msgstr[0] ""
-
-#: templates/blog/author_list.html:4 templates/blog/author_list.html.py:9
-msgid "Author list"
-msgstr "作者列表"
-
-#: templates/blog/base.html:13 templates/blog/skeleton.html:35
-#: templates/entry/skeleton.html:35
-msgid "RSS Feed of latest entries"
-msgstr ""
-
-#: templates/blog/base.html:28
-msgid ""
-"You can use - to exclude words or phrases, &quot;double quotes&quot; for "
-"exact phrases and the AND/OR boolean operators combined with parenthesis for "
-"complex searchs."
-msgstr ""
-
-#: templates/blog/base.html:43
-msgid "Calendar"
-msgstr ""
-
-#: templates/blog/base.html:76
-msgid "Popular entries"
-msgstr "热门日志"
-
-#: templates/blog/base.html:80 templates/blog/entry_archive_day.html:4
-#: templates/blog/entry_archive_day.html:6
-#: templates/blog/entry_archive_day.html:9
 #: templates/blog/entry_archive_month.html:4
 #: templates/blog/entry_archive_month.html:6
 #: templates/blog/entry_archive_month.html:9
 #: templates/blog/entry_archive_year.html:4
 #: templates/blog/entry_archive_year.html:6
 #: templates/blog/entry_archive_year.html:9
-#: templates/blog/tags/archives_entries.html:5
-#: templates/blog/tags/archives_entries_link.html:2
-#: templates/blog/tags/archives_entries_tree.html:7
-#: templates/blog/tags/archives_entries_tree.html:14
-#: templates/blog/tags/archives_entries_tree.html:24
 #: templates/entry/entry_archive_day.html:4
 #: templates/entry/entry_archive_day.html:6
 #: templates/entry/entry_archive_day.html:9
@@ -2360,187 +2143,178 @@ msgstr "热门日志"
 msgid "Archives"
 msgstr "归档"
 
-#: templates/blog/base.html:85
-msgid "Tools"
-msgstr ""
-
-#: templates/blog/base.html:96 templates/blog/base.html.py:97
-msgid "Post an entry"
-msgstr ""
-
-#: templates/blog/category_list.html:4 templates/blog/category_list.html:9
-msgid "Category list"
-msgstr "类别列表"
-
 #: templates/blog/entry_archive_month.html:13
 #: templates/entry/entry_archive_month.html:13
 msgid "Daily archives"
-msgstr ""
+msgstr "日归档"
 
-#: templates/blog/entry_detail.html:20
-msgid "RSS Feed of discussions on"
-msgstr ""
+#: templates/blog/entry_archive_year.html:13
+#: templates/entry/entry_archive_year.html:13
+msgid "Monthly archives"
+msgstr "每月归档"
 
-#: templates/blog/entry_detail.html:21
-msgid "RSS Feed of comments on"
-msgstr "RSS 源（基于评论）"
+#: templates/comments/preview.html:4
+msgid "Comment preview"
+msgstr "评论预览"
 
-#: templates/blog/entry_detail.html:22
-msgid "RSS Feed of pingbacks on"
-msgstr ""
+#: templates/comments/preview.html:9
+msgid "Please correct following error."
+msgid_plural "Please correct following errors."
+msgstr[0] "请检查以下错误"
 
-#: templates/blog/entry_detail.html:23
-msgid "RSS Feed of trackbacks on"
-msgstr ""
+#: templates/comments/preview.html:12
+msgid "Preview of the comment"
+msgstr "预览评论"
 
-#: templates/blog/entry_detail.html:39
-msgid "Next entry"
-msgstr "下一篇"
+#: templates/entry/skeleton.html:35
+msgid "RSS Feed of latest entries"
+msgstr "最新文章的RSS订阅"
 
-#: templates/blog/entry_detail.html:53
-msgid "Previous entry"
-msgstr "上一篇"
+#: templates/entry/tags/featured_entries.html:9
+#: templates/entry/tags/popular_entries.html:13
+#: templates/entry/tags/random_entries.html:9
+#: templates/entry/tags/recent_entries.html:9
+msgid "No entries yet."
+msgstr "没有任何文章"
 
-#: templates/blog/entry_detail.html:66
-msgid "Related entries"
-msgstr "相关日志"
-
-#: templates/blog/entry_detail.html:77
-msgid "Similar entries"
-msgstr "类似日志"
-
-#: templates/blog/entry_detail.html:85
-msgid "Comments"
-msgstr "评论"
-
-#: templates/blog/entry_detail.html:127
-msgid "Pingbacks"
-msgstr ""
-
-#: templates/blog/entry_detail.html:149
-msgid "Pingbacks are open."
-msgstr ""
-
-#: templates/blog/entry_detail.html:151
-msgid "Pingbacks are closed."
-msgstr ""
-
-#: templates/blog/entry_detail.html:158
-msgid "Trackbacks"
-msgstr ""
-
-#: templates/blog/entry_detail.html:180
-msgid "Trackback URL"
-msgstr ""
-
-#: templates/blog/entry_list.html:4
-msgid "Latest entries for"
-msgstr ""
-
-#: templates/blog/entry_list.html:4
-msgid "the category"
-msgstr ""
-
-#: templates/blog/entry_list.html:4
-msgid "the tag"
-msgstr ""
-
-#: templates/blog/entry_list.html:4
-msgid "the author"
-msgstr ""
-
-#: templates/blog/entry_list.html:4 templates/blog/entry_search.html:6
-msgid "page"
-msgstr ""
-
-#: templates/blog/entry_list.html:19
-msgid "Category"
-msgstr "类别"
-
-#: templates/blog/entry_list.html:19 templates/blog/entry_search.html:4
-msgid "Page"
-msgstr "页码"
-
-#: templates/blog/entry_list.html:34
-#, python-format
-msgid "Entries by %(author)s"
-msgstr "作者 %(author)s 的日志"
-
-#: templates/blog/entry_list.html:56 templates/blog/entry_list.html.py:57
-msgid "Edit the category"
-msgstr ""
-
-#: templates/blog/entry_list.html:63 templates/blog/entry_list.html.py:64
-msgid "Edit the tag"
-msgstr ""
-
-#: templates/blog/entry_list.html:70 templates/blog/entry_list.html.py:71
-msgid "Edit the author"
-msgstr ""
-
-#: templates/blog/entry_search.html:4 templates/blog/entry_search.html.py:6
-#: templates/blog/entry_search.html:14
-msgid "Search results for"
-msgstr ""
-
-#: templates/blog/entry_search.html:10
-msgid "RSS Feed of search result of"
-msgstr "RSS 源（基于搜索）"
-
-#: templates/blog/entry_search.html:22
-#, python-format
-msgid "%(entry_count)s entry found"
-msgid_plural "%(entry_count)s entries found"
-msgstr[0] ""
-
-#: templates/blog/entry_search.html:34
-msgid "Nothing found."
-msgstr "没有找到"
-
-#: templates/blog/tags/archives_entries.html:12
-#: templates/blog/tags/archives_entries_tree.html:38
-#: templates/tags/archives_entries.html:12
-#: templates/tags/archives_entries_tree.html:38
-msgid "No archives yet."
-msgstr ""
-
-#: templates/blog/tags/authors.html:12
-msgid "No authors yet."
-msgstr ""
-
-#: templates/blog/tags/pagination.html:4
 #: templates/entry/tags/pagination.html:4
 #, python-format
 msgid "Page %(current_page)s of %(total_page)s"
-msgstr ""
+msgstr "共%(total_page)s页中的第%(current_page)s页"
 
-#: templates/blog/tags/pagination.html:10
 #: templates/entry/tags/pagination.html:10
 msgid "More recent entries"
 msgstr "更多最近日志"
 
-#: templates/blog/tags/pagination.html:20
-#: templates/blog/tags/pagination.html:33
-#: templates/blog/tags/pagination.html:47
 #: templates/entry/tags/pagination.html:20
 #: templates/entry/tags/pagination.html:33
 #: templates/entry/tags/pagination.html:47
 msgid "Entries page"
-msgstr ""
+msgstr "文章页面"
 
-#: templates/blog/tags/pagination.html:56
 #: templates/entry/tags/pagination.html:56
 msgid "More old entries"
 msgstr "更多以前日志"
 
-#: templates/blog/tags/recent_linkbacks.html:10
+#: templates/entry/tags/popular_entries.html:8
+msgid "comment"
+msgstr "评论"
+
+#: templates/tags/archives_entries.html:12
+#: templates/tags/archives_entries_tree.html:38
+msgid "No archives yet."
+msgstr "没有归档"
+
+#: templates/tags/categories.html:6
+#, python-format
+msgid "%(entry_count)s entry"
+msgid_plural "%(entry_count)s entries"
+msgstr[0] "%(entry_count)s篇文章"
+
+#: templates/tags/categories.html:11
+msgid "No categories yet."
+msgstr "没有任何栏目"
+
 #: templates/tags/recent_linkbacks.html:10
 msgid "Linkback on"
-msgstr ""
+msgstr "Linkback于"
 
-#: templates/blog/tags/similar_entries.html:9
-msgid "No similar entries."
-msgstr "没有类似日志"
+#~ msgid "Sorting"
+#~ msgstr "分类"
+
+#~ msgid "Selected entries"
+#~ msgstr "所选日志"
+
+#~ msgid "Random entries"
+#~ msgstr "随机日志"
+
+#~ msgid "number of entries"
+#~ msgstr "日志数量"
+
+#~ msgid "%s entries"
+#~ msgstr "%s 日志"
+
+#~ msgid "Post your comment"
+#~ msgstr "发表评论"
+
+#~ msgid "Thanks for your comment"
+#~ msgstr "感谢你的评论"
+
+#~ msgid "Return to entry list"
+#~ msgstr "返回日志列表"
+
+#~ msgid "The pattern is too short"
+#~ msgstr "模式长度不够"
+
+#~ msgid "No pattern to search found"
+#~ msgstr "没有搜索到相关模式"
+
+#~ msgid "Tag list"
+#~ msgstr "标签列表"
+
+#~ msgid "Written by"
+#~ msgstr "作者是"
+
+#~ msgid "Show %(author)s entries"
+#~ msgstr "显示 %(author)s 的日志"
+
+#, fuzzy
+#~ msgid "Written on"
+#~ msgstr "作者是"
+
+#~ msgid "No tags"
+#~ msgstr "没有标签"
+
+#~ msgid "Short url"
+#~ msgstr "缩略URL"
+
+#~ msgid "Comments are closed."
+#~ msgstr "评论已关闭"
+
+#~ msgid "Author list"
+#~ msgstr "作者列表"
+
+#~ msgid "Popular entries"
+#~ msgstr "热门日志"
+
+#~ msgid "Category list"
+#~ msgstr "类别列表"
+
+#~ msgid "RSS Feed of comments on"
+#~ msgstr "RSS 源（基于评论）"
+
+#~ msgid "Next entry"
+#~ msgstr "下一篇"
+
+#~ msgid "Previous entry"
+#~ msgstr "上一篇"
+
+#~ msgid "Related entries"
+#~ msgstr "相关日志"
+
+#~ msgid "Similar entries"
+#~ msgstr "类似日志"
+
+#~ msgid "Comments"
+#~ msgstr "评论"
+
+#~ msgid "Category"
+#~ msgstr "类别"
+
+#~ msgid "Page"
+#~ msgstr "页码"
+
+#~ msgid "Entries by %(author)s"
+#~ msgstr "作者 %(author)s 的日志"
+
+#~ msgid "RSS Feed of search result of"
+#~ msgstr "RSS 源（基于搜索）"
+
+#~ msgid "Nothing found."
+#~ msgstr "没有找到"
+
+#~ msgid "No similar entries."
+#~ msgstr "没有类似日志"
 
 #~ msgid "<a href=\"%s\" target=\"blank\">View</a>"
 #~ msgstr "<a href=\"%s\" target=\"blank\">浏览</a>"
