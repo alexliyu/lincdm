@@ -131,7 +131,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
-    'sekizai.context_processors.sekizai',
     'lincdm.context_processors.media',
     'lincdm.context_processors.version',
     'lincdm.context_processors.sitename',
@@ -198,8 +197,6 @@ INSTALLED_APPS = (
     'mptt',
     'lincdm.app.memcache_status',
     'south',
-    'sekizai',
-    
     'tagging',
    
     # Uncomment the next line to enable the admin:

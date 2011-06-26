@@ -1,5 +1,5 @@
-{% extends "blog/base.html" %}
-{% load i18n blog_tags comments %}
+{% extends "base.html" %}
+{% load i18n entry_tags comments %}
 
 {% block title %}{% trans "Comment preview" %}{% endblock %}
 
@@ -34,5 +34,5 @@
   </ol>
   {% endif %}
   <hr />
-  {% include "comments/blog/entry/form.html" %}
+  {% include "comments/form.html" %}
 {% endblock %}
