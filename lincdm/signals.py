@@ -27,10 +27,30 @@ def disable_for_loaddata(signal_handler):
     return wrapper
 
 
+@disable_for_loaddata
+def ping_directories_handler(sender, **kwargs):
+    """Ping Directories when an entry is saved"""
+    entry = kwargs['instance']
 
+    if entry.is_visible and settings.SAVE_PING_DIRECTORIES:
+        from lincdm.ping import DirectoryPinger
+
+        for directory in settings.PING_DIRECTORIES:
+            DirectoryPinger(directory, [entry])
+
+
+@disable_for_loaddata
+def ping_external_urls_handler(sender, **kwargs):
+    """Ping Externals URLS when an entry is saved"""
+    entry = kwargs['instance']
+
+    if entry.is_visible and settings.SAVE_PING_EXTERNAL_URLS:
+        from lincdm.ping import ExternalUrlsPinger
+
+        ExternalUrlsPinger(entry)
 
 def disconnect_entry_signals():
-    """Disconnect all the signals provided by Zinnia"""
+    """Disconnect all the signals provided by lincdm"""
     from lincdm.entry.models import Entry
 
     post_save.disconnect(

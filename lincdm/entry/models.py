@@ -39,7 +39,8 @@ from lincdm.managers import AuthorPublishedManager
 from lincdm.managers import DRAFT, HIDDEN, PUBLISHED
 from lincdm.moderator import EntryCommentModerator
 from lincdm.url_shortener import get_url_shortener
-
+from lincdm.signals import ping_directories_handler
+from lincdm.signals import ping_external_urls_handler
 
 
 
@@ -282,4 +283,7 @@ class Entry(get_base_model()):
 
 moderator.register(Entry, EntryCommentModerator)
 mptt.register(Category, order_insertion_by=['title'])
-
+post_save.connect(ping_directories_handler, sender=Entry,
+                  dispatch_uid='entry.entry.post_save.ping_directories')
+post_save.connect(ping_external_urls_handler, sender=Entry,
+                  dispatch_uid='entry.entry.post_save.ping_external_urls')
