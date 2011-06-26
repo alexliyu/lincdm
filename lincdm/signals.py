@@ -1,4 +1,9 @@
-"""Signal handlers of Zinnia"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 import inspect
 from functools import wraps
 

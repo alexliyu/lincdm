@@ -17,7 +17,7 @@ from settings import AUTO_MODERATE_COMMENTS
 from settings import AUTO_CLOSE_COMMENTS_AFTER
 from settings import MAIL_COMMENT_NOTIFICATION_RECIPIENTS
 from settings import SPAM_CHECKER_BACKENDS
-from blog.spam_checker import check_is_spam
+from lincdm.spam_checker import check_is_spam
 
 
 class EntryCommentModerator(CommentModerator):

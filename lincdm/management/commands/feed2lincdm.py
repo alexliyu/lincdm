@@ -1,4 +1,9 @@
-"""Feed to blog command module"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 import sys
 from datetime import datetime
 from optparse import make_option
@@ -13,11 +18,11 @@ from django.template.defaultfilters import slugify
 from django.core.management.base import CommandError
 from django.core.management.base import LabelCommand
 
-from lincdm.blog import __version__
-from lincdm.blog.models import Entry
-from lincdm.blog.models import Category
-from lincdm.blog.managers import PUBLISHED
-from lincdm.blog.signals import disconnect_blog_signals
+from lincdm import __version__
+from lincdm.entry.models import Entry
+from lincdm.entry.models import Category
+from lincdm.managers import PUBLISHED
+from lincdm.signals import disconnect_entry_signals
 
 
 class Command(LabelCommand):
@@ -45,7 +50,7 @@ class Command(LabelCommand):
         self.style.TITLE = self.style.SQL_FIELD
         self.style.STEP = self.style.SQL_COLTYPE
         self.style.ITEM = self.style.HTTP_INFO
-        disconnect_blog_signals()
+        disconnect_entry_signals()
 
     def write_out(self, message, verbosity_level=1):
         """Convenient method for outputing"""

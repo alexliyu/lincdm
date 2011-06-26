@@ -4,7 +4,7 @@ from django.utils.encoding import smart_str
 from django.contrib.sites.models import Site
 from django.core.exceptions import ImproperlyConfigured
 
-from lincdm.blog.settings import PROTOCOL
+from lincdm.settings import PROTOCOL
 
 try:
     from akismet import Akismet

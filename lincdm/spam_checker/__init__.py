@@ -4,7 +4,7 @@ import warnings
 from django.utils.importlib import import_module
 from django.core.exceptions import ImproperlyConfigured
 
-from lincdm.blog.settings import SPAM_CHECKER_BACKENDS
+from lincdm.settings import SPAM_CHECKER_BACKENDS
 
 
 def get_spam_checker(backend_path):

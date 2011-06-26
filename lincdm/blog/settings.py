@@ -8,12 +8,12 @@ SAVE_PING_DIRECTORIES = getattr(settings, 'BLOG_SAVE_PING_DIRECTORIES',
                                 bool(PING_DIRECTORIES))
 SAVE_PING_EXTERNAL_URLS = getattr(settings, 'BLOG_PING_EXTERNAL_URLS', True)
 
-COPYRIGHT = getattr(settings, 'BLOG_COPYRIGHT', 'blog')
+COPYRIGHT = getattr(settings, 'COPYRIGHT', 'blog')
 LINCDM_NAME = getattr(settings, 'LINCDM_NAME')
 LINCDM_TITLE = getattr(settings, 'LINCDM_TITLE')
-PAGINATION = getattr(settings, 'BLOG_PAGINATION', 10)
-ALLOW_EMPTY = getattr(settings, 'BLOG_ALLOW_EMPTY', True)
-ALLOW_FUTURE = getattr(settings, 'BLOG_ALLOW_FUTURE', True)
+PAGINATION = getattr(settings, 'PAGINATION', 10)
+ALLOW_EMPTY = getattr(settings, 'ALLOW_EMPTY', True)
+ALLOW_FUTURE = getattr(settings, 'ALLOW_FUTURE', True)
 
 ENTRY_TEMPLATES = getattr(settings, 'BLOG_ENTRY_TEMPLATES', [])
 ENTRY_BASE_MODEL = getattr(settings, 'BLOG_ENTRY_BASE_MODEL', '')
@@ -45,9 +45,9 @@ MAIL_COMMENT_NOTIFICATION_RECIPIENTS = getattr(
     settings, 'BLOG_MAIL_COMMENT_NOTIFICATION_RECIPIENTS',
     [manager_tuple[1] for manager_tuple in settings.MANAGERS])
 
-UPLOAD_TO = getattr(settings, 'BLOG_UPLOAD_TO', 'uploads')
+UPLOAD_TO = getattr(settings, 'UPLOAD_TO', 'uploads')
 
-PROTOCOL = getattr(settings, 'BLOG_PROTOCOL', 'http')
+PROTOCOL = getattr(settings, 'PROTOCOL', 'http')
 MEDIA_URL = getattr(settings, 'MEDIA_URL')
 
 FEEDS_FORMAT = getattr(settings, 'BLOG_FEEDS_FORMAT', 'rss')
@@ -56,8 +56,8 @@ FEEDS_MAX_ITEMS = getattr(settings, 'BLOG_FEEDS_MAX_ITEMS', 15)
 PINGBACK_CONTENT_LENGTH = getattr(settings,
                                   'BLOG_PINGBACK_CONTENT_LENGTH', 300)
 
-F_MIN = getattr(settings, 'BLOG_F_MIN', 0.1)
-F_MAX = getattr(settings, 'BLOG_F_MAX', 1.0)
+F_MIN = getattr(settings, 'F_MIN', 0.1)
+F_MAX = getattr(settings, 'F_MAX', 1.0)
 
 SPAM_CHECKER_BACKENDS = getattr(settings, 'BLOG_SPAM_CHECKER_BACKENDS',
                                 ())
@@ -65,21 +65,7 @@ SPAM_CHECKER_BACKENDS = getattr(settings, 'BLOG_SPAM_CHECKER_BACKENDS',
 URL_SHORTENER_BACKEND = getattr(settings, 'BLOG_URL_SHORTENER_BACKEND',
                                 'blog.url_shortener.backends.default')
 
-STOP_WORDS = getattr(settings, 'BLOG_STOP_WORDS',
-                     ('able', 'about', 'across', 'after', 'all', 'almost',
-                      'also', 'among', 'and', 'any', 'are', 'because', 'been',
-                      'but', 'can', 'cannot', 'could', 'dear', 'did', 'does',
-                      'either', 'else', 'ever', 'every', 'for', 'from', 'get',
-                      'got', 'had', 'has', 'have', 'her', 'hers', 'him', 'his',
-                      'how', 'however', 'into', 'its', 'just', 'least', 'let',
-                      'like', 'likely', 'may', 'might', 'most', 'must',
-                      'neither', 'nor', 'not', 'off', 'often', 'only', 'other',
-                      'our', 'own', 'rather', 'said', 'say', 'says', 'she',
-                      'should', 'since', 'some', 'than', 'that', 'the',
-                      'their', 'them', 'then', 'there', 'these', 'they',
-                      'this', 'tis', 'too', 'twas', 'wants', 'was', 'were',
-                      'what', 'when', 'where', 'which', 'while', 'who', 'whom',
-                      'why', 'will', 'with', 'would', 'yet', 'you', 'your'))
+STOP_WORDS = getattr(settings, 'STOP_WORDS')
 
 TWITTER_CONSUMER_KEY = getattr(settings, 'TWITTER_CONSUMER_KEY', '')
 TWITTER_CONSUMER_SECRET = getattr(settings, 'TWITTER_CONSUMER_SECRET', '')

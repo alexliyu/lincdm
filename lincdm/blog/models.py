@@ -22,18 +22,18 @@ from django.contrib.markup.templatetags.markup import restructuredtext
 import mptt
 from tagging.fields import TagField
 
-from settings import UPLOAD_TO
-from settings import MARKUP_LANGUAGE
+from lincdm.settings import UPLOAD_TO
+from lincdm.settings import MARKUP_LANGUAGE
 from lincdm.blog.settings import ENTRY_TEMPLATES
 from lincdm.blog.settings import ENTRY_BASE_MODEL
-from lincdm.blog.settings import MARKDOWN_EXTENSIONS
-from lincdm.blog.settings import AUTO_CLOSE_COMMENTS_AFTER
+from lincdm.settings import MARKDOWN_EXTENSIONS
+from lincdm.settings import AUTO_CLOSE_COMMENTS_AFTER
 from lincdm.blog.managers import entries_published
 from lincdm.blog.managers import EntryPublishedManager
 from lincdm.blog.managers import AuthorPublishedManager
 from lincdm.blog.managers import DRAFT, HIDDEN, PUBLISHED
-from lincdm.blog.moderator import EntryCommentModerator
-from lincdm.blog.url_shortener import get_url_shortener
+from lincdm.moderator import EntryCommentModerator
+from lincdm.url_shortener import get_url_shortener
 from lincdm.blog.signals import ping_directories_handler
 from lincdm.blog.signals import ping_external_urls_handler
 

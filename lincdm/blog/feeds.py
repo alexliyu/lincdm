@@ -16,10 +16,10 @@ from tagging.models import Tag
 from tagging.models import TaggedItem
 
 from lincdm.blog.models import Entry
-from lincdm.blog.settings import COPYRIGHT
-from lincdm.blog.settings import PROTOCOL
-from lincdm.blog.settings import FEEDS_FORMAT
-from lincdm.blog.settings import FEEDS_MAX_ITEMS
+from lincdm.settings import COPYRIGHT
+from lincdm.settings import PROTOCOL
+from lincdm.settings import FEEDS_FORMAT
+from lincdm.settings import FEEDS_MAX_ITEMS
 from lincdm.blog.managers import entries_published
 from lincdm.blog.views.categories import get_category_or_404
 from lincdm.templatetags.blog_tags import get_gravatar

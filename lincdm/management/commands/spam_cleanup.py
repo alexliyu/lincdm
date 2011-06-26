@@ -3,7 +3,7 @@ from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import NoArgsCommand
 
-from lincdm.blog.models import Entry
+from lincdm.entry.models import Entry
 
 
 class Command(NoArgsCommand):

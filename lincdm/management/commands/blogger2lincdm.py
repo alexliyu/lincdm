@@ -1,3 +1,9 @@
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 """Blogger to blog command module
 Based on Elijah Rutschman's code"""
 import sys
@@ -14,10 +20,10 @@ from django.core.management.base import CommandError
 from django.core.management.base import NoArgsCommand
 from django.contrib.contenttypes.models import ContentType
 
-from lincdm.blog import __version__
-from lincdm.blog.models import Entry
-from lincdm.blog.models import Category
-from lincdm.blog.managers import DRAFT, PUBLISHED
+from lincdm import __version__
+from lincdm.entry.models import Entry
+from lincdm.entry.models import Category
+from lincdm.managers import DRAFT, PUBLISHED
 
 gdata_service = None
 
