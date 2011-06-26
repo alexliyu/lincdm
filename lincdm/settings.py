@@ -6,7 +6,7 @@ Created on 2011-1-30
 '''
 import os
 DEBUG = True
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 gettext = lambda s: s
 COPYRIGHT = '33445120.Tk'
 LINCDM_NAME = 'LinCDM'
@@ -140,7 +140,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
+#    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -148,7 +148,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+#    'django.middleware.cache.FetchFromCacheMiddleware',
     
 )
 INTERNAL_IPS = ('127.0.0.1',)
@@ -194,6 +194,7 @@ INSTALLED_APPS = (
     'lincdm.entry',
     'lincdm.blog',
     'lincdm.menus',
+    'lincdm.app.fetchblog',
     'mptt',
     'lincdm.app.memcache_status',
     'south',
@@ -290,17 +291,17 @@ PINGBACK_CONTENT_LENGTH = 300
 F_MIN = 0.1
 F_MAX = 1.0
 
-URL_SHORTENER_BACKEND = 'url_shortener.backends.default'
-'''
-使用memcached作为缓存！
-'''
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-        'TIMEOUT':60 * 300,
-    }
-}
-
-CACHE_MIDDLEWARE_SECONDS = 60 * 300
+#URL_SHORTENER_BACKEND = 'url_shortener.backends.default'
+#'''
+#使用memcached作为缓存！
+#'''
+#CACHES = {
+#    'default': {
+#        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#        'LOCATION': '127.0.0.1:11211',
+#        'TIMEOUT':60 * 300,
+#    }
+#}
+#
+#CACHE_MIDDLEWARE_SECONDS = 60 * 300
 

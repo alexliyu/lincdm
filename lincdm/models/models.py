@@ -1,3 +1,10 @@
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+博客内容管理
+'''
 from django.db import models
 from datetime import datetime
 # Create your models here.
@@ -39,8 +46,12 @@ class Author(User):
     published = AuthorPublishedManager()
 
     def entries_published(self):
-        """Return only the entries published"""
+        """返回已发布的文章"""
         return entries_published(self.entries)
+    
+    def blog_entries_published(self):
+        """返回已发布的日志"""
+        return entries_published(self.blogs)
 
     @models.permalink
     def get_absolute_url(self):

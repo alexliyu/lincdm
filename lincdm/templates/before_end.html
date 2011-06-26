@@ -1,5 +1,4 @@
-{% load i18n tagging_tags comments entry_tags %}
-
+{%block load%}{% load tagging_tags comments entry_tags%}{%endblock%}
 			<div id="comments">
 
 				<div class="left">
@@ -109,7 +108,7 @@
 						<div class="comment-profile-wrapper left">
 
 							<div class="comment-profile">				
-								<div class="comment-gravatar"><img src="{{MEDIA_URL}}images/sample-gravatar.gif" width="40" height="40" alt="Your gravatar" /></div>
+								<div class="comment-gravatar"><img src="{{MEDIA_URL}}images/sample-gravatar.gif" width="40" height="40" alt="您的头像" /></div>
 								<div class="comment-author">您的姓名</div>
 							</div>
 

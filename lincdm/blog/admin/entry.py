@@ -300,15 +300,15 @@ class EntryAdmin(admin.ModelAdmin):
         urls = patterns(
             'django.views.generic.simple',
             url(r'^autocomplete_tags/$', 'direct_to_template',
-                {'template': 'admin/blog/entry/autocomplete_tags.js',
+                {'template': 'admin/entry/entry/autocomplete_tags.js',
                  'mimetype': 'application/javascript'},
                 name='blog_entry_autocomplete_tags'),
             url(r'^wymeditor/$', 'direct_to_template',
-                {'template': 'admin/blog/entry/wymeditor.js',
+                {'template': 'admin/entry/entry/wymeditor.js',
                  'mimetype': 'application/javascript'},
                 name='blog_entry_wymeditor'),
             url(r'^markitup/$', 'direct_to_template',
-                {'template': 'admin/blog/entry/markitup.js',
+                {'template': 'admin/entry/entry/markitup.js',
                  'mimetype': 'application/javascript'},
                 name='blog_entry_markitup'),)
         return urls + entry_admin_urls
@@ -331,7 +331,7 @@ class EntryAdmin(admin.ModelAdmin):
         elif settings.WYSIWYG == 'tinymce':
             from tinymce.widgets import TinyMCE
             media += TinyMCE().media + Media(
-                js=(reverse('tinymce-js', args=('admin/blog/entry',)),))
+                js=(reverse('tinymce-js', args=('admin/entry/entry',)),))
         elif settings.WYSIWYG == 'markitup':
             media += Media(
                 js=('%sjs/markitup/jquery.markitup.js' % MEDIA_URL,

@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% load i18n entry_tags mptt_tags %}
-
-{% block title %}{% trans "Sitemap" %}{% endblock %}
+{%block load%}{% load entry_tags mptt_tags%}{%endblock%}
+{% block title %}网站地图{% endblock %}
 
 {% block content %}
-<h2>{% trans "Sitemap" %}</h2>
+<h2>网站地图</h2>
 
 <div class="entriesbycategories">
-  <h3>{% trans "Entries per categories" %}</h3>
+  <h3>每个栏目中的文章</h3>
   {% for category in categories %}
   <h4>{{ category }}</h4>
   <ul>
@@ -15,12 +14,12 @@
     <li>
       <a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
       {% with entry.comments.count as comment_count %}
-      - {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
+      - {{ comment_count }} 评论{{ comment_count|pluralize }}
       {% endwith %}
     </li>
     {% empty %}
     <li>
-      {% trans "No entries yet." %}
+     还没有任何文章
     </li>
     {% endfor %}
   </ul>
@@ -28,43 +27,43 @@
 </div>
 
 <div class="allentries">
-  <h3>{% trans "All the entries" %}</h3>
+  <h3>所有文章</h3>
   <ul>
     {% for entry in entries %}
     <li>
       <a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
       - {{ entry.creation_date|date:"SHORT_DATE_FORMAT" }}
       {% with entry.comments.count as comment_count %}
-      - {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
+      - {{ comment_count }} 评论{{ comment_count|pluralize }}
       {% endwith %}
     </li>
     {% empty %}
     <li>
-      {% trans "No entries yet." %}
+     还没有任何文章
     </li>
     {% endfor %}
   </ul>
 </div>
 
 <div class="categories">
-  <h3>{% trans "Categories" %}</h3>
+  <h3>栏目</h3>
   {% for category, structure in categories|tree_info %}
     {% if structure.new_level %}<ul><li>{% else %}</li><li>{% endif %}
       <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">{{ category.title }}</a>
       -
-      {% blocktrans count category.entries_published.count as entry_count %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
+      {{category.entries_published.count}}篇文章
     {% for level in structure.closed_levels %}</li></ul>{% endfor %}
     {% empty %}
   <ul>
     <li>
-      {% trans "No categories yet." %}
+      没有任何栏目
     </li>
   </ul>
   {% endfor %}
 </div>
 
 <div class="montharchives">
-  <h3>{% trans "Monthly archives" %}</h3>
+  <h3>月文章归档</h3>
   {% get_archives_entries %}
 </div>
 {% endblock %}

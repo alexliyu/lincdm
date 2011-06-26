@@ -1,6 +1,5 @@
 {% extends "entry_list.html" %}
-{% load entry_tags %}
-
+{%block load%}{% load entry_tags %}{%endblock%}
 {% block title %}搜索关键词 {% if pattern %}'{{ pattern }}'{% endif %}{% if page_obj %}{% ifnotequal page_obj.number 1 %} | 共{{ page_obj.number }}页{% endifnotequal %}{% endif %}{% endblock %}
 
 {% block meta-description %}搜索关键词 {% if pattern %}'{{ pattern }}'{% endif %}{% if page_obj %}{% ifnotequal page_obj.number 1 %} 共{{ page_obj.number }}页{% endifnotequal %}{% endif %}{% endblock %}

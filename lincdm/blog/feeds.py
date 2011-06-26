@@ -22,7 +22,7 @@ from lincdm.blog.settings import FEEDS_FORMAT
 from lincdm.blog.settings import FEEDS_MAX_ITEMS
 from lincdm.blog.managers import entries_published
 from lincdm.blog.views.categories import get_category_or_404
-from lincdm.blog.templatetags.blog_tags import get_gravatar
+from lincdm.templatetags.blog_tags import get_gravatar
 
 
 class blogFeed(Feed):

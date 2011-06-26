@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% load tagging_tags entry_tags %}
-
+{%block load%}{% load tagging_tags entry_tags %}{%endblock%}
 {% block meta-description %}最新文章列表 | {% if category %}分类：{{ category }}{% if category.description %}: {{ category.description|striptags|safe }}{% endif %}{% endif %}{% if tag %}标签：{{ tag }}{% endif %}{% if author %} 作者：{{ author }}{% endif %}{% if page_obj %}{% ifnotequal page_obj.number 1 %} 页： {{ page_obj.number }}{% endifnotequal %}{% endif %}{% endblock %}
 
 {% block link %}
@@ -77,7 +76,7 @@
 
 			
 
-			{% include "right_sider.html" %}	
+			{% block sider %}{% include "right_sider.html" %}{%endblock%}
 
 		</div>
 {% endblock %}

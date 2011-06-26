@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load tagging_tags comments entry_tags %}
+{%block load%}{% load tagging_tags comments entry_tags %}{%endblock%}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -149,7 +149,7 @@
 			</div>
 			
 			
-			{% include "right_sider.html" %}
+			{% block sider %}{% include "right_sider.html" %}{%endblock%}
 			
 			
 		</div>

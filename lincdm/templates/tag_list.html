@@ -1,19 +1,18 @@
 {% extends "base.html" %}
-{% load i18n tagging_tags %}
+{%block load%}{% load tagging_tags%}{%endblock%}
+{% block meta-description %}标签列表{% endblock %}
 
-{% block meta-description %}{% trans "Tag list" %}{% endblock %}
-
-{% block title %}{% trans "Tags" %}{% endblock %}
+{% block title %}标签{% endblock %}
 
 {% block content %}
-<h2>{% trans "Tag list" %}</h2>
+<h2>标签列表</h2>
 <div>
   <ul>
     {% for object in object_list %}
     <li>
       <a href="{% url entry_tag_detail object %}" title="{{ object }}">{{ object }}</a>
       {% tagged_objects object in entry.entry as tag_entries %}
-      {% blocktrans count tag_entries.count as entry_count %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
+      {{tag_entries.count}}篇文章
     </li>
     {% endfor %}
   </ul>

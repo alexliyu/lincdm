@@ -1,4 +1,9 @@
-"""Template tags and filters for blog"""
+#-*- coding:utf-8 -*-
+'''
+Created on 2011-1-30
+
+@author: 李昱
+'''
 from hashlib import md5
 from random import sample
 from urllib import urlencode
@@ -17,8 +22,8 @@ from lincdm.models.models import Author
 from lincdm.blog.models import Category
 from lincdm.comparison import VectorBuilder
 from lincdm.comparison import pearson_score
-from lincdm.blog.templatetags.zcalendar import blogCalendar
-from lincdm.blog.templatetags.zbreadcrumbs import retrieve_breadcrumbs
+from lincdm.templatetags.blog.zcalendar import blogCalendar
+from lincdm.templatetags.blog.zbreadcrumbs import retrieve_breadcrumbs
 
 register = Library()
 
@@ -29,21 +34,21 @@ CACHE_ENTRIES_RELATED = {}
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_categories(template='blog/tags/categories.html'):
+def get_categories(template='tags/categories.html'):
     """Return the categories"""
     return {'template': template,
             'categories': Category.tree.all()}
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_authors(template='blog/tags/authors.html'):
+def get_authors(template='tags/blog_authors.html'):
     """Return the published authors"""
     return {'template': template,
             'authors': Author.published.all()}
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_recent_entries(number=5, template='blog/tags/recent_entries.html'):
+def get_recent_entries(number=5, template='tags/recent_entries.html'):
     """Return the most recent entries"""
     return {'template': template,
             'entries': Entry.published.all()[:number]}
@@ -51,14 +56,14 @@ def get_recent_entries(number=5, template='blog/tags/recent_entries.html'):
 
 @register.inclusion_tag('tags/dummy.html')
 def get_featured_entries(number=5,
-                         template='blog/tags/featured_entries.html'):
+                         template='tags/featured_entries.html'):
     """Return the featured entries"""
     return {'template': template,
             'entries': Entry.published.filter(featured=True)[:number]}
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_random_entries(number=5, template='blog/tags/random_entries.html'):
+def get_random_entries(number=5, template='tags/random_entries.html'):
     """Return random entries"""
     entries = Entry.published.all()
     if number > len(entries):
@@ -68,7 +73,7 @@ def get_random_entries(number=5, template='blog/tags/random_entries.html'):
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_popular_entries(number=5, template='blog/tags/popular_entries.html'):
+def get_popular_entries(number=5, template='tags/popular_entries.html'):
     """Return popular  entries"""
     ctype = ContentType.objects.get_for_model(Entry)
     query = """SELECT object_pk, COUNT(*) AS score
@@ -94,7 +99,7 @@ def get_popular_entries(number=5, template='blog/tags/popular_entries.html'):
 
 @register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_similar_entries(context, number=5,
-                        template='blog/tags/similar_entries.html',
+                        template='tags/similar_entries.html',
                         flush=False):
     """Return similar entries"""
     global VECTORS
@@ -136,7 +141,7 @@ def get_similar_entries(context, number=5,
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_archives_entries(template='blog/tags/archives_entries.html'):
+def get_archives_entries(template='tags/archives_entries.html'):
     """Return archives entries"""
     return {'template': template,
             'archives': Entry.published.dates('creation_date', 'month',
@@ -145,7 +150,7 @@ def get_archives_entries(template='blog/tags/archives_entries.html'):
 
 @register.inclusion_tag('tags/dummy.html')
 def get_archives_entries_tree(
-    template='blog/tags/archives_entries_tree.html'):
+    template='tags/archives_entries_tree.html'):
     """Return archives entries as a Tree"""
     return {'template': template,
             'archives': Entry.published.dates('creation_date', 'day',
@@ -154,7 +159,7 @@ def get_archives_entries_tree(
 
 @register.inclusion_tag('tags/dummy.html', takes_context=True)
 def get_calendar_entries(context, year=None, month=None,
-                         template='blog/tags/calendar.html'):
+                         template='tags/calendar.html'):
     """Return an HTML calendar of entries"""
     if not year or not month:
         date_month = context.get('month') or context.get('day') or \
@@ -182,7 +187,7 @@ def get_calendar_entries(context, year=None, month=None,
 
 
 @register.inclusion_tag('tags/dummy.html')
-def get_recent_comments(number=5, template='blog/tags/recent_comments.html'):
+def get_recent_comments(number=5, template='tags/recent_comments.html'):
     """Return the most recent comments"""
     # Using map(smart_unicode... fix bug related to issue #8554
     entry_published_pks = map(smart_unicode,
@@ -200,7 +205,7 @@ def get_recent_comments(number=5, template='blog/tags/recent_comments.html'):
 
 @register.inclusion_tag('tags/dummy.html')
 def get_recent_linkbacks(number=5,
-                         template='blog/tags/recent_linkbacks.html'):
+                         template='tags/recent_linkbacks.html'):
     """Return the most recent linkbacks"""
     entry_published_pks = map(smart_unicode,
                               Entry.published.values_list('id', flat=True))
@@ -220,7 +225,7 @@ def get_recent_linkbacks(number=5,
 @register.inclusion_tag('tags/dummy.html')
 def blog_pagination(page, begin_pages=3, end_pages=3,
                before_pages=2, after_pages=2,
-               template='blog/tags/pagination.html'):
+               template='tags/pagination.html'):
     """Return a Digg-like pagination, by splitting long list of page
     into 3 blocks of pages"""
     begin = page.paginator.page_range[:begin_pages]
@@ -253,7 +258,7 @@ def blog_pagination(page, begin_pages=3, end_pages=3,
 
 @register.inclusion_tag('tags/dummy.html', takes_context=True)
 def blog_breadcrumbs(context, separator='/', root_name='Blog',
-                       template='blog/tags/breadcrumbs.html',):
+                       template='tags/breadcrumbs.html',):
     """Return a breadcrumb for the application"""
     path = context['request'].path
     page_object = context.get('object') or context.get('category') or \

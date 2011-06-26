@@ -48,8 +48,7 @@ MAIL_COMMENT_NOTIFICATION_RECIPIENTS = getattr(
 UPLOAD_TO = getattr(settings, 'BLOG_UPLOAD_TO', 'uploads')
 
 PROTOCOL = getattr(settings, 'BLOG_PROTOCOL', 'http')
-MEDIA_URL = getattr(settings, 'BLOG_MEDIA_URL',
-                    os.path.join(settings.MEDIA_URL, 'blog/'))
+MEDIA_URL = getattr(settings, 'MEDIA_URL')
 
 FEEDS_FORMAT = getattr(settings, 'BLOG_FEEDS_FORMAT', 'rss')
 FEEDS_MAX_ITEMS = getattr(settings, 'BLOG_FEEDS_MAX_ITEMS', 15)

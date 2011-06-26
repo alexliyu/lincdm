@@ -92,7 +92,7 @@ class LatestEntries(EntryFeed):
 
     def link(self):
         """URL of latest entries"""
-        return reverse('entry_entry_archive_index')
+        return reverse('index')
 
     def items(self):
         """Items are published entries"""

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load entry_tags tagging_tags%}
+{%block load%}{% load entry_tags tagging_tags%}{%endblock%}
 {% block content %}
 <div class="main" id="main-three-columns">
 
@@ -27,7 +27,7 @@
 
 			
 
-			{% include "right_sider.html" %}	
+			{% block sider %}{% include "right_sider.html" %}{%endblock%}
 
 		</div>
 {% endblock %}

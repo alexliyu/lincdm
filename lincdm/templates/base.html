@@ -1,4 +1,4 @@
-{% load entry_tags tagging_tags%}
+{%block load%}{% load entry_tags tagging_tags%}{%endblock%}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
@@ -86,7 +86,7 @@ $(function() {
 
 					<ul class="tabbed">
 						
-						{% entry_breadcrumbs %}
+						{%block breadcrumbs%}{% entry_breadcrumbs %}{%endblock%}
 						{% include "subnav.html" %}	
 					</ul>
 

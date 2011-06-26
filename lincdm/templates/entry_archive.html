@@ -1,7 +1,6 @@
-{% extends "entry_list.html" %}
-{% load i18n entry_tags %}
-
-{% block meta-description %}{% trans "Latest entries" %}{% endblock %}
+{% extends "blog/entry_list.html" %}
+{%block load%}{% load blog_tags %}{%endblock%}
+{% block meta-description %}最新文章{% endblock %}
 
 {% block link %}
   {{ block.super }}
@@ -22,9 +21,5 @@
   </script>
 {% endblock %}
 
-{% block title %}{% trans "Latest entries" %}{% endblock %}
+{% block title %}最新文章{% endblock %}
 
-{% block content %}
-{% get_featured_entries 5 "entry/tags/slider_entries.html" %}
-{{ block.super }}
-{% endblock %}
