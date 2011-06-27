@@ -20,7 +20,12 @@ import StringIO
 import struct
 import gbtools
 
-def parsehtml(html_content, feed_url, url, start_target, allow_target, mid_target, end_target, stop_target=None):
+def parsehtml(html_content, feed, feed_url, url):
+		start_target = feed.start_target
+		allow_target = feed.allow_target
+		mid_target = feed.mid_target
+		end_target = feed.end_target
+		stop_target = feed.stop_target
 		pagehtml = decoding(html_content)
 		target = decoding(start_target)
 		if not stop_target or stop_target == 'nohtml':
@@ -219,13 +224,7 @@ def geturl(url):
 		parsedTuple = urlparse.urlparse(url)
 		url = "http://" + parsedTuple.hostname
 		return url
-#def Storeimages(imgsrc):
-#		from model import Media
-#		from app import url
-#		try:
-#				result=urlfetch.Fetch(imgsrc)
-#				if result.status_code==200:
-#
+
 
 def send_data(name, filename, fd, ordurl):
 		boundary = '----------ThIs_Is_tHe_bouNdaRY_$'
@@ -250,6 +249,7 @@ def send_data(name, filename, fd, ordurl):
 		buffer += '\r\n'
 		buffer_len = len(buffer)
 		return buffer_len, buffer
+
 def sid():
 		now = datetime.datetime.now()
 		return now.strftime('%y%m%d%H%M%S') + str(now.microsecond)
@@ -276,65 +276,68 @@ def getImageInfo(data):
 	content_type = ''
 	# handle GIFs
 	if (size >= 10) and data[:6] in ('GIF87a', 'GIF89a'):
-        # Check to see if content_type is correct
+		# Check to see if content_type is correct
 		content_type = 'image/gif'
-        w, h = struct.unpack("<HH", data[6:10])
-        width = int(w)
-        height = int(h)       
-    
-	elif ((size >= 24)and data.startswith('\211PNG\r\n\032\n') and (data[12:16] == 'IHDR')):
+		w, h = struct.unpack("<HH", data[6:10])
+		width = int(w)
+		height = int(h)
+	
+	elif ((size >= 24) and data.startswith('\211PNG\r\n\032\n') and (data[12:16] == 'IHDR')):
 		content_type = 'image/png'
 		w, h = struct.unpack(">LL", data[16:24])
 		width = int(w)
 		height = int(h)
+	# Maybe this is for an older PNG version.
+	elif (size >= 16) and data.startswith('\211PNG\r\n\032\n'):
+		# Check to see if we have the right content type
+		content_type = 'image/png'
+		w, h = struct.unpack(">LL", data[8:16])
+		width = int(w)
+		height = int(h)
+		
+	# handle JPEGs
+	elif (size >= 2) and data.startswith('\377\330'):
+		content_type = 'image/jpeg'
+		jpeg = StringIO.StringIO(data)
+		jpeg.read(2)
+		b = jpeg.read(1)
+		try:
+			while (b and ord(b) != 0xDA):
+				while (ord(b) != 0xFF): b = jpeg.read(1)
+				while (ord(b) == 0xFF): b = jpeg.read(1)
+				if (ord(b) >= 0xC0 and ord(b) <= 0xC3):
+					jpeg.read(3)
+					h, w = struct.unpack(">HH", jpeg.read(4))
+					break
+				else:
+					jpeg.read(int(struct.unpack(">H", jpeg.read(2))[0]) - 2)
+				b = jpeg.read(1)
+			width = int(w)
+			height = int(h)
+		except struct.error:
+			pass
+		except ValueError:
+			pass
 
-    # Maybe this is for an older PNG version.
-    elif (size >= 16) and data.startswith('\211PNG\r\n\032\n'):
-        # Check to see if we have the right content type
-        content_type = 'image/png'
-        w, h = struct.unpack(">LL", data[8:16])
-        width = int(w)
-        height = int(h)
 
-    # handle JPEGs
-    elif (size >= 2) and data.startswith('\377\330'):
-        content_type = 'image/jpeg'
-        jpeg = StringIO.StringIO(data)
-        jpeg.read(2)
-        b = jpeg.read(1)
-        try:
-            while (b and ord(b) != 0xDA):
-                while (ord(b) != 0xFF): b = jpeg.read(1)
-                while (ord(b) == 0xFF): b = jpeg.read(1)
-                if (ord(b) >= 0xC0 and ord(b) <= 0xC3):
-                    jpeg.read(3)
-                    h, w = struct.unpack(">HH", jpeg.read(4))
-                    break
-                else:
-                    jpeg.read(int(struct.unpack(">H", jpeg.read(2))[0]) - 2)
-                b = jpeg.read(1)
-            width = int(w)
-            height = int(h)
-        except struct.error:
-            pass
-        except ValueError:
-            pass
+	
+	return content_type, width, height
 
-    return content_type, width, height
 
 class HTMLStripper(HTMLParser):
 
-    def __init__(self):
-        self.reset()
-        self.fed = []
-
-    def handle_data(self, d):
-        self.fed.append(d)
-
-    def get_data(self):
-        text = ' '.join(self.fed)
-        return re.sub(r'\s\s+', ' ', text)
-
-    def get_edata(self):
+	def __init__(self):
+		self.reset()
+		self.fed = []
+	
+	def handle_data(self, d):
+		self.fed.append(d)
+	
+	def get_data(self):
+		text = ' '.join(self.fed)
+		return re.sub(r'\s\s+', ' ', text)
+	
+	def get_edata(self):
 		text = ' '.join(self.fed)
 		return text
+

@@ -41,7 +41,8 @@ class FeedList(models.Model):
             verbose_name_plural = u"采集列表"
             ordering = ('name', 'feedurl',)
             
-      
+
+
 
 class FeedsResult(models.Model):
     
@@ -91,12 +92,28 @@ class FeedSet(models.Model):
         imgchecked_num = models.IntegerField(default=0)
         last_imgchecked = models.DateTimeField()
 
-class Tempimages(models.Model):
-        oldurl = models.URLField()
-        newurl = models.URLField()
-        stat = models.IntegerField(default=0)
-        greatdate = models.DateTimeField(auto_now_add=True)
-        parsedate = models.DateTimeField()
-
+class TempImages(models.Model):
+    GENDER_CHOICES = (
+        (0, u'未采集'),
+        (1, u'已采集'),
+        (2, u'采集出错'),
+        (3, u'已放弃采集'),
+        (4, u'已存储数据库'),
+        )
+    oldurl = models.URLField(u'旧图片网址', blank=True, max_length=400)
+    newurl = models.URLField(u'新图片网址', blank=True, max_length=400)
+    stat = models.IntegerField(u'替换状态', default=0, max_length=1, choices=GENDER_CHOICES)
+    greatdate = models.DateTimeField(u'创建时间', auto_now_add=True)
+    parsedate = models.DateTimeField(verbose_name=u'采集替换时间', auto_now=True)
+    entry = models.ForeignKey(FeedsResult, verbose_name=u'所属文章')
+    objects = models.Manager()
+        
+    def __unicode__(self):
+        return self.oldurl
+        
+    class Meta:
+        verbose_name = u"图片采集列表"
+        verbose_name_plural = u"图片采集列表"
+            
 
 

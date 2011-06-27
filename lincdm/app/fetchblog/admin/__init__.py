@@ -1,7 +1,8 @@
 from django.contrib import admin
-from lincdm.app.fetchblog.admin.feedadmin import FeedAdmin
-from lincdm.app.fetchblog.models import  FeedList, FeedSet, FeedsResult
+from lincdm.app.fetchblog.admin.feedadmin import FeedAdmin, FeedsRresultAdmin
+from lincdm.app.fetchblog.models import  FeedList, FeedSet, FeedsResult, TempImages
 
 admin.site.register(FeedList, FeedAdmin)
 admin.site.register(FeedSet)
-admin.site.register(FeedsResult)
+admin.site.register(TempImages)
+admin.site.register(FeedsResult, FeedsRresultAdmin)

@@ -23,16 +23,17 @@ from lincdm.managers import HIDDEN
 from lincdm.managers import PUBLISHED
 from lincdm.entry.admin.forms import EntryAdminForm
 from lincdm.app.fetchblog.feedstest import getpage
-from lincdm.app.fetchblog.models import FeedList, FeedsResult
+from lincdm.app.fetchblog.models import FeedList, FeedsResult, TempImages
 import feedparser
 from lincdm.lib import htmllib
 from lincdm.lib.htmllib import HTMLStripper
+
 
 '''
 用于管理采集文章
 '''
 class FeedsRresultAdmin(admin.ModelAdmin):
-    actions = ['test_feed', 'getFeed' ]
+    actions = ['getArticle', 'getFeed' ]
     actions_on_top = True
     actions_on_bottom = True
     
@@ -48,7 +49,7 @@ class FeedsRresultAdmin(admin.ModelAdmin):
                                                 result = getpage(feed.link, 30)
                                                 if result.code == 200:
                                                         if len(feed.feed.start_target) != 0 and feed.feed.start_target != 'nohtml':
-                                                                contenthtml = htmllib.parsehtml(result.read(), feed.feed, feed.link)
+                                                                contenthtml = htmllib.parsehtml(result.read(), feed.feed, feed.link, feed.feed.feedurl)
                                                         else:
                                                                 contenthtml = feed.excerpt
                         
@@ -64,29 +65,22 @@ class FeedsRresultAdmin(admin.ModelAdmin):
                         except Exception, data:
                                 logging.error('the rpc error is %s ', data)
 
- 
+    getArticle.short_description = u'采集正文内容'
 
     def __store_article(self, contenthtml, feed):
-                listits = FeedsList()
-                entry = listits.get(feed.key())
-                try:
+        entry = FeedsResult.objects.get(pk=feed.pk)
+        try:
 
-                        entry.content = htmllib.decoding(contenthtml)
-                        entry.fetch_stat = 1
-                        images = htmllib.Parse_images_url(contenthtml)
-                        for image in images:
-                                key_name = str(hash(image))
-                                result = Tempimages.get_or_insert(key_name=str(hash(image)), oldurl=image)
-
-                                result.put()
-
-
-
-                except Exception, data:
+            entry.content = htmllib.decoding(contenthtml)
+            entry.fetch_stat = 1
+            images = htmllib.Parse_images_url(contenthtml)
+            for image in images:
+                    obj, result = TempImages.objects.get_or_create(oldurl=image, entry=entry)
+        except Exception, data:
                         entry.fetch_stat = 2
                         logging.info('the db saved error is: %s', data)
-                entry.put()
-                logging.info('adding the article,the name is %s', feed.title)
+        entry.save()
+        logging.info('adding the article,the name is %s', feed.title)
 
 
 '''
