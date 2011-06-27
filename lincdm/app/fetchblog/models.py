@@ -8,21 +8,8 @@ from django.db import models
 from datetime import datetime
 from lincdm.entry.models import Category
 # Create your models here.
-class FeedsList(models.Model):
-        author_name = models.CharField(max_length=15)
-        title = models.CharField(default='', max_length=50)
-        date = models.DateTimeField(auto_now_add=True)
-        link = models.URLField()
-        excerpt = models.TextField()
-        feed_link = models.URLField()
-        abconf = models.CharField(default='0', max_length=50)
-        start_target = models.CharField(default='nohtml', max_length=300)
-        mid_target = models.CharField(default='nohtml', max_length=300)
-        end_target = models.CharField(default='nohtml', max_length=300)
-        allow_target = models.CharField(default='nohtml', max_length=300)
-        stop_target = models.CharField(default='nohtml', max_length=300)
-        fetch_stat = models.IntegerField(default=0)
-        content = models.TextField()
+
+        
 
 class FeedList(models.Model):
         name = models.CharField(u'名称', default=u'李昱的博客', max_length=20)
@@ -36,7 +23,15 @@ class FeedList(models.Model):
         allow_target = models.CharField(u'允许的标签', default='p i strong b u a h1 h2 h3 br img div embed span', max_length=300)
         mid_target = models.CharField(u'禁止的属性', default='ad1 ad2 href text/javascript st-related-posts h4 tags meta crinfo style randompost subscribe-af', max_length=300)
         end_target = models.CharField(u'允许的属性', default='src allowscriptaccess allowNetworking pluginspage width allowScriptAccess type wmode height quality invokeurls allownetworking invokeURLs', max_length=300)       
-        category = models.ForeignKey(Category)
+        category = models.ForeignKey(Category, verbose_name=u'所属栏目')
+        #last_modified = models.DateTimeField(u'最后修改时间', null=True, blank=True, db_index=True)
+        # 最后一次检查的时间
+        #last_checked = models.DateTimeField(u'最后检查时间', null=True, blank=True)
+        # 是否激活
+        #is_active = models.BooleanField(u'激活', default=True, db_index=True,
+        #help_text=u'如果没有激活，那么将不会自动更新')
+        
+        objects = models.Manager()
         
         def __unicode__(self):
             return self.name
@@ -44,10 +39,40 @@ class FeedList(models.Model):
         class Meta:
             verbose_name = u"采集列表"
             verbose_name_plural = u"采集列表"
+            ordering = ('name', 'feedurl',)
             
-        def testme(self):
-            print self.name
+      
 
+class FeedsResult(models.Model):
+    
+        GENDER_CHOICES = (
+        (0, u'未采集'),
+        (1, u'已采集'),
+        (2, u'采集出错'),
+        (3, u'已放弃采集'),
+        (4, u'已存储数据库'),
+        )
+        
+        title = models.CharField(u'标题', default='', max_length=50)
+        author_name = models.CharField(u'作者', max_length=15)
+        date = models.DateTimeField(u'添加时间', auto_now_add=True)
+        link = models.URLField(u'原文地址')
+        excerpt = models.TextField(u'摘要', blank=True, max_length=500)
+        content = models.TextField(u'内容', blank=True)
+        feed = models.ForeignKey(FeedList, verbose_name=u'采集订阅')
+        category = models.ForeignKey(Category, verbose_name=u'目标栏目')
+        fetch_stat = models.IntegerField(u'采集状态', default=0, max_length=1, choices=GENDER_CHOICES)
+        objects = models.Manager()
+        
+        def __unicode__(self):
+            return self.title
+        
+        class Meta:
+            verbose_name = u"采集结果列表"
+            verbose_name_plural = u"采集结果列表"
+            
+        
+        
 class FeedSet(models.Model):
         defDate = models.IntegerField(default=3600)
         defStat = models.BooleanField(default=True)

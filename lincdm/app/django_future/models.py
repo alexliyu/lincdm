@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from picklefield import PickledObjectField
 
-from app.django_future.utils import parse_timedelta
+from lincdm.app.django_future.utils import parse_timedelta
 
 
 __all__ = ['ScheduledJob']
@@ -93,6 +93,6 @@ class ScheduledJob(models.Model):
             args = self.args or []
         if kwargs is None:
             kwargs = self.kwargs or {}
-        from app.django_future import schedule_job
+        from lincdm.app.django_future import schedule_job
         return schedule_job(date, callable_name, content_object=content_object,
                             expires=expires, args=args, kwargs=kwargs)

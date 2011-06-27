@@ -4,8 +4,8 @@ import datetime
 import traceback
 from django.conf import settings
 from django.db import transaction
-from app.django_future.models import ScheduledJob
-from app.django_future.utils import parse_timedelta
+from lincdm.app.django_future.models import ScheduledJob
+from lincdm.app.django_future.utils import parse_timedelta
 
 
 __all__ = ['schedule_job', 'job_as_parameter']

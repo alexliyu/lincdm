@@ -194,6 +194,7 @@ INSTALLED_APPS = (
     'lincdm.blog',
     'lincdm.menus',
     'lincdm.app.fetchblog',
+    'lincdm.app.django_future',
     'mptt',
     'lincdm.app.memcache_status',
     'south',
@@ -245,7 +246,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers':['null'],
+            'handlers':['console'],
             'propagate': True,
             'level':'INFO',
         },

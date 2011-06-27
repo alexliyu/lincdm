@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from app.django_future.models import ScheduledJob
+from lincdm.app.django_future.models import ScheduledJob
 
 
 class ScheduledJobAdmin(admin.ModelAdmin):

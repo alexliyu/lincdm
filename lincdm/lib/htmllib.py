@@ -268,32 +268,25 @@ def Parse_images_url(content):
 			logging.info('the error of Parse_images is %s', data)
 			return None
 
-
-
 def getImageInfo(data):
-    data = str(data)
-    size = len(data)
-    height = -1
-    width = -1
-    content_type = ''
-
-    # handle GIFs
-    if (size >= 10) and data[:6] in ('GIF87a', 'GIF89a'):
+	data = str(data)
+	size = len(data)
+	height = -1
+	width = -1
+	content_type = ''
+	# handle GIFs
+	if (size >= 10) and data[:6] in ('GIF87a', 'GIF89a'):
         # Check to see if content_type is correct
-        content_type = 'image/gif'
+		content_type = 'image/gif'
         w, h = struct.unpack("<HH", data[6:10])
         width = int(w)
-        height = int(h)
-
-    # See PNG 2. Edition spec (http://www.w3.org/TR/PNG/)
-    # Bytes 0-7 are below, 4-byte chunk length, then 'IHDR'
-    # and finally the 4-byte width, height
-    elif ((size >= 24) and data.startswith('\211PNG\r\n\032\n')
-          and (data[12:16] == 'IHDR')):
-        content_type = 'image/png'
-        w, h = struct.unpack(">LL", data[16:24])
-        width = int(w)
-        height = int(h)
+        height = int(h)       
+    
+	elif ((size >= 24)and data.startswith('\211PNG\r\n\032\n') and (data[12:16] == 'IHDR')):
+		content_type = 'image/png'
+		w, h = struct.unpack(">LL", data[16:24])
+		width = int(w)
+		height = int(h)
 
     # Maybe this is for an older PNG version.
     elif (size >= 16) and data.startswith('\211PNG\r\n\032\n'):
@@ -343,5 +336,5 @@ class HTMLStripper(HTMLParser):
         return re.sub(r'\s\s+', ' ', text)
 
     def get_edata(self):
-	text = ' '.join(self.fed)
-	return text
+		text = ' '.join(self.fed)
+		return text

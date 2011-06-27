@@ -4,7 +4,7 @@ import datetime
 from optparse import make_option
 from django.core.management.base import NoArgsCommand, CommandError
 
-from app.django_future import run_jobs
+from lincdm.app.django_future import run_jobs
 
 
 class Command(NoArgsCommand):

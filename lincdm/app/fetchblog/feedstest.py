@@ -18,7 +18,7 @@ import logging
 import urllib2
 import urlparse
 from lincdm.lib import htmllib
-import feedparser
+
 
 theresult = []
 def getpage(url, timeout):
