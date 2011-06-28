@@ -34,7 +34,7 @@ urlpatterns = patterns(
    
     url(r'^page/(?P<page>\d+)/$',
         'entry_index', entry_conf_index,
-        name='entry_entry_archive_index_paginated'),
+        name='index_paginated'),
     url(r'^(?P<year>\d{4})/$',
         'entry_year', entry_conf_year,
         name='entry_entry_archive_year'),

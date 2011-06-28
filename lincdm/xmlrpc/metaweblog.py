@@ -46,7 +46,7 @@ def authenticate(username, password, permission=None):
 def entry_structure(site):
     """A entry structure"""
     return {'url': '%s://%s%s' % (
-        PROTOCOL, site.domain, reverse('entry_entry_archive_index')),
+        PROTOCOL, site.domain, reverse('index')),
             'entryid': settings.SITE_ID,
             'entryName': site.name}
 
