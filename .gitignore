@@ -6,3 +6,5 @@ mycms.db
 build
 media/uploads
 .svn
+.metadata
+lincdm/media/cache
