@@ -82,13 +82,13 @@ class CustomIndexDashboard(Dashboard):
                     'external': True,
                 },
                 {
-                    'title': _('Grappelli Documentation'),
-                    'url': 'http://packages.python.org/django-grappelli/',
+                    'title': u'查看日志',
+                    'url': '/sentry',
                     'external': True,
                 },
                 {
-                    'title': _('Grappelli Google-Code'),
-                    'url': 'http://code.google.com/p/django-grappelli/',
+                    'title': u'Lincdm官网',
+                    'url': 'http://www.33445120.tk',
                     'external': True,
                 },
             ]

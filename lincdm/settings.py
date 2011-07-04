@@ -194,11 +194,13 @@ INSTALLED_APPS = (
     'lincdm.blog',
     'lincdm.menus',
     'lincdm.app.fetchblog',
-    'lincdm.app.django_future',
     'mptt',
     'lincdm.app.memcache_status',
     'south',
     'tagging',
+    'sentry',
+    'sentry.client',
+    'sorl.thumbnail',
    
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
@@ -211,6 +213,20 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+
+import logging
+from sentry.client.handlers import SentryHandler
+
+logger = logging.getLogger()
+# ensure we havent already registered the handler
+if SentryHandler not in map(lambda x: x.__class__, logger.handlers):
+    logger.addHandler(SentryHandler())
+
+    # Add StreamHandler to sentry's default so you can catch missed exceptions
+    logger = logging.getLogger('sentry.errors')
+    logger.propagate = False
+    logger.addHandler(logging.StreamHandler())
+    
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -222,12 +238,6 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
     },
-#    'filters': {
-#        'special': {
-#            '()': 'project.logging.SpecialFilter',
-#            'foo': 'bar',
-#        }
-#    },
     'handlers': {
         'null': {
             'level':'DEBUG',
@@ -255,11 +265,6 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-#        'myproject.custom': {
-#            'handlers': ['console', 'mail_admins'],
-#            'level': 'INFO',
-#            'filters': ['special']
-#        }
     }
 }
 

@@ -1,8 +1,11 @@
-{%load entry_tags%}
+{%load entry_tags %}
+{% load thumbnail %}
 {% for entry in entries %}
 				<div class="post">
 
-					<p><a href="#"><img src="{{entry.content|getimages}}" width=185 height=100 alt="" class="bordered" /></a></p>
+					<p><a href="#">{% thumbnail entry.content|getimages "185x100" crop="80% top" as im %}
+    <img src="{{ im.url }}" class="bordered" />
+{% endthumbnail %}</a></p>
 
 					<h3><a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark" >{{ entry.title }}</a></h3>
 

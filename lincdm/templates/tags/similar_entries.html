@@ -1,13 +1,15 @@
 {% load i18n entry_tags%}
-
+{% load thumbnail %}
 
 {% for entry in entries %}
 				<div class="content-separator"></div>
 
 				<div class="post">
 			
-
-					<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark"><img src="{{entry.content|getimages}}" alt="" class="left bordered" width=185 height=100/></a>
+					
+					<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{% thumbnail entry.content|getimages "185x100" crop="80% top" as im %}
+    <img src="{{ im.url }}" alt="{{ entry.title }}" class="bordered" />
+{% endthumbnail %}</a>
 
 					<h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
 

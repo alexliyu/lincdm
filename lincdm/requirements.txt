@@ -36,3 +36,6 @@ wsgiref
 django-inline-ordering
 django-tinymce
 django-photofile
+django-sentry
+sorl-thumbnail
+django-mediagenerator

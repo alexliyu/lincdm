@@ -1,12 +1,15 @@
 {%load entry_tags%}
-
+{% load thumbnail %}
 						
 {% for entry in entries %}					
 				<div class="col3 {% cycle left,col3-mid-left,right%}">
 						<div class="column-content">
 	
 							<div class="post">
-								<p><a href="#"><img src="{{entry.content|getimages}}" width=152 height=119 alt="{{ entry.title }}" class="bordered" /></a></p>
+							
+								<p><a href="#">{% thumbnail entry.content|getimages "152x119" crop="80% top" as im %}
+    <img src="{{ im.url }}" alt="{{ entry.title }}" class="bordered" />
+{% endthumbnail %}</a></p>
 								<h4><a href="{{ entry.get_absolute_url }}" title="发布于：{{entry.last_update|date:"m-j"}}">{{ entry.title }}</a></h4>
 								
 							</div>

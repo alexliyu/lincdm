@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^sitemap/', include('lincdm.urls.sitemap')),
     url(r'^trackback/', include('lincdm.urls.trackback')),
     url(r'^discussions/', include('lincdm.urls.discussions')),
+     (r'^sentry/', include('sentry.web.urls')),
     
     url(r'^', include('lincdm.urls.quick_entry')),
     url(r'^', include('lincdm.urls.capabilities')),
