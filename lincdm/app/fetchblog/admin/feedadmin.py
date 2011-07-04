@@ -24,16 +24,70 @@ from lincdm.managers import PUBLISHED
 from lincdm.entry.admin.forms import EntryAdminForm
 from lincdm.app.fetchblog.feedstest import getpage
 from lincdm.app.fetchblog.models import FeedList, FeedsResult, TempImages
-import feedparser
+import feedparser, os
 from lincdm.lib import htmllib
-from lincdm.lib.htmllib import HTMLStripper
+from lincdm.lib.htmllib import HTMLStripper, gbtools
+from lincdm.entry.models import Entry, EntryAbstractClass
+
 
 
 '''
 用于管理采集文章
 '''
+class TempImagesAdmin(admin.ModelAdmin):
+    actions = ['getImages']
+    actions_on_top = True
+    actions_on_bottom = True
+    
+    def getImages(self, request, queryset, *arg1, **arg2):
+                for image in queryset:
+                        logging.info('start to fetch images,The url is %s', image.oldurl)
+                        try:
+                                name = htmllib.sid() + '.jpg'
+                                result = getpage(htmllib.encoding(image.oldurl), 30)
+                                if result.code == 200:
+                                        result = self.__store_images(result.read(), name, image)
+                                else:
+                                        result = False
+                                if result:
+                                        logging.info('Success!')
+                                else:
+                                        logging.info('this one was Fail!')
+
+                        except Exception, data:
+                                logging.info(data)
+    getImages.short_description = u'采集图片'
+    
+    def __saveImages(self, name, image):
+        try:
+            path = os.path.join(settings.MEDIA_ROOT, 'cache/%s' % name)
+            f = file(path, "wb")
+            f.write(image)
+            f.close()
+            return "%scache/%s" % (settings.MEDIA_URL, name)
+        except Exception, e:
+            logging.error(e)
+            return False
+        
+    def __store_images(self, content, name, model):
+                try:
+                        #media = model.get_or_create(pk=model.pk)
+                        #media.mtype, media.width, media.height = htmllib.getImageInfo(content)
+                        model.newurl = self.__saveImages(name, content)
+                        model.stat = 1
+                        model.save()
+                        return True
+
+
+                except Exception, data:
+                        model.stat = 2
+                        logging.error('the db saved error is: %s', data)
+        
+'''
+用于管理采集文章
+'''
 class FeedsRresultAdmin(admin.ModelAdmin):
-    actions = ['getArticle', 'getFeed' ]
+    actions = ['getArticle', 'getFeed', 'saveArticle' ]
     actions_on_top = True
     actions_on_bottom = True
     
@@ -82,6 +136,45 @@ class FeedsRresultAdmin(admin.ModelAdmin):
         entry.save()
         logging.info('adding the article,the name is %s', feed.title)
 
+    def saveArticle(self, request, queryset, *arg1, **arg2):
+        for entry in queryset:
+            result = self.__store_entry(entry)
+            
+    saveArticle.short_description = u'发布采集'
+    def __store_entry(self, feed):
+                try:
+                    entry, result = Entry.published.get_or_create(title=feed.title)
+                    entry.excerpt = feed.excerpt
+                    entry.status = 2
+                    entry.author_name = feed.author_name
+                    entry.date = feed.date
+                    entry.slug = htmllib.sid() 
+                    entry.content = self.__Parse_image(feed.content)
+                    entry.categories.add(feed.feed.category)                   
+                    entry.save()
+                    feed.fetch_stat = 4
+                    feed.save()
+                except Exception, data:
+                        logging.error('the db saved error is: %s', data)
+                        feed.fetch_stat = 3
+                        feed.save()
+
+                logging.info('adding the article,the name is %s', feed.title)
+
+    def __Parse_image(self, content):
+                images = htmllib.Parse_images_url(content)
+
+                if images:
+                    try:
+                        for image in images:
+                                tmpimage = TempImages.objects.get(oldurl=image)
+                                if tmpimage != None:
+                                        content = gbtools.stringQ2B(content)
+                                        content = htmllib.decoding(content).replace(image, tmpimage.newurl)
+
+                    except Exception, data:
+                        logging.info(data)
+                return content
 
 '''
 用于管理采集列表
