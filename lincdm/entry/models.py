@@ -57,7 +57,9 @@ class Category(models.Model):
     parent = models.ForeignKey('self', null=True, blank=True,
                                verbose_name=_('parent category'),
                                related_name='children')
-
+    order = models.IntegerField(u'顺序', default=0)
+    is_menu = models.BooleanField(u'是否显示在导航', default=True)
+    
     def entries_published(self):
         """Return only the entries published"""
         return entries_published(self.entries)

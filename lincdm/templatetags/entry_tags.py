@@ -48,7 +48,7 @@ def get_categories(template='tags/categories.html'):
 def get_menus(template='tags/menus.html'):
     """Return the categories"""
     return {'template': template,
-            'menus': Category.tree.all()}
+            'menus': Category.tree.all().filter(is_menu=True).order_by('order')}
 
 @register.filter
 def menulevel(menus, level):

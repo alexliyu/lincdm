@@ -9,8 +9,8 @@ from lincdm.entry.admin.forms import CategoryAdminForm
 class CategoryAdmin(admin.ModelAdmin):
     """Admin for Category model"""
     form = CategoryAdminForm
-    fields = ('title', 'parent', 'description', 'slug')
-    list_display = ('title', 'slug', 'get_tree_path', 'description')
+    fields = ('title', 'parent', 'description', 'slug', 'order', 'is_menu')
+    list_display = ('title', 'slug', 'get_tree_path', 'description', 'order', 'is_menu')
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'description')
     list_filter = ('parent',)
